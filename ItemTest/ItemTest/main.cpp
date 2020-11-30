@@ -19,26 +19,32 @@ struct Velocity
 };
 
 
+void CreateItemEntity(flecs::iter& it, ItemType* itt, ItemRarity* ir)
+{
+
+    for (auto i : it)
+    {
+        std::cout << "The " << it.entity(i).name() << " Has ItemType {" <<
+            itt[i].BaseType << ", " << itt[i].Type << ", " << itt[i].UseType << ", " << itt[i].BaseIntStatRoll << "}, Has ItemRarity {" << 
+            ir[i].RarityAffixAllowance <<  ", " << ir[i].RarityRoll << ", " << ir[i].RarityAffixAllowance << "} " << std::endl;
+    }
+}
 
 int main(int argc, char* argv[]) 
 {
 
-    flecs::world ecs;
+    flecs::world world;
 
-    ecs.entity("Item").set<ItemType>({ 0,0,0,0 }).set<ItemRarity>({ 0,0 });
+    world.system<ItemType, ItemRarity>("CreateItemEntity").iter(CreateItemEntity);
 
-    ecs.system<ItemType, ItemRarity>().each([](flecs::entity e, ItemType& it, ItemRarity& ir) 
-    {
-        
-        std::cout << "The " << e.name() << " Has {" <<
-            it.BaseIntStatRoll << ", " << ir.RarityAffixAllowance << "}" << std::endl;
-        //flecs::entity entity;
-    });
+    world.entity("Item").set<ItemType>({ 0,0 }).set<ItemRarity>({ 0,0 });
 
-    while (ecs.progress()) {}
+    std::cout << "Application CreateItemEntity is running, press CTRL-C to exit..." << std::endl;
 
-    std::cout << "Application move_system is running, press CTRL-C to exit..." << std::endl;
+    while (world.progress()) {}
 }
+
+
 
 /* int totalCount = 0;
     flecs::query q = flecs::query<Position>(ecs);

@@ -2,10 +2,10 @@
   ItemComponents.cpp
   ItemConfig.cpp
   main.cpp
-C:\Users\David Work\Desktop\Non Git Project\ItemTest\ItemTest\flecs.h(7220,31): warning C4244: 'return': conversion from 'ecs_entity_t' to 'int32_t', possible loss of data
-C:\Users\David Work\Desktop\Non Git Project\ItemTest\ItemTest\flecs.h(7472,21): warning C4244: 'initializing': conversion from 'ecs_entity_t' to 'size_t', possible loss of data
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7220,31): warning C4244: 'return': conversion from 'ecs_entity_t' to 'int32_t', possible loss of data
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7472,21): warning C4244: 'initializing': conversion from 'ecs_entity_t' to 'size_t', possible loss of data
   Generating code
   Previous IPDB not found, fall back to full compilation.
-  All 938 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 986 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  ItemTest.vcxproj -> C:\Users\David Work\Desktop\Non Git Project\ItemTest\Release\ItemTest.exe
+  ItemTest.vcxproj -> C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\Release\ItemTest.exe

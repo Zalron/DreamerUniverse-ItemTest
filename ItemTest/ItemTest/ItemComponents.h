@@ -204,5 +204,11 @@ struct ItemName
     string Mod10;
 };
 
+class ItemComponents
+{
+public:
 
+private:
+
+};
 #endif
