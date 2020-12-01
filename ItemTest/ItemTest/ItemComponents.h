@@ -204,6 +204,68 @@ struct ItemName
     string Mod10;
 };
 
+struct Weapons {};
+struct Melee {};
+struct Ranged{};
+struct OneHanded {};
+struct TwoHanded {};
+struct Mace {};
+struct Knife {};
+struct Warhammer {};
+struct Axe {};
+struct Shield {};
+struct Rapier {};
+struct Club {};
+struct LongSword {};
+struct Halberd {};
+struct Staff {};
+struct Spear {};
+struct Claws {};
+struct Wand {};
+struct ThrowingKnifes {};
+struct ThrowingAxes {};
+struct Pistol {};
+struct Revolver {};
+struct HandCrossbow {};
+struct Bow {};
+struct Crossbow {};
+struct Carbine {};
+struct AssaultRifle {};
+struct SniperRifle {};
+struct LightMachineGun {};
+struct Shotgun {};
+struct GrenadeLauncher {};
+struct RocketLauncher {};
+struct Armour {};
+struct PowerArmour {};
+struct Light {};
+struct Medium {};
+struct Heavy {};
+struct Head {};
+struct Belt {};
+struct Chests {};
+struct Legs {};
+struct Arms {};
+struct Hands {};
+struct Shoulders {};
+struct Backpack {};
+struct Cloths {};
+struct Rings {};
+struct Necklace {};
+struct Equipment {};
+struct Flasks {};
+struct Health {};
+struct Magic {};
+struct Movement {};
+struct Resistance {};
+struct Quivers {};
+struct Magazines {};
+struct Grenades {};
+struct Scrolls {};
+struct Mines {};
+struct Buildings {};
+struct Crafting {};
+
 class ItemComponents
 {
 public:
