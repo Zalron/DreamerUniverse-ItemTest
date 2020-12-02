@@ -144,13 +144,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="flecs.c" />
-    <ClCompile Include="ItemComponents.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemConfig.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="flecs.h" />
-    <ClInclude Include="ItemComponents.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="ItemConfig.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

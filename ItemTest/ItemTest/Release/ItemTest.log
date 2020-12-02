@@ -1,11 +1,10 @@
 ﻿  flecs.c
-  ItemComponents.cpp
+  Item.cpp
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7220,31): warning C4244: 'return': conversion from 'ecs_entity_t' to 'int32_t', possible loss of data
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7472,21): warning C4244: 'initializing': conversion from 'ecs_entity_t' to 'size_t', possible loss of data
   ItemConfig.cpp
   main.cpp
 C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7220,31): warning C4244: 'return': conversion from 'ecs_entity_t' to 'int32_t', possible loss of data
 C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7472,21): warning C4244: 'initializing': conversion from 'ecs_entity_t' to 'size_t', possible loss of data
-  Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 986 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  ItemTest.vcxproj -> C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\Release\ItemTest.exe
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\main.cpp(31,87): error C3867: 'Item::CreateItemEntity': non-standard syntax; use '&' to create a pointer to member
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\main.cpp(31,59): error C2672: 'flecs::system<ItemType,ItemRarity>::iter': no matching overloaded function found

@@ -21,10 +21,10 @@
     <ClCompile Include="flecs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ItemComponents.cpp">
+    <ClCompile Include="ItemConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ItemConfig.cpp">
+    <ClCompile Include="Item.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,10 +32,10 @@
     <ClInclude Include="flecs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ItemComponents.h">
+    <ClInclude Include="ItemConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ItemConfig.h">
+    <ClInclude Include="Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
