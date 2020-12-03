@@ -239,9 +239,11 @@ struct GrenadeLauncher {};
 struct RocketLauncher {};
 struct Armour {};
 struct PowerArmour {};
-struct Light {};
-struct Medium {};
-struct Heavy {};
+struct LightPowerArmour {};
+struct MediumPowerArmour {};
+struct HeavyPowerArmour {};
+struct NonPowerArmour {};
+struct Cloths {};
 struct Head {};
 struct Belt {};
 struct Chests {};
@@ -270,10 +272,18 @@ struct Crafting {};
 class Item
 {
 public:
-    void CreateItemEntity(flecs::iter& iter, ItemType* it, ItemRarity* ir);
+    inline void CreateItemEntity(flecs::iter& iter, ItemType* it, ItemRarity* ir);
     
 
 private:
-    static inline void CreatingMeleeItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedRangedWeaponItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourLightItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourMediumItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourHeavyItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourNonPowerArmourItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourClothsItems(flecs::iter& iter, int i);
 };
 #endif

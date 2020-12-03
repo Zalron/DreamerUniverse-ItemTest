@@ -2,7 +2,7 @@
 #include <iostream> 
 
 
-static ItemRarityConfig GetConfigItemRarityData(float ItemRarity)
+ItemRarityConfig ItemConfig::GetConfigItemRarityData(float ItemRarity)
 {
     if (ItemRarity <= ItemRarity1.RarityChance)
     {
@@ -57,7 +57,7 @@ static ItemRarityConfig GetConfigItemRarityData(float ItemRarity)
     return errorItemRarity;
 }
 
-static ItemQualityConfig GetConfigItemQualityData(float ItemQuality)
+ItemQualityConfig  ItemConfig::GetConfigItemQualityData(float ItemQuality)
 {
     if (ItemQuality <= ItemQualityConfig0.QualityChance)
     {
@@ -147,7 +147,7 @@ static ItemQualityConfig GetConfigItemQualityData(float ItemQuality)
     return errorItemQuality;
 }
 
-static ItemMaterialConfig GetConfigItemMaterialData(float ItemMaterial)
+ItemMaterialConfig  ItemConfig::GetConfigItemMaterialData(float ItemMaterial)
 {
     if (ItemMaterial <= ItemMaterial1.MaterialChance)
     {
@@ -194,7 +194,7 @@ static ItemMaterialConfig GetConfigItemMaterialData(float ItemMaterial)
     return errorItemType;
 }
 
-static ItemManufacturerConfig GentConfigItemManufacturerData(int ItemManufacturer)
+ItemManufacturerConfig  ItemConfig::GentConfigItemManufacturerData(int ItemManufacturer)
 {
     if (ItemManufacturer == 1)
     {
@@ -225,7 +225,7 @@ static ItemManufacturerConfig GentConfigItemManufacturerData(int ItemManufacture
     return errorItemManufacturer;
 }
 
-static ItemBaseTypeConfig GetConfigItemTypeData(float UseType, float ItemType, float ItemBase)
+ItemBaseTypeConfig  ItemConfig::GetConfigItemTypeData(float UseType, float ItemType, float ItemBase)
 {
     if (UseType <= ItemBaseType1_1_1.UseTypeChance)
     {
