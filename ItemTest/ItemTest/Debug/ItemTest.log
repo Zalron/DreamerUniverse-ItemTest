@@ -1,1 +1,10 @@
-﻿LINK : fatal error LNK1104: cannot open file 'C:\Users\David Work\Desktop\Non Git Project\ItemTest\Debug\ItemTest.exe'
+﻿  flecs.c
+  Item.cpp
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7220,31): warning C4244: 'return': conversion from 'ecs_entity_t' to 'int32_t', possible loss of data
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7472,21): warning C4244: 'initializing': conversion from 'ecs_entity_t' to 'size_t', possible loss of data
+  ItemConfig.cpp
+  main.cpp
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7220,31): warning C4244: 'return': conversion from 'ecs_entity_t' to 'int32_t', possible loss of data
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7472,21): warning C4244: 'initializing': conversion from 'ecs_entity_t' to 'size_t', possible loss of data
+  Generating Code...
+  ItemTest.vcxproj -> C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\Debug\ItemTest.exe

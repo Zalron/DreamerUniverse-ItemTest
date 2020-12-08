@@ -252,7 +252,6 @@ struct Arms {};
 struct Hands {};
 struct Shoulders {};
 struct Backpack {};
-struct Cloths {};
 struct Rings {};
 struct Necklace {};
 struct Equipment {};
@@ -272,7 +271,7 @@ struct Crafting {};
 class Item
 {
 public:
-    inline void CreateItemEntity(flecs::iter& iter, ItemType* it, ItemRarity* ir);
+    static void CreateItemEntity(flecs::iter& iter, ItemType* it, ItemRarity* ir);
     
 
 private:

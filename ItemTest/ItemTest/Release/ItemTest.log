@@ -6,63 +6,6 @@ C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemT
   main.cpp
 C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7220,31): warning C4244: 'return': conversion from 'ecs_entity_t' to 'int32_t', possible loss of data
 C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(7472,21): warning C4244: 'initializing': conversion from 'ecs_entity_t' to 'size_t', possible loss of data
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(10459,9): error C2064: term does not evaluate to a function taking 3 arguments
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(10465): message : see reference to function template instantiation 'void flecs::_::iter_invoker<Func,ItemType,ItemRarity>::call_system<_Ty,_Ty,0x0>(ecs_iter_t *,Func,int,std::array<_Ty,2> &,_Ty,_Ty)' being compiled
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *),
-              _Ty=flecs::_::column_args<ItemType,ItemRarity>::Column
-          ]
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(10466): message : see reference to function template instantiation 'void flecs::_::iter_invoker<Func,ItemType,ItemRarity>::call_system<_Ty,_Ty,0x0>(ecs_iter_t *,Func,int,std::array<_Ty,2> &,_Ty,_Ty)' being compiled
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *),
-              _Ty=flecs::_::column_args<ItemType,ItemRarity>::Column
-          ]
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(10465): message : see reference to function template instantiation 'void flecs::_::iter_invoker<Func,ItemType,ItemRarity>::call_system<_Ty,0x0>(ecs_iter_t *,Func,int,std::array<_Ty,2> &,_Ty)' being compiled
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *),
-              _Ty=flecs::_::column_args<ItemType,ItemRarity>::Column
-          ]
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(10466): message : see reference to function template instantiation 'void flecs::_::iter_invoker<Func,ItemType,ItemRarity>::call_system<_Ty,0x0>(ecs_iter_t *,Func,int,std::array<_Ty,2> &,_Ty)' being compiled
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *),
-              _Ty=flecs::_::column_args<ItemType,ItemRarity>::Column
-          ]
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(10470): message : see reference to function template instantiation 'void flecs::_::iter_invoker<Func,ItemType,ItemRarity>::call_system<,0x0>(ecs_iter_t *,Func,int,std::array<flecs::_::column_args<ItemType,ItemRarity>::Column,2> &)' being compiled
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *)
-          ]
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(10475): message : see reference to function template instantiation 'void flecs::_::iter_invoker<Func,ItemType,ItemRarity>::call_system<,0x0>(ecs_iter_t *,Func,int,std::array<flecs::_::column_args<ItemType,ItemRarity>::Column,2> &)' being compiled
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *)
-          ]
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(10470): message : while compiling class template member function 'void flecs::_::iter_invoker<Func,ItemType,ItemRarity>::run(ecs_iter_t *)'
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *)
-          ]
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(10818): message : see reference to function template instantiation 'void flecs::_::iter_invoker<Func,ItemType,ItemRarity>::run(ecs_iter_t *)' being compiled
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *)
-          ]
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(10814): message : see reference to class template instantiation 'flecs::_::iter_invoker<Func,ItemType,ItemRarity>' being compiled
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *)
-          ]
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\main.cpp(16): message : see reference to function template instantiation 'flecs::system<ItemType,ItemRarity> &flecs::system<ItemType,ItemRarity>::iter<void(__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *)>(Func)' being compiled
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *)
-          ]
-C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\main.cpp(16): message : see reference to function template instantiation 'flecs::system<ItemType,ItemRarity> &flecs::system<ItemType,ItemRarity>::iter<void(__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *)>(Func)' being compiled
-          with
-          [
-              Func=void (__thiscall Item::* )(flecs::iter &,ItemType *,ItemRarity *)
-          ]
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\main.cpp(20,1): warning C4506: no definition for inline function 'void Item::CreateItemEntity(flecs::iter &,ItemType *,ItemRarity *)'
+main.obj : error LNK2001: unresolved external symbol "public: static void __cdecl Item::CreateItemEntity(class flecs::iter &,struct ItemType *,struct ItemRarity *)" (?CreateItemEntity@Item@@SAXAAViter@flecs@@PAUItemType@@PAUItemRarity@@@Z)
+C:\Users\David Work\Desktop\Git Projects\DreamerUniverse-ItemTest\ItemTest\Release\ItemTest.exe : fatal error LNK1120: 1 unresolved externals
