@@ -7,12 +7,11 @@
 
 using namespace std;
 
-struct ItemType
+struct ItemTypeCreation
 {
-    int UseType;
-    int Type;
-    int BaseType;
+    int ItemTypeint;
     int BaseIntStatRoll;
+    float BaseFloatStatRoll;
 };
 
 struct ItemSkillSlots
@@ -70,6 +69,12 @@ struct ItemAffixMods
 struct ItemStaging
 {
     int ItemStage;
+    int Seed;
+};
+
+struct ItemSpawning 
+{
+    int NumberOfItems;
     int Seed;
 };
 
@@ -210,6 +215,7 @@ struct Melee {};
 struct Ranged{};
 struct OneHanded {};
 struct TwoHanded {};
+struct ShortSword {};
 struct Mace {};
 struct Knife {};
 struct Warhammer {};
@@ -268,14 +274,98 @@ struct Mines {};
 struct Buildings {};
 struct Crafting {};
 
+enum ItemTypeEnum
+{
+    WeaponMeleeOneHandedMace,
+    WeaponMeleeOneHandedKnife,
+    WeaponMeleeOneHandedWarhammer,
+    WeaponMeleeOneHandedAxe,
+    WeaponMeleeOneHandedShield,
+    WeaponMeleeOneHandedRapier,
+    WeaponMeleeOneHandedClub,
+    WeaponMeleeTwoHandedLongSword,
+    WeaponMeleeTwoHandedHalberd,
+    WeaponMeleeTwoHandedStaff,
+    WeaponMeleeTwoHandedSpear,
+    WeaponMeleeTwoHandedClaws,
+    WeaponRangedOneHandedWand,
+    WeaponRangedOneHandedThrowingKnifes,
+    WeaponRangedOneHandedThrowingAxes,
+    WeaponRangedOneHandedPistol,
+    WeaponRangedOneHandedRevolver,
+    WeaponRangedOneHandedHandCrossbow,
+    WeaponRangedTwoHandedBow,
+    WeaponRangedTwoHandedCrossBow,
+    WeaponRangedTwoHandedCarbine,
+    WeaponRangedTwoHandedAssaultRifle,
+    WeaponRangedTwoHandedSniperRifle,
+    WeaponRangedTwoHandedLightMachineGun,
+    WeaponRangedTwoHandedShotgun,
+    WeaponRangedTwoHandedGrenadeLauncher,
+    WeaponRangedTwoHandedRocketLauncher,
+    ArmourPowerArmourLightHead,
+    ArmourPowerArmourLightBelt,
+    ArmourPowerArmourLightChest,
+    ArmourPowerArmourLightLegs,
+    ArmourPowerArmourLightArms,
+    ArmourPowerArmourLightHands,
+    ArmourPowerArmourLightShoulders,
+    ArmourPowerArmourLightBackpack,
+    ArmourPowerArmourMediumHead,
+    ArmourPowerArmourMediumBelt,
+    ArmourPowerArmourMediumChest,
+    ArmourPowerArmourMediumLegs,
+    ArmourPowerArmourMediumArms,
+    ArmourPowerArmourMediumHands,
+    ArmourPowerArmourMediumShoulders,
+    ArmourPowerArmourMediumBackpack,
+    ArmourPowerArmourHeavyHead,
+    ArmourPowerArmourHeavyBelt,
+    ArmourPowerArmourHeavyChest,
+    ArmourPowerArmourHeavyLegs,
+    ArmourPowerArmourHeavyArms,
+    ArmourPowerArmourHeavyHands,
+    ArmourPowerArmourHeavyShoulders,
+    ArmourPowerArmourHeavyBackpack,
+    ArmourNonPowerArmourHead,
+    ArmourNonPowerArmourBelt,
+    ArmourNonPowerArmourChest,
+    ArmourNonPowerArmourLegs,
+    ArmourNonPowerArmourArms,
+    ArmourNonPowerArmourHands,
+    ArmourNonPowerArmourShoulders,
+    ArmourNonPowerArmourBackpack,
+    ArmourClothsArmourHead,
+    ArmourClothsArmourBelt,
+    ArmourClothsArmourChest,
+    ArmourClothsArmourLegs,
+    ArmourClothsArmourArms,
+    ArmourClothsArmourHands,
+    ArmourClothsArmourShoulders,
+    ArmourClothsArmourBackpack,
+    EquipmentFlasksHealth,
+    EquipmentFlasksMagic,
+    EquipmentFlasksMovement,
+    EquipmentFlasksResistance,
+    EquipmentAmmoQuivers,
+    EquipmentAmmoMagazines,
+    EquipmentAmmoGrenades,
+    EquipmentAmmoRockets,
+    EquipmentAmmoMines,
+    EquipmentScrolls,
+    EquipmentSpells,
+    Buildings,
+    Crafting
+};
+
 class Item
 {
 public:
-    static void CreateItemEntity(flecs::iter& iter, ItemType* it, ItemRarity* ir);
-    
+    static void CreateItemEntity(flecs::iter& iter, ItemSpawning* is );
+    static void AddComponentstoEntity(flecs::iter& iter, ItemStaging* iss);
 
 private:
-    static inline void CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i);
     static inline void CreatingTwoHandedMeleeWeaponItems(flecs::iter& iter, int i);
     static inline void CreatingOneHandedRangedWeaponItems(flecs::iter& iter, int i);
     static inline void CreatingTwoHandedRangedWeaponItems(flecs::iter& iter, int i);

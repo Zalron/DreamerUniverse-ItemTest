@@ -11,9 +11,11 @@ int main(int argc, char* argv[])
 
     flecs::world world;
 
-    world.entity("Item").set<ItemType>({ 0,0 }).set<ItemRarity>({ 0,0 });
+    world.entity("Item").set<ItemSpawning>({1000,25});
 
-    world.system<ItemType, ItemRarity>("CreateItemEntity").iter(&Item::CreateItemEntity);
+    world.system<ItemSpawning>("CreateItemEntity").iter(&Item::CreateItemEntity);
+
+    world.system<ItemStaging>("AddComponentstoEntity").iter(&Item::AddComponentstoEntity);
 
     while (world.progress()) {}
 }

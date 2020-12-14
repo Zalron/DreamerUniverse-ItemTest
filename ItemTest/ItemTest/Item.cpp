@@ -1,22 +1,38 @@
 #include "Item.h"
 
-void Item::CreateItemEntity(flecs::iter& iter, ItemType* it, ItemRarity* ir)
+void Item::CreateItemEntity(flecs::iter& iter, ItemSpawning* is)
 {
-    for (auto i : iter)
+    for (auto it : iter)
     {
-        CreatingOneHandedMeleeWeaponItems(iter, i);
-        std::cout << "The " << iter.entity(i).name() << " Has ItemType {" <<
-            it[i].BaseType << ", " << it[i].Type << ", " << it[i].UseType << ", " << it[i].BaseIntStatRoll << "}, Has ItemRarity {" <<
-            ir[i].RarityAffixAllowance << ", " << ir[i].RarityRoll << ", " << ir[i].RarityAffixAllowance << "} " << std::endl;
-        std::cout << "Application CreateItemEntity is running, press CTRL-C to exit..." << std::endl;
+        for (auto i  = 0; i < is->NumberOfItems; i++) 
+        {
+            auto e = iter.world().entity();
+            e.set<ItemStaging>({1, is->Seed});
+            std::cout << "System CreateItemEntity has created item" << i << " " << std::endl;
+        }
+        iter.entity(it).remove<ItemSpawning>();
+        std::cout << "System CreateItemEntity is creating items" << std::endl;
     }
 }
 
-void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i)
+void Item::AddComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
+{
+    for (auto it : iter) 
+    {
+        if (iss->ItemStage == 1) 
+        {
+            iter.entity(it).set<ItemTypeCreation>({0,0,0 });
+            iss->ItemStage = 2;
+        }
+    }
+}
+
+void Item::CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i)
 {
 	iter.entity(i).add<Weapons>();
 	iter.entity(i).add<Melee>();
     iter.entity(i).add<OneHanded>();
+    iter.entity(i).add<ShortSword>();
 }
 
 void Item::CreatingTwoHandedMeleeWeaponItems(flecs::iter& iter, int i)
