@@ -274,99 +274,122 @@ struct Mines {};
 struct Buildings {};
 struct Crafting {};
 
-enum ItemTypeEnum
-{
-    WeaponMeleeOneHandedMace,
-    WeaponMeleeOneHandedKnife,
-    WeaponMeleeOneHandedWarhammer,
-    WeaponMeleeOneHandedAxe,
-    WeaponMeleeOneHandedShield,
-    WeaponMeleeOneHandedRapier,
-    WeaponMeleeOneHandedClub,
-    WeaponMeleeTwoHandedLongSword,
-    WeaponMeleeTwoHandedHalberd,
-    WeaponMeleeTwoHandedStaff,
-    WeaponMeleeTwoHandedSpear,
-    WeaponMeleeTwoHandedClaws,
-    WeaponRangedOneHandedWand,
-    WeaponRangedOneHandedThrowingKnifes,
-    WeaponRangedOneHandedThrowingAxes,
-    WeaponRangedOneHandedPistol,
-    WeaponRangedOneHandedRevolver,
-    WeaponRangedOneHandedHandCrossbow,
-    WeaponRangedTwoHandedBow,
-    WeaponRangedTwoHandedCrossBow,
-    WeaponRangedTwoHandedCarbine,
-    WeaponRangedTwoHandedAssaultRifle,
-    WeaponRangedTwoHandedSniperRifle,
-    WeaponRangedTwoHandedLightMachineGun,
-    WeaponRangedTwoHandedShotgun,
-    WeaponRangedTwoHandedGrenadeLauncher,
-    WeaponRangedTwoHandedRocketLauncher,
-    ArmourPowerArmourLightHead,
-    ArmourPowerArmourLightBelt,
-    ArmourPowerArmourLightChest,
-    ArmourPowerArmourLightLegs,
-    ArmourPowerArmourLightArms,
-    ArmourPowerArmourLightHands,
-    ArmourPowerArmourLightShoulders,
-    ArmourPowerArmourLightBackpack,
-    ArmourPowerArmourMediumHead,
-    ArmourPowerArmourMediumBelt,
-    ArmourPowerArmourMediumChest,
-    ArmourPowerArmourMediumLegs,
-    ArmourPowerArmourMediumArms,
-    ArmourPowerArmourMediumHands,
-    ArmourPowerArmourMediumShoulders,
-    ArmourPowerArmourMediumBackpack,
-    ArmourPowerArmourHeavyHead,
-    ArmourPowerArmourHeavyBelt,
-    ArmourPowerArmourHeavyChest,
-    ArmourPowerArmourHeavyLegs,
-    ArmourPowerArmourHeavyArms,
-    ArmourPowerArmourHeavyHands,
-    ArmourPowerArmourHeavyShoulders,
-    ArmourPowerArmourHeavyBackpack,
-    ArmourNonPowerArmourHead,
-    ArmourNonPowerArmourBelt,
-    ArmourNonPowerArmourChest,
-    ArmourNonPowerArmourLegs,
-    ArmourNonPowerArmourArms,
-    ArmourNonPowerArmourHands,
-    ArmourNonPowerArmourShoulders,
-    ArmourNonPowerArmourBackpack,
-    ArmourClothsArmourHead,
-    ArmourClothsArmourBelt,
-    ArmourClothsArmourChest,
-    ArmourClothsArmourLegs,
-    ArmourClothsArmourArms,
-    ArmourClothsArmourHands,
-    ArmourClothsArmourShoulders,
-    ArmourClothsArmourBackpack,
-    EquipmentFlasksHealth,
-    EquipmentFlasksMagic,
-    EquipmentFlasksMovement,
-    EquipmentFlasksResistance,
-    EquipmentAmmoQuivers,
-    EquipmentAmmoMagazines,
-    EquipmentAmmoGrenades,
-    EquipmentAmmoRockets,
-    EquipmentAmmoMines,
-    EquipmentScrolls,
-    EquipmentSpells,
-    Buildings,
-    Crafting
-};
+//enum ItemTypeEnum
+//{
+//    WeaponMeleeOneHandedMace,
+//    WeaponMeleeOneHandedKnife,
+//    WeaponMeleeOneHandedWarhammer,
+//    WeaponMeleeOneHandedAxe,
+//    WeaponMeleeOneHandedShield,
+//    WeaponMeleeOneHandedRapier,
+//    WeaponMeleeOneHandedClub,
+//    WeaponMeleeTwoHandedLongSword,
+//    WeaponMeleeTwoHandedHalberd,
+//    WeaponMeleeTwoHandedStaff,
+//    WeaponMeleeTwoHandedWarhammer,
+//    WeaponMeleeTwoHandedAxe,
+//    WeaponMeleeTwoHandedMace,
+//    WeaponMeleeTwoHandedSpear,
+//    WeaponMeleeTwoHandedClaws,
+//    WeaponMeleeTneHandedClub,
+//    WeaponRangedOneHandedWand,
+//    WeaponRangedOneHandedThrowingKnifes,
+//    WeaponRangedOneHandedThrowingAxes,
+//    WeaponRangedOneHandedPistol,
+//    WeaponRangedOneHandedRevolver,
+//    WeaponRangedOneHandedHandCrossbow,
+//    WeaponRangedTwoHandedBow,
+//    WeaponRangedTwoHandedCrossBow,
+//    WeaponRangedTwoHandedCarbine,
+//    WeaponRangedTwoHandedAssaultRifle,
+//    WeaponRangedTwoHandedSniperRifle,
+//    WeaponRangedTwoHandedLightMachineGun,
+//    WeaponRangedTwoHandedShotgun,
+//    WeaponRangedTwoHandedGrenadeLauncher,
+//    WeaponRangedTwoHandedRocketLauncher,
+//    ArmourPowerArmourLightHead,
+//    ArmourPowerArmourLightBelt,
+//    ArmourPowerArmourLightChest,
+//    ArmourPowerArmourLightLegs,
+//    ArmourPowerArmourLightArms,
+//    ArmourPowerArmourLightHands,
+//    ArmourPowerArmourLightShoulders,
+//    ArmourPowerArmourLightBackpack,
+//    ArmourPowerArmourMediumHead,
+//    ArmourPowerArmourMediumBelt,
+//    ArmourPowerArmourMediumChest,
+//    ArmourPowerArmourMediumLegs,
+//    ArmourPowerArmourMediumArms,
+//    ArmourPowerArmourMediumHands,
+//    ArmourPowerArmourMediumShoulders,
+//    ArmourPowerArmourMediumBackpack,
+//    ArmourPowerArmourHeavyHead,
+//    ArmourPowerArmourHeavyBelt,
+//    ArmourPowerArmourHeavyChest,
+//    ArmourPowerArmourHeavyLegs,
+//    ArmourPowerArmourHeavyArms,
+//    ArmourPowerArmourHeavyHands,
+//    ArmourPowerArmourHeavyShoulders,
+//    ArmourPowerArmourHeavyBackpack,
+//    ArmourNonPowerArmourHead,
+//    ArmourNonPowerArmourBelt,
+//    ArmourNonPowerArmourChest,
+//    ArmourNonPowerArmourLegs,
+//    ArmourNonPowerArmourArms,
+//    ArmourNonPowerArmourHands,
+//    ArmourNonPowerArmourShoulders,
+//    ArmourNonPowerArmourBackpack,
+//    ArmourClothsArmourHead,
+//    ArmourClothsArmourBelt,
+//    ArmourClothsArmourChest,
+//    ArmourClothsArmourLegs,
+//    ArmourClothsArmourArms,
+//    ArmourClothsArmourHands,
+//    ArmourClothsArmourShoulders,
+//    ArmourClothsArmourBackpack,
+//    EquipmentFlasksHealth,
+//    EquipmentFlasksMagic,
+//    EquipmentFlasksMovement,
+//    EquipmentFlasksResistance,
+//    EquipmentAmmoQuivers,
+//    EquipmentAmmoMagazines,
+//    EquipmentAmmoGrenades,
+//    EquipmentAmmoRockets,
+//    EquipmentAmmoMines,
+//    EquipmentScrolls,
+//    EquipmentSpells,
+//    Buildings,
+//    Crafting
+//};
 
 class Item
 {
 public:
     static void CreateItemEntity(flecs::iter& iter, ItemSpawning* is );
-    static void AddComponentstoEntity(flecs::iter& iter, ItemStaging* iss);
+    static void AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss);
 
 private:
+    static inline void CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i);
     static inline void CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedMeleeWeaponMaceItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedMeleeWeaponKnifeItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedMeleeWeaponWarhammerItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedMeleeWeaponAxeItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedMeleeWeaponShieldItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedMeleeWeaponRapierItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedMeleeWeaponClubItems(flecs::iter& iter, int i);
+    
     static inline void CreatingTwoHandedMeleeWeaponItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponLongSwordItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponMaceItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponWarhammerItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponHalberdItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponAxeItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponClubItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponStaffItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponSpearItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponClawsItems(flecs::iter& iter, int i);
+
     static inline void CreatingOneHandedRangedWeaponItems(flecs::iter& iter, int i);
     static inline void CreatingTwoHandedRangedWeaponItems(flecs::iter& iter, int i);
     static inline void CreatingArmourPowerArmourLightItems(flecs::iter& iter, int i);
@@ -374,5 +397,15 @@ private:
     static inline void CreatingArmourPowerArmourHeavyItems(flecs::iter& iter, int i);
     static inline void CreatingArmourNonPowerArmourItems(flecs::iter& iter, int i);
     static inline void CreatingArmourClothsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourHeadItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourBeltItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourChestItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourLegsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourArmsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourHandsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourShouldersItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourBackpackItems(flecs::iter& iter, int i);
+
+
 };
 #endif

@@ -15,7 +15,7 @@ void Item::CreateItemEntity(flecs::iter& iter, ItemSpawning* is)
     }
 }
 
-void Item::AddComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
+void Item::AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
 {
     for (auto it : iter) 
     {
@@ -26,14 +26,64 @@ void Item::AddComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
         }
     }
 }
+#pragma region Creating OneHanded Melee Weapons
 
-void Item::CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i)
+inline void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i)
 {
-	iter.entity(i).add<Weapons>();
-	iter.entity(i).add<Melee>();
+    iter.entity(i).add<Weapons>();
+    iter.entity(i).add<Melee>();
     iter.entity(i).add<OneHanded>();
+}
+
+inline void Item::CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i)
+{
+    CreatingOneHandedMeleeWeaponItems(iter, i);
     iter.entity(i).add<ShortSword>();
 }
+
+inline void Item::CreatingOneHandedMeleeWeaponMaceItems(flecs::iter& iter, int i)
+{
+    CreatingOneHandedMeleeWeaponItems(iter, i);
+    iter.entity(i).add<Mace>();
+}
+
+inline void Item::CreatingOneHandedMeleeWeaponKnifeItems(flecs::iter& iter, int i)
+{
+    CreatingOneHandedMeleeWeaponItems(iter, i);
+    iter.entity(i).add<Knife>();
+}
+
+inline void Item::CreatingOneHandedMeleeWeaponWarhammerItems(flecs::iter& iter, int i)
+{
+    CreatingOneHandedMeleeWeaponItems(iter, i);
+    iter.entity(i).add<Warhammer>();
+}
+
+inline void Item::CreatingOneHandedMeleeWeaponAxeItems(flecs::iter& iter, int i)
+{
+    CreatingOneHandedMeleeWeaponItems(iter, i);
+    iter.entity(i).add<Axe>();
+}
+
+inline void Item::CreatingOneHandedMeleeWeaponShieldItems(flecs::iter& iter, int i)
+{
+    CreatingOneHandedMeleeWeaponItems(iter, i);
+    iter.entity(i).add<Shield>();
+}
+
+inline void Item::CreatingOneHandedMeleeWeaponRapierItems(flecs::iter& iter, int i)
+{
+    CreatingOneHandedMeleeWeaponItems(iter, i);
+    iter.entity(i).add<Rapier>();
+}
+
+inline void Item::CreatingOneHandedMeleeWeaponClubItems(flecs::iter& iter, int i)
+{
+    CreatingOneHandedMeleeWeaponItems(iter, i);
+    iter.entity(i).add<Club>();
+}
+
+#pragma endregion
 
 void Item::CreatingTwoHandedMeleeWeaponItems(flecs::iter& iter, int i)
 {
@@ -86,3 +136,5 @@ void Item::CreatingArmourClothsItems(flecs::iter& iter, int i)
     iter.entity(i).add<Armour>();
     iter.entity(i).add<Cloths>();
 }
+
+

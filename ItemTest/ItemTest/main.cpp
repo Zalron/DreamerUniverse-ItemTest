@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 
     world.system<ItemSpawning>("CreateItemEntity").iter(&Item::CreateItemEntity);
 
-    world.system<ItemStaging>("AddComponentstoEntity").iter(&Item::AddComponentstoEntity);
+    world.system<ItemStaging>("AddComponentstoEntity").iter(&Item::AddItemTypeComponentstoEntity);
 
     while (world.progress()) {}
 }
