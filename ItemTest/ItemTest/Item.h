@@ -232,6 +232,7 @@ struct Wand {};
 struct ThrowingKnifes {};
 struct ThrowingAxes {};
 struct Pistol {};
+struct HandCannon {};
 struct Revolver {};
 struct HandCrossbow {};
 struct Bow {};
@@ -240,6 +241,7 @@ struct Carbine {};
 struct AssaultRifle {};
 struct SniperRifle {};
 struct LightMachineGun {};
+struct SubMachineGun {};
 struct Shotgun {};
 struct GrenadeLauncher {};
 struct RocketLauncher {};
@@ -391,7 +393,26 @@ private:
     static inline void CreatingTwoHandedMeleeWeaponClawsItems(flecs::iter& iter, int i);
 
     static inline void CreatingOneHandedRangedWeaponItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedRangedWeaponWandItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedRangedWeaponThrowingKnifeItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedRangedWeaponThrowingAxesItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedRangedWeaponPistolItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedRangedWeaponHandCannonItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedRangedWeaponRevolverItems(flecs::iter& iter, int i);
+    static inline void CreatingOneHandedRangedWeaponHandCrossbowItems(flecs::iter& iter, int i);
+
     static inline void CreatingTwoHandedRangedWeaponItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponBowItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponCrossbowItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponCarbineItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponAssaultRifleItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponSniperRifleItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponLightMachineGunItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponSubMachineGunItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponShotgunItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponGrenadeLauncherItems(flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedRangedWeaponRocketLauncherItems(flecs::iter& iter, int i);
+
     static inline void CreatingArmourPowerArmourLightItems(flecs::iter& iter, int i);
     static inline void CreatingArmourPowerArmourMediumItems(flecs::iter& iter, int i);
     static inline void CreatingArmourPowerArmourHeavyItems(flecs::iter& iter, int i);
