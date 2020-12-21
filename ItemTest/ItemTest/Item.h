@@ -414,18 +414,54 @@ private:
     static inline void CreatingTwoHandedRangedWeaponRocketLauncherItems(flecs::iter& iter, int i);
 
     static inline void CreatingArmourPowerArmourLightItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourLightHeadItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourLightBeltItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourLightChestItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourLightLegsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourLightArmsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourLightHandsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourLightShouldersItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourLightBackpackItems(flecs::iter& iter, int i);
+
     static inline void CreatingArmourPowerArmourMediumItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourMediumHeadItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourMediumBeltItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourMediumChestItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourMediumLegsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourMediumArmsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourMediumHandsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourMediumShouldersItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourMediumBackpackItems(flecs::iter& iter, int i);
+
     static inline void CreatingArmourPowerArmourHeavyItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourHeavyHeadItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourHeavyBeltItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourHeavyChestItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourHeavyLegsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourHeavyArmsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourHeavyHandsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourHeavyShouldersItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourPowerArmourHeavyBackpackItems(flecs::iter& iter, int i);
+
     static inline void CreatingArmourNonPowerArmourItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourNonPowerArmourHeadItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourNonPowerArmourBeltItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourNonPowerArmourChestItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourNonPowerArmourLegsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourNonPowerArmourArmsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourNonPowerArmourHandsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourNonPowerArmourShouldersItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourNonPowerArmourBackpackItems(flecs::iter& iter, int i);
+
     static inline void CreatingArmourClothsItems(flecs::iter& iter, int i);
-    static inline void CreatingArmourHeadItems(flecs::iter& iter, int i);
-    static inline void CreatingArmourBeltItems(flecs::iter& iter, int i);
-    static inline void CreatingArmourChestItems(flecs::iter& iter, int i);
-    static inline void CreatingArmourLegsItems(flecs::iter& iter, int i);
-    static inline void CreatingArmourArmsItems(flecs::iter& iter, int i);
-    static inline void CreatingArmourHandsItems(flecs::iter& iter, int i);
-    static inline void CreatingArmourShouldersItems(flecs::iter& iter, int i);
-    static inline void CreatingArmourBackpackItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourClothsHeadItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourClothsBeltItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourClothsChestItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourClothsLegsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourClothsArmsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourClothsHandsItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourClothsShouldersItems(flecs::iter& iter, int i);
+    static inline void CreatingArmourClothsBackpackItems(flecs::iter& iter, int i);
 
 
 };

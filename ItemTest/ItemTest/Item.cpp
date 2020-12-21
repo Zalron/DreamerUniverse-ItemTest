@@ -273,12 +273,66 @@ inline void Item::CreatingTwoHandedRangedWeaponRocketLauncherItems(flecs::iter& 
 
 #pragma endregion
 
+#pragma region Creating Light PowerArmour
+
 void Item::CreatingArmourPowerArmourLightItems(flecs::iter& iter, int i)
 {
     iter.entity(i).add<Armour>();
     iter.entity(i).add<PowerArmour>();
     iter.entity(i).add<LightPowerArmour>();
 }
+
+inline void Item::CreatingArmourPowerArmourLightHeadItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourLightItems(iter, i);
+    iter.entity(i).add<Head>();
+}
+
+inline void Item::CreatingArmourPowerArmourLightBeltItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourLightItems(iter, i);
+    iter.entity(i).add<Belt>();
+}
+
+inline void Item::CreatingArmourPowerArmourLightChestItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourLightItems(iter, i);
+    iter.entity(i).add<Chests>();
+}
+
+inline void Item::CreatingArmourPowerArmourLightLegsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourLightItems(iter, i);
+    iter.entity(i).add<Legs>();
+}
+
+inline void Item::CreatingArmourPowerArmourLightArmsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourLightItems(iter, i);
+    iter.entity(i).add<Arms>();
+}
+
+inline void Item::CreatingArmourPowerArmourLightHandsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourLightItems(iter, i);
+    iter.entity(i).add<Hands>();
+}
+
+inline void Item::CreatingArmourPowerArmourLightShouldersItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourLightItems(iter, i);
+    iter.entity(i).add<Shoulders>();
+}
+
+inline void Item::CreatingArmourPowerArmourLightBackpackItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourLightItems(iter, i);
+    iter.entity(i).add<Backpack>();
+}
+
+#pragma endregion
+
+#pragma region Creating Medium PowerArmour
 
 void Item::CreatingArmourPowerArmourMediumItems(flecs::iter& iter, int i)
 {
@@ -287,21 +341,228 @@ void Item::CreatingArmourPowerArmourMediumItems(flecs::iter& iter, int i)
     iter.entity(i).add<MediumPowerArmour>();
 }
 
-void Item::CreatingArmourPowerArmourHeavyItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourMediumHeadItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourMediumItems(iter, i);
+    iter.entity(i).add<Head>();
+}
+
+inline void Item::CreatingArmourPowerArmourMediumBeltItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourMediumItems(iter, i);
+    iter.entity(i).add<Belt>();
+}
+
+inline void Item::CreatingArmourPowerArmourMediumChestItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourMediumItems(iter, i);
+    iter.entity(i).add<Chests>();
+}
+
+inline void Item::CreatingArmourPowerArmourMediumLegsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourMediumItems(iter, i);
+    iter.entity(i).add<Legs>();
+}
+
+inline void Item::CreatingArmourPowerArmourMediumArmsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourMediumItems(iter, i);
+    iter.entity(i).add<Arms>();
+}
+
+inline void Item::CreatingArmourPowerArmourMediumHandsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourMediumItems(iter, i);
+    iter.entity(i).add<Hands>();
+}
+
+inline void Item::CreatingArmourPowerArmourMediumShouldersItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourMediumItems(iter, i);
+    iter.entity(i).add<Shoulders>();
+}
+
+inline void Item::CreatingArmourPowerArmourMediumBackpackItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourMediumItems(iter, i);
+    iter.entity(i).add<Backpack>();
+}
+
+#pragma endregion
+
+#pragma region Creating Heavy PowerArmour
+
+inline void Item::CreatingArmourPowerArmourHeavyItems(flecs::iter& iter, int i)
 {
     iter.entity(i).add<Armour>();
     iter.entity(i).add<PowerArmour>();
     iter.entity(i).add<HeavyPowerArmour>();
 }
-void Item::CreatingArmourNonPowerArmourItems(flecs::iter& iter, int i)
+
+inline void Item::CreatingArmourPowerArmourHeavyHeadItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourHeavyItems(iter, i);
+    iter.entity(i).add<Head>();
+}
+
+inline void Item::CreatingArmourPowerArmourHeavyBeltItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourHeavyItems(iter, i);
+    iter.entity(i).add<Belt>();
+}
+
+inline void Item::CreatingArmourPowerArmourHeavyChestItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourHeavyItems(iter, i);
+    iter.entity(i).add<Chests>();
+}
+
+inline void Item::CreatingArmourPowerArmourHeavyLegsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourHeavyItems(iter, i);
+    iter.entity(i).add<Legs>();
+}
+
+inline void Item::CreatingArmourPowerArmourHeavyArmsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourHeavyItems(iter, i);
+    iter.entity(i).add<Arms>();
+}
+
+inline void Item::CreatingArmourPowerArmourHeavyHandsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourHeavyItems(iter, i);
+    iter.entity(i).add<Hands>();
+}
+
+inline void Item::CreatingArmourPowerArmourHeavyShouldersItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourHeavyItems(iter, i);
+    iter.entity(i).add<Shoulders>();
+}
+
+inline void Item::CreatingArmourPowerArmourHeavyBackpackItems(flecs::iter& iter, int i)
+{
+    CreatingArmourPowerArmourHeavyItems(iter, i);
+    iter.entity(i).add<Backpack>();
+}
+
+#pragma endregion
+
+#pragma region Creating NonPowerArmour
+
+inline void Item::CreatingArmourNonPowerArmourItems(flecs::iter& iter, int i)
 {
     iter.entity(i).add<Armour>();
     iter.entity(i).add<NonPowerArmour>();
 }
+
+inline void Item::CreatingArmourNonPowerArmourHeadItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Head>();
+}
+
+inline void Item::CreatingArmourNonPowerArmourBeltItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Belt>();
+}
+
+inline void Item::CreatingArmourNonPowerArmourChestItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Chests>();
+}
+
+inline void Item::CreatingArmourNonPowerArmourLegsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Legs>();
+}
+
+inline void Item::CreatingArmourNonPowerArmourArmsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Arms>();
+}
+
+inline void Item::CreatingArmourNonPowerArmourHandsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Hands>();
+}
+
+inline void Item::CreatingArmourNonPowerArmourShouldersItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Shoulders>();
+}
+
+inline void Item::CreatingArmourNonPowerArmourBackpackItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Backpack>();
+}
+
+#pragma endregion
+
+#pragma region Creating Cloths Armour
+
 void Item::CreatingArmourClothsItems(flecs::iter& iter, int i)
 {
     iter.entity(i).add<Armour>();
     iter.entity(i).add<Cloths>();
 }
 
+inline void Item::CreatingArmourClothsHeadItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Head>();
+}
+
+inline void Item::CreatingArmourClothsBeltItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Belt>();
+}
+
+inline void Item::CreatingArmourClothsChestItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Chests>();
+}
+
+inline void Item::CreatingArmourClothsLegsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Legs>();
+}
+
+inline void Item::CreatingArmourClothsArmsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Arms>();
+}
+
+inline void Item::CreatingArmourClothsHandsItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Hands>();
+}
+
+inline void Item::CreatingArmourClothsShouldersItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Shoulders>();
+}
+
+inline void Item::CreatingArmourClothsBackpackItems(flecs::iter& iter, int i)
+{
+    CreatingArmourNonPowerArmourItems(iter, i);
+    iter.entity(i).add<Backpack>();
+}
+
+#pragma endregion
 
