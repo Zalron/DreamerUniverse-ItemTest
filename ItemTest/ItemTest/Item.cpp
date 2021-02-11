@@ -26,6 +26,7 @@ void Item::AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
         }
     }
 }
+
 #pragma region Creating OneHanded Melee Weapons
 
 inline void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i)

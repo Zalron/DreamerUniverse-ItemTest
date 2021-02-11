@@ -14,7 +14,61 @@ struct ItemTypeCreation
     float BaseFloatStatRoll;
 };
 
-struct ItemSkillSlots
+struct ItemSkillSlot1
+{
+    int SkillSlotId;
+    int SkillSlotType;
+};
+
+struct ItemSkillSlot2
+{
+    int SkillSlotId;
+    int SkillSlotType;
+};
+
+struct ItemSkillSlot3
+{
+    int SkillSlotId;
+    int SkillSlotType;
+};
+
+struct ItemSkillSlot4
+{
+    int SkillSlotId;
+    int SkillSlotType;
+};
+
+struct ItemSkillSlot5
+{
+    int SkillSlotId;
+    int SkillSlotType;
+};
+
+struct ItemSkillSlot6
+{
+    int SkillSlotId;
+    int SkillSlotType;
+};
+
+struct ItemSkillSlot7
+{
+    int SkillSlotId;
+    int SkillSlotType;
+};
+
+struct ItemSkillSlot8
+{
+    int SkillSlotId;
+    int SkillSlotType;
+};
+
+struct ItemSkillSlot9
+{
+    int SkillSlotId;
+    int SkillSlotType;
+};
+
+struct ItemSkillSlot10
 {
     int SkillSlotId;
     int SkillSlotType;
