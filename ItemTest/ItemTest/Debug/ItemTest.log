@@ -2,7 +2,7 @@
   Item.cpp
   ItemConfig.cpp
   main.cpp
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(11665,76): error C2664: 'void (flecs::iter &,ItemStaging *)': cannot convert argument 2 from 'T' to 'ItemStaging *'
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(11665,76): error C2664: 'void (flecs::entity,ItemStaging *)': cannot convert argument 2 from 'T' to 'ItemStaging *'
           with
           [
               T=ItemStaging
@@ -11,49 +11,48 @@ C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\I
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(11672): message : see reference to function template instantiation 'void flecs::_::each_invoker<Func,ItemStaging>::call_system<_Ty,0x0>(ecs_iter_t *,Func,size_t,std::array<_Ty,1> &,_Ty)' being compiled
           with
           [
-              Func=void (__cdecl *)(flecs::iter &,ItemStaging *),
+              Func=void (__cdecl *)(flecs::entity,ItemStaging *),
               _Ty=flecs::_::column_args<ItemStaging>::Column
           ]
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(11673): message : see reference to function template instantiation 'void flecs::_::each_invoker<Func,ItemStaging>::call_system<_Ty,0x0>(ecs_iter_t *,Func,size_t,std::array<_Ty,1> &,_Ty)' being compiled
           with
           [
-              Func=void (__cdecl *)(flecs::iter &,ItemStaging *),
+              Func=void (__cdecl *)(flecs::entity,ItemStaging *),
               _Ty=flecs::_::column_args<ItemStaging>::Column
           ]
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(11677): message : see reference to function template instantiation 'void flecs::_::each_invoker<Func,ItemStaging>::call_system<,0x0>(ecs_iter_t *,Func,size_t,std::array<flecs::_::column_args<ItemStaging>::Column,1> &)' being compiled
           with
           [
-              Func=void (__cdecl *)(flecs::iter &,ItemStaging *)
+              Func=void (__cdecl *)(flecs::entity,ItemStaging *)
           ]
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(11682): message : see reference to function template instantiation 'void flecs::_::each_invoker<Func,ItemStaging>::call_system<,0x0>(ecs_iter_t *,Func,size_t,std::array<flecs::_::column_args<ItemStaging>::Column,1> &)' being compiled
           with
           [
-              Func=void (__cdecl *)(flecs::iter &,ItemStaging *)
+              Func=void (__cdecl *)(flecs::entity,ItemStaging *)
           ]
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(11677): message : while compiling class template member function 'void flecs::_::each_invoker<Func,ItemStaging>::run(ecs_iter_t *)'
           with
           [
-              Func=void (__cdecl *)(flecs::iter &,ItemStaging *)
+              Func=void (__cdecl *)(flecs::entity,ItemStaging *)
           ]
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(12249): message : see reference to function template instantiation 'void flecs::_::each_invoker<Func,ItemStaging>::run(ecs_iter_t *)' being compiled
           with
           [
-              Func=void (__cdecl *)(flecs::iter &,ItemStaging *)
+              Func=void (__cdecl *)(flecs::entity,ItemStaging *)
           ]
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(12246): message : see reference to class template instantiation 'flecs::_::each_invoker<Func,ItemStaging>' being compiled
           with
           [
-              Func=void (__cdecl *)(flecs::iter &,ItemStaging *)
+              Func=void (__cdecl *)(flecs::entity,ItemStaging *)
           ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\main.cpp(20): message : see reference to function template instantiation 'flecs::system<ItemStaging> &flecs::system<ItemStaging>::each<void(__cdecl *)(flecs::iter &,ItemStaging *)>(Func)' being compiled
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\main.cpp(20): message : see reference to function template instantiation 'flecs::system<ItemStaging> &flecs::system<ItemStaging>::each<void(__cdecl *)(flecs::entity,ItemStaging *)>(Func)' being compiled
           with
           [
-              Func=void (__cdecl *)(flecs::iter &,ItemStaging *)
+              Func=void (__cdecl *)(flecs::entity,ItemStaging *)
           ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\main.cpp(20): message : see reference to function template instantiation 'flecs::system<ItemStaging> &flecs::system<ItemStaging>::each<void(__cdecl *)(flecs::iter &,ItemStaging *)>(Func)' being compiled
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\main.cpp(20): message : see reference to function template instantiation 'flecs::system<ItemStaging> &flecs::system<ItemStaging>::each<void(__cdecl *)(flecs::entity,ItemStaging *)>(Func)' being compiled
           with
           [
-              Func=void (__cdecl *)(flecs::iter &,ItemStaging *)
+              Func=void (__cdecl *)(flecs::entity,ItemStaging *)
           ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\flecs.h(11663,37): error C2664: 'void (flecs::iter &,ItemStaging *)': cannot convert argument 1 from 'flecs::entity' to 'flecs::iter &'
   Generating Code...

@@ -27,6 +27,15 @@ void Item::AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
     }
 }
 
+void Item::AddItemTypeComponentstoEntity1(flecs::entity e, ItemStaging* iss)
+{
+    if (iss->ItemStage == 1)
+    {
+        e.set<ItemTypeCreation>({ 0,0,0 });
+        iss->ItemStage = 2;
+    }
+}
+
 #pragma region Creating OneHanded Melee Weapons
 
 inline void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i)

@@ -77,6 +77,7 @@ struct ItemSkillSlot10
 struct ItemRarityComponent
 {
     int LevelRequirement;
+    int RarityLevel;
 };
 
 struct ItemRarity
@@ -92,7 +93,79 @@ struct ItemQuality
     int QualityStatIncrease;
 };
 
-struct ItemParts
+struct ItemParts1
+{
+    int PartsType;
+    int PartsStatIntRoll;
+    float PartsStatFloatRoll;
+    float PartPercentRoll;
+};
+
+struct ItemParts2
+{
+    int PartsType;
+    int PartsStatIntRoll;
+    float PartsStatFloatRoll;
+    float PartPercentRoll;
+};
+
+struct ItemParts3
+{
+    int PartsType;
+    int PartsStatIntRoll;
+    float PartsStatFloatRoll;
+    float PartPercentRoll;
+};
+
+struct ItemParts4
+{
+    int PartsType;
+    int PartsStatIntRoll;
+    float PartsStatFloatRoll;
+    float PartPercentRoll;
+};
+
+struct ItemParts5
+{
+    int PartsType;
+    int PartsStatIntRoll;
+    float PartsStatFloatRoll;
+    float PartPercentRoll;
+};
+
+struct ItemParts6
+{
+    int PartsType;
+    int PartsStatIntRoll;
+    float PartsStatFloatRoll;
+    float PartPercentRoll;
+};
+
+struct ItemParts7
+{
+    int PartsType;
+    int PartsStatIntRoll;
+    float PartsStatFloatRoll;
+    float PartPercentRoll;
+};
+
+struct ItemParts8
+{
+    int PartsType;
+    int PartsStatIntRoll;
+    float PartsStatFloatRoll;
+    float PartPercentRoll;
+};
+
+struct ItemParts9
+{
+    int PartsType;
+    int PartsStatIntRoll;
+    float PartsStatFloatRoll;
+    float PartPercentRoll;
+};
+
+struct ItemParts10
 {
     int PartsType;
     int PartsStatIntRoll;
@@ -112,7 +185,79 @@ struct ItemManufacturer
     int ManufacturerStatRoll;
 };
 
-struct ItemAffixMods
+struct ItemAffixMods1
+{
+    int AffixPlace;
+    int ModType;
+    int ModStatRoll;
+    float ModStatFloatRoll;
+};
+
+struct ItemAffixMods2
+{
+    int AffixPlace;
+    int ModType;
+    int ModStatRoll;
+    float ModStatFloatRoll;
+};
+
+struct ItemAffixMods3
+{
+    int AffixPlace;
+    int ModType;
+    int ModStatRoll;
+    float ModStatFloatRoll;
+};
+
+struct ItemAffixMods4
+{
+    int AffixPlace;
+    int ModType;
+    int ModStatRoll;
+    float ModStatFloatRoll;
+};
+
+struct ItemAffixMods5
+{
+    int AffixPlace;
+    int ModType;
+    int ModStatRoll;
+    float ModStatFloatRoll;
+};
+
+struct ItemAffixMods6
+{
+    int AffixPlace;
+    int ModType;
+    int ModStatRoll;
+    float ModStatFloatRoll;
+};
+
+struct ItemAffixMods7
+{
+    int AffixPlace;
+    int ModType;
+    int ModStatRoll;
+    float ModStatFloatRoll;
+};
+
+struct ItemAffixMods8
+{
+    int AffixPlace;
+    int ModType;
+    int ModStatRoll;
+    float ModStatFloatRoll;
+};
+
+struct ItemAffixMods9
+{
+    int AffixPlace;
+    int ModType;
+    int ModStatRoll;
+    float ModStatFloatRoll;
+};
+
+struct ItemAffixMods10
 {
     int AffixPlace;
     int ModType;
@@ -423,6 +568,7 @@ class Item
 public:
     static void CreateItemEntity(flecs::iter& iter, ItemSpawning* is );
     static void AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss);
+    static void AddItemTypeComponentstoEntity1(flecs::entity e, ItemStaging* iss);
 
 private:
     static inline void CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i);
