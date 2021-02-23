@@ -6,6 +6,8 @@
 
 using namespace std;
 
+struct Jave {};
+
 
 struct ItemBaseTypeConfig
 {

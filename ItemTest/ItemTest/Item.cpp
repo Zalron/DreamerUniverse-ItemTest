@@ -8,7 +8,7 @@ void Item::CreateItemEntity(flecs::iter& iter, ItemSpawning* is)
         {
             auto e = iter.world().entity();
             e.set<ItemStaging>({1, is->Seed});
-            std::cout << "System CreateItemEntity has created item" << i << " " << std::endl;
+            std::cout << "System CreateItemEntity has created item " << i << " " << std::endl;
         }
         iter.entity(it).remove<ItemSpawning>();
         std::cout << "System CreateItemEntity is creating items" << std::endl;
