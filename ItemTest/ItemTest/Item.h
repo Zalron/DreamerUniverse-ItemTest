@@ -4,14 +4,81 @@
 #include <string>
 #include <cstdint>
 #include "flecs.h"
+#include "ItemConfig.h"
 
 using namespace std;
 
 struct ItemTypeCreation
 {
-    int ItemTypeint;
+    int ItemTypeInt;
     int BaseIntStatRoll;
     float BaseFloatStatRoll;
+};
+
+struct ItemRarity
+{
+    int LevelRequirement;
+    int RarityLevel;
+    int RarityRoll;
+    int RarityAffixAllowance;
+};
+
+struct ItemQuality
+{
+    int QualityNum;
+    int QualityStatIncrease;
+};
+
+struct ItemMaterial
+{
+    int MaterialType;
+    int MaterialStatRoll;
+};
+
+struct ItemManufacturer
+{
+    int ManufacturerType;
+    int ManufacturerStatRoll;
+};
+
+struct ItemLevel 
+{
+    int ItemLevel;
+};
+
+struct ItemCharacterLevelRequirements 
+{
+    int CharacterLevelRequirement;
+};
+
+struct ItemCharacterStrengthRequirements 
+{
+    int CharacterStrengthRequirements;
+};
+
+struct ItemCharacterDexterityRequirements
+{
+    int CharacterDexterityRequirements;
+};
+
+struct ItemCharacterIntelligenceRequirements
+{
+    int CharacterIntelligenceRequirements;
+};
+
+struct ItemCharacterLuckRequirements
+{
+    int CharacterLuckRequirements;
+};
+
+struct ItemCharacterWillpowerhRequirements
+{
+    int CharacterWillpowerRequirements;
+};
+
+struct ItemCharacterEnduranceRequirements
+{
+    int CharacterEnduranceRequirements;
 };
 
 struct ItemSkillSlot1
@@ -72,25 +139,6 @@ struct ItemSkillSlot10
 {
     int SkillSlotId;
     int SkillSlotType;
-};
-
-struct ItemRarityComponent
-{
-    int LevelRequirement;
-    int RarityLevel;
-};
-
-struct ItemRarity
-{
-    int RarityType;
-    int RarityRoll;
-    int RarityAffixAllowance;
-};
-
-struct ItemQuality
-{
-    int QualityNum;
-    int QualityStatIncrease;
 };
 
 struct ItemParts1
@@ -171,18 +219,6 @@ struct ItemParts10
     int PartsStatIntRoll;
     float PartsStatFloatRoll;
     float PartPercentRoll;
-};
-
-struct ItemMaterial
-{
-    int MaterialType;
-    int MaterialStatRoll;
-};
-
-struct ItemManufacturer
-{
-    int ManufacturerType;
-    int ManufacturerStatRoll;
 };
 
 struct ItemAffixMods1
@@ -300,6 +336,11 @@ struct HandlingItemStat
 struct AccuracyItemStat
 {
     float AccuracyRoll;
+};
+
+struct RangeItemStat 
+{
+    int RangeRoll;
 };
 
 struct GuardItemStat
@@ -474,103 +515,34 @@ struct Scrolls {};
 struct Mines {};
 struct Buildings {};
 struct Crafting {};
+struct Maps {};
+struct MapChisel {};
+struct Crystals {};
+struct Cards {};
+struct Orbs {};
+struct OrbOfIdentifying {};
+struct OrbOfErasing {};
+struct OrbOfForging {};
+struct OrbOfChaos {};
+struct OrbOfDivinity {};
+struct OrbOfInvigorating {};
+struct OrbOfEnforing {};
+struct OrbOfModifying {};
+struct OrbOfEnhancing {};
+struct OrbOfChange {};
+struct OrbOfMirroring {};
 
-//enum ItemTypeEnum
-//{
-//    WeaponMeleeOneHandedMace,
-//    WeaponMeleeOneHandedKnife,
-//    WeaponMeleeOneHandedWarhammer,
-//    WeaponMeleeOneHandedAxe,
-//    WeaponMeleeOneHandedShield,
-//    WeaponMeleeOneHandedRapier,
-//    WeaponMeleeOneHandedClub,
-//    WeaponMeleeTwoHandedLongSword,
-//    WeaponMeleeTwoHandedHalberd,
-//    WeaponMeleeTwoHandedStaff,
-//    WeaponMeleeTwoHandedWarhammer,
-//    WeaponMeleeTwoHandedAxe,
-//    WeaponMeleeTwoHandedMace,
-//    WeaponMeleeTwoHandedSpear,
-//    WeaponMeleeTwoHandedClaws,
-//    WeaponMeleeTneHandedClub,
-//    WeaponRangedOneHandedWand,
-//    WeaponRangedOneHandedThrowingKnifes,
-//    WeaponRangedOneHandedThrowingAxes,
-//    WeaponRangedOneHandedPistol,
-//    WeaponRangedOneHandedRevolver,
-//    WeaponRangedOneHandedHandCrossbow,
-//    WeaponRangedTwoHandedBow,
-//    WeaponRangedTwoHandedCrossBow,
-//    WeaponRangedTwoHandedCarbine,
-//    WeaponRangedTwoHandedAssaultRifle,
-//    WeaponRangedTwoHandedSniperRifle,
-//    WeaponRangedTwoHandedLightMachineGun,
-//    WeaponRangedTwoHandedShotgun,
-//    WeaponRangedTwoHandedGrenadeLauncher,
-//    WeaponRangedTwoHandedRocketLauncher,
-//    ArmourPowerArmourLightHead,
-//    ArmourPowerArmourLightBelt,
-//    ArmourPowerArmourLightChest,
-//    ArmourPowerArmourLightLegs,
-//    ArmourPowerArmourLightArms,
-//    ArmourPowerArmourLightHands,
-//    ArmourPowerArmourLightShoulders,
-//    ArmourPowerArmourLightBackpack,
-//    ArmourPowerArmourMediumHead,
-//    ArmourPowerArmourMediumBelt,
-//    ArmourPowerArmourMediumChest,
-//    ArmourPowerArmourMediumLegs,
-//    ArmourPowerArmourMediumArms,
-//    ArmourPowerArmourMediumHands,
-//    ArmourPowerArmourMediumShoulders,
-//    ArmourPowerArmourMediumBackpack,
-//    ArmourPowerArmourHeavyHead,
-//    ArmourPowerArmourHeavyBelt,
-//    ArmourPowerArmourHeavyChest,
-//    ArmourPowerArmourHeavyLegs,
-//    ArmourPowerArmourHeavyArms,
-//    ArmourPowerArmourHeavyHands,
-//    ArmourPowerArmourHeavyShoulders,
-//    ArmourPowerArmourHeavyBackpack,
-//    ArmourNonPowerArmourHead,
-//    ArmourNonPowerArmourBelt,
-//    ArmourNonPowerArmourChest,
-//    ArmourNonPowerArmourLegs,
-//    ArmourNonPowerArmourArms,
-//    ArmourNonPowerArmourHands,
-//    ArmourNonPowerArmourShoulders,
-//    ArmourNonPowerArmourBackpack,
-//    ArmourClothsArmourHead,
-//    ArmourClothsArmourBelt,
-//    ArmourClothsArmourChest,
-//    ArmourClothsArmourLegs,
-//    ArmourClothsArmourArms,
-//    ArmourClothsArmourHands,
-//    ArmourClothsArmourShoulders,
-//    ArmourClothsArmourBackpack,
-//    EquipmentFlasksHealth,
-//    EquipmentFlasksMagic,
-//    EquipmentFlasksMovement,
-//    EquipmentFlasksResistance,
-//    EquipmentAmmoQuivers,
-//    EquipmentAmmoMagazines,
-//    EquipmentAmmoGrenades,
-//    EquipmentAmmoRockets,
-//    EquipmentAmmoMines,
-//    EquipmentScrolls,
-//    EquipmentSpells,
-//    Buildings,
-//    Crafting
-//};
 
 class Item
 {
 public:
     static void CreateItemEntity(flecs::iter& iter, ItemSpawning* is );
     static void AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss);
-    static void AddItemTypeComponentstoEntity1(flecs::entity e, ItemStaging* iss);
+    static void AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc);
 
 private:
+    static inline void CreatingMeleeWeaponItemStats(flecs::iter& iter, int i, ItemTypeCreation* isc);
+
     static inline void CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i);
     static inline void CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i);
     static inline void CreatingOneHandedMeleeWeaponMaceItems(flecs::iter& iter, int i);
@@ -663,6 +635,17 @@ private:
     static inline void CreatingArmourClothsShouldersItems(flecs::iter& iter, int i);
     static inline void CreatingArmourClothsBackpackItems(flecs::iter& iter, int i);
 
+    static inline void CreatingEquipmentAmmoQuivers(flecs::iter& iter, int i);
+    static inline void CreatingEquipmentAmmoMagazines(flecs::iter& iter, int i);
+    static inline void CreatingEquipmentAmmoGrenades(flecs::iter& iter, int i);
+    static inline void CreatingEquipmentAmmoRockets(flecs::iter& iter, int i);
+    static inline void CreatingEquipmentAmmoMines(flecs::iter& iter, int i);
+    
+    static inline void CreatingCraftingMaps(flecs::iter& iter, int i);
+    static inline void CreatingCraftingMapChisel(flecs::iter& iter, int i);
+    static inline void CreatingCraftingCrystals(flecs::iter& iter, int i);
+    static inline void CreatingCraftingCards(flecs::iter& iter, int i);
+    static inline void CreatingCraftingOrbs(flecs::iter& iter, int i);
 
 };
 #endif

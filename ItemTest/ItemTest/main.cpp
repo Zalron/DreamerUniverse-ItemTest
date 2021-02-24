@@ -17,7 +17,5 @@ int main(int argc, char* argv[])
 
     world.system<ItemStaging>("AddComponentstoEntity").iter(&Item::AddItemTypeComponentstoEntity);
 
-    //world.system<ItemStaging>().kind(flecs::OnSet).each(Item::AddItemTypeComponentstoEntity1);
-
     while (world.progress()) {}
 }

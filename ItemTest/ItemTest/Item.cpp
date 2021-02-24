@@ -21,23 +21,47 @@ void Item::AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
     {
         if (iss->ItemStage == 1) 
         {
-            iter.entity(it).set<ItemTypeCreation>({0,0,0 });
+            iter.entity(it).set<ItemTypeCreation>({0,0,0});
             iss->ItemStage = 2;
         }
     }
 }
 
-void Item::AddItemTypeComponentstoEntity1(flecs::entity e, ItemStaging* iss)
+void Item::AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc)
 {
-    if (iss->ItemStage == 1)
+    for (auto it : iter) 
     {
-        e.set<ItemTypeCreation>({ 0,0,0 });
-        iss->ItemStage = 2;
+        if (iss->ItemStage == 2)
+        {
+            CreatingOneHandedMeleeWeaponShortSwordItems(iter, it);
+            iss->ItemStage = 3;
+        }
     }
 }
 
-#pragma region Creating OneHanded Melee Weapons
+inline void Item::CreatingMeleeWeaponItemStats(flecs::iter& iter, int i, ItemTypeCreation* isc)
+{
+    iter.entity(i).set<ItemCharacterLevelRequirements>({0});
+    iter.entity(i).set<ItemRarity>({});
+    iter.entity(i).set<ItemQuality>({});
+    iter.entity(i).set<ItemMaterial>({});
+    iter.entity(i).set<ItemManufacturer>({});
+    iter.entity(i).set<ItemName>({});
 
+    iter.entity(i).set<CriticalChanceItemStat>({});
+    iter.entity(i).set<MagicalDamageItemStat>({});
+    iter.entity(i).set<PhysicalDamageItemStat>({});
+    iter.entity(i).set<HandlingItemStat>({});
+    iter.entity(i).set<AccuracyItemStat>({});
+    iter.entity(i).set<RangeItemStat>({});
+    iter.entity(i).set<GuardItemStat>({});
+    iter.entity(i).set<BlockChanceItemStat>({});
+    iter.entity(i).set<AttackRateItemStat>({});
+    iter.entity(i).set<WeightItemStat>({});
+}
+
+
+#pragma region Creating OneHanded Melee Weapons
 inline void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i)
 {
     iter.entity(i).add<Weapons>();
@@ -572,6 +596,31 @@ inline void Item::CreatingArmourClothsBackpackItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add<Backpack>();
+}
+
+inline void Item::CreatingEquipmentAmmoQuivers(flecs::iter& iter, int i)
+{
+
+}
+
+inline void Item::CreatingEquipmentAmmoMagazines(flecs::iter& iter, int i)
+{
+
+}
+
+inline void Item::CreatingEquipmentAmmoGrenades(flecs::iter& iter, int i)
+{
+
+}
+
+inline void Item::CreatingEquipmentAmmoRockets(flecs::iter& iter, int i)
+{
+
+}
+
+inline void Item::CreatingEquipmentAmmoMines(flecs::iter& iter, int i)
+{
+
 }
 
 #pragma endregion

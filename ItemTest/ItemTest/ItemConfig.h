@@ -6,28 +6,16 @@
 
 using namespace std;
 
-struct Jave {};
-
 
 struct ItemBaseTypeConfig
 {
-    float UseTypeChance;
-    float TypeChance;
-    float BaseTypeChance;
-    //public int StringKey
-    int UseType;
-    int Type;
-    int BaseType;
+    string BaseName;
+    float BaseChance;
     int BaseTypeStatRollMin;
     int BaseTypeStatRollMax;
-    ItemBaseTypeConfig(float useTypeChance, float typeChance, float baseTypeChance, int useType, int type, int baseType, int baseTypeStatRollMin, int baseTypeStatRollMax)
+    ItemBaseTypeConfig(float baseChance, int baseTypeStatRollMin, int baseTypeStatRollMax)
     {
-        UseTypeChance = useTypeChance;
-        TypeChance = typeChance;
-        BaseTypeChance = baseTypeChance;
-        UseType = useType;
-        BaseType = baseType;
-        Type = type;
+        BaseChance = baseChance;
         BaseTypeStatRollMin = baseTypeStatRollMin;
         BaseTypeStatRollMax = baseTypeStatRollMax;
     }
@@ -52,10 +40,9 @@ struct ItemRarityConfig
 
 struct ItemAffixModsConfig
 {
-    //int AffixStringKey;
+    string ModsString;
     int AffixPlace;
     int ModType;
-    //string ModsString;
     int ModStatRollMin;
     int ModStatRollMax;
     ItemAffixModsConfig(int affixPlace, int modType, int typeStatRollMin, int typeStatRollMax)
@@ -69,8 +56,8 @@ struct ItemAffixModsConfig
 
 struct ItemManufacturerConfig
 {
+    string ManufacturerString;
     int ManufacturerType;
-    // string ManufacturerString;
     int ManufacturerStatRollMin;
     int ManufacturerStatRollMax;
     ItemManufacturerConfig(int manufacturerType, int  manufacturerStatRollMin, int  manufacturerStatRollMax)
@@ -83,9 +70,9 @@ struct ItemManufacturerConfig
 
 struct ItemMaterialConfig
 {
+    string MaterialString;
     float MaterialChance;
     int MaterialType;
-    //public string MaterialString;
     int MaterialStatRollMin;
     int MaterialStatRollMax;
     ItemMaterialConfig(float materialChance, int materialType, int materialStatRollMin, int materialStatRollMax)
@@ -99,9 +86,9 @@ struct ItemMaterialConfig
 
 struct ItemQualityConfig
 {
+    string QualityString;
     float QualityChance;
     int QualityNum;
-    // string QualityString;
     int QualityStatIncrease;
     ItemQualityConfig(float qualityChance, int qualityType, int qualityStatIncrease)
     {
@@ -113,8 +100,8 @@ struct ItemQualityConfig
 
 struct ItemPartsConfig
 {
+    string PartsString;
     int PartsType;
-    //string PartsString;
     int PartsStatRollMin;
     int PartsStatRollMax;
     ItemPartsConfig(int partsType, int partsStatRollMin, int partsStatRollMax)
@@ -125,11 +112,11 @@ struct ItemPartsConfig
     }
 };
 
-static const ItemBaseTypeConfig ItemBaseType1_1_1{ 50, 100, 50, 1, 1, 1, 14, 17 }; //"One Handed Short Sword Bronze Falx"
+static const ItemBaseTypeConfig ItemBaseType1{ 1, 14, 17 }; //"One Handed Short Sword Bronze Falx"
 
-static const ItemBaseTypeConfig ItemBaseType1_1_2{ 50, 100, 100, 1, 1, 2, 8, 24 }; //"One Handed Short Sword Illyr Sica"
+static const ItemBaseTypeConfig ItemBaseType2 {2, 8, 24 }; //"One Handed Short Sword Illyr Sica"
 
-static const ItemBaseTypeConfig ItemBaseType7_1_1{ 100, 100, 100, 7, 1, 1, 0, 0 }; //"Identifier Scrolls"
+static const ItemBaseTypeConfig ItemBaseType7_1_1{ 1, 0, 0 }; //"Identifier Scrolls"
 
 // static const ItemPartsConfig ItemParts1_1_2_1_1;
 
