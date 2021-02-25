@@ -373,6 +373,11 @@ struct FireRateItemStat
     int FireRateRoll;
 };
 
+struct ReloadTimeItemStat 
+{
+    float ReloadTime;
+};
+
 struct EvasionItemStat
 {
     float EvasionRoll;
@@ -508,9 +513,17 @@ struct Health {};
 struct Magic {};
 struct Movement {};
 struct Resistance {};
+struct Flask {};
+struct Health {};
+struct Magic {};
+struct Movement {};
+struct Resistance {};
+struct Ammo {};
 struct Quivers {};
 struct Magazines {};
 struct Grenades {};
+struct Rockets {};
+struct Mines {};
 struct Scrolls {};
 struct Mines {};
 struct Buildings {};
@@ -539,9 +552,13 @@ public:
     static void CreateItemEntity(flecs::iter& iter, ItemSpawning* is );
     static void AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss);
     static void AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc);
+    
 
 private:
-    static inline void CreatingMeleeWeaponItemStats(flecs::iter& iter, int i, ItemTypeCreation* isc);
+    static inline void CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
+    static inline void CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
+
+    static inline void CreatingRarityModCOmponentsToEntity(flecs::iter& iter, int i, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir);
 
     static inline void CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i);
     static inline void CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i);
@@ -635,6 +652,13 @@ private:
     static inline void CreatingArmourClothsShouldersItems(flecs::iter& iter, int i);
     static inline void CreatingArmourClothsBackpackItems(flecs::iter& iter, int i);
 
+    static inline void CreatingEquipmentFlasks(flecs::iter& iter, int i);
+    static inline void CreatingEquipmentFlasksHealth(flecs::iter& iter, int i);
+    static inline void CreatingEquipmentFlasksMagic(flecs::iter& iter, int i);
+    static inline void CreatingEquipmentFlasksMovement(flecs::iter& iter, int i);
+    static inline void CreatingEquipmentFlasksResistance(flecs::iter& iter, int i);
+
+    static inline void CreatingEquipmentAmmo(flecs::iter& iter, int i);
     static inline void CreatingEquipmentAmmoQuivers(flecs::iter& iter, int i);
     static inline void CreatingEquipmentAmmoMagazines(flecs::iter& iter, int i);
     static inline void CreatingEquipmentAmmoGrenades(flecs::iter& iter, int i);

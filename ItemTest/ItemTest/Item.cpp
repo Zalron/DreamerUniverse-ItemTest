@@ -39,7 +39,9 @@ void Item::AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTy
     }
 }
 
-inline void Item::CreatingMeleeWeaponItemStats(flecs::iter& iter, int i, ItemTypeCreation* isc)
+
+
+inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
 {
     iter.entity(i).set<ItemCharacterLevelRequirements>({0});
     iter.entity(i).set<ItemRarity>({});
@@ -60,6 +62,119 @@ inline void Item::CreatingMeleeWeaponItemStats(flecs::iter& iter, int i, ItemTyp
     iter.entity(i).set<WeightItemStat>({});
 }
 
+inline void Item::CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
+{
+    iter.entity(i).set<ItemCharacterLevelRequirements>({0});
+    iter.entity(i).set<ItemRarity>({});
+    iter.entity(i).set<ItemQuality>({});
+    iter.entity(i).set<ItemMaterial>({});
+    iter.entity(i).set<ItemManufacturer>({});
+    iter.entity(i).set<ItemName>({});
+
+    iter.entity(i).set<CriticalChanceItemStat>({});
+    iter.entity(i).set<MagicalDamageItemStat>({});
+    iter.entity(i).set<PhysicalDamageItemStat>({});
+    iter.entity(i).set<HandlingItemStat>({});
+    iter.entity(i).set<AccuracyItemStat>({});
+    iter.entity(i).set<RangeItemStat>({});
+    iter.entity(i).set<MagazineSizeItemStat>({});
+    iter.entity(i).set<ReloadTimeItemStat>({});
+    iter.entity(i).set<FireRateItemStat>({});
+    iter.entity(i).set<WeightItemStat>({});
+}
+
+inline void Item::CreatingRarityModCOmponentsToEntity(flecs::iter& iter, int i, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir)
+{
+    if (iss->ItemStage == 7)
+    {
+        if (ir->RarityAffixAllowance == 1)
+        {
+            iter.entity(i).set<ItemAffixMods1>({});
+        }
+        if (ir->RarityAffixAllowance == 2)
+        {
+            iter.entity(i).set<ItemAffixMods1>({});
+            iter.entity(i).set<ItemAffixMods2>({});
+        }
+        if (ir->RarityAffixAllowance == 3)
+        {
+            iter.entity(i).set<ItemAffixMods1>({});
+            iter.entity(i).set<ItemAffixMods2>({});
+            iter.entity(i).set<ItemAffixMods3>({});
+        }
+        if (ir->RarityAffixAllowance == 4)
+        {
+            iter.entity(i).set<ItemAffixMods1>({});
+            iter.entity(i).set<ItemAffixMods2>({});
+            iter.entity(i).set<ItemAffixMods3>({});
+            iter.entity(i).set<ItemAffixMods4>({});
+        }
+        if (ir->RarityAffixAllowance == 5)
+        {
+            iter.entity(i).set<ItemAffixMods1>({});
+            iter.entity(i).set<ItemAffixMods2>({});
+            iter.entity(i).set<ItemAffixMods3>({});
+            iter.entity(i).set<ItemAffixMods4>({});
+            iter.entity(i).set<ItemAffixMods5>({});
+        }
+        if (ir->RarityAffixAllowance == 6)
+        {
+            iter.entity(i).set<ItemAffixMods1>({});
+            iter.entity(i).set<ItemAffixMods2>({});
+            iter.entity(i).set<ItemAffixMods3>({});
+            iter.entity(i).set<ItemAffixMods4>({});
+            iter.entity(i).set<ItemAffixMods5>({});
+            iter.entity(i).set<ItemAffixMods6>({});
+        }
+        if (ir->RarityAffixAllowance == 7)
+        {
+            iter.entity(i).set<ItemAffixMods1>({}); 
+            iter.entity(i).set<ItemAffixMods2>({});
+            iter.entity(i).set<ItemAffixMods3>({});
+            iter.entity(i).set<ItemAffixMods4>({});
+            iter.entity(i).set<ItemAffixMods5>({});
+            iter.entity(i).set<ItemAffixMods6>({});
+            iter.entity(i).set<ItemAffixMods7>({});
+        }
+        if (ir->RarityAffixAllowance == 8)
+        {
+            iter.entity(i).set<ItemAffixMods1>({});
+            iter.entity(i).set<ItemAffixMods2>({});
+            iter.entity(i).set<ItemAffixMods3>({});
+            iter.entity(i).set<ItemAffixMods4>({});
+            iter.entity(i).set<ItemAffixMods5>({});
+            iter.entity(i).set<ItemAffixMods6>({});
+            iter.entity(i).set<ItemAffixMods7>({});
+            iter.entity(i).set<ItemAffixMods8>({});
+        }
+        if (ir->RarityAffixAllowance == 9)
+        {
+            iter.entity(i).set<ItemAffixMods1>({});
+            iter.entity(i).set<ItemAffixMods2>({});
+            iter.entity(i).set<ItemAffixMods3>({});
+            iter.entity(i).set<ItemAffixMods4>({});
+            iter.entity(i).set<ItemAffixMods5>({});
+            iter.entity(i).set<ItemAffixMods6>({});
+            iter.entity(i).set<ItemAffixMods7>({});
+            iter.entity(i).set<ItemAffixMods8>({});
+            iter.entity(i).set<ItemAffixMods9>({});
+        }
+        if (ir->RarityAffixAllowance == 10)
+        {
+            iter.entity(i).set<ItemAffixMods1>({});
+            iter.entity(i).set<ItemAffixMods2>({});
+            iter.entity(i).set<ItemAffixMods3>({});
+            iter.entity(i).set<ItemAffixMods4>({});
+            iter.entity(i).set<ItemAffixMods5>({});
+            iter.entity(i).set<ItemAffixMods6>({});
+            iter.entity(i).set<ItemAffixMods7>({});
+            iter.entity(i).set<ItemAffixMods8>({});
+            iter.entity(i).set<ItemAffixMods9>({});
+            iter.entity(i).set<ItemAffixMods10>({});
+        }
+        iss->ItemStage = 8;
+    }
+}
 
 #pragma region Creating OneHanded Melee Weapons
 inline void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i)
@@ -598,29 +713,70 @@ inline void Item::CreatingArmourClothsBackpackItems(flecs::iter& iter, int i)
     iter.entity(i).add<Backpack>();
 }
 
+inline void Item::CreatingEquipmentFlasks(flecs::iter& iter, int i)
+{
+    iter.entity(i).add<Equipment>();
+    iter.entity(i).add<Flasks>();
+}
+
+inline void Item::CreatingEquipmentFlasksHealth(flecs::iter& iter, int i)
+{
+    CreatingEquipmentFlasks(iter, i);
+    iter.entity(i).add<Health>();
+}
+
+inline void Item::CreatingEquipmentFlasksMagic(flecs::iter& iter, int i)
+{
+    CreatingEquipmentFlasks(iter, i);
+    iter.entity(i).add<Magic>();
+}
+
+inline void Item::CreatingEquipmentFlasksMovement(flecs::iter& iter, int i)
+{
+    CreatingEquipmentFlasks(iter, i);
+    iter.entity(i).add<Movement>();
+}
+
+inline void Item::CreatingEquipmentFlasksResistance(flecs::iter& iter, int i)
+{
+    CreatingEquipmentFlasks(iter, i);
+    iter.entity(i).add<Resistance>();
+}
+
+inline void Item::CreatingEquipmentAmmo(flecs::iter& iter, int i)
+{
+    iter.entity(i).add<Equipment>();
+    iter.entity(i).add<Ammo>();
+}
+
 inline void Item::CreatingEquipmentAmmoQuivers(flecs::iter& iter, int i)
 {
-
+    CreatingEquipmentAmmo(iter, i);
+    iter.entity(i).add<Quivers>();
 }
 
 inline void Item::CreatingEquipmentAmmoMagazines(flecs::iter& iter, int i)
 {
-
+    CreatingEquipmentAmmo(iter, i);
+    iter.entity(i).add<Magazines>();
 }
 
 inline void Item::CreatingEquipmentAmmoGrenades(flecs::iter& iter, int i)
 {
-
+    CreatingEquipmentAmmo(iter, i);
+    iter.entity(i).add<Grenades>();
 }
 
 inline void Item::CreatingEquipmentAmmoRockets(flecs::iter& iter, int i)
 {
-
+    CreatingEquipmentAmmo(iter, i);
+    iter.entity(i).add<Rockets>();
 }
 
 inline void Item::CreatingEquipmentAmmoMines(flecs::iter& iter, int i)
 {
-
+    CreatingEquipmentAmmo(iter, i);
+    iter.entity(i).add<Mines>();
 }
 
 #pragma endregion
