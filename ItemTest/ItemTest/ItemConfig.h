@@ -9,7 +9,7 @@ using namespace std;
 
 struct ItemBaseTypeConfig
 {
-    string BaseName;
+    //string BaseName;
     float BaseChance;
     int BaseTypeStatRollMin;
     int BaseTypeStatRollMax;
@@ -40,7 +40,7 @@ struct ItemRarityConfig
 
 struct ItemAffixModsConfig
 {
-    string ModsString;
+    //string ModsString;
     int AffixPlace;
     int ModType;
     int ModStatRollMin;
@@ -56,7 +56,7 @@ struct ItemAffixModsConfig
 
 struct ItemManufacturerConfig
 {
-    string ManufacturerString;
+    //string ManufacturerString;
     int ManufacturerType;
     int ManufacturerStatRollMin;
     int ManufacturerStatRollMax;
@@ -70,7 +70,7 @@ struct ItemManufacturerConfig
 
 struct ItemMaterialConfig
 {
-    string MaterialString;
+    //string MaterialString;
     float MaterialChance;
     int MaterialType;
     int MaterialStatRollMin;
@@ -86,7 +86,7 @@ struct ItemMaterialConfig
 
 struct ItemQualityConfig
 {
-    string QualityString;
+    //string QualityString;
     float QualityChance;
     int QualityNum;
     int QualityStatIncrease;
@@ -100,7 +100,7 @@ struct ItemQualityConfig
 
 struct ItemPartsConfig
 {
-    string PartsString;
+    //string PartsString;
     int PartsType;
     int PartsStatRollMin;
     int PartsStatRollMax;
