@@ -16,7 +16,13 @@ int main(int argc, char* argv[])
 
     world.system<ItemSpawning>("CreateItemEntity").iter(&Item::CreateItemEntity);
 
-    world.system<ItemStaging>("AddComponentstoEntity").iter(&Item::AddItemTypeComponentstoEntity);
+    world.system<ItemStaging, ItemSpawning>("SettingSeedForRandomItemEntitiesGeneratio").iter(&Item::SettingSeedForRandomItemEntitiesGeneration);
+
+    world.system<ItemStaging>("AddItemTypeComponentstoEntity").iter(&Item::AddItemTypeComponentstoEntity);
+
+    world.system<ItemStaging, ItemTypeCreation>("AddItemComponentstoEntity").iter(&Item::AddItemComponentstoEntity);
+
+    world.system<ItemStaging, ItemTypeCreation, ItemRarity>("CreatingRarityModComponentsToEntit").iter(&Item::CreatingRarityModComponentsToEntity);
 
     while (world.progress()) {}
 }
