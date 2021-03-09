@@ -7,11 +7,25 @@ void Item::CreateItemEntity(flecs::iter& iter, ItemSpawning* is)
         for (auto i  = 0; i < is->NumberOfItems; i++) 
         {
             auto e = iter.world().entity();
-            e.set<ItemStaging>({1, is->Seed});
+            e.set<ItemStaging>({1});
             std::cout << "System CreateItemEntity has created item " << i << " " << std::endl;
         }
-        iter.entity(it).remove<ItemSpawning>();
+        iter.entity(it).destruct();
         std::cout << "System CreateItemEntity is creating items" << std::endl;
+    }
+}
+
+void Item::SettingSeedForRandomItemEntitiesGeneration(flecs::iter& iter, ItemStaging* iss, ItemSpawning* is)
+{
+    for (auto it : iter)
+    {
+        if (iss->ItemStage == 1)
+        {
+            srand((unsigned)time(0));
+            int randomNumber = rand();
+            iss->Seed = randomNumber;
+            iss->ItemStage = 2;
+        }
     }
 }
 
@@ -19,10 +33,10 @@ void Item::AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
 {
     for (auto it : iter) 
     {
-        if (iss->ItemStage == 1) 
+        if (iss->ItemStage == 2) 
         {
             iter.entity(it).set<ItemTypeCreation>({0,0,0});
-            iss->ItemStage = 2;
+            iss->ItemStage = 3;
         }
     }
 }
@@ -31,24 +45,10 @@ void Item::AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTy
 {
     for (auto it : iter) 
     {
-        if (iss->ItemStage == 2)
+        if (iss->ItemStage == 3)
         {
             CreatingOneHandedMeleeWeaponShortSwordItems(iter, it);
-            iss->ItemStage = 3;
-        }
-    }
-}
-
-void Item::SettingSeedForRandomItemEntitiesGeneration(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc)
-{
-    for (auto it : iter) 
-    {
-        if (iss->ItemStage == 6) 
-        {
-            srand((unsigned)time(0));
-            int randomNumber = rand();
-            iss->Seed = randomNumber;
-            iss->ItemStage = 7;
+            iss->ItemStage = 4;
         }
     }
 }

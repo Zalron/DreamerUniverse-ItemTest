@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 
     flecs::world world;
 
-    world.entity("Item").set<ItemSpawning>({1000,25});
+    world.entity("Item").set<ItemSpawning>({1000});
 
     world.system<ItemSpawning>("CreateItemEntity").iter(&Item::CreateItemEntity);
 

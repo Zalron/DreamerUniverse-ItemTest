@@ -9,6 +9,17 @@
 
 using namespace std;
 
+struct ItemStaging
+{
+    int ItemStage;
+    int Seed;
+};
+
+struct ItemSpawning
+{
+    int NumberOfItems;
+};
+
 struct ItemTypeCreation
 {
     int ItemTypeInt;
@@ -302,18 +313,6 @@ struct ItemAffixMods10
     float ModStatFloatRoll;
 };
 
-struct ItemStaging
-{
-    int ItemStage;
-    int Seed;
-};
-
-struct ItemSpawning 
-{
-    int NumberOfItems;
-    int Seed;
-};
-
 struct CriticalChanceItemStat
 {
     float CriticalChanceRoll;
@@ -547,7 +546,7 @@ public:
     static void CreateItemEntity(flecs::iter& iter, ItemSpawning* is );
     static void AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss);
     static void AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc);
-    static void SettingSeedForRandomItemEntitiesGeneration(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc);
+    static void SettingSeedForRandomItemEntitiesGeneration(flecs::iter& iter, ItemStaging* iss, ItemSpawning* is);
     static void CreatingRarityModComponentsToEntity(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir);
     
 
