@@ -3,6 +3,7 @@
 #define ITEM_H
 #include <string>
 #include <cstdint>
+#include <cstdlib>
 #include "flecs.h"
 #include "ItemConfig.h"
 
@@ -546,13 +547,15 @@ public:
     static void CreateItemEntity(flecs::iter& iter, ItemSpawning* is );
     static void AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss);
     static void AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc);
+    static void SettingSeedForRandomItemEntitiesGeneration(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc);
+    static void CreatingRarityModComponentsToEntity(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir);
     
 
 private:
     static inline void CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
     static inline void CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
 
-    static inline void CreatingRarityModCOmponentsToEntity(flecs::iter& iter, int i, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir);
+    
 
     static inline void CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i);
     static inline void CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i);

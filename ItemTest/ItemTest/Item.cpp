@@ -39,11 +39,119 @@ void Item::AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTy
     }
 }
 
+void Item::SettingSeedForRandomItemEntitiesGeneration(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc)
+{
+    for (auto it : iter) 
+    {
+        if (iss->ItemStage == 6) 
+        {
+            srand((unsigned)time(0));
+            int randomNumber = rand();
+            iss->Seed = randomNumber;
+            iss->ItemStage = 7;
+        }
+    }
+}
 
+void Item::CreatingRarityModComponentsToEntity(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir)
+{
+    for (auto it : iter)
+    {
+        if (iss->ItemStage == 7)
+        {
+            if (ir->RarityAffixAllowance == 1)
+            {
+                iter.entity(it).set<ItemAffixMods1>({});
+            }
+            if (ir->RarityAffixAllowance == 2)
+            {
+                iter.entity(it).set<ItemAffixMods1>({});
+                iter.entity(it).set<ItemAffixMods2>({});
+            }
+            if (ir->RarityAffixAllowance == 3)
+            {
+                iter.entity(it).set<ItemAffixMods1>({});
+                iter.entity(it).set<ItemAffixMods2>({});
+                iter.entity(it).set<ItemAffixMods3>({});
+            }
+            if (ir->RarityAffixAllowance == 4)
+            {
+                iter.entity(it).set<ItemAffixMods1>({});
+                iter.entity(it).set<ItemAffixMods2>({});
+                iter.entity(it).set<ItemAffixMods3>({});
+                iter.entity(it).set<ItemAffixMods4>({});
+            }
+            if (ir->RarityAffixAllowance == 5)
+            {
+                iter.entity(it).set<ItemAffixMods1>({});
+                iter.entity(it).set<ItemAffixMods2>({});
+                iter.entity(it).set<ItemAffixMods3>({});
+                iter.entity(it).set<ItemAffixMods4>({});
+                iter.entity(it).set<ItemAffixMods5>({});
+            }
+            if (ir->RarityAffixAllowance == 6)
+            {
+                iter.entity(it).set<ItemAffixMods1>({});
+                iter.entity(it).set<ItemAffixMods2>({});
+                iter.entity(it).set<ItemAffixMods3>({});
+                iter.entity(it).set<ItemAffixMods4>({});
+                iter.entity(it).set<ItemAffixMods5>({});
+                iter.entity(it).set<ItemAffixMods6>({});
+            }
+            if (ir->RarityAffixAllowance == 7)
+            {
+                iter.entity(it).set<ItemAffixMods1>({});
+                iter.entity(it).set<ItemAffixMods2>({});
+                iter.entity(it).set<ItemAffixMods3>({});
+                iter.entity(it).set<ItemAffixMods4>({});
+                iter.entity(it).set<ItemAffixMods5>({});
+                iter.entity(it).set<ItemAffixMods6>({});
+                iter.entity(it).set<ItemAffixMods7>({});
+            }
+            if (ir->RarityAffixAllowance == 8)
+            {
+                iter.entity(it).set<ItemAffixMods1>({});
+                iter.entity(it).set<ItemAffixMods2>({});
+                iter.entity(it).set<ItemAffixMods3>({});
+                iter.entity(it).set<ItemAffixMods4>({});
+                iter.entity(it).set<ItemAffixMods5>({});
+                iter.entity(it).set<ItemAffixMods6>({});
+                iter.entity(it).set<ItemAffixMods7>({});
+                iter.entity(it).set<ItemAffixMods8>({});
+            }
+            if (ir->RarityAffixAllowance == 9)
+            {
+                iter.entity(it).set<ItemAffixMods1>({});
+                iter.entity(it).set<ItemAffixMods2>({});
+                iter.entity(it).set<ItemAffixMods3>({});
+                iter.entity(it).set<ItemAffixMods4>({});
+                iter.entity(it).set<ItemAffixMods5>({});
+                iter.entity(it).set<ItemAffixMods6>({});
+                iter.entity(it).set<ItemAffixMods7>({});
+                iter.entity(it).set<ItemAffixMods8>({});
+                iter.entity(it).set<ItemAffixMods9>({});
+            }
+            if (ir->RarityAffixAllowance == 10)
+            {
+                iter.entity(it).set<ItemAffixMods1>({});
+                iter.entity(it).set<ItemAffixMods2>({});
+                iter.entity(it).set<ItemAffixMods3>({});
+                iter.entity(it).set<ItemAffixMods4>({});
+                iter.entity(it).set<ItemAffixMods5>({});
+                iter.entity(it).set<ItemAffixMods6>({});
+                iter.entity(it).set<ItemAffixMods7>({});
+                iter.entity(it).set<ItemAffixMods8>({});
+                iter.entity(it).set<ItemAffixMods9>({});
+                iter.entity(it).set<ItemAffixMods10>({});
+            }
+            iss->ItemStage = 8;
+        }
+    }
+}
 
 inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
 {
-    iter.entity(i).set<ItemCharacterLevelRequirements>({0});
+    iter.entity(i).set<ItemCharacterLevelRequirements>({ 0 });
     iter.entity(i).set<ItemRarity>({});
     iter.entity(i).set<ItemQuality>({});
     iter.entity(i).set<ItemMaterial>({});
@@ -64,7 +172,7 @@ inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i
 
 inline void Item::CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
 {
-    iter.entity(i).set<ItemCharacterLevelRequirements>({0});
+    iter.entity(i).set<ItemCharacterLevelRequirements>({ 0 });
     iter.entity(i).set<ItemRarity>({});
     iter.entity(i).set<ItemQuality>({});
     iter.entity(i).set<ItemMaterial>({});
@@ -81,99 +189,6 @@ inline void Item::CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i
     iter.entity(i).set<ReloadTimeItemStat>({});
     iter.entity(i).set<FireRateItemStat>({});
     iter.entity(i).set<WeightItemStat>({});
-}
-
-inline void Item::CreatingRarityModCOmponentsToEntity(flecs::iter& iter, int i, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir)
-{
-    if (iss->ItemStage == 7)
-    {
-        if (ir->RarityAffixAllowance == 1)
-        {
-            iter.entity(i).set<ItemAffixMods1>({});
-        }
-        if (ir->RarityAffixAllowance == 2)
-        {
-            iter.entity(i).set<ItemAffixMods1>({});
-            iter.entity(i).set<ItemAffixMods2>({});
-        }
-        if (ir->RarityAffixAllowance == 3)
-        {
-            iter.entity(i).set<ItemAffixMods1>({});
-            iter.entity(i).set<ItemAffixMods2>({});
-            iter.entity(i).set<ItemAffixMods3>({});
-        }
-        if (ir->RarityAffixAllowance == 4)
-        {
-            iter.entity(i).set<ItemAffixMods1>({});
-            iter.entity(i).set<ItemAffixMods2>({});
-            iter.entity(i).set<ItemAffixMods3>({});
-            iter.entity(i).set<ItemAffixMods4>({});
-        }
-        if (ir->RarityAffixAllowance == 5)
-        {
-            iter.entity(i).set<ItemAffixMods1>({});
-            iter.entity(i).set<ItemAffixMods2>({});
-            iter.entity(i).set<ItemAffixMods3>({});
-            iter.entity(i).set<ItemAffixMods4>({});
-            iter.entity(i).set<ItemAffixMods5>({});
-        }
-        if (ir->RarityAffixAllowance == 6)
-        {
-            iter.entity(i).set<ItemAffixMods1>({});
-            iter.entity(i).set<ItemAffixMods2>({});
-            iter.entity(i).set<ItemAffixMods3>({});
-            iter.entity(i).set<ItemAffixMods4>({});
-            iter.entity(i).set<ItemAffixMods5>({});
-            iter.entity(i).set<ItemAffixMods6>({});
-        }
-        if (ir->RarityAffixAllowance == 7)
-        {
-            iter.entity(i).set<ItemAffixMods1>({}); 
-            iter.entity(i).set<ItemAffixMods2>({});
-            iter.entity(i).set<ItemAffixMods3>({});
-            iter.entity(i).set<ItemAffixMods4>({});
-            iter.entity(i).set<ItemAffixMods5>({});
-            iter.entity(i).set<ItemAffixMods6>({});
-            iter.entity(i).set<ItemAffixMods7>({});
-        }
-        if (ir->RarityAffixAllowance == 8)
-        {
-            iter.entity(i).set<ItemAffixMods1>({});
-            iter.entity(i).set<ItemAffixMods2>({});
-            iter.entity(i).set<ItemAffixMods3>({});
-            iter.entity(i).set<ItemAffixMods4>({});
-            iter.entity(i).set<ItemAffixMods5>({});
-            iter.entity(i).set<ItemAffixMods6>({});
-            iter.entity(i).set<ItemAffixMods7>({});
-            iter.entity(i).set<ItemAffixMods8>({});
-        }
-        if (ir->RarityAffixAllowance == 9)
-        {
-            iter.entity(i).set<ItemAffixMods1>({});
-            iter.entity(i).set<ItemAffixMods2>({});
-            iter.entity(i).set<ItemAffixMods3>({});
-            iter.entity(i).set<ItemAffixMods4>({});
-            iter.entity(i).set<ItemAffixMods5>({});
-            iter.entity(i).set<ItemAffixMods6>({});
-            iter.entity(i).set<ItemAffixMods7>({});
-            iter.entity(i).set<ItemAffixMods8>({});
-            iter.entity(i).set<ItemAffixMods9>({});
-        }
-        if (ir->RarityAffixAllowance == 10)
-        {
-            iter.entity(i).set<ItemAffixMods1>({});
-            iter.entity(i).set<ItemAffixMods2>({});
-            iter.entity(i).set<ItemAffixMods3>({});
-            iter.entity(i).set<ItemAffixMods4>({});
-            iter.entity(i).set<ItemAffixMods5>({});
-            iter.entity(i).set<ItemAffixMods6>({});
-            iter.entity(i).set<ItemAffixMods7>({});
-            iter.entity(i).set<ItemAffixMods8>({});
-            iter.entity(i).set<ItemAffixMods9>({});
-            iter.entity(i).set<ItemAffixMods10>({});
-        }
-        iss->ItemStage = 8;
-    }
 }
 
 #pragma region Creating OneHanded Melee Weapons

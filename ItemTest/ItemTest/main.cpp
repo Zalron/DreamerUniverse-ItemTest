@@ -8,6 +8,7 @@ using namespace std;
 
 int main(int argc, char* argv[]) 
 {
+    cout << "RAND_MAX value is " << RAND_MAX << endl;
 
     flecs::world world;
 
