@@ -179,57 +179,57 @@ inline void Item::CreatingRarityModCOmponentsToEntity(flecs::iter& iter, int i, 
 #pragma region Creating OneHanded Melee Weapons
 inline void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Weapons>();
-    iter.entity(i).add<Melee>();
-    iter.entity(i).add<OneHanded>();
+    iter.entity(i).add_trait<Item, Weapons>();
+    iter.entity(i).add_trait<Weapons, Melee>();
+    iter.entity(i).add_trait<Melee, OneHanded>();
 }
 
 inline void Item::CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<ShortSword>();
+    iter.entity(i).add_trait<OneHanded, ShortSword>();
 }
 
 inline void Item::CreatingOneHandedMeleeWeaponMaceItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Mace>();
+    iter.entity(i).add_trait<OneHanded, Mace>();
 }
 
 inline void Item::CreatingOneHandedMeleeWeaponKnifeItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Knife>();
+    iter.entity(i).add_trait<OneHanded, Knife>();
 }
 
 inline void Item::CreatingOneHandedMeleeWeaponWarhammerItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Warhammer>();
+    iter.entity(i).add_trait<OneHanded, Warhammer>();
 }
 
 inline void Item::CreatingOneHandedMeleeWeaponAxeItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Axe>();
+    iter.entity(i).add_trait<OneHanded, Axe>();
 }
 
 inline void Item::CreatingOneHandedMeleeWeaponShieldItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Shield>();
+    iter.entity(i).add_trait<OneHanded, Shield>();
 }
 
 inline void Item::CreatingOneHandedMeleeWeaponRapierItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Rapier>();
+    iter.entity(i).add_trait<OneHanded, Rapier>();
 }
 
 inline void Item::CreatingOneHandedMeleeWeaponClubItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Club>();
+    iter.entity(i).add_trait<OneHanded, Club>();
 }
 
 #pragma endregion
@@ -238,63 +238,63 @@ inline void Item::CreatingOneHandedMeleeWeaponClubItems(flecs::iter& iter, int i
 
 inline void Item::CreatingTwoHandedMeleeWeaponItems(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Weapons>();
-    iter.entity(i).add<Melee>();
-    iter.entity(i).add<TwoHanded>();
+    iter.entity(i).add_trait<Item, Weapons>();
+    iter.entity(i).add_trait<Weapons, Melee>();
+    iter.entity(i).add_trait<Melee, TwoHanded>();
 }
 
 inline void Item::CreatingTwoHandedMeleeWeaponLongSwordItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<LongSword>();
+    iter.entity(i).add_trait<TwoHanded, LongSword>();
 }
 
 inline void Item::CreatingTwoHandedMeleeWeaponMaceItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Mace>();
+    iter.entity(i).add_trait<TwoHanded, Mace>();
 }
 
 inline void Item::CreatingTwoHandedMeleeWeaponWarhammerItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Warhammer>();
+    iter.entity(i).add_trait<TwoHanded, Warhammer>();
 }
 
 inline void Item::CreatingTwoHandedMeleeWeaponHalberdItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Halberd>();
+    iter.entity(i).add_trait<TwoHanded, Halberd>();
 }
 
 inline void Item::CreatingTwoHandedMeleeWeaponAxeItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Axe>();
+    iter.entity(i).add_trait<TwoHanded, Axe>();
 }
 
 inline void Item::CreatingTwoHandedMeleeWeaponClubItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Club>();
+    iter.entity(i).add_trait<TwoHanded, Club>();
 }
 
 inline void Item::CreatingTwoHandedMeleeWeaponStaffItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Staff>();
+    iter.entity(i).add_trait<TwoHanded, Staff>();
 }
 
 inline void Item::CreatingTwoHandedMeleeWeaponSpearItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Spear>();
+    iter.entity(i).add_trait<TwoHanded, Spear>();
 }
 
 inline void Item::CreatingTwoHandedMeleeWeaponClawsItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i);
-    iter.entity(i).add<Claws>();
+    iter.entity(i).add_trait<TwoHanded, Claws>();
 }
 
 #pragma endregion
@@ -303,51 +303,51 @@ inline void Item::CreatingTwoHandedMeleeWeaponClawsItems(flecs::iter& iter, int 
 
 inline void Item::CreatingOneHandedRangedWeaponItems(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Weapons>();
-    iter.entity(i).add<Ranged>();
-    iter.entity(i).add<OneHanded>();
+    iter.entity(i).add_trait<Item, Weapons>();
+    iter.entity(i).add_trait<Weapons, Ranged>();
+    iter.entity(i).add_trait<Ranged, OneHanded>();
 }
 
 inline void Item::CreatingOneHandedRangedWeaponWandItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<Wand>();
+    iter.entity(i).add_trait<OneHanded, Wand>();
 }
 
 inline void Item::CreatingOneHandedRangedWeaponThrowingKnifeItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<ThrowingKnifes>();
+    iter.entity(i).add_trait<OneHanded, ThrowingKnifes>();
 }
 
 inline void Item::CreatingOneHandedRangedWeaponThrowingAxesItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<ThrowingAxes>();
+    iter.entity(i).add_trait<OneHanded, ThrowingAxes>();
 }
 
 inline void Item::CreatingOneHandedRangedWeaponPistolItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<Pistol>();
+    iter.entity(i).add_trait<OneHanded, Pistol>();
 }
 
 inline void Item::CreatingOneHandedRangedWeaponHandCannonItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<HandCannon>();
+    iter.entity(i).add_trait<OneHanded, HandCannon>();
 }
 
 inline void Item::CreatingOneHandedRangedWeaponRevolverItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<Revolver>();
+    iter.entity(i).add_trait<OneHanded, Revolver>();
 }
 
 inline void Item::CreatingOneHandedRangedWeaponHandCrossbowItems(flecs::iter& iter, int i)
 {
     CreatingOneHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<HandCrossbow>();
+    iter.entity(i).add_trait<OneHanded, HandCrossbow>();
 }
 #pragma endregion
 
@@ -355,69 +355,69 @@ inline void Item::CreatingOneHandedRangedWeaponHandCrossbowItems(flecs::iter& it
 
 inline void Item::CreatingTwoHandedRangedWeaponItems(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Weapons>();
-    iter.entity(i).add<Ranged>();
-    iter.entity(i).add<TwoHanded>();
+    iter.entity(i).add_trait<Item, Weapons>();
+    iter.entity(i).add_trait<Weapons, Ranged>();
+    iter.entity(i).add_trait<Ranged, TwoHanded>();
 }
 
 inline void Item::CreatingTwoHandedRangedWeaponBowItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<Bow>();
+    iter.entity(i).add_trait<TwoHanded, Bow>();
 }
 
 inline void Item::CreatingTwoHandedRangedWeaponCrossbowItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<Crossbow>();
+    iter.entity(i).add_trait<TwoHanded, Crossbow>();
 }
 
 inline void Item::CreatingTwoHandedRangedWeaponCarbineItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<Carbine>();
+    iter.entity(i).add_trait<TwoHanded, Carbine>();
 }
 
 inline void Item::CreatingTwoHandedRangedWeaponAssaultRifleItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<AssaultRifle>();
+    iter.entity(i).add_trait<TwoHanded, AssaultRifle>();
 }
 
 inline void Item::CreatingTwoHandedRangedWeaponSniperRifleItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<SniperRifle>();
+    iter.entity(i).add_trait<TwoHanded, SniperRifle>();
 }
 
 inline void Item::CreatingTwoHandedRangedWeaponLightMachineGunItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<LightMachineGun>();
+    iter.entity(i).add_trait<TwoHanded, LightMachineGun>();
 }
 
 inline void Item::CreatingTwoHandedRangedWeaponSubMachineGunItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<SubMachineGun>();
+    iter.entity(i).add_trait<TwoHanded, SubMachineGun>();
 }
 
 inline void Item::CreatingTwoHandedRangedWeaponShotgunItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<Shotgun>();
+    iter.entity(i).add_trait<TwoHanded, Shotgun>();
 }
 
 inline void Item::CreatingTwoHandedRangedWeaponGrenadeLauncherItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<GrenadeLauncher>();
+    iter.entity(i).add_trait<TwoHanded, GrenadeLauncher>();
 }
 
 inline void Item::CreatingTwoHandedRangedWeaponRocketLauncherItems(flecs::iter& iter, int i)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i);
-    iter.entity(i).add<RocketLauncher>();
+    iter.entity(i).add_trait<TwoHanded, RocketLauncher>();
 }
 
 #pragma endregion
@@ -426,57 +426,57 @@ inline void Item::CreatingTwoHandedRangedWeaponRocketLauncherItems(flecs::iter& 
 
 void Item::CreatingArmourPowerArmourLightItems(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Armour>();
-    iter.entity(i).add<PowerArmour>();
-    iter.entity(i).add<LightPowerArmour>();
+    iter.entity(i).add_trait<Item, Armour>();
+    iter.entity(i).add_trait<Armour, PowerArmour>();
+    iter.entity(i).add_trait<PowerArmour, LightPowerArmour>();
 }
 
 inline void Item::CreatingArmourPowerArmourLightHeadItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
-    iter.entity(i).add<Head>();
+    iter.entity(i).add_trait<LightPowerArmour, Head>();
 }
 
 inline void Item::CreatingArmourPowerArmourLightBeltItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
-    iter.entity(i).add<Belt>();
+    iter.entity(i).add_trait<LightPowerArmour, Belt>();
 }
 
 inline void Item::CreatingArmourPowerArmourLightChestItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
-    iter.entity(i).add<Chests>();
+    iter.entity(i).add_trait<LightPowerArmour, Chests>();
 }
 
 inline void Item::CreatingArmourPowerArmourLightLegsItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
-    iter.entity(i).add<Legs>();
+    iter.entity(i).add_trait<LightPowerArmour, Legs>();
 }
 
 inline void Item::CreatingArmourPowerArmourLightArmsItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
-    iter.entity(i).add<Arms>();
+    iter.entity(i).add_trait<LightPowerArmour, Arms>();
 }
 
 inline void Item::CreatingArmourPowerArmourLightHandsItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
-    iter.entity(i).add<Hands>();
+    iter.entity(i).add_trait<LightPowerArmour, Hands>();
 }
 
 inline void Item::CreatingArmourPowerArmourLightShouldersItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
-    iter.entity(i).add<Shoulders>();
+    iter.entity(i).add_trait<LightPowerArmour, Shoulders>();
 }
 
 inline void Item::CreatingArmourPowerArmourLightBackpackItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
-    iter.entity(i).add<Backpack>();
+    iter.entity(i).add_trait<LightPowerArmour, Backpack>();
 }
 
 #pragma endregion
@@ -485,57 +485,57 @@ inline void Item::CreatingArmourPowerArmourLightBackpackItems(flecs::iter& iter,
 
 void Item::CreatingArmourPowerArmourMediumItems(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Armour>();
-    iter.entity(i).add<PowerArmour>();
-    iter.entity(i).add<MediumPowerArmour>();
+    iter.entity(i).add_trait<Item, Armour>();
+    iter.entity(i).add_trait<Armour, PowerArmour>();
+    iter.entity(i).add_trait<PowerArmour, MediumPowerArmour>();
 }
 
 inline void Item::CreatingArmourPowerArmourMediumHeadItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
-    iter.entity(i).add<Head>();
+    iter.entity(i).add_trait<MediumPowerArmour, Head>();
 }
 
 inline void Item::CreatingArmourPowerArmourMediumBeltItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
-    iter.entity(i).add<Belt>();
+    iter.entity(i).add_trait<MediumPowerArmour, Belt>();
 }
 
 inline void Item::CreatingArmourPowerArmourMediumChestItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
-    iter.entity(i).add<Chests>();
+    iter.entity(i).add_trait<MediumPowerArmour, Chests>();
 }
 
 inline void Item::CreatingArmourPowerArmourMediumLegsItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
-    iter.entity(i).add<Legs>();
+    iter.entity(i).add_trait<MediumPowerArmour, Legs>();
 }
 
 inline void Item::CreatingArmourPowerArmourMediumArmsItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
-    iter.entity(i).add<Arms>();
+    iter.entity(i).add_trait<MediumPowerArmour, Arms>();
 }
 
 inline void Item::CreatingArmourPowerArmourMediumHandsItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
-    iter.entity(i).add<Hands>();
+    iter.entity(i).add_trait<MediumPowerArmour, Hands>();
 }
 
 inline void Item::CreatingArmourPowerArmourMediumShouldersItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
-    iter.entity(i).add<Shoulders>();
+    iter.entity(i).add_trait<MediumPowerArmour, Shoulders>();
 }
 
 inline void Item::CreatingArmourPowerArmourMediumBackpackItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
-    iter.entity(i).add<Backpack>();
+    iter.entity(i).add_trait<MediumPowerArmour, Backpack>();
 }
 
 #pragma endregion
@@ -544,57 +544,57 @@ inline void Item::CreatingArmourPowerArmourMediumBackpackItems(flecs::iter& iter
 
 inline void Item::CreatingArmourPowerArmourHeavyItems(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Armour>();
-    iter.entity(i).add<PowerArmour>();
-    iter.entity(i).add<HeavyPowerArmour>();
+    iter.entity(i).add_trait<Item, Armour>();
+    iter.entity(i).add_trait<Armour, PowerArmour>();
+    iter.entity(i).add_trait<PowerArmour, HeavyPowerArmour>();
 }
 
 inline void Item::CreatingArmourPowerArmourHeavyHeadItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
-    iter.entity(i).add<Head>();
+    iter.entity(i).add_trait<HeavyPowerArmour, Head>();
 }
 
 inline void Item::CreatingArmourPowerArmourHeavyBeltItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
-    iter.entity(i).add<Belt>();
+    iter.entity(i).add_trait<HeavyPowerArmour, Belt>();
 }
 
 inline void Item::CreatingArmourPowerArmourHeavyChestItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
-    iter.entity(i).add<Chests>();
+    iter.entity(i).add_trait<HeavyPowerArmour, Chests>();
 }
 
 inline void Item::CreatingArmourPowerArmourHeavyLegsItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
-    iter.entity(i).add<Legs>();
+    iter.entity(i).add_trait<HeavyPowerArmour, Legs>();
 }
 
 inline void Item::CreatingArmourPowerArmourHeavyArmsItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
-    iter.entity(i).add<Arms>();
+    iter.entity(i).add_trait<HeavyPowerArmour, Arms>();
 }
 
 inline void Item::CreatingArmourPowerArmourHeavyHandsItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
-    iter.entity(i).add<Hands>();
+    iter.entity(i).add_trait<HeavyPowerArmour, Hands>();
 }
 
 inline void Item::CreatingArmourPowerArmourHeavyShouldersItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
-    iter.entity(i).add<Shoulders>();
+    iter.entity(i).add_trait<HeavyPowerArmour, Shoulders>();
 }
 
 inline void Item::CreatingArmourPowerArmourHeavyBackpackItems(flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
-    iter.entity(i).add<Backpack>();
+    iter.entity(i).add_trait<HeavyPowerArmour, Backpack>();
 }
 
 #pragma endregion
@@ -603,56 +603,56 @@ inline void Item::CreatingArmourPowerArmourHeavyBackpackItems(flecs::iter& iter,
 
 inline void Item::CreatingArmourNonPowerArmourItems(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Armour>();
-    iter.entity(i).add<NonPowerArmour>();
+    iter.entity(i).add_trait<Item, Armour>();
+    iter.entity(i).add_trait<Armour, NonPowerArmour>();
 }
 
 inline void Item::CreatingArmourNonPowerArmourHeadItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Head>();
+    iter.entity(i).add_trait<NonPowerArmour, Head>();
 }
 
 inline void Item::CreatingArmourNonPowerArmourBeltItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Belt>();
+    iter.entity(i).add_trait<NonPowerArmour, Belt>();
 }
 
 inline void Item::CreatingArmourNonPowerArmourChestItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Chests>();
+    iter.entity(i).add_trait<NonPowerArmour, Chests>();
 }
 
 inline void Item::CreatingArmourNonPowerArmourLegsItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Legs>();
+    iter.entity(i).add_trait<NonPowerArmour, Legs>();
 }
 
 inline void Item::CreatingArmourNonPowerArmourArmsItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Arms>();
+    iter.entity(i).add_trait<NonPowerArmour, Arms>();
 }
 
 inline void Item::CreatingArmourNonPowerArmourHandsItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Hands>();
+    iter.entity(i).add_trait<NonPowerArmour, Hands>();
 }
 
 inline void Item::CreatingArmourNonPowerArmourShouldersItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Shoulders>();
+    iter.entity(i).add_trait<NonPowerArmour, Shoulders>();
 }
 
 inline void Item::CreatingArmourNonPowerArmourBackpackItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Backpack>();
+    iter.entity(i).add_trait<NonPowerArmour, Backpack>();
 }
 
 #pragma endregion
@@ -661,122 +661,122 @@ inline void Item::CreatingArmourNonPowerArmourBackpackItems(flecs::iter& iter, i
 
 void Item::CreatingArmourClothsItems(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Armour>();
-    iter.entity(i).add<Cloths>();
+    iter.entity(i).add_trait<Item, Armour>();
+    iter.entity(i).add_trait<Armour, Cloths>();
 }
 
 inline void Item::CreatingArmourClothsHeadItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Head>();
+    iter.entity(i).add_trait<Cloths, Head>();
 }
 
 inline void Item::CreatingArmourClothsBeltItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Belt>();
+    iter.entity(i).add_trait<Cloths, Belt>();
 }
 
 inline void Item::CreatingArmourClothsChestItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Chests>();
+    iter.entity(i).add_trait<Cloths, Chests>();
 }
 
 inline void Item::CreatingArmourClothsLegsItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Legs>();
+    iter.entity(i).add_trait<Cloths, Legs>();
 }
 
 inline void Item::CreatingArmourClothsArmsItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Arms>();
+    iter.entity(i).add_trait<Cloths, Arms>();
 }
 
 inline void Item::CreatingArmourClothsHandsItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Hands>();
+    iter.entity(i).add_trait<Cloths, Hands>();
 }
 
 inline void Item::CreatingArmourClothsShouldersItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Shoulders>();
+    iter.entity(i).add_trait<Cloths, Shoulders>();
 }
 
 inline void Item::CreatingArmourClothsBackpackItems(flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
-    iter.entity(i).add<Backpack>();
+    iter.entity(i).add_trait<Cloths, Backpack>();
 }
 
 inline void Item::CreatingEquipmentFlasks(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Equipment>();
-    iter.entity(i).add<Flasks>();
+    iter.entity(i).add_trait<Item, Equipment>();
+    iter.entity(i).add_trait<Equipment, Flasks>();
 }
 
 inline void Item::CreatingEquipmentFlasksHealth(flecs::iter& iter, int i)
 {
     CreatingEquipmentFlasks(iter, i);
-    iter.entity(i).add<Health>();
+    iter.entity(i).add_trait<Flasks, Health>();
 }
 
 inline void Item::CreatingEquipmentFlasksMagic(flecs::iter& iter, int i)
 {
     CreatingEquipmentFlasks(iter, i);
-    iter.entity(i).add<Magic>();
+    iter.entity(i).add_trait<Flasks, Magic>();
 }
 
 inline void Item::CreatingEquipmentFlasksMovement(flecs::iter& iter, int i)
 {
     CreatingEquipmentFlasks(iter, i);
-    iter.entity(i).add<Movement>();
+    iter.entity(i).add_trait<Flasks, Movement>();
 }
 
 inline void Item::CreatingEquipmentFlasksResistance(flecs::iter& iter, int i)
 {
     CreatingEquipmentFlasks(iter, i);
-    iter.entity(i).add<Resistance>();
+    iter.entity(i).add_trait<Flasks, Resistance>();
 }
 
 inline void Item::CreatingEquipmentAmmo(flecs::iter& iter, int i)
 {
-    iter.entity(i).add<Equipment>();
-    iter.entity(i).add<Ammo>();
+    iter.entity(i).add_trait<Item, Equipment>();
+    iter.entity(i).add_trait<Equipment, Ammo>();
 }
 
 inline void Item::CreatingEquipmentAmmoQuivers(flecs::iter& iter, int i)
 {
     CreatingEquipmentAmmo(iter, i);
-    iter.entity(i).add<Quivers>();
+    iter.entity(i).add_trait<Equipment, Quivers>();
 }
 
 inline void Item::CreatingEquipmentAmmoMagazines(flecs::iter& iter, int i)
 {
     CreatingEquipmentAmmo(iter, i);
-    iter.entity(i).add<Magazines>();
+    iter.entity(i).add_trait<Equipment, Magazines>();
 }
 
 inline void Item::CreatingEquipmentAmmoGrenades(flecs::iter& iter, int i)
 {
     CreatingEquipmentAmmo(iter, i);
-    iter.entity(i).add<Grenades>();
+    iter.entity(i).add_trait<Equipment, Grenades>();
 }
 
 inline void Item::CreatingEquipmentAmmoRockets(flecs::iter& iter, int i)
 {
     CreatingEquipmentAmmo(iter, i);
-    iter.entity(i).add<Rockets>();
+    iter.entity(i).add_trait<Equipment, Rockets>();
 }
 
 inline void Item::CreatingEquipmentAmmoMines(flecs::iter& iter, int i)
 {
     CreatingEquipmentAmmo(iter, i);
-    iter.entity(i).add<Mines>();
+    iter.entity(i).add_trait<Equipment, Mines>();
 }
 
 #pragma endregion
