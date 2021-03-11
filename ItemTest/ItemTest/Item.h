@@ -551,6 +551,7 @@ public:
     
 
 private:
+    static inline void CreatingBaseItemEquipableStats(flecs::iter& iter, int i);
     static inline void CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
     static inline void CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
 

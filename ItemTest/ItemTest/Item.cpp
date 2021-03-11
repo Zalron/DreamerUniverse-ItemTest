@@ -148,8 +148,7 @@ void Item::CreatingRarityModComponentsToEntity(flecs::iter& iter, ItemStaging* i
         }
     }
 }
-
-inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
+inline void Item::CreatingBaseItemEquipableStats(flecs::iter& iter, int i)
 {
     iter.entity(i).set<ItemCharacterLevelRequirements>({ 0 });
     iter.entity(i).set<ItemRarity>({});
@@ -157,7 +156,11 @@ inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i
     iter.entity(i).set<ItemMaterial>({});
     iter.entity(i).set<ItemManufacturer>({});
     iter.entity(i).set<ItemName>({});
+}
 
+inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
+{
+    CreatingBaseItemEquipableStats(iter, i);
     iter.entity(i).set<CriticalChanceItemStat>({});
     iter.entity(i).set<MagicalDamageItemStat>({});
     iter.entity(i).set<PhysicalDamageItemStat>({});
@@ -172,13 +175,7 @@ inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i
 
 inline void Item::CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
 {
-    iter.entity(i).set<ItemCharacterLevelRequirements>({ 0 });
-    iter.entity(i).set<ItemRarity>({});
-    iter.entity(i).set<ItemQuality>({});
-    iter.entity(i).set<ItemMaterial>({});
-    iter.entity(i).set<ItemManufacturer>({});
-    iter.entity(i).set<ItemName>({});
-
+    CreatingBaseItemEquipableStats(iter, i);
     iter.entity(i).set<CriticalChanceItemStat>({});
     iter.entity(i).set<MagicalDamageItemStat>({});
     iter.entity(i).set<PhysicalDamageItemStat>({});
