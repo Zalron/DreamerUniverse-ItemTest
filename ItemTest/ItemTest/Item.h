@@ -398,6 +398,36 @@ struct ArmourRechargeDelayItemStat
     float ArmourRechargeDelayRoll;
 };
 
+struct ShieldItemStat
+{
+    float ShieldRoll;
+};
+
+struct ShieldRechargeRateItemStat
+{
+    float ShieldRechargeRateRoll;
+};
+
+struct ShieldRechargeDelayItemStat
+{
+    float ShieldRechargeDelayRoll;
+};
+
+struct EnergyItemStat
+{
+    float EnergyRoll;
+};
+
+struct EnergyRechargeRateItemStat
+{
+    float EnergyRechargeRateRoll;
+};
+
+struct EnergyRechargeDelayItemStat
+{
+    float EnergyRechargeDelayRoll;
+};
+
 struct ItemName
 {
     string BaseName;
@@ -554,8 +584,7 @@ private:
     static inline void CreatingBaseItemEquipableStats(flecs::iter& iter, int i);
     static inline void CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
     static inline void CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
-
-    
+    static inline void CreatingPowerArmourComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
 
     static inline void CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i);
     static inline void CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i);

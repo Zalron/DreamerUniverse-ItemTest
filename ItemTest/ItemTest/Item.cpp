@@ -188,6 +188,21 @@ inline void Item::CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i
     iter.entity(i).set<WeightItemStat>({});
 }
 
+inline void Item::CreatingPowerArmourComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
+{
+    CreatingBaseItemEquipableStats(iter, i);
+    iter.entity(i).set<ArmourItemStat>({});
+    iter.entity(i).set<ArmourRechargeRateItemStat>({});
+    iter.entity(i).set<ArmourRechargeDelayItemStat>({});
+    iter.entity(i).set<ShieldItemStat>({});
+    iter.entity(i).set<ShieldRechargeRateItemStat>({});
+    iter.entity(i).set<ShieldRechargeDelayItemStat>({});
+    iter.entity(i).set<EnergyItemStat>({});
+    iter.entity(i).set<EnergyRechargeRateItemStat>({});
+    iter.entity(i).set<EnergyRechargeDelayItemStat>({});
+    iter.entity(i).set<WeightItemStat>({});
+}
+
 #pragma region Creating OneHanded Melee Weapons
 inline void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i)
 {
