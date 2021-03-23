@@ -582,9 +582,9 @@ public:
 
 private:
     static inline void CreatingBaseItemEquipableStats(flecs::iter& iter, int i);
-    static inline void CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
-    static inline void CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
-    static inline void CreatingPowerArmourComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc);
+    static inline void CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i);
+    static inline void CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i);
+    static inline void CreatingPowerArmourComponentsToEntity(flecs::iter& iter, int i);
 
     static inline void CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i);
     static inline void CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i);

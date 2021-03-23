@@ -25,6 +25,7 @@ void Item::SettingSeedForRandomItemEntitiesGeneration(flecs::iter& iter, ItemSta
             int randomNumber = rand();
             iss->Seed = randomNumber;
             iss->ItemStage = 2;
+            std::cout << "System SettingSeedForRandomItemEntitiesGeneration is randomly generating number" << std::endl;
         }
     }
 }
@@ -37,6 +38,7 @@ void Item::AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
         {
             iter.entity(it).set<ItemTypeCreation>({0,0,0});
             iss->ItemStage = 3;
+            std::cout << "System AddItemTypeComponentstoEntity has add ItemTypeCreation component" << std::endl;
         }
     }
 }
@@ -49,6 +51,7 @@ void Item::AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTy
         {
             CreatingOneHandedMeleeWeaponShortSwordItems(iter, it);
             iss->ItemStage = 4;
+            std::cout << "System AddItemComponentstoEntity is creating MeleeWeaponShortSwordItems" << std::endl;
         }
     }
 }
@@ -158,7 +161,7 @@ inline void Item::CreatingBaseItemEquipableStats(flecs::iter& iter, int i)
     iter.entity(i).set<ItemName>({});
 }
 
-inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
+inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i)
 {
     CreatingBaseItemEquipableStats(iter, i);
     iter.entity(i).set<CriticalChanceItemStat>({});
@@ -173,7 +176,7 @@ inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i
     iter.entity(i).set<WeightItemStat>({});
 }
 
-inline void Item::CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
+inline void Item::CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i)
 {
     CreatingBaseItemEquipableStats(iter, i);
     iter.entity(i).set<CriticalChanceItemStat>({});
@@ -188,7 +191,7 @@ inline void Item::CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i
     iter.entity(i).set<WeightItemStat>({});
 }
 
-inline void Item::CreatingPowerArmourComponentsToEntity(flecs::iter& iter, int i, ItemTypeCreation* isc)
+inline void Item::CreatingPowerArmourComponentsToEntity(flecs::iter& iter, int i)
 {
     CreatingBaseItemEquipableStats(iter, i);
     iter.entity(i).set<ArmourItemStat>({});
@@ -206,6 +209,7 @@ inline void Item::CreatingPowerArmourComponentsToEntity(flecs::iter& iter, int i
 #pragma region Creating OneHanded Melee Weapons
 inline void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i)
 {
+    CreatingMeleeWeaponComponentsToEntity(iter, i);
     iter.entity(i).add_trait<Item, Weapons>();
     iter.entity(i).add_trait<Weapons, Melee>();
     iter.entity(i).add_trait<Melee, OneHanded>();
