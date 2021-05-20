@@ -144,12 +144,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="flecs.c" />
+    <ClCompile Include="flecs_components_http.c" />
+    <ClCompile Include="flecs_dash.c" />
+    <ClCompile Include="flecs_json.c" />
+    <ClCompile Include="flecs_meta.c" />
+    <ClCompile Include="flecs_rest.c" />
+    <ClCompile Include="flecs_systems_civetweb.c" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemConfig.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="flecs.h" />
+    <ClInclude Include="flecs_components_http.h" />
+    <ClInclude Include="flecs_dash.h" />
+    <ClInclude Include="flecs_json.h" />
+    <ClInclude Include="flecs_meta.h" />
+    <ClInclude Include="flecs_rest.h" />
+    <ClInclude Include="flecs_systems_civetweb.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemConfig.h" />
   </ItemGroup>
