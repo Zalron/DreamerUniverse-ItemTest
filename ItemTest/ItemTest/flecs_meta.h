@@ -23,7 +23,7 @@
 #define FLECS_META_BAKE_CONFIG_H
 
 /* Headers of public dependencies */
-#include <flecs.h>
+#include "flecs.h"
 
 /* Convenience macro for exporting symbols */
 #ifndef flecs_meta_STATIC

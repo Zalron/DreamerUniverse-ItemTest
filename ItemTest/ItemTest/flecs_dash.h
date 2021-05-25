@@ -23,12 +23,12 @@
 #define FLECS_DASH_BAKE_CONFIG_H
 
 /* Headers of public dependencies */
-#include <flecs.h>
-#include <flecs_meta.h>
-#include <flecs_player.h>
-#include <flecs_components_http.h>
-#include <flecs_rest.h>
-#include <flecs_monitor.h>
+#include "flecs.h"
+#include "flecs_meta.h"
+#include "flecs_player.h"
+#include "flecs_components_http.h"
+#include "flecs_rest.h"
+#include "flecs_monitor.h"
 
 /* Convenience macro for exporting symbols */
 #ifndef flecs_dash_STATIC

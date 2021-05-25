@@ -148,6 +148,8 @@
     <ClCompile Include="flecs_dash.c" />
     <ClCompile Include="flecs_json.c" />
     <ClCompile Include="flecs_meta.c" />
+    <ClCompile Include="flecs_monitor.c" />
+    <ClCompile Include="flecs_player.c" />
     <ClCompile Include="flecs_rest.c" />
     <ClCompile Include="flecs_systems_civetweb.c" />
     <ClCompile Include="Item.cpp" />
@@ -160,6 +162,8 @@
     <ClInclude Include="flecs_dash.h" />
     <ClInclude Include="flecs_json.h" />
     <ClInclude Include="flecs_meta.h" />
+    <ClInclude Include="flecs_monitor.h" />
+    <ClInclude Include="flecs_player.h" />
     <ClInclude Include="flecs_rest.h" />
     <ClInclude Include="flecs_systems_civetweb.h" />
     <ClInclude Include="Item.h" />

@@ -23,10 +23,10 @@
 #define FLECS_REST_BAKE_CONFIG_H
 
 /* Headers of public dependencies */
-#include <flecs.h>
-#include <flecs_components_http.h>
-#include <flecs_meta.h>
-#include <flecs_json.h>
+#include "flecs.h"
+#include "flecs_components_http.h"
+#include "flecs_meta.h"
+#include "flecs_json.h"
 
 /* Convenience macro for exporting symbols */
 #ifndef flecs_rest_STATIC

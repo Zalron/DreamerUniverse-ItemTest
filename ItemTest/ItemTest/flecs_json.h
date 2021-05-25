@@ -23,8 +23,8 @@
 #define FLECS_JSON_BAKE_CONFIG_H
 
 /* Headers of public dependencies */
-#include <flecs.h>
-#include <flecs_meta.h>
+#include "flecs.h"
+#include "flecs_meta.h"
 
 /* Convenience macro for exporting symbols */
 #ifndef flecs_json_STATIC

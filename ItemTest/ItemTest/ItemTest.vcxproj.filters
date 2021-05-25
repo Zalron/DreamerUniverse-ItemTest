@@ -45,6 +45,12 @@
     <ClCompile Include="flecs_systems_civetweb.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="flecs_monitor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="flecs_player.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="flecs.h">
@@ -72,6 +78,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="flecs_systems_civetweb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flecs_monitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flecs_player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
