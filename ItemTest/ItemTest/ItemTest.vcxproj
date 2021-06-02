@@ -72,15 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -143,33 +147,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="flecs.c" />
-    <ClCompile Include="flecs_components_http.c" />
-    <ClCompile Include="flecs_dash.c" />
-    <ClCompile Include="flecs_json.c" />
-    <ClCompile Include="flecs_meta.c" />
-    <ClCompile Include="flecs_monitor.c" />
-    <ClCompile Include="flecs_os_api_stdcpp.cpp" />
-    <ClCompile Include="flecs_player.c" />
-    <ClCompile Include="flecs_rest.c" />
-    <ClCompile Include="flecs_systems_civetweb.c" />
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemConfig.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Include\flecs.c" />
+    <ClCompile Include="Include\flecs_components_http.c" />
+    <ClCompile Include="Include\flecs_dash.c" />
+    <ClCompile Include="Include\flecs_json.c" />
+    <ClCompile Include="Include\flecs_meta.c" />
+    <ClCompile Include="Include\flecs_monitor.c" />
+    <ClCompile Include="Include\flecs_os_api_stdcpp.cpp" />
+    <ClCompile Include="Include\flecs_player.c" />
+    <ClCompile Include="Include\flecs_rest.c" />
+    <ClCompile Include="Include\flecs_systems_civetweb.c" />
+    <ClCompile Include="src\Item.cpp" />
+    <ClCompile Include="src\ItemConfig.cpp" />
+    <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="flecs.h" />
-    <ClInclude Include="flecs_components_http.h" />
-    <ClInclude Include="flecs_dash.h" />
-    <ClInclude Include="flecs_json.h" />
-    <ClInclude Include="flecs_meta.h" />
-    <ClInclude Include="flecs_monitor.h" />
-    <ClInclude Include="flecs_os_api_stdcpp.h" />
-    <ClInclude Include="flecs_player.h" />
-    <ClInclude Include="flecs_rest.h" />
-    <ClInclude Include="flecs_systems_civetweb.h" />
-    <ClInclude Include="Item.h" />
-    <ClInclude Include="ItemConfig.h" />
+    <ClInclude Include="Include\flecs.h" />
+    <ClInclude Include="Include\flecs_components_http.h" />
+    <ClInclude Include="Include\flecs_dash.h" />
+    <ClInclude Include="Include\flecs_json.h" />
+    <ClInclude Include="Include\flecs_meta.h" />
+    <ClInclude Include="Include\flecs_monitor.h" />
+    <ClInclude Include="Include\flecs_os_api_stdcpp.h" />
+    <ClInclude Include="Include\flecs_player.h" />
+    <ClInclude Include="Include\flecs_rest.h" />
+    <ClInclude Include="Include\flecs_systems_civetweb.h" />
+    <ClInclude Include="src\Item.h" />
+    <ClInclude Include="src\ItemConfig.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

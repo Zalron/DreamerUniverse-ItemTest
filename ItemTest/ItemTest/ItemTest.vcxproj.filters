@@ -15,81 +15,81 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flecs.c">
+    <ClCompile Include="Include\flecs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ItemConfig.cpp">
+    <ClCompile Include="src\ItemConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Item.cpp">
+    <ClCompile Include="src\Item.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flecs_components_http.c">
+    <ClCompile Include="Include\flecs_components_http.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flecs_dash.c">
+    <ClCompile Include="Include\flecs_dash.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flecs_json.c">
+    <ClCompile Include="Include\flecs_json.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flecs_meta.c">
+    <ClCompile Include="Include\flecs_meta.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flecs_rest.c">
+    <ClCompile Include="Include\flecs_rest.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flecs_systems_civetweb.c">
+    <ClCompile Include="Include\flecs_systems_civetweb.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flecs_monitor.c">
+    <ClCompile Include="Include\flecs_monitor.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flecs_player.c">
+    <ClCompile Include="Include\flecs_player.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flecs_os_api_stdcpp.cpp">
+    <ClCompile Include="Include\flecs_os_api_stdcpp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="flecs.h">
+    <ClInclude Include="Include\flecs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ItemConfig.h">
+    <ClInclude Include="src\ItemConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Item.h">
+    <ClInclude Include="src\Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flecs_components_http.h">
+    <ClInclude Include="Include\flecs_components_http.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flecs_dash.h">
+    <ClInclude Include="Include\flecs_dash.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flecs_json.h">
+    <ClInclude Include="Include\flecs_json.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flecs_meta.h">
+    <ClInclude Include="Include\flecs_meta.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flecs_rest.h">
+    <ClInclude Include="Include\flecs_rest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flecs_systems_civetweb.h">
+    <ClInclude Include="Include\flecs_systems_civetweb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flecs_monitor.h">
+    <ClInclude Include="Include\flecs_monitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flecs_player.h">
+    <ClInclude Include="Include\flecs_player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flecs_os_api_stdcpp.h">
+    <ClInclude Include="Include\flecs_os_api_stdcpp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
