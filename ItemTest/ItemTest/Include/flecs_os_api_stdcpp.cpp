@@ -2,6 +2,9 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
+#include "wtypes.h"
+#include "windef.h"
+#include "winnt.h"
 
 static
 ecs_os_thread_t stdcpp_thread_new(
@@ -29,15 +32,10 @@ int32_t stdcpp_ainc(int32_t* count) {
 #ifdef __GNUC__
     value = __sync_add_and_fetch(count, 1);
     return value;
-#endif
-#ifdef _MSC_VER
-    std::atomic<int32_t> atomicvalue;
-    value = atomicvalue.fetch_add(count);
-    return value;
 #else
-    /* Unsupported */
-    abort();
+    return InterlockedIncrement(reinterpret_cast<LONG*>(count));
 #endif
+    return value;
 }
 
 static
@@ -46,13 +44,10 @@ int32_t stdcpp_adec(int32_t* count) {
 #ifdef __GNUC__
     value = __sync_sub_and_fetch(count, 1);
     return value;
-#endif
-#ifdef _MSC_VER
-
 #else
-    /* Unsupported */
-    abort();
+    return InterlockedIncrement(reinterpret_cast<LONG*>(count));
 #endif
+    return value;
 }
 
 static
@@ -82,7 +77,7 @@ void stdcpp_mutex_unlock(ecs_os_mutex_t m) {
 static
 ecs_os_cond_t stdcpp_cond_new(void) {
     std::condition_variable_any* cond = new std::condition_variable_any{};
-    return (ecs_os_cond_t)cond;
+    return reinterpret_cast<ecs_os_cond_t>(cond);
 }
 
 static

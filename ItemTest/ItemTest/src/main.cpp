@@ -1,4 +1,4 @@
-#include "flecs.h"
+//#include "flecs.h"
 #include "Item.h"
 #include "ItemConfig.h"
 #include <flecs_dash.h>
@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 {
     cout << "RAND_MAX value is " << RAND_MAX << endl;
 
-    //stdcpp_set_os_api();
+    stdcpp_set_os_api();
 
     flecs::world world;
 
@@ -29,13 +29,13 @@ int main(int argc, char* argv[])
 
     world.system<ItemSpawning>("CreateItemEntity").iter(&Item::CreateItemEntity);
 
-    world.system<ItemStaging, ItemSpawning>("SettingSeedForRandomItemEntitiesGeneratio").iter(&Item::SettingSeedForRandomItemEntitiesGeneration);
+    world.system<ItemStaging, ItemSpawning>("SettingSeedForRandomItemEntitiesGeneration").iter(&Item::SettingSeedForRandomItemEntitiesGeneration);
 
     world.system<ItemStaging>("AddItemTypeComponentstoEntity").iter(&Item::AddItemTypeComponentstoEntity);
 
     world.system<ItemStaging, ItemTypeCreation>("AddItemComponentstoEntity").iter(&Item::AddItemComponentstoEntity);
 
-    world.system<ItemStaging, ItemTypeCreation, ItemRarity>("CreatingRarityModComponentsToEntit").iter(&Item::CreatingRarityModComponentsToEntity);
+    world.system<ItemStaging, ItemTypeCreation, ItemRarity>("CreatingRarityModComponentsToEntity").iter(&Item::CreatingRarityModComponentsToEntity);
 
     while (world.progress()) {}
 }

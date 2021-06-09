@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include "flecs.h"
 #include "ItemConfig.h"
-
+#include "iostream"
 using namespace std;
 
 struct ItemStaging

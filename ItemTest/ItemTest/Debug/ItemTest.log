@@ -3,18 +3,65 @@
   flecs_dash.c
   flecs_json.c
   flecs_meta.c
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_meta.c(1873,46): warning C4013: 'ecs_new_component' undefined; assuming extern returning int
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_meta.c(1934,1): error C2065: 'FLECS__EEcsSignatureExpr': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_meta.c(1934,1): error C2065: 'EcsSignatureExpr': undeclared identifier
   flecs_monitor.c
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(172,19): error C2065: 'ecs_sig_t': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(172,24): error C2065: 'sig': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(172,43): warning C4013: 'ecs_query_get_sig' undefined; assuming extern returning int
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(172,53): error C2106: '=': left operand must be l-value
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(174,26): error C2065: 'ecs_sig_column_t': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(174,35): error C2065: 'columns': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(175,13): error C2065: 'ecs_sig_column_t': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(175,13): error C2059: syntax error: ')'
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(176,48): error C2065: 'sig': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(176,50): error C2223: left of '->columns' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(176,44): error C2198: 'ecs_vector_count': too few arguments for call
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(179,30): error C2065: 'ecs_sig_column_t': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(179,35): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(179,45): error C2065: 'columns': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(179,47): error C2109: subscript requires array or pointer type
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(181,20): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(181,22): error C2223: left of '->oper_kind' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(181,44): error C2065: 'EcsOperOr': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(182,45): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(182,47): error C2223: left of '->is' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(209,48): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(209,50): error C2223: left of '->is' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(209,37): error C2198: 'ecs_get_name': too few arguments for call
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(217,24): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(217,26): error C2223: left of '->inout_kind' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(221,24): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(221,26): error C2223: left of '->oper_kind' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(221,49): error C2065: 'EcsOperNot': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(225,24): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(225,26): error C2223: left of '->from_kind' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(225,52): error C2065: 'EcsFromOwned': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(226,24): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(226,26): error C2223: left of '->from_kind' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(226,50): error C2065: 'EcsFromAny': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(227,24): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(227,26): error C2223: left of '->from_kind' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(227,53): error C2065: 'EcsFromShared': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(228,24): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(228,26): error C2223: left of '->from_kind' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(228,51): error C2065: 'EcsFromEmpty': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(233,24): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(233,26): error C2223: left of '->from_kind' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(233,51): error C2065: 'EcsFromEmpty': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(237,24): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(237,26): error C2223: left of '->from_kind' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(237,53): error C2065: 'EcsFromEntity': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(237,59): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(237,61): error C2223: left of '->source' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(241,24): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(241,26): error C2223: left of '->from_kind' must point to struct/union
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(241,53): error C2065: 'EcsFromParent': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(241,59): error C2065: 'col': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(241,61): error C2223: left of '->from_kind' must point to struct/union
   flecs_player.c
   flecs_rest.c
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(75,38): error C2198: 'ecs_lookup_path_w_sep': too few arguments for call
   flecs_systems_civetweb.c
   Generating Code...
-  flecs_os_api_stdcpp.cpp
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.cpp(28,9): warning C4101: 'value': unreferenced local variable
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.cpp(40,9): warning C4101: 'value': unreferenced local variable
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.cpp(105,30): warning C4273: 'stdcpp_set_os_api': inconsistent dll linkage
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.h(33,15): message : see previous definition of 'stdcpp_set_os_api'
-  Item.cpp
-  ItemConfig.cpp
-  main.cpp
-  Generating Code...
-  ItemTest.vcxproj -> C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\Debug\ItemTest.exe
