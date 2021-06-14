@@ -43,11 +43,13 @@
 #endif
 
 #endif
-
+#ifndef FLECS_LEGACY
 
 ECS_STRUCT(EcsMonitorServer, {
     int16_t port;
 });
+
+#endif
 
 #ifdef __cplusplus
 extern "C" {

@@ -1,3 +1,7 @@
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #define flecs_dash_STATIC
 #ifndef FLECS_DASH_H
 #define FLECS_DASH_H
@@ -22,7 +26,6 @@
 #ifndef FLECS_DASH_BAKE_CONFIG_H
 #define FLECS_DASH_BAKE_CONFIG_H
 
-#define _CRT_SECURE_NO_WARNINGS
 
 /* Headers of public dependencies */
 #include "flecs.h"
