@@ -7,7 +7,7 @@ void Item::CreateItemEntity(const flecs::iter& iter, ItemSpawning* is)
         for (auto i  = 0; i < is->NumberOfItems; i++) 
         {
             auto e = iter.world().entity();
-            e.set<ItemStaging>({1});
+            e.set<ItemStaging>({ 1 });
             std::cout << "System CreateItemEntity has created item " << i << " " << std::endl;
         }
         iter.entity(it).remove<ItemSpawning>();
@@ -21,11 +21,12 @@ void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, I
     {
         if (iss->ItemStage == 1)
         {
-            srand((unsigned)time(0));
+            time_t t;
+            srand((unsigned)time(&t));
             int randomNumber = rand();
             iss->Seed = randomNumber;
             iss->ItemStage = 2;
-            std::cout << "System SettingSeedForRandomItemEntitiesGeneration is randomly generating number" << std::endl;
+            std::cout << "System SettingSeedForRandomItemEntitiesGeneration is randomly generating number " << it << " " << std::endl;
         }
     }
 }
@@ -38,7 +39,7 @@ void Item::AddItemTypeComponentstoEntity(const flecs::iter& iter, ItemStaging* i
         {
             iter.entity(it).set<ItemTypeCreation>({0,0,0});
             iss->ItemStage = 3;
-            std::cout << "System AddItemTypeComponentstoEntity has add ItemTypeCreation component" << std::endl;
+            std::cout << "System AddItemTypeComponentstoEntity has add ItemTypeCreation component " << it << " " << std::endl;
         }
     }
 }
@@ -51,128 +52,36 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemStaging* iss)
         {
             CreatingEquipableItems(iter, it, iss->Seed);
             iss->ItemStage = 4;
-            std::cout << "System AddItemComponentstoEntity is creating Items" << std::endl;
+            std::cout << "System AddItemComponentstoEntity is creating Items " << it << " " << std::endl;
         }
     }
 }
 
-inline void Item::CreatingEquipableItems(const flecs::iter& iter, int i, int seed)
-{
-    int randomNumber = seed % 22;
-    if (randomNumber == 0)
-    {
-        CreatingOneHandedMeleeWeaponShortSwordItems(iter, i, seed);
-    }
-    if (randomNumber == 1)
-    {
-        CreatingOneHandedMeleeWeaponMaceItems(iter, i, seed);
-    }
-    if (randomNumber == 2)
-    {
-        CreatingOneHandedMeleeWeaponKnifeItems(iter, i, seed);
-    }
-    if (randomNumber == 3)
-    {
-        CreatingOneHandedMeleeWeaponWarhammerItems(iter, i, seed);
-    }
-    if (randomNumber == 4)
-    {
-        CreatingOneHandedMeleeWeaponAxeItems(iter, i, seed);
-    }
-    if (randomNumber == 5)
-    {
-        CreatingOneHandedMeleeWeaponShieldItems(iter, i, seed);
-    }
-    if (randomNumber == 6)
-    {
-        CreatingOneHandedMeleeWeaponRapierItems(iter, i, seed);
-    }
-    if (randomNumber == 7)
-    {
-        CreatingOneHandedMeleeWeaponClubItems(iter, i, seed);
-    }
-    if (randomNumber == 8) 
-    {
-        CreatingTwoHandedMeleeWeaponLongSwordItems(iter, i, seed);
-    }
-    if (randomNumber == 9)
-    {
-        CreatingTwoHandedMeleeWeaponMaceItems(iter, i, seed);
-    }
-    if (randomNumber == 10)
-    {
-        CreatingTwoHandedMeleeWeaponWarhammerItems(iter, i, seed);
-    }
-    if (randomNumber == 11)
-    {
-        CreatingTwoHandedMeleeWeaponHalberdItems(iter, i, seed);
-    }
-    if (randomNumber == 12)
-    {
-        CreatingTwoHandedMeleeWeaponAxeItems(iter, i, seed);
-    }
-    if (randomNumber == 13)
-    {
-        CreatingTwoHandedMeleeWeaponClubItems(iter, i, seed);
-    }
-    if (randomNumber == 14)
-    {
-        CreatingTwoHandedMeleeWeaponStaffItems(iter, i, seed);
-    }
-    if (randomNumber == 15)
-    {
-        CreatingTwoHandedMeleeWeaponSpearItems(iter, i, seed);
-    }
-    if (randomNumber == 16)
-    {
-        CreatingTwoHandedMeleeWeaponClawsItems(iter, i, seed);
-    }
-    if (randomNumber == 17)
-    {
-        CreatingOneHandedRangedWeaponWandItems(iter, i, seed);
-    }
-    if (randomNumber == 18)
-    {
-        CreatingOneHandedRangedWeaponThrownItems(iter, i, seed);
-    }
-    if (randomNumber == 19)
-    {
-        CreatingOneHandedRangedWeaponPistolItems(iter, i, seed);
-    }
-    if (randomNumber == 20)
-    {
-        CreatingOneHandedRangedWeaponRevolverItems(iter, i, seed);
-    }
-    if (randomNumber == 21)
-    {
-        CreatingOneHandedRangedWeaponHandCrossbowItems(iter, i, seed);
-    }
-    else 
-    {
-        randomNumber = seed % 22;
-    }
-}
+
 
 void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir)
 {
     for (auto it : iter)
     {
-        if (iss->ItemStage == 7)
+        if (iss->ItemStage == 4)
         {
             if (ir->RarityAffixAllowance == 1)
             {
                 iter.entity(it).set<ItemAffixMods1>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 1 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 2)
             {
                 iter.entity(it).set<ItemAffixMods1>({});
                 iter.entity(it).set<ItemAffixMods2>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 2 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 3)
             {
                 iter.entity(it).set<ItemAffixMods1>({});
                 iter.entity(it).set<ItemAffixMods2>({});
                 iter.entity(it).set<ItemAffixMods3>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 3 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 4)
             {
@@ -180,6 +89,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
                 iter.entity(it).set<ItemAffixMods2>({});
                 iter.entity(it).set<ItemAffixMods3>({});
                 iter.entity(it).set<ItemAffixMods4>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 4 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 5)
             {
@@ -188,6 +98,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
                 iter.entity(it).set<ItemAffixMods3>({});
                 iter.entity(it).set<ItemAffixMods4>({});
                 iter.entity(it).set<ItemAffixMods5>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 5 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 6)
             {
@@ -197,6 +108,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
                 iter.entity(it).set<ItemAffixMods4>({});
                 iter.entity(it).set<ItemAffixMods5>({});
                 iter.entity(it).set<ItemAffixMods6>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 6 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 7)
             {
@@ -207,6 +119,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
                 iter.entity(it).set<ItemAffixMods5>({});
                 iter.entity(it).set<ItemAffixMods6>({});
                 iter.entity(it).set<ItemAffixMods7>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 7 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 8)
             {
@@ -218,6 +131,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
                 iter.entity(it).set<ItemAffixMods6>({});
                 iter.entity(it).set<ItemAffixMods7>({});
                 iter.entity(it).set<ItemAffixMods8>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 8 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 9)
             {
@@ -230,6 +144,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
                 iter.entity(it).set<ItemAffixMods7>({});
                 iter.entity(it).set<ItemAffixMods8>({});
                 iter.entity(it).set<ItemAffixMods9>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 9 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 10)
             {
@@ -243,6 +158,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
                 iter.entity(it).set<ItemAffixMods8>({});
                 iter.entity(it).set<ItemAffixMods9>({});
                 iter.entity(it).set<ItemAffixMods10>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 10 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 11)
             {
@@ -256,16 +172,141 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
                 iter.entity(it).set<ItemAffixMods8>({});
                 iter.entity(it).set<ItemAffixMods9>({});
                 iter.entity(it).set<ItemAffixMods10>({});
+                std::cout << "System CreatingRarityModComponentsToEntity has add 10 ItemAffixMod component " << it << " " << std::endl;
             }
-            iss->ItemStage = 8;
+            else 
+            {
+                std::cout << "System CreatingRarityModComponentsToEntity has add 0 ItemAffixMod component " << it << " " << std::endl;
+            }
+            iss->ItemStage = 5;
         }
+    }
+}
+
+inline void Item::CreatingEquipableItems(const flecs::iter& iter, int i, int seed)
+{
+    int randomNumber = seed % 22;
+    if (randomNumber == 0)
+    {
+        CreatingOneHandedMeleeWeaponShortSwordItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponShortSword " << i << " " << std::endl;
+    }
+    else if (randomNumber == 1)
+    {
+        CreatingOneHandedMeleeWeaponMaceItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponMace " << i << " " << std::endl;
+    }
+    else if (randomNumber == 2)
+    {
+        CreatingOneHandedMeleeWeaponKnifeItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponKnife " << i << " " << std::endl;
+    }
+    else if (randomNumber == 3)
+    {
+        CreatingOneHandedMeleeWeaponWarhammerItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponWarhammer " << i << " " << std::endl;
+    }
+    else if (randomNumber == 4)
+    {
+        CreatingOneHandedMeleeWeaponAxeItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponAxe " << i << " " << std::endl;
+    }
+    else if (randomNumber == 5)
+    {
+        CreatingOneHandedMeleeWeaponShieldItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponShield " << i << " " << std::endl;
+    }
+    else if (randomNumber == 6)
+    {
+        CreatingOneHandedMeleeWeaponRapierItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponRapier " << i << " " << std::endl;
+    }
+    else if (randomNumber == 7)
+    {
+        CreatingOneHandedMeleeWeaponClubItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponClub " << i << " " << std::endl;
+    }
+    else if (randomNumber == 8)
+    {
+        CreatingTwoHandedMeleeWeaponLongSwordItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponLongSword " << i << " " << std::endl;
+    }
+    else if (randomNumber == 9)
+    {
+        CreatingTwoHandedMeleeWeaponMaceItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponMace " << i << " " << std::endl;
+    }
+    else if (randomNumber == 10)
+    {
+        CreatingTwoHandedMeleeWeaponWarhammerItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponWarhammer " << i << " " << std::endl;
+    }
+    else if (randomNumber == 11)
+    {
+        CreatingTwoHandedMeleeWeaponHalberdItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponHalberd " << i << " " << std::endl;
+    }
+    else if (randomNumber == 12)
+    {
+        CreatingTwoHandedMeleeWeaponAxeItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponAxe " << i << " " << std::endl;
+    }
+    else if (randomNumber == 13)
+    {
+        CreatingTwoHandedMeleeWeaponClubItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponClub " << i << " " << std::endl;
+    }
+    else if (randomNumber == 14)
+    {
+        CreatingTwoHandedMeleeWeaponStaffItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponStaff " << i << " " << std::endl;
+    }
+    else if (randomNumber == 15)
+    {
+        CreatingTwoHandedMeleeWeaponSpearItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponSpeard " << i << " " << std::endl;
+    }
+    else if (randomNumber == 16)
+    {
+        CreatingTwoHandedMeleeWeaponClawsItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponClaws " << i << " " << std::endl;
+    }
+    else if (randomNumber == 17)
+    {
+        CreatingOneHandedRangedWeaponWandItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponWand " << i << " " << std::endl;
+    }
+    else if (randomNumber == 18)
+    {
+        CreatingOneHandedRangedWeaponThrownItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponThrown " << i << " " << std::endl;
+    }
+    else if (randomNumber == 19)
+    {
+        CreatingOneHandedRangedWeaponPistolItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponPistol " << i << " " << std::endl;
+    }
+    else if (randomNumber == 20)
+    {
+        CreatingOneHandedRangedWeaponRevolverItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponRevolver " << i << " " << std::endl;
+    }
+    else if (randomNumber == 21)
+    {
+        CreatingOneHandedRangedWeaponHandCrossbowItems(iter, i, seed);
+        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponHandCrossbow " << i << " " << std::endl;
+    }
+    else 
+    {
+        std::cout << "For some reason a number is out of range " << i << " " << std::endl;
+        randomNumber = seed % 22;
     }
 }
 
 inline void Item::CreatingBaseItemEquipableStats(const flecs::iter& iter, int i, int randomRarity)
 {
+    int randomRaritySeed = randomRarity % 11 + 1;
     iter.entity(i).set<ItemCharacterLevelRequirements>({});
-    int randomRaritySeed = randomRarity % 11;
     iter.entity(i).set<ItemRarity>({randomRaritySeed, 0, randomRaritySeed});
     iter.entity(i).set<ItemQuality>({});
     iter.entity(i).set<ItemMaterial>({});

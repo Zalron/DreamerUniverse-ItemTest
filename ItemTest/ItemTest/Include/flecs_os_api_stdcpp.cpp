@@ -2,9 +2,21 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
+#include <random>
+#include <time.h>
 #include "wtypes.h"
 #include "windef.h"
 #include "winnt.h"
+
+using namespace std;
+
+int intRand(const int& min, const int& max) 
+{
+    static thread_local mt19937* generator = nullptr;
+    if (!generator) generator = new mt19937(clock() + this_thread::get_id().hash());
+    uniform_int_distribution<int> distribution(min, max);
+    return distribution(*generator);
+}
 
 static
 ecs_os_thread_t stdcpp_thread_new(

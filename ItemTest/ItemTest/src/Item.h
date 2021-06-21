@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include "flecs.h"
 #include "ItemConfig.h"
+#include <flecs_os_api_stdcpp.h>
 #include "iostream"
 using namespace std;
 
@@ -87,7 +88,7 @@ public:
         int CharacterLuckRequirements;
     };
 
-    struct ItemCharacterWillpowerhRequirements
+    struct ItemCharacterWillpowerRequirements
     {
         int CharacterWillpowerRequirements;
     };
@@ -575,6 +576,158 @@ public:
     Item(flecs::world& world) 
     {
         world.module<Item>();
+
+        world.component<ItemStaging>();
+        world.component<ItemSpawning>();
+        world.component<ItemTypeCreation>();
+        world.component<ItemRarity>();
+        world.component<ItemQuality>();
+        world.component<ItemMaterial>();
+        world.component<ItemManufacturer>();
+        world.component<ItemLevel>();
+        world.component<ItemCharacterLevelRequirements>();
+        world.component<ItemCharacterStrengthRequirements>();
+        world.component<ItemCharacterDexterityRequirements>();
+        world.component<ItemCharacterIntelligenceRequirements>();
+        world.component<ItemCharacterLuckRequirements>();
+        world.component<ItemCharacterWillpowerRequirements>();
+        world.component<ItemCharacterEnduranceRequirements>();
+        world.component<ItemSkillSlot1>();
+        world.component<ItemSkillSlot2>();
+        world.component<ItemSkillSlot3>();
+        world.component<ItemSkillSlot4>();
+        world.component<ItemSkillSlot5>();
+        world.component<ItemSkillSlot6>();
+        world.component<ItemSkillSlot7>();
+        world.component<ItemSkillSlot8>();
+        world.component<ItemSkillSlot9>();
+        world.component<ItemSkillSlot10>();
+        world.component<ItemParts1>();
+        world.component<ItemParts2>();
+        world.component<ItemParts3>();
+        world.component<ItemParts4>();
+        world.component<ItemParts5>();
+        world.component<ItemParts6>();
+        world.component<ItemParts7>();
+        world.component<ItemParts8>();
+        world.component<ItemParts9>();
+        world.component<ItemParts10>();
+        world.component<ItemAffixMods1>();
+        world.component<ItemAffixMods2>();
+        world.component<ItemAffixMods3>();
+        world.component<ItemAffixMods4>();
+        world.component<ItemAffixMods5>();
+        world.component<ItemAffixMods6>();
+        world.component<ItemAffixMods7>();
+        world.component<ItemAffixMods8>();
+        world.component<ItemAffixMods9>();
+        world.component<ItemAffixMods10>();
+        world.component<CriticalChanceItemStat>();
+        world.component<MagicalDamageItemStat>();
+        world.component<PhysicalDamageItemStat>();
+        world.component<HandlingItemStat>();
+        world.component<AccuracyItemStat>();
+        world.component<RangeItemStat>();
+        world.component<GuardItemStat>();
+        world.component<BlockChanceItemStat>();
+        world.component<AttackRateItemStat>();
+        world.component<WeightItemStat>();
+        world.component<MagazineSizeItemStat>();
+        world.component<FireRateItemStat>();
+        world.component<ReloadTimeItemStat>();
+        world.component<EvasionItemStat>();
+        world.component<ArmourItemStat>();
+        world.component<ArmourRechargeRateItemStat>();
+        world.component<ArmourRechargeDelayItemStat>();
+        world.component<ShieldItemStat>();
+        world.component<ShieldRechargeRateItemStat>();
+        world.component<ShieldRechargeDelayItemStat>();
+        world.component<EnergyItemStat>();
+        world.component<EnergyRechargeRateItemStat>();
+        world.component<EnergyRechargeDelayItemStat>();
+        world.component<ItemName>();
+        world.component<Weapons>();
+        world.component<Melee> ();
+        world.component<Ranged> ();
+        world.component<OneHanded> ();
+        world.component<TwoHanded> ();
+        world.component<ShortSword> ();
+        world.component<Mace> ();
+        world.component<Knife> ();
+        world.component<Warhammer> ();
+        world.component<Axe> ();
+        world.component<Shield> ();
+        world.component<Rapier> ();
+        world.component<Club> ();
+        world.component<LongSword> ();
+        world.component<Halberd> ();
+        world.component<Staff> ();
+        world.component<Spear> ();
+        world.component<Claws> ();
+        world.component<Wand> ();
+        world.component<Thrown> ();
+        world.component<Pistol> ();
+        world.component<HandCannon> ();
+        world.component<Revolver> ();
+        world.component<HandCrossbow> ();
+        world.component<Bow>();
+        world.component<Crossbow>();
+        world.component<Carbine>();
+        world.component<AssaultRifle>();
+        world.component<SniperRifle>();
+        world.component<LightMachineGun>();
+        world.component<SubMachineGun>();
+        world.component<Shotgun>();
+        world.component<GrenadeLauncher>();
+        world.component<RocketLauncher>();
+        world.component<Armour>();
+        world.component<PowerArmour>();
+        world.component<LightPowerArmour>();
+        world.component<MediumPowerArmour>();
+        world.component<HeavyPowerArmour>();
+        world.component<NonPowerArmour>();
+        world.component<Cloths>();
+        world.component<Head>();
+        world.component<Belt>();
+        world.component<Chests>();
+        world.component<Legs>();
+        world.component<Arms>();
+        world.component<Hands>();
+        world.component<Shoulders>();
+        world.component<Backpack>();
+        world.component<Rings>();
+        world.component<Necklace>();
+        world.component<Equipment>();
+        world.component<Flasks>();
+        world.component<Health>();
+        world.component<Magic>();
+        world.component<Movement>();
+        world.component<Resistance>();
+        world.component<Ammo>();
+        world.component<Quivers>();
+        world.component<Magazines>();
+        world.component<Grenades>();
+        world.component<Rockets>();
+        world.component<Mines>();
+        world.component<Scrolls>();
+        world.component<Buildings>();
+        world.component<Crafting>();
+        world.component<Maps>();
+        world.component<MapChisel>();
+        world.component<Crystals>();
+        world.component<Cards>();
+        world.component<Orbs>();
+        world.component<OrbOfIdentifying>();
+        world.component<OrbOfErasing>();
+        world.component<OrbOfForging>();
+        world.component<OrbOfChaos>();
+        world.component<OrbOfDivinity>();
+        world.component<OrbOfInvigorating>();
+        world.component<OrbOfEnforing>();
+        world.component<OrbOfModifying>();
+        world.component<OrbOfEnhancing>();
+        world.component<OrbOfChange>();
+        world.component<OrbOfMirroring>();
 
         world.system<ItemSpawning>("CreateItemEntity").iter(CreateItemEntity);
 

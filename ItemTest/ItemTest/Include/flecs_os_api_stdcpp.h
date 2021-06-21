@@ -22,6 +22,12 @@
 
 #endif
 
+#if defined (_MSC_VER)  // Visual studio
+#define thread_local __declspec( thread )
+#elif defined (__GCC__) // GCC
+#define thread_local __thread
+#endif
+
 #ifndef FLECS_OS_API_STDCPP_H
 #define FLECS_OS_API_STDCPP_H
 
