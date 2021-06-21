@@ -1,6 +1,6 @@
 #include "Item.h"
 
-void Item::CreateItemEntity(flecs::iter& iter, ItemSpawning* is)
+void Item::CreateItemEntity(const flecs::iter& iter, ItemSpawning* is)
 {
     for (auto it : iter)
     {
@@ -10,12 +10,12 @@ void Item::CreateItemEntity(flecs::iter& iter, ItemSpawning* is)
             e.set<ItemStaging>({1});
             std::cout << "System CreateItemEntity has created item " << i << " " << std::endl;
         }
-        iter.entity(it).destruct();
+        iter.entity(it).remove<ItemSpawning>();
         std::cout << "System CreateItemEntity is creating items" << std::endl;
     }
 }
 
-void Item::SettingSeedForRandomItemEntitiesGeneration(flecs::iter& iter, ItemStaging* iss, ItemSpawning* is)
+void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, ItemStaging* iss)
 {
     for (auto it : iter)
     {
@@ -30,7 +30,7 @@ void Item::SettingSeedForRandomItemEntitiesGeneration(flecs::iter& iter, ItemSta
     }
 }
 
-void Item::AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
+void Item::AddItemTypeComponentstoEntity(const flecs::iter& iter, ItemStaging* iss)
 {
     for (auto it : iter) 
     {
@@ -43,7 +43,7 @@ void Item::AddItemTypeComponentstoEntity(flecs::iter& iter, ItemStaging* iss)
     }
 }
 
-void Item::AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc)
+void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemStaging* iss)
 {
     for (auto it : iter) 
     {
@@ -51,14 +51,14 @@ void Item::AddItemComponentstoEntity(flecs::iter& iter, ItemStaging* iss, ItemTy
         {
             CreatingEquipableItems(iter, it, iss->Seed);
             iss->ItemStage = 4;
-            std::cout << "System AddItemComponentstoEntity is creating MeleeWeaponShortSwordItems" << std::endl;
+            std::cout << "System AddItemComponentstoEntity is creating Items" << std::endl;
         }
     }
 }
 
-inline void Item::CreatingEquipableItems(flecs::iter& iter, int i, int seed)
+inline void Item::CreatingEquipableItems(const flecs::iter& iter, int i, int seed)
 {
-    int randomNumber = seed % 100;
+    int randomNumber = seed % 22;
     if (randomNumber == 0)
     {
         CreatingOneHandedMeleeWeaponShortSwordItems(iter, i, seed);
@@ -127,30 +127,33 @@ inline void Item::CreatingEquipableItems(flecs::iter& iter, int i, int seed)
     {
         CreatingTwoHandedMeleeWeaponClawsItems(iter, i, seed);
     }
-    if (randomNumber == 16)
+    if (randomNumber == 17)
     {
         CreatingOneHandedRangedWeaponWandItems(iter, i, seed);
     }
-    if (randomNumber == 16)
+    if (randomNumber == 18)
     {
         CreatingOneHandedRangedWeaponThrownItems(iter, i, seed);
     }
-    if (randomNumber == 16)
+    if (randomNumber == 19)
     {
         CreatingOneHandedRangedWeaponPistolItems(iter, i, seed);
     }
-    if (randomNumber == 16)
+    if (randomNumber == 20)
     {
         CreatingOneHandedRangedWeaponRevolverItems(iter, i, seed);
     }
-    if (randomNumber == 16)
+    if (randomNumber == 21)
     {
         CreatingOneHandedRangedWeaponHandCrossbowItems(iter, i, seed);
     }
-
+    else 
+    {
+        randomNumber = seed % 22;
+    }
 }
 
-void Item::CreatingRarityModComponentsToEntity(flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir)
+void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir)
 {
     for (auto it : iter)
     {
@@ -259,9 +262,9 @@ void Item::CreatingRarityModComponentsToEntity(flecs::iter& iter, ItemStaging* i
     }
 }
 
-inline void Item::CreatingBaseItemEquipableStats(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingBaseItemEquipableStats(const flecs::iter& iter, int i, int randomRarity)
 {
-    iter.entity(i).set<ItemCharacterLevelRequirements>({ 0 });
+    iter.entity(i).set<ItemCharacterLevelRequirements>({});
     int randomRaritySeed = randomRarity % 11;
     iter.entity(i).set<ItemRarity>({randomRaritySeed, 0, randomRaritySeed});
     iter.entity(i).set<ItemQuality>({});
@@ -270,7 +273,7 @@ inline void Item::CreatingBaseItemEquipableStats(flecs::iter& iter, int i, int r
     iter.entity(i).set<ItemName>({});
 }
 
-inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingMeleeWeaponComponentsToEntity(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingBaseItemEquipableStats(iter, i, randomRarity);
     iter.entity(i).set<CriticalChanceItemStat>({});
@@ -285,7 +288,7 @@ inline void Item::CreatingMeleeWeaponComponentsToEntity(flecs::iter& iter, int i
     iter.entity(i).set<WeightItemStat>({});
 }
 
-inline void Item::CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingRangeWeaponComponentstoEntity(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingBaseItemEquipableStats(iter, i, randomRarity);
     iter.entity(i).set<CriticalChanceItemStat>({});
@@ -300,7 +303,7 @@ inline void Item::CreatingRangeWeaponComponentstoEntity(flecs::iter& iter, int i
     iter.entity(i).set<WeightItemStat>({});
 }
 
-inline void Item::CreatingPowerArmourComponentsToEntity(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingPowerArmourComponentsToEntity(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingBaseItemEquipableStats(iter, i, randomRarity);
     iter.entity(i).set<ArmourItemStat>({});
@@ -316,7 +319,7 @@ inline void Item::CreatingPowerArmourComponentsToEntity(flecs::iter& iter, int i
 }
 
 #pragma region Creating OneHanded Melee Weapons
-inline void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedMeleeWeaponItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingMeleeWeaponComponentsToEntity(iter, i, randomRarity);
     iter.entity(i).add_trait<Item, Weapons>();
@@ -324,49 +327,49 @@ inline void Item::CreatingOneHandedMeleeWeaponItems(flecs::iter& iter, int i, in
     iter.entity(i).add_trait<Melee, OneHanded>();
 }
 
-inline void Item::CreatingOneHandedMeleeWeaponShortSwordItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedMeleeWeaponShortSwordItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, ShortSword>();
 }
 
-inline void Item::CreatingOneHandedMeleeWeaponMaceItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedMeleeWeaponMaceItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Mace>();
 }
 
-inline void Item::CreatingOneHandedMeleeWeaponKnifeItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedMeleeWeaponKnifeItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Knife>();
 }
 
-inline void Item::CreatingOneHandedMeleeWeaponWarhammerItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedMeleeWeaponWarhammerItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Warhammer>();
 }
 
-inline void Item::CreatingOneHandedMeleeWeaponAxeItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedMeleeWeaponAxeItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Axe>();
 }
 
-inline void Item::CreatingOneHandedMeleeWeaponShieldItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedMeleeWeaponShieldItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Shield>();
 }
 
-inline void Item::CreatingOneHandedMeleeWeaponRapierItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedMeleeWeaponRapierItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Rapier>();
 }
 
-inline void Item::CreatingOneHandedMeleeWeaponClubItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedMeleeWeaponClubItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Club>();
@@ -376,7 +379,7 @@ inline void Item::CreatingOneHandedMeleeWeaponClubItems(flecs::iter& iter, int i
 
 #pragma region Creating TwoHanded Melee Weapons
 
-inline void Item::CreatingTwoHandedMeleeWeaponItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedMeleeWeaponItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingMeleeWeaponComponentsToEntity(iter, i, randomRarity);
     iter.entity(i).add_trait<Item, Weapons>();
@@ -384,55 +387,55 @@ inline void Item::CreatingTwoHandedMeleeWeaponItems(flecs::iter& iter, int i, in
     iter.entity(i).add_trait<Melee, TwoHanded>();
 }
 
-inline void Item::CreatingTwoHandedMeleeWeaponLongSwordItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedMeleeWeaponLongSwordItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, LongSword>();
 }
 
-inline void Item::CreatingTwoHandedMeleeWeaponMaceItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedMeleeWeaponMaceItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Mace>();
 }
 
-inline void Item::CreatingTwoHandedMeleeWeaponWarhammerItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedMeleeWeaponWarhammerItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Warhammer>();
 }
 
-inline void Item::CreatingTwoHandedMeleeWeaponHalberdItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedMeleeWeaponHalberdItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Halberd>();
 }
 
-inline void Item::CreatingTwoHandedMeleeWeaponAxeItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedMeleeWeaponAxeItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Axe>();
 }
 
-inline void Item::CreatingTwoHandedMeleeWeaponClubItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedMeleeWeaponClubItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Club>();
 }
 
-inline void Item::CreatingTwoHandedMeleeWeaponStaffItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedMeleeWeaponStaffItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Staff>();
 }
 
-inline void Item::CreatingTwoHandedMeleeWeaponSpearItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedMeleeWeaponSpearItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Spear>();
 }
 
-inline void Item::CreatingTwoHandedMeleeWeaponClawsItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedMeleeWeaponClawsItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedMeleeWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Claws>();
@@ -442,7 +445,7 @@ inline void Item::CreatingTwoHandedMeleeWeaponClawsItems(flecs::iter& iter, int 
 
 #pragma region Creating OneHanded Range Weapons
 
-inline void Item::CreatingOneHandedRangedWeaponItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedRangedWeaponItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingRangeWeaponComponentstoEntity(iter, i, randomRarity);
     iter.entity(i).add_trait<Item, Weapons>();
@@ -450,31 +453,31 @@ inline void Item::CreatingOneHandedRangedWeaponItems(flecs::iter& iter, int i, i
     iter.entity(i).add_trait<Ranged, OneHanded>();
 }
 
-inline void Item::CreatingOneHandedRangedWeaponWandItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedRangedWeaponWandItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Wand>();
 }
 
-inline void Item::CreatingOneHandedRangedWeaponThrownItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedRangedWeaponThrownItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Thrown>();
 }
 
-inline void Item::CreatingOneHandedRangedWeaponPistolItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedRangedWeaponPistolItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Pistol>();
 }
 
-inline void Item::CreatingOneHandedRangedWeaponRevolverItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedRangedWeaponRevolverItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, Revolver>();
 }
 
-inline void Item::CreatingOneHandedRangedWeaponHandCrossbowItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingOneHandedRangedWeaponHandCrossbowItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingOneHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<OneHanded, HandCrossbow>();
@@ -483,7 +486,7 @@ inline void Item::CreatingOneHandedRangedWeaponHandCrossbowItems(flecs::iter& it
 
 #pragma region Creating TwoHanded Range Weapons
 
-inline void Item::CreatingTwoHandedRangedWeaponItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingRangeWeaponComponentstoEntity(iter, i, randomRarity);
     iter.entity(i).add_trait<Item, Weapons>();
@@ -491,61 +494,61 @@ inline void Item::CreatingTwoHandedRangedWeaponItems(flecs::iter& iter, int i, i
     iter.entity(i).add_trait<Ranged, TwoHanded>();
 }
 
-inline void Item::CreatingTwoHandedRangedWeaponBowItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponBowItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Bow>();
 }
 
-inline void Item::CreatingTwoHandedRangedWeaponCrossbowItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponCrossbowItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Crossbow>();
 }
 
-inline void Item::CreatingTwoHandedRangedWeaponCarbineItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponCarbineItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Carbine>();
 }
 
-inline void Item::CreatingTwoHandedRangedWeaponAssaultRifleItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponAssaultRifleItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, AssaultRifle>();
 }
 
-inline void Item::CreatingTwoHandedRangedWeaponSniperRifleItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponSniperRifleItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, SniperRifle>();
 }
 
-inline void Item::CreatingTwoHandedRangedWeaponLightMachineGunItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponLightMachineGunItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, LightMachineGun>();
 }
 
-inline void Item::CreatingTwoHandedRangedWeaponSubMachineGunItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponSubMachineGunItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, SubMachineGun>();
 }
 
-inline void Item::CreatingTwoHandedRangedWeaponShotgunItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponShotgunItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, Shotgun>();
 }
 
-inline void Item::CreatingTwoHandedRangedWeaponGrenadeLauncherItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponGrenadeLauncherItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, GrenadeLauncher>();
 }
 
-inline void Item::CreatingTwoHandedRangedWeaponRocketLauncherItems(flecs::iter& iter, int i, int randomRarity)
+inline void Item::CreatingTwoHandedRangedWeaponRocketLauncherItems(const flecs::iter& iter, int i, int randomRarity)
 {
     CreatingTwoHandedRangedWeaponItems(iter, i, randomRarity);
     iter.entity(i).add_trait<TwoHanded, RocketLauncher>();
@@ -555,56 +558,56 @@ inline void Item::CreatingTwoHandedRangedWeaponRocketLauncherItems(flecs::iter& 
 
 #pragma region Creating Light PowerArmour
 
-void Item::CreatingArmourPowerArmourLightItems(flecs::iter& iter, int i)
+void Item::CreatingArmourPowerArmourLightItems(const flecs::iter& iter, int i)
 {
     iter.entity(i).add_trait<Item, Armour>();
     iter.entity(i).add_trait<Armour, PowerArmour>();
     iter.entity(i).add_trait<PowerArmour, LightPowerArmour>();
 }
 
-inline void Item::CreatingArmourPowerArmourLightHeadItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourLightHeadItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
     iter.entity(i).add_trait<LightPowerArmour, Head>();
 }
 
-inline void Item::CreatingArmourPowerArmourLightBeltItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourLightBeltItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
     iter.entity(i).add_trait<LightPowerArmour, Belt>();
 }
 
-inline void Item::CreatingArmourPowerArmourLightChestItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourLightChestItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
     iter.entity(i).add_trait<LightPowerArmour, Chests>();
 }
 
-inline void Item::CreatingArmourPowerArmourLightLegsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourLightLegsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
     iter.entity(i).add_trait<LightPowerArmour, Legs>();
 }
 
-inline void Item::CreatingArmourPowerArmourLightArmsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourLightArmsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
     iter.entity(i).add_trait<LightPowerArmour, Arms>();
 }
 
-inline void Item::CreatingArmourPowerArmourLightHandsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourLightHandsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
     iter.entity(i).add_trait<LightPowerArmour, Hands>();
 }
 
-inline void Item::CreatingArmourPowerArmourLightShouldersItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourLightShouldersItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
     iter.entity(i).add_trait<LightPowerArmour, Shoulders>();
 }
 
-inline void Item::CreatingArmourPowerArmourLightBackpackItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourLightBackpackItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourLightItems(iter, i);
     iter.entity(i).add_trait<LightPowerArmour, Backpack>();
@@ -614,56 +617,56 @@ inline void Item::CreatingArmourPowerArmourLightBackpackItems(flecs::iter& iter,
 
 #pragma region Creating Medium PowerArmour
 
-void Item::CreatingArmourPowerArmourMediumItems(flecs::iter& iter, int i)
+void Item::CreatingArmourPowerArmourMediumItems(const flecs::iter& iter, int i)
 {
     iter.entity(i).add_trait<Item, Armour>();
     iter.entity(i).add_trait<Armour, PowerArmour>();
     iter.entity(i).add_trait<PowerArmour, MediumPowerArmour>();
 }
 
-inline void Item::CreatingArmourPowerArmourMediumHeadItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourMediumHeadItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
     iter.entity(i).add_trait<MediumPowerArmour, Head>();
 }
 
-inline void Item::CreatingArmourPowerArmourMediumBeltItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourMediumBeltItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
     iter.entity(i).add_trait<MediumPowerArmour, Belt>();
 }
 
-inline void Item::CreatingArmourPowerArmourMediumChestItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourMediumChestItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
     iter.entity(i).add_trait<MediumPowerArmour, Chests>();
 }
 
-inline void Item::CreatingArmourPowerArmourMediumLegsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourMediumLegsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
     iter.entity(i).add_trait<MediumPowerArmour, Legs>();
 }
 
-inline void Item::CreatingArmourPowerArmourMediumArmsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourMediumArmsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
     iter.entity(i).add_trait<MediumPowerArmour, Arms>();
 }
 
-inline void Item::CreatingArmourPowerArmourMediumHandsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourMediumHandsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
     iter.entity(i).add_trait<MediumPowerArmour, Hands>();
 }
 
-inline void Item::CreatingArmourPowerArmourMediumShouldersItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourMediumShouldersItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
     iter.entity(i).add_trait<MediumPowerArmour, Shoulders>();
 }
 
-inline void Item::CreatingArmourPowerArmourMediumBackpackItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourMediumBackpackItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourMediumItems(iter, i);
     iter.entity(i).add_trait<MediumPowerArmour, Backpack>();
@@ -673,56 +676,56 @@ inline void Item::CreatingArmourPowerArmourMediumBackpackItems(flecs::iter& iter
 
 #pragma region Creating Heavy PowerArmour
 
-inline void Item::CreatingArmourPowerArmourHeavyItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourHeavyItems(const flecs::iter& iter, int i)
 {
     iter.entity(i).add_trait<Item, Armour>();
     iter.entity(i).add_trait<Armour, PowerArmour>();
     iter.entity(i).add_trait<PowerArmour, HeavyPowerArmour>();
 }
 
-inline void Item::CreatingArmourPowerArmourHeavyHeadItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourHeavyHeadItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
     iter.entity(i).add_trait<HeavyPowerArmour, Head>();
 }
 
-inline void Item::CreatingArmourPowerArmourHeavyBeltItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourHeavyBeltItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
     iter.entity(i).add_trait<HeavyPowerArmour, Belt>();
 }
 
-inline void Item::CreatingArmourPowerArmourHeavyChestItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourHeavyChestItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
     iter.entity(i).add_trait<HeavyPowerArmour, Chests>();
 }
 
-inline void Item::CreatingArmourPowerArmourHeavyLegsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourHeavyLegsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
     iter.entity(i).add_trait<HeavyPowerArmour, Legs>();
 }
 
-inline void Item::CreatingArmourPowerArmourHeavyArmsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourHeavyArmsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
     iter.entity(i).add_trait<HeavyPowerArmour, Arms>();
 }
 
-inline void Item::CreatingArmourPowerArmourHeavyHandsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourHeavyHandsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
     iter.entity(i).add_trait<HeavyPowerArmour, Hands>();
 }
 
-inline void Item::CreatingArmourPowerArmourHeavyShouldersItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourHeavyShouldersItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
     iter.entity(i).add_trait<HeavyPowerArmour, Shoulders>();
 }
 
-inline void Item::CreatingArmourPowerArmourHeavyBackpackItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourPowerArmourHeavyBackpackItems(const flecs::iter& iter, int i)
 {
     CreatingArmourPowerArmourHeavyItems(iter, i);
     iter.entity(i).add_trait<HeavyPowerArmour, Backpack>();
@@ -732,55 +735,55 @@ inline void Item::CreatingArmourPowerArmourHeavyBackpackItems(flecs::iter& iter,
 
 #pragma region Creating NonPowerArmour
 
-inline void Item::CreatingArmourNonPowerArmourItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourNonPowerArmourItems(const flecs::iter& iter, int i)
 {
     iter.entity(i).add_trait<Item, Armour>();
     iter.entity(i).add_trait<Armour, NonPowerArmour>();
 }
 
-inline void Item::CreatingArmourNonPowerArmourHeadItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourNonPowerArmourHeadItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<NonPowerArmour, Head>();
 }
 
-inline void Item::CreatingArmourNonPowerArmourBeltItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourNonPowerArmourBeltItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<NonPowerArmour, Belt>();
 }
 
-inline void Item::CreatingArmourNonPowerArmourChestItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourNonPowerArmourChestItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<NonPowerArmour, Chests>();
 }
 
-inline void Item::CreatingArmourNonPowerArmourLegsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourNonPowerArmourLegsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<NonPowerArmour, Legs>();
 }
 
-inline void Item::CreatingArmourNonPowerArmourArmsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourNonPowerArmourArmsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<NonPowerArmour, Arms>();
 }
 
-inline void Item::CreatingArmourNonPowerArmourHandsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourNonPowerArmourHandsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<NonPowerArmour, Hands>();
 }
 
-inline void Item::CreatingArmourNonPowerArmourShouldersItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourNonPowerArmourShouldersItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<NonPowerArmour, Shoulders>();
 }
 
-inline void Item::CreatingArmourNonPowerArmourBackpackItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourNonPowerArmourBackpackItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<NonPowerArmour, Backpack>();
@@ -790,121 +793,121 @@ inline void Item::CreatingArmourNonPowerArmourBackpackItems(flecs::iter& iter, i
 
 #pragma region Creating Cloths Armour
 
-void Item::CreatingArmourClothsItems(flecs::iter& iter, int i)
+void Item::CreatingArmourClothsItems(const flecs::iter& iter, int i)
 {
     iter.entity(i).add_trait<Item, Armour>();
     iter.entity(i).add_trait<Armour, Cloths>();
 }
 
-inline void Item::CreatingArmourClothsHeadItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourClothsHeadItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<Cloths, Head>();
 }
 
-inline void Item::CreatingArmourClothsBeltItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourClothsBeltItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<Cloths, Belt>();
 }
 
-inline void Item::CreatingArmourClothsChestItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourClothsChestItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<Cloths, Chests>();
 }
 
-inline void Item::CreatingArmourClothsLegsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourClothsLegsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<Cloths, Legs>();
 }
 
-inline void Item::CreatingArmourClothsArmsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourClothsArmsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<Cloths, Arms>();
 }
 
-inline void Item::CreatingArmourClothsHandsItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourClothsHandsItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<Cloths, Hands>();
 }
 
-inline void Item::CreatingArmourClothsShouldersItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourClothsShouldersItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<Cloths, Shoulders>();
 }
 
-inline void Item::CreatingArmourClothsBackpackItems(flecs::iter& iter, int i)
+inline void Item::CreatingArmourClothsBackpackItems(const flecs::iter& iter, int i)
 {
     CreatingArmourNonPowerArmourItems(iter, i);
     iter.entity(i).add_trait<Cloths, Backpack>();
 }
 
-inline void Item::CreatingEquipmentFlasks(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentFlasks(const flecs::iter& iter, int i)
 {
     iter.entity(i).add_trait<Item, Equipment>();
     iter.entity(i).add_trait<Equipment, Flasks>();
 }
 
-inline void Item::CreatingEquipmentFlasksHealth(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentFlasksHealth(const flecs::iter& iter, int i)
 {
     CreatingEquipmentFlasks(iter, i);
     iter.entity(i).add_trait<Flasks, Health>();
 }
 
-inline void Item::CreatingEquipmentFlasksMagic(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentFlasksMagic(const flecs::iter& iter, int i)
 {
     CreatingEquipmentFlasks(iter, i);
     iter.entity(i).add_trait<Flasks, Magic>();
 }
 
-inline void Item::CreatingEquipmentFlasksMovement(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentFlasksMovement(const flecs::iter& iter, int i)
 {
     CreatingEquipmentFlasks(iter, i);
     iter.entity(i).add_trait<Flasks, Movement>();
 }
 
-inline void Item::CreatingEquipmentFlasksResistance(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentFlasksResistance(const flecs::iter& iter, int i)
 {
     CreatingEquipmentFlasks(iter, i);
     iter.entity(i).add_trait<Flasks, Resistance>();
 }
 
-inline void Item::CreatingEquipmentAmmo(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentAmmo(const flecs::iter& iter, int i)
 {
     iter.entity(i).add_trait<Item, Equipment>();
     iter.entity(i).add_trait<Equipment, Ammo>();
 }
 
-inline void Item::CreatingEquipmentAmmoQuivers(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentAmmoQuivers(const flecs::iter& iter, int i)
 {
     CreatingEquipmentAmmo(iter, i);
     iter.entity(i).add_trait<Equipment, Quivers>();
 }
 
-inline void Item::CreatingEquipmentAmmoMagazines(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentAmmoMagazines(const flecs::iter& iter, int i)
 {
     CreatingEquipmentAmmo(iter, i);
     iter.entity(i).add_trait<Equipment, Magazines>();
 }
 
-inline void Item::CreatingEquipmentAmmoGrenades(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentAmmoGrenades(const flecs::iter& iter, int i)
 {
     CreatingEquipmentAmmo(iter, i);
     iter.entity(i).add_trait<Equipment, Grenades>();
 }
 
-inline void Item::CreatingEquipmentAmmoRockets(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentAmmoRockets(const flecs::iter& iter, int i)
 {
     CreatingEquipmentAmmo(iter, i);
     iter.entity(i).add_trait<Equipment, Rockets>();
 }
 
-inline void Item::CreatingEquipmentAmmoMines(flecs::iter& iter, int i)
+inline void Item::CreatingEquipmentAmmoMines(const flecs::iter& iter, int i)
 {
     CreatingEquipmentAmmo(iter, i);
     iter.entity(i).add_trait<Equipment, Mines>();
