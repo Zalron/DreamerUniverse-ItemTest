@@ -16,19 +16,31 @@ int main()
 
     flecs::world world;
 
-    world.set_threads(12);
+    world.import<Item>();
+
+    int32_t threadcount;
+
+    std:cout << "Type the amount of threads you want (DO NOT type in more threads than your CPU has)" << std::endl;
+
+    std::cin >> threadcount;
+
+    world.set_threads(threadcount);
+
+    int AmountofItemstoSpawn;
+
+    std::cout << "Type the amount of items to spawn" << std::endl;
+
+    std::cin >> AmountofItemstoSpawn;
+
+    world.entity("Item").set<Item::ItemSpawning>({ AmountofItemstoSpawn });
+
+    world.set_target_fps(60);
 
     //world.import<flecs::dash>();
 
     //world.import<flecs::systems::civetweb>();
 
     //world.entity().set<flecs::dash::Server>({ 9090 });
-
-    world.import<Item>();
-
-    world.entity("Item").set<Item::ItemSpawning>({ 1000 });
-
-    world.set_target_fps(60);
 
     while (world.progress()) {}
 }

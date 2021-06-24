@@ -7,13 +7,15 @@
 #include "flecs.h"
 #include "ItemConfig.h"
 #include <flecs_os_api_stdcpp.h>
-#include "iostream"
+#include <random>
+#include <iostream>
 using namespace std;
 
 
 struct Item
 {
 public:
+
     struct ItemStaging
     {
         int ItemStage;
@@ -36,7 +38,8 @@ public:
     {
         //int LevelRequirement;
         int RarityLevel;
-        int RarityRoll;
+        int RarityFloatRoll;
+        float RarityIntRoll;
         int RarityAffixAllowance;
     };
 
@@ -739,131 +742,137 @@ public:
 
         world.system<ItemStaging, ItemTypeCreation, ItemRarity>("CreatingRarityModComponentsToEntity").iter(CreatingRarityModComponentsToEntity);
 
-        //world.system<>().iter();
+        world.system<ItemStaging>("RemovingItemStagingComponentsFromEntity").iter(RemovingItemStagingComponentsFromEntity);
     }
     static void CreateItemEntity(const flecs::iter& iter, ItemSpawning* is );
     static void AddItemTypeComponentstoEntity(const flecs::iter& iter, ItemStaging* iss);
     static void AddItemComponentstoEntity(const flecs::iter& iter, ItemStaging* iss);
     static void SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, ItemStaging* iss);
     static void CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir);
-    
+    static void RemovingItemStagingComponentsFromEntity(const flecs::iter& iter, ItemStaging* iss);
+   
 
 private:
-    static inline void CreatingEquipableItems(const flecs::iter& iter, int i, int seed);
-
-    static inline void CreatingBaseItemEquipableStats(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingMeleeWeaponComponentsToEntity(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingRangeWeaponComponentstoEntity(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingPowerArmourComponentsToEntity(const flecs::iter& iter, int i, int randomRarity);
-
-    static inline void CreatingOneHandedMeleeWeaponItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponShortSwordItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponMaceItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponKnifeItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponWarhammerItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponAxeItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponShieldItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponRapierItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponClubItems(const flecs::iter& iter, int i, int randomRarity);
+    static inline std::mt19937 CreatingSeedForRandom32BitNumber();
+    static inline int CreatingSeed();
+    static inline int CreatingRandom32BitIntNumbers(int seed, int min, int max);
+    static inline float CreatingRandom32BitFloatNumbers(int seed, float min, float max);
+    static inline void CreatingEquipableItems(const flecs::iter& iter, size_t i, int seed);
+    static inline void CreatingBaseItemEquipableStats(const flecs::iter& iter, size_t i, int seed);
+    static inline void CreatingMeleeWeaponComponentsToEntity(const flecs::iter& iter, size_t i, int seed);
+    static inline void CreatingRangeWeaponComponentstoEntity(const flecs::iter& iter, size_t i, int seed);
+    static inline void CreatingPowerArmourComponentsToEntity(const flecs::iter& iter, size_t i, int seed);
+    static inline ItemQualityConfig GetConfigItemQualityData(float itemQualitySpawnChance);
+    static inline ItemRarityConfig GetConfigItemRarityData(float itemRaritySpawnChance);
     
-    static inline void CreatingTwoHandedMeleeWeaponItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponLongSwordItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponMaceItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponWarhammerItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponHalberdItems(const flecs::iter& iter, int, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponAxeItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponClubItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponStaffItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponSpearItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponClawsItems(const flecs::iter& iter, int i, int randomRarity);
-
-    static inline void CreatingOneHandedRangedWeaponItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedRangedWeaponWandItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedRangedWeaponThrownItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedRangedWeaponPistolItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedRangedWeaponRevolverItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingOneHandedRangedWeaponHandCrossbowItems(const flecs::iter& iter, int i, int randomRarity);
-
-    static inline void CreatingTwoHandedRangedWeaponItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponBowItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponCrossbowItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponCarbineItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponAssaultRifleItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponSniperRifleItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponLightMachineGunItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponSubMachineGunItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponShotgunItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponGrenadeLauncherItems(const flecs::iter& iter, int i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponRocketLauncherItems(const flecs::iter& iter, int i, int randomRarity);
-
-    static inline void CreatingArmourPowerArmourLightItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourLightHeadItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourLightBeltItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourLightChestItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourLightLegsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourLightArmsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourLightHandsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourLightShouldersItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourLightBackpackItems(const flecs::iter& iter, int i);
-
-    static inline void CreatingArmourPowerArmourMediumItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourMediumHeadItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourMediumBeltItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourMediumChestItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourMediumLegsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourMediumArmsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourMediumHandsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourMediumShouldersItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourMediumBackpackItems(const flecs::iter& iter, int i);
-
-    static inline void CreatingArmourPowerArmourHeavyItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourHeavyHeadItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourHeavyBeltItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourHeavyChestItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourHeavyLegsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourHeavyArmsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourHeavyHandsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourHeavyShouldersItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourPowerArmourHeavyBackpackItems(const flecs::iter& iter, int i);
-
-    static inline void CreatingArmourNonPowerArmourItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourNonPowerArmourHeadItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourNonPowerArmourBeltItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourNonPowerArmourChestItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourNonPowerArmourLegsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourNonPowerArmourArmsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourNonPowerArmourHandsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourNonPowerArmourShouldersItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourNonPowerArmourBackpackItems(const flecs::iter& iter, int i);
-
-    static inline void CreatingArmourClothsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourClothsHeadItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourClothsBeltItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourClothsChestItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourClothsLegsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourClothsArmsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourClothsHandsItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourClothsShouldersItems(const flecs::iter& iter, int i);
-    static inline void CreatingArmourClothsBackpackItems(const flecs::iter& iter, int i);
-
-    static inline void CreatingEquipmentFlasks(const flecs::iter& iter, int i);
-    static inline void CreatingEquipmentFlasksHealth(const flecs::iter& iter, int i);
-    static inline void CreatingEquipmentFlasksMagic(const flecs::iter& iter, int i);
-    static inline void CreatingEquipmentFlasksMovement(const flecs::iter& iter, int i);
-    static inline void CreatingEquipmentFlasksResistance(const flecs::iter& iter, int i);
-
-    static inline void CreatingEquipmentAmmo(const flecs::iter& iter, int i);
-    static inline void CreatingEquipmentAmmoQuivers(const flecs::iter& iter, int i);
-    static inline void CreatingEquipmentAmmoMagazines(const flecs::iter& iter, int i);
-    static inline void CreatingEquipmentAmmoGrenades(const flecs::iter& iter, int i);
-    static inline void CreatingEquipmentAmmoRockets(const flecs::iter& iter, int i);
-    static inline void CreatingEquipmentAmmoMines(const flecs::iter& iter, int i);
+    static inline void CreatingOneHandedMeleeWeaponItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedMeleeWeaponShortSwordItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedMeleeWeaponMaceItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedMeleeWeaponKnifeItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedMeleeWeaponWarhammerItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedMeleeWeaponAxeItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedMeleeWeaponShieldItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedMeleeWeaponRapierItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedMeleeWeaponClubItems(const flecs::iter& iter, size_t i, int randomRarity);
     
-    static inline void CreatingCraftingMaps(const flecs::iter& iter, int i);
-    static inline void CreatingCraftingMapChisel(const flecs::iter& iter, int i);
-    static inline void CreatingCraftingCrystals(const flecs::iter& iter, int i);
-    static inline void CreatingCraftingCards(const flecs::iter& iter, int i);
-    static inline void CreatingCraftingOrbs(const flecs::iter& iter, int i);
+    static inline void CreatingTwoHandedMeleeWeaponItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedMeleeWeaponLongSwordItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedMeleeWeaponMaceItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedMeleeWeaponWarhammerItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedMeleeWeaponHalberdItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedMeleeWeaponAxeItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedMeleeWeaponClubItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedMeleeWeaponStaffItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedMeleeWeaponSpearItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedMeleeWeaponClawsItems(const flecs::iter& iter, size_t i, int randomRarity);
+
+    static inline void CreatingOneHandedRangedWeaponItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedRangedWeaponWandItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedRangedWeaponThrownItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedRangedWeaponPistolItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedRangedWeaponRevolverItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingOneHandedRangedWeaponHandCrossbowItems(const flecs::iter& iter, size_t i, int randomRarity);
+
+    static inline void CreatingTwoHandedRangedWeaponItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedRangedWeaponBowItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedRangedWeaponCrossbowItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedRangedWeaponCarbineItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedRangedWeaponAssaultRifleItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedRangedWeaponSniperRifleItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedRangedWeaponLightMachineGunItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedRangedWeaponSubMachineGunItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedRangedWeaponShotgunItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedRangedWeaponGrenadeLauncherItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingTwoHandedRangedWeaponRocketLauncherItems(const flecs::iter& iter, size_t i, int randomRarity);
+
+    static inline void CreatingArmourPowerArmourLightItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourLightHeadItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourLightBeltItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourLightChestItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourLightLegsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourLightArmsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourLightHandsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourLightShouldersItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourLightBackpackItems(const flecs::iter& iter, size_t i, int randomRarity);
+
+    static inline void CreatingArmourPowerArmourMediumItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourMediumHeadItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourMediumBeltItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourMediumChestItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourMediumLegsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourMediumArmsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourMediumHandsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourMediumShouldersItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourMediumBackpackItems(const flecs::iter& iter, size_t i, int randomRarity);
+
+    static inline void CreatingArmourPowerArmourHeavyItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourHeavyHeadItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourHeavyBeltItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourHeavyChestItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourHeavyLegsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourHeavyArmsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourHeavyHandsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourHeavyShouldersItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourPowerArmourHeavyBackpackItems(const flecs::iter& iter, size_t i, int randomRarity);
+
+    static inline void CreatingArmourNonPowerArmourItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourNonPowerArmourHeadItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourNonPowerArmourBeltItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourNonPowerArmourChestItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourNonPowerArmourLegsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourNonPowerArmourArmsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourNonPowerArmourHandsItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourNonPowerArmourShouldersItems(const flecs::iter& iter, size_t i, int randomRarity);
+    static inline void CreatingArmourNonPowerArmourBackpackItems(const flecs::iter& iter, size_t i, int randomRarity);
+
+    static inline void CreatingArmourClothsItems(const flecs::iter& iter, size_t i);
+    static inline void CreatingArmourClothsHeadItems(const flecs::iter& iter, size_t i);
+    static inline void CreatingArmourClothsBeltItems(const flecs::iter& iter, size_t i);
+    static inline void CreatingArmourClothsChestItems(const flecs::iter& iter, size_t i);
+    static inline void CreatingArmourClothsLegsItems(const flecs::iter& iter, size_t i);
+    static inline void CreatingArmourClothsArmsItems(const flecs::iter& iter, size_t i);
+    static inline void CreatingArmourClothsHandsItems(const flecs::iter& iter, size_t i);
+    static inline void CreatingArmourClothsShouldersItems(const flecs::iter& iter, size_t i);
+    static inline void CreatingArmourClothsBackpackItems(const flecs::iter& iter, size_t i);
+
+    static inline void CreatingEquipmentFlasks(const flecs::iter& iter, size_t i);
+    static inline void CreatingEquipmentFlasksHealth(const flecs::iter& iter, size_t i);
+    static inline void CreatingEquipmentFlasksMagic(const flecs::iter& iter, size_t i);
+    static inline void CreatingEquipmentFlasksMovement(const flecs::iter& iter, size_t i);
+    static inline void CreatingEquipmentFlasksResistance(const flecs::iter& iter, size_t i);
+
+    static inline void CreatingEquipmentAmmo(const flecs::iter& iter, size_t i);
+    static inline void CreatingEquipmentAmmoQuivers(const flecs::iter& iter, size_t i);
+    static inline void CreatingEquipmentAmmoMagazines(const flecs::iter& iter, size_t i);
+    static inline void CreatingEquipmentAmmoGrenades(const flecs::iter& iter, size_t i);
+    static inline void CreatingEquipmentAmmoRockets(const flecs::iter& iter, size_t i);
+    static inline void CreatingEquipmentAmmoMines(const flecs::iter& iter, size_t i);
+    
+    static inline void CreatingCraftingMaps(const flecs::iter& iter, size_t i);
+    static inline void CreatingCraftingMapChisel(const flecs::iter& iter, size_t i);
+    static inline void CreatingCraftingCrystals(const flecs::iter& iter, size_t i);
+    static inline void CreatingCraftingCards(const flecs::iter& iter, size_t i);
+    static inline void CreatingCraftingOrbs(const flecs::iter& iter, size_t i);
 
 };
 #endif

@@ -1,7 +1,7 @@
 ﻿  flecs.c
   flecs_os_api_stdcpp.cpp
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.cpp(108,30): warning C4273: 'stdcpp_set_os_api': inconsistent dll linkage
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.h(33,15): message : see previous definition of 'stdcpp_set_os_api'
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.cpp(111,30): warning C4273: 'stdcpp_set_os_api': inconsistent dll linkage
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.h(39,15): message : see previous definition of 'stdcpp_set_os_api'
   Item.cpp
   ItemConfig.cpp
   main.cpp
