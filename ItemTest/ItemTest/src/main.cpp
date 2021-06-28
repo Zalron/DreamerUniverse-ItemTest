@@ -20,7 +20,7 @@ int main()
 
     int32_t threadcount;
 
-    std:cout << "Type the amount of threads you want (DO NOT type in more threads than your CPU has)" << std::endl;
+    std:cout << "Type the amount of threads you want" << std::endl;
 
     std::cin >> threadcount;
 

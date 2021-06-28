@@ -23,7 +23,7 @@ void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, I
         if (iss->ItemStage == 1)
         {
             int randomNumber = CreatingSeed();
-            std::cout << "System SettingSeedForRandomItemEntitiesGeneration has generated this number " << randomNumber << " for " << it << std::endl;
+            //std::cout << "System SettingSeedForRandomItemEntitiesGeneration has generated this number " << randomNumber << " for " << it << std::endl;
             iss->Seed = randomNumber;
             iss->ItemStage = 2;
         }
@@ -38,7 +38,7 @@ void Item::AddItemTypeComponentstoEntity(const flecs::iter& iter, ItemStaging* i
         {
             iter.entity(it).set<ItemTypeCreation>({0,0,0});
             iss->ItemStage = 3;
-            std::cout << "System AddItemTypeComponentstoEntity has add ItemTypeCreation component " << it << " " << std::endl;
+            //std::cout << "System AddItemTypeComponentstoEntity has add ItemTypeCreation component " << it << " " << std::endl;
         }
     }
 }
@@ -51,23 +51,89 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemStaging* iss)
         {
             CreatingEquipableItems(iter, it, iss->Seed);
             iss->ItemStage = 4;
-            std::cout << "System AddItemComponentstoEntity is creating Items " << it << " " << std::endl;
+            //std::cout << "System AddItemComponentstoEntity is creating Items " << it << " " << std::endl;
         }
     }
 }
 
+void Item::CreatingRarityComponentsToEntity(const flecs::iter& iter, ItemStaging* iss, ItemRarity* ir)
+{
+    for (auto it : iter)
+    {
+        if(iss->ItemStage == 4)
+        {
+            float RarityRoll = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            //std::cout << "Random Rarity number generated " << RarityRoll << std::endl;
+            if (RarityRoll >= ItemRarity1.RaritySpawnChanceMin && RarityRoll < ItemRarity1.RaritySpawnChanceMax)
+            {
+                ir->RarityAffixAllowance = ItemRarity1.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity1.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers();
+                ItemRarity1
+            }
+            else if (RarityRoll >= ItemRarity2.RaritySpawnChanceMin && RarityRoll < ItemRarity2.RaritySpawnChanceMax)
+            {
+                return ItemRarity2;
+            }
+            else if (RarityRoll >= ItemRarity3.RaritySpawnChanceMin && RarityRoll < ItemRarity3.RaritySpawnChanceMax)
+            {
+                return ItemRarity3;
+            }
+            else if (RarityRoll >= ItemRarity4.RaritySpawnChanceMin && RarityRoll < ItemRarity4.RaritySpawnChanceMax)
+            {
+                return ItemRarity4;
+            }
+            else if (RarityRoll >= ItemRarity5.RaritySpawnChanceMin && RarityRoll < ItemRarity5.RaritySpawnChanceMax)
+            {
+                return ItemRarity5;
+            }
+            else if (RarityRoll >= ItemRarity6.RaritySpawnChanceMin && RarityRoll < ItemRarity6.RaritySpawnChanceMax)
+            {
+                return ItemRarity6;
+            }
+            else if (RarityRoll >= ItemRarity7.RaritySpawnChanceMin && RarityRoll < ItemRarity7.RaritySpawnChanceMax)
+            {
+                return ItemRarity7;
+            }
+            else if (RarityRoll >= ItemRarity8.RaritySpawnChanceMin && RarityRoll < ItemRarity8.RaritySpawnChanceMax)
+            {
+                return ItemRarity8;
+            }
+            else if (RarityRoll >= ItemRarity9.RaritySpawnChanceMin && RarityRoll < ItemRarity9.RaritySpawnChanceMax)
+            {
+                return ItemRarity9;
+            }
+            else if (RarityRoll >= ItemRarity10.RaritySpawnChanceMin && RarityRoll < ItemRarity10.RaritySpawnChanceMax)
+            {
+                return ItemRarity10;
+            }
+            else if (RarityRoll >= ItemRarity11.RaritySpawnChanceMin && RarityRoll < ItemRarity11.RaritySpawnChanceMax)
+            {
+                return ItemRarity11;
+            }
+            else if (RarityRoll >= ItemRarity12.RaritySpawnChanceMin && RarityRoll <= ItemRarity12.RaritySpawnChanceMax)
+            {
+                return ItemRarity12;
+            }
+            else
+            {
+                ItemRarityConfig errorItemRarity{ 0,0,0,0,0,0,0,0 };
+                return errorItemRarity;
+            }
+            iss->ItemStage = 5;
+        }
+    }
+}
 
 
 void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir)
 {
     for (auto it : iter)
     {
-        if (iss->ItemStage == 4)
+        if (iss->ItemStage == 5)
         {
-
             if (ir->RarityAffixAllowance == 1)
             {
-
                 iter.entity(it).set<ItemAffixMods1>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 1 ItemAffixMod component " << it << " " << std::endl;
             }
@@ -179,7 +245,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
             {
                 std::cout << "System CreatingRarityModComponentsToEntity has add 0 ItemAffixMod component " << it << " " << std::endl;
             }
-            iss->ItemStage = 5;
+            iss->ItemStage = 6;
         }
     }
 }
@@ -192,7 +258,7 @@ void Item::RemovingItemStagingComponentsFromEntity(const flecs::iter& iter, Item
         {
             iss->ItemStage = 6;
             iter.entity(it).remove<ItemStaging>();
-            std::cout << "System RemovingItemStagingComponentsFromEntity is removeing ItemStaging from Items " << it << " " << std::endl;
+            //std::cout << "System RemovingItemStagingComponentsFromEntity is removeing ItemStaging from Items " << it << " " << std::endl;
         }
     }
 }
@@ -224,14 +290,14 @@ inline float Item::CreatingRandom32BitFloatNumbers(int seed, float min, float ma
 {
     std::mt19937 gen(seed);
     std::uniform_real_distribution<> randomNumber32(min, max);
-    float randomNumber = randomNumber32(seed);
+    float randomNumber = randomNumber32(gen);
     return randomNumber;
 }
 
 inline void Item::CreatingEquipableItems(const flecs::iter& iter, size_t i, int seed)
 {
-    int NumberOfitemTypes = 33;
-    int randomNumber = CreatingRandom32BitIntNumbers(seed, 0, 33);
+    int NumberOfitemTypes = 31;
+    int randomNumber = CreatingRandom32BitIntNumbers(seed, 0, NumberOfitemTypes);
     if (randomNumber == 0)
     {
         CreatingOneHandedMeleeWeaponShortSwordItems(iter, i, seed);
@@ -388,169 +454,121 @@ inline void Item::CreatingEquipableItems(const flecs::iter& iter, size_t i, int 
         std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponGrenadeLauncher " << i << " " << std::endl;
 
     }
-    else if (randomNumber == 32)
+    else if (randomNumber == 31)
     {
         CreatingTwoHandedRangedWeaponRocketLauncherItems(iter, i, seed);
         std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponRocketLauncher " << i << " " << std::endl;
-
     }
     else 
     {
-        std::cout << "For some reason a number is out of range " << i << " " << std::endl;
-        randomNumber = seed % NumberOfitemTypes;
+        std::cout << "System AddItemComponentstoEntity For some reason a number is out of range which is " << randomNumber << " " << i << " " << std::endl;
+        randomNumber = CreatingRandom32BitIntNumbers(seed, 0, NumberOfitemTypes);
     }
-}
-
-ItemRarityConfig GetConfigItemRarityData(float RarityRoll)
-{
-    if (RarityRoll >= ItemRarity1.RarityChanceMin && RarityRoll < ItemRarity1.RarityChanceMax)
-    {
-        return ItemRarity1;
-    }
-    if (RarityRoll >= ItemRarity2.RarityChanceMin && RarityRoll < ItemRarity2.RarityChanceMax)
-    {
-        return ItemRarity2;
-    }
-    if (RarityRoll >= ItemRarity3.RarityChanceMin && RarityRoll < ItemRarity3.RarityChanceMax)
-    {
-        return ItemRarity3;
-    }
-    if (RarityRoll >= ItemRarity4.RarityChanceMin && RarityRoll < ItemRarity4.RarityChanceMax)
-    {
-        return ItemRarity4;
-    }
-    if (RarityRoll >= ItemRarity5.RarityChanceMin && RarityRoll < ItemRarity5.RarityChanceMax)
-    {
-        return ItemRarity5;
-    }
-    if (RarityRoll >= ItemRarity6.RarityChanceMin && RarityRoll < ItemRarity6.RarityChanceMax)
-    {
-        return ItemRarity6;
-    }
-    if (RarityRoll >= ItemRarity7.RarityChanceMin && RarityRoll < ItemRarity7.RarityChanceMax)
-    {
-        return ItemRarity7;
-    }
-    if (RarityRoll >= ItemRarity8.RarityChanceMin && RarityRoll < ItemRarity8.RarityChanceMax)
-    {
-        return ItemRarity8;
-    }
-    if (RarityRoll >= ItemRarity9.RarityChanceMin && RarityRoll < ItemRarity9.RarityChanceMax)
-    {
-        return ItemRarity9;
-    }
-    if (RarityRoll >= ItemRarity10.RarityChanceMin && RarityRoll < ItemRarity10.RarityChanceMax)
-    {
-        return ItemRarity10;
-    }
-    if (RarityRoll >= ItemRarity11.RarityChanceMin && RarityRoll < ItemRarity11.RarityChanceMax)
-    {
-        return ItemRarity11;
-    }
-    if (RarityRoll >= ItemRarity12.RarityChanceMin && RarityRoll <= ItemRarity12.RarityChanceMax)
-    {
-        return ItemRarity12;
-    }
-    ItemRarityConfig errorItemRarity{0,0,0,0,0,0};
-    //Debug.Log("Error Item base not found");
-    return errorItemRarity;
 }
 
 ItemQualityConfig  Item::GetConfigItemQualityData(float ItemQuality)
 {
-    if (ItemQuality <= ItemQualityConfig0.QualityChance)
+    if (ItemQuality >= ItemQualityConfig0.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig0.QualitySpawnChanceMax)
     {
         return ItemQualityConfig0;
     }
-    if (ItemQuality > ItemQualityConfig0.QualityChance && ItemQuality <= ItemQualityConfig1.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig1.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig1.QualitySpawnChanceMax)
     {
         return ItemQualityConfig1;
     }
-    if (ItemQuality > ItemQualityConfig1.QualityChance && ItemQuality <= ItemQualityConfig2.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig2.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig2.QualitySpawnChanceMax)
     {
         return ItemQualityConfig2;
     }
-    if (ItemQuality > ItemQualityConfig2.QualityChance && ItemQuality <= ItemQualityConfig3.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig3.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig3.QualitySpawnChanceMax)
     {
         return ItemQualityConfig3;
     }
-    if (ItemQuality > ItemQualityConfig3.QualityChance && ItemQuality <= ItemQualityConfig4.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig4.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig4.QualitySpawnChanceMax)
     {
         return ItemQualityConfig4;
     }
-    if (ItemQuality > ItemQualityConfig4.QualityChance && ItemQuality <= ItemQualityConfig5.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig5.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig5.QualitySpawnChanceMax)
     {
         return ItemQualityConfig5;
     }
-    if (ItemQuality > ItemQualityConfig5.QualityChance && ItemQuality <= ItemQualityConfig6.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig6.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig6.QualitySpawnChanceMax)
     {
         return ItemQualityConfig6;
     }
-    if (ItemQuality > ItemQualityConfig6.QualityChance && ItemQuality <= ItemQualityConfig7.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig7.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig7.QualitySpawnChanceMax)
     {
         return ItemQualityConfig7;
     }
-    if (ItemQuality > ItemQualityConfig7.QualityChance && ItemQuality <= ItemQualityConfig8.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig8.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig8.QualitySpawnChanceMax)
     {
         return ItemQualityConfig8;
     }
-    if (ItemQuality > ItemQualityConfig8.QualityChance && ItemQuality <= ItemQualityConfig9.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig9.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig9.QualitySpawnChanceMax)
     {
         return ItemQualityConfig9;
     }
-    if (ItemQuality > ItemQualityConfig9.QualityChance && ItemQuality <= ItemQualityConfig10.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig10.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig10.QualitySpawnChanceMax)
     {
         return ItemQualityConfig10;
     }
-    if (ItemQuality > ItemQualityConfig10.QualityChance && ItemQuality <= ItemQualityConfig11.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig11.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig11.QualitySpawnChanceMax)
     {
         return ItemQualityConfig11;
     }
-    if (ItemQuality > ItemQualityConfig11.QualityChance && ItemQuality <= ItemQualityConfig12.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig12.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig12.QualitySpawnChanceMax)
     {
         return ItemQualityConfig12;
     }
-    if (ItemQuality > ItemQualityConfig12.QualityChance && ItemQuality <= ItemQualityConfig13.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig13.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig13.QualitySpawnChanceMax)
     {
         return ItemQualityConfig13;
     }
-    if (ItemQuality > ItemQualityConfig13.QualityChance && ItemQuality <= ItemQualityConfig14.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig14.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig14.QualitySpawnChanceMax)
     {
         return ItemQualityConfig14;
     }
-    if (ItemQuality > ItemQualityConfig14.QualityChance && ItemQuality <= ItemQualityConfig15.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig15.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig15.QualitySpawnChanceMax)
     {
         return ItemQualityConfig15;
     }
-    if (ItemQuality > ItemQualityConfig15.QualityChance && ItemQuality <= ItemQualityConfig16.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig16.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig16.QualitySpawnChanceMax)
     {
         return ItemQualityConfig16;
     }
-    if (ItemQuality > ItemQualityConfig16.QualityChance && ItemQuality <= ItemQualityConfig17.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig17.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig17.QualitySpawnChanceMax)
     {
         return ItemQualityConfig17;
     }
-    if (ItemQuality > ItemQualityConfig17.QualityChance && ItemQuality <= ItemQualityConfig18.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig18.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig18.QualitySpawnChanceMax)
     {
         return ItemQualityConfig18;
     }
-    if (ItemQuality > ItemQualityConfig18.QualityChance && ItemQuality <= ItemQualityConfig19.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig18.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig18.QualitySpawnChanceMax)
+    {
+        return ItemQualityConfig18;
+    }
+    else if (ItemQuality >= ItemQualityConfig19.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig19.QualitySpawnChanceMax)
     {
         return ItemQualityConfig19;
     }
-    if (ItemQuality < ItemQualityConfig19.QualityChance)
+    else if (ItemQuality >= ItemQualityConfig20.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig20.QualitySpawnChanceMax)
     {
         return ItemQualityConfig20;
     }
-    ItemQualityConfig errorItemQuality{ 0,0,0 };
-    return errorItemQuality;
+    else 
+    {
+        ItemQualityConfig errorItemQuality{ 0,0,0,0 };
+        return errorItemQuality;
+    }
 }
 
 inline void Item::CreatingBaseItemEquipableStats(const flecs::iter& iter, size_t i, int seed)
 {
     iter.entity(i).set<ItemCharacterLevelRequirements>({});
-    ItemRarityConfig itemRarityConfig = GetConfigItemRarityData(CreatingRandom32BitFloatNumbers(seed, 0, 100));
-    iter.entity(i).set<ItemRarity>({ itemRarityConfig.RarityLevel, CreatingRandom32BitIntNumbers(seed, itemRarityConfig.RarityIntRollMin, itemRarityConfig.RarityIntRollMax) ,CreatingRandom32BitFloatNumbers(seed, itemRarityConfig.RarityFloatRollMin, itemRarityConfig.RarityFloatRollMax), itemRarityConfig.RarityAffixAllowance });
+    ItemRarityConfig itemRarityConfig = GetConfigItemRarityData(CreatingRandom32BitFloatNumbers(seed, 0.0f, 100.0f));
+    iter.entity(i).set<ItemRarity>({itemRarityConfig.RarityLevel, CreatingRandom32BitIntNumbers(seed, itemRarityConfig.RarityIntRollMin, itemRarityConfig.RarityIntRollMax), CreatingRandom32BitFloatNumbers(seed, itemRarityConfig.RarityFloatRollMin, itemRarityConfig.RarityFloatRollMax), itemRarityConfig.RarityAffixAllowance });
+    //ItemQualityConfig itemQualityConfig =  GetConfigItemQualityData()
     iter.entity(i).set<ItemQuality>({});
     iter.entity(i).set<ItemMaterial>({});
     iter.entity(i).set<ItemManufacturer>({});
@@ -1080,7 +1098,7 @@ inline void Item::CreatingArmourNonPowerArmourBackpackItems(const flecs::iter& i
 
 #pragma region Creating Cloths Armour
 
-void Item::CreatingArmourClothsItems(const flecs::iter& iter, size_t i)
+inline void Item::CreatingArmourClothsItems(const flecs::iter& iter, size_t i)
 {
     iter.entity(i).add_trait<Item, Armour>();
     iter.entity(i).add_trait<Armour, Cloths>();

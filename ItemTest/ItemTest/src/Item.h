@@ -748,8 +748,11 @@ public:
     static void AddItemTypeComponentstoEntity(const flecs::iter& iter, ItemStaging* iss);
     static void AddItemComponentstoEntity(const flecs::iter& iter, ItemStaging* iss);
     static void SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, ItemStaging* iss);
+    static void CreatingRarityComponentsToEntity(const flecs::iter& iter, ItemStaging* iss, ItemRarity* ir);
     static void CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir);
+    
     static void RemovingItemStagingComponentsFromEntity(const flecs::iter& iter, ItemStaging* iss);
+
    
 
 private:
@@ -762,8 +765,11 @@ private:
     static inline void CreatingMeleeWeaponComponentsToEntity(const flecs::iter& iter, size_t i, int seed);
     static inline void CreatingRangeWeaponComponentstoEntity(const flecs::iter& iter, size_t i, int seed);
     static inline void CreatingPowerArmourComponentsToEntity(const flecs::iter& iter, size_t i, int seed);
-    static inline ItemQualityConfig GetConfigItemQualityData(float itemQualitySpawnChance);
-    static inline ItemRarityConfig GetConfigItemRarityData(float itemRaritySpawnChance);
+    static inline ItemQualityConfig GetConfigItemQualityData(float ItemQualitySpawnChance);
+    static inline ItemRarityConfig GetConfigItemRarityData(float ItemRaritySpawnChance);
+    static inline ItemMaterialConfig GetConfigItemMaterialData(float ItemMaterialSpawnChance);
+    static inline ItemManufacturerConfig GentConfigItemManufacturerData(int ItemManufacturerSpawnChance);
+    static inline ItemBaseTypeConfig GetConfigItemTypeData(float ItemBaseSpawnChance);
     
     static inline void CreatingOneHandedMeleeWeaponItems(const flecs::iter& iter, size_t i, int randomRarity);
     static inline void CreatingOneHandedMeleeWeaponShortSwordItems(const flecs::iter& iter, size_t i, int randomRarity);
