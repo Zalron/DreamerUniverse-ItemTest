@@ -68,57 +68,89 @@ void Item::CreatingRarityComponentsToEntity(const flecs::iter& iter, ItemStaging
             {
                 ir->RarityAffixAllowance = ItemRarity1.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity1.RarityLevel;
-                ir->RarityIntRoll = CreatingRandom32BitIntNumbers();
-                ItemRarity1
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity1.RarityIntRollMin, ItemRarity1.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity1.RarityFloatRollMin, ItemRarity1.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity2.RaritySpawnChanceMin && RarityRoll < ItemRarity2.RaritySpawnChanceMax)
             {
-                return ItemRarity2;
+                ir->RarityAffixAllowance = ItemRarity2.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity2.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity2.RarityIntRollMin, ItemRarity2.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity2.RarityFloatRollMin, ItemRarity2.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity3.RaritySpawnChanceMin && RarityRoll < ItemRarity3.RaritySpawnChanceMax)
             {
-                return ItemRarity3;
+                ir->RarityAffixAllowance = ItemRarity3.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity3.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity3.RarityIntRollMin, ItemRarity3.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity3.RarityFloatRollMin, ItemRarity3.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity4.RaritySpawnChanceMin && RarityRoll < ItemRarity4.RaritySpawnChanceMax)
             {
-                return ItemRarity4;
+                ir->RarityAffixAllowance = ItemRarity4.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity4.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity4.RarityIntRollMin, ItemRarity4.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity4.RarityFloatRollMin, ItemRarity4.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity5.RaritySpawnChanceMin && RarityRoll < ItemRarity5.RaritySpawnChanceMax)
             {
-                return ItemRarity5;
+                ir->RarityAffixAllowance = ItemRarity5.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity5.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity5.RarityIntRollMin, ItemRarity5.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity5.RarityFloatRollMin, ItemRarity5.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity6.RaritySpawnChanceMin && RarityRoll < ItemRarity6.RaritySpawnChanceMax)
             {
-                return ItemRarity6;
+                ir->RarityAffixAllowance = ItemRarity6.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity6.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity6.RarityIntRollMin, ItemRarity6.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity6.RarityFloatRollMin, ItemRarity6.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity7.RaritySpawnChanceMin && RarityRoll < ItemRarity7.RaritySpawnChanceMax)
             {
-                return ItemRarity7;
+                ir->RarityAffixAllowance = ItemRarity7.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity7.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity7.RarityIntRollMin, ItemRarity7.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity7.RarityFloatRollMin, ItemRarity7.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity8.RaritySpawnChanceMin && RarityRoll < ItemRarity8.RaritySpawnChanceMax)
             {
-                return ItemRarity8;
+                ir->RarityAffixAllowance = ItemRarity8.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity8.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity8.RarityIntRollMin, ItemRarity8.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity8.RarityFloatRollMin, ItemRarity8.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity9.RaritySpawnChanceMin && RarityRoll < ItemRarity9.RaritySpawnChanceMax)
             {
-                return ItemRarity9;
+                ir->RarityAffixAllowance = ItemRarity9.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity9.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity9.RarityIntRollMin, ItemRarity9.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity9.RarityFloatRollMin, ItemRarity9.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity10.RaritySpawnChanceMin && RarityRoll < ItemRarity10.RaritySpawnChanceMax)
             {
-                return ItemRarity10;
+                ir->RarityAffixAllowance = ItemRarity10.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity10.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity10.RarityIntRollMin, ItemRarity10.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity10.RarityFloatRollMin, ItemRarity10.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity11.RaritySpawnChanceMin && RarityRoll < ItemRarity11.RaritySpawnChanceMax)
             {
-                return ItemRarity11;
+                ir->RarityAffixAllowance = ItemRarity11.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity11.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity11.RarityIntRollMin, ItemRarity11.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity11.RarityFloatRollMin, ItemRarity11.RarityFloatRollMax);
             }
             else if (RarityRoll >= ItemRarity12.RaritySpawnChanceMin && RarityRoll <= ItemRarity12.RaritySpawnChanceMax)
             {
-                return ItemRarity12;
+                ir->RarityAffixAllowance = ItemRarity12.RarityAffixAllowance;
+                ir->RarityLevel = ItemRarity12.RarityLevel;
+                ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity12.RarityIntRollMin, ItemRarity12.RarityIntRollMax);
+                ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity12.RarityFloatRollMin, ItemRarity12.RarityFloatRollMax);
             }
             else
             {
-                ItemRarityConfig errorItemRarity{ 0,0,0,0,0,0,0,0 };
-                return errorItemRarity;
+                std::cout << "System CreatingRarityComponentsToEntity has number generated out of range" << it << " " << std::endl;
             }
             iss->ItemStage = 5;
         }

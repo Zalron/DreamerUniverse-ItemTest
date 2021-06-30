@@ -742,6 +742,8 @@ public:
 
         world.system<ItemStaging, ItemTypeCreation, ItemRarity>("CreatingRarityModComponentsToEntity").iter(CreatingRarityModComponentsToEntity);
 
+        world.system<ItemStaging,  ItemRarity>("CreatingRarityComponentsToEntity").iter(CreatingRarityComponentsToEntity);
+
         world.system<ItemStaging>("RemovingItemStagingComponentsFromEntity").iter(RemovingItemStagingComponentsFromEntity);
     }
     static void CreateItemEntity(const flecs::iter& iter, ItemSpawning* is );
