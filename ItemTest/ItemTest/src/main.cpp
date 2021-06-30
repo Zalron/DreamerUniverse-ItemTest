@@ -32,7 +32,7 @@ int main()
 
     std::cin >> AmountofItemstoSpawn;
 
-    world.entity("Item").set<Item::ItemSpawning>({ AmountofItemstoSpawn });
+    world.entity("Item").set<ItemComponents::ItemSpawning>({ AmountofItemstoSpawn });
 
     world.set_target_fps(60);
 

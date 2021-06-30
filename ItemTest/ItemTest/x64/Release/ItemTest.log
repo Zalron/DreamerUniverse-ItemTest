@@ -3,18 +3,43 @@
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.cpp(111,30): warning C4273: 'stdcpp_set_os_api': inconsistent dll linkage
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.h(39,15): message : see previous definition of 'stdcpp_set_os_api'
   Item.cpp
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(124,48): error C2440: 'initializing': cannot convert from 'initializer list' to 'ItemBaseTypeConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(124,48): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(126,47): error C2440: 'initializing': cannot convert from 'initializer list' to 'ItemBaseTypeConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(126,47): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(227,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(125,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(126,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(71,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(72,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(78,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(79,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(85,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(86,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(92,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(93,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(99,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(100,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(106,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(107,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(113,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(114,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(120,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(121,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(127,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(128,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(134,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(135,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(141,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(142,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(148,66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(149,70): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(325,24): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   ItemConfig.cpp
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(124,48): error C2440: 'initializing': cannot convert from 'initializer list' to 'ItemBaseTypeConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(124,48): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(126,47): error C2440: 'initializing': cannot convert from 'initializer list' to 'ItemBaseTypeConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(126,47): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(125,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(126,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   main.cpp
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(124,48): error C2440: 'initializing': cannot convert from 'initializer list' to 'ItemBaseTypeConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(124,48): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(126,47): error C2440: 'initializing': cannot convert from 'initializer list' to 'ItemBaseTypeConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(126,47): message : No constructor could take the source type, or constructor overload resolution was ambiguous
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(125,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(126,33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\main.cpp(23,8): warning C4102: 'std': unreferenced label
+     Creating library C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\x64\Release\ItemTest.lib and object C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\x64\Release\ItemTest.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 4389 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  ItemTest.vcxproj -> C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\x64\Release\ItemTest.exe

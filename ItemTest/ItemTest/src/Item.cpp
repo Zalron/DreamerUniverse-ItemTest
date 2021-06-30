@@ -1,21 +1,21 @@
 #include "Item.h"
 
-void Item::CreateItemEntity(const flecs::iter& iter, ItemSpawning* is)
+void Item::CreateItemEntity(const flecs::iter& iter, ItemComponents::ItemSpawning* is)
 {
     for (auto it : iter)
     {
         for (auto i  = 0; i < is->NumberOfItems; i++) 
         {
             auto e = iter.world().entity();
-            e.set<ItemStaging>({ 1 });
+            e.set<ItemComponents::ItemStaging>({ 1 });
             std::cout << "System CreateItemEntity has created item " << i << " " << std::endl;
         }
-        iter.entity(it).remove<ItemSpawning>();
+        iter.entity(it).remove<ItemComponents::ItemSpawning>();
         std::cout << "System CreateItemEntity is creating items" << std::endl;
     }
 }
 
-void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, ItemStaging* iss)
+void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, ItemComponents::ItemStaging* iss)
 {
     for (auto it : iter)
     {
@@ -30,25 +30,109 @@ void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, I
     }
 }
 
-void Item::AddItemTypeComponentstoEntity(const flecs::iter& iter, ItemStaging* iss)
+void Item::AddItemTypeComponentstoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss)
 {
     for (auto it : iter) 
     {
         if (iss->ItemStage == 2) 
         {
-            iter.entity(it).set<ItemTypeCreation>({0,0,0});
+            iter.entity(it).set<ItemComponents::ItemTypeCreation>({0,0,0});
             iss->ItemStage = 3;
             //std::cout << "System AddItemTypeComponentstoEntity has add ItemTypeCreation component " << it << " " << std::endl;
         }
     }
 }
 
-void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemStaging* iss)
+inline void Item::CreatingBaseCraftingItem(const flecs::iter& iter, size_t i, int seed)
+{
+    
+}
+
+inline void Item::CreatingBaseItemEquipableStats(const flecs::iter& iter, size_t i, int seed)
+{
+    iter.entity(i).set<ItemCharacterLevelRequirements>({});
+    iter.entity(i).set<ItemRarity>({});
+    iter.entity(i).set<ItemQuality>({});
+    iter.entity(i).set<ItemMaterial>({});
+    iter.entity(i).set<ItemManufacturer>({});
+    iter.entity(i).set<ItemName>({});
+}
+
+inline void Item::CreatingMeleeWeaponComponentsToEntity(const flecs::iter& iter, size_t i, int seed)
+{
+    CreatingBaseItemEquipableStats(iter, i, seed);
+    iter.entity(i).set<CriticalChanceItemStat>({});
+    iter.entity(i).set<MagicalDamageItemStat>({});
+    iter.entity(i).set<PhysicalDamageItemStat>({});
+    iter.entity(i).set<HandlingItemStat>({});
+    iter.entity(i).set<AccuracyItemStat>({});
+    iter.entity(i).set<RangeItemStat>({});
+    iter.entity(i).set<GuardItemStat>({});
+    iter.entity(i).set<BlockChanceItemStat>({});
+    iter.entity(i).set<AttackRateItemStat>({});
+    iter.entity(i).set<WeightItemStat>({});
+}
+
+inline void Item::CreatingRangeWeaponComponentstoEntity(const flecs::iter& iter, size_t i, int seed)
+{
+    CreatingBaseItemEquipableStats(iter, i, seed);
+    iter.entity(i).set<CriticalChanceItemStat>({});
+    iter.entity(i).set<MagicalDamageItemStat>({});
+    iter.entity(i).set<PhysicalDamageItemStat>({});
+    iter.entity(i).set<HandlingItemStat>({});
+    iter.entity(i).set<AccuracyItemStat>({});
+    iter.entity(i).set<RangeItemStat>({});
+    iter.entity(i).set<MagazineSizeItemStat>({});
+    iter.entity(i).set<ReloadTimeItemStat>({});
+    iter.entity(i).set<FireRateItemStat>({});
+    iter.entity(i).set<WeightItemStat>({});
+}
+
+inline void Item::CreatingPowerArmourComponentsToEntity(const flecs::iter& iter, size_t i, int seed)
+{
+    CreatingBaseItemEquipableStats(iter, i, seed);
+    iter.entity(i).set<ArmourItemStat>({});
+    iter.entity(i).set<ArmourRechargeRateItemStat>({});
+    iter.entity(i).set<ArmourRechargeDelayItemStat>({});
+    iter.entity(i).set<ShieldItemStat>({});
+    iter.entity(i).set<ShieldRechargeRateItemStat>({});
+    iter.entity(i).set<ShieldRechargeDelayItemStat>({});
+    iter.entity(i).set<EnergyItemStat>({});
+    iter.entity(i).set<EnergyRechargeRateItemStat>({});
+    iter.entity(i).set<EnergyRechargeDelayItemStat>({});
+    iter.entity(i).set<WeightItemStat>({});
+}
+
+void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss)
 {
     for (auto it : iter) 
     {
         if (iss->ItemStage == 3)
         {
+            float RandomItemGenerationNumber1 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            float RandomItemGenerationNumber2 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            float RandomItemGenerationNumber3 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            float RandomItemGenerationNumber4 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            float RandomItemGenerationNumber5 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+
+            float RandomItemGeneratrionNumberDivided1 = RandomItemGenerationNumber1 / 4;
+            if (RandomItemGenerationNumber1 <= RandomItemGeneratrionNumberDivided1)
+            {
+                iter.entity(it).set<ItemComponents::ItemName>({});
+                iter.entity(it).set<ItemComponents::ItemQuality>({});
+            }
+            else if (RandomItemGenerationNumber1 <= RandomItemGeneratrionNumberDivided1 + RandomItemGeneratrionNumberDivided1)
+            {
+
+            }
+            else if (RandomItemGenerationNumber1 <= RandomItemGeneratrionNumberDivided1 + RandomItemGeneratrionNumberDivided1 * 2)
+            {
+
+            }
+            else if (RandomItemGenerationNumber1 <= RandomItemGeneratrionNumberDivided1 + RandomItemGeneratrionNumberDivided1 * 3)
+            {
+
+            }
             CreatingEquipableItems(iter, it, iss->Seed);
             iss->ItemStage = 4;
             //std::cout << "System AddItemComponentstoEntity is creating Items " << it << " " << std::endl;
@@ -56,7 +140,7 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemStaging* iss)
     }
 }
 
-void Item::CreatingRarityComponentsToEntity(const flecs::iter& iter, ItemStaging* iss, ItemRarity* ir)
+void Item::CreatingRarityComponentsToEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemRarity* ir)
 {
     for (auto it : iter)
     {
@@ -158,7 +242,7 @@ void Item::CreatingRarityComponentsToEntity(const flecs::iter& iter, ItemStaging
 }
 
 
-void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStaging* iss, ItemTypeCreation* isc, ItemRarity* ir)
+void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemTypeCreation* isc, ItemComponents::ItemRarity* ir)
 {
     for (auto it : iter)
     {
@@ -166,111 +250,111 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
         {
             if (ir->RarityAffixAllowance == 1)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 1 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 2)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
-                iter.entity(it).set<ItemAffixMods2>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 2 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 3)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
-                iter.entity(it).set<ItemAffixMods2>({});
-                iter.entity(it).set<ItemAffixMods3>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 3 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 4)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
-                iter.entity(it).set<ItemAffixMods2>({});
-                iter.entity(it).set<ItemAffixMods3>({});
-                iter.entity(it).set<ItemAffixMods4>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 4 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 5)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
-                iter.entity(it).set<ItemAffixMods2>({});
-                iter.entity(it).set<ItemAffixMods3>({});
-                iter.entity(it).set<ItemAffixMods4>({});
-                iter.entity(it).set<ItemAffixMods5>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 5 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 6)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
-                iter.entity(it).set<ItemAffixMods2>({});
-                iter.entity(it).set<ItemAffixMods3>({});
-                iter.entity(it).set<ItemAffixMods4>({});
-                iter.entity(it).set<ItemAffixMods5>({});
-                iter.entity(it).set<ItemAffixMods6>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 6 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 7)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
-                iter.entity(it).set<ItemAffixMods2>({});
-                iter.entity(it).set<ItemAffixMods3>({});
-                iter.entity(it).set<ItemAffixMods4>({});
-                iter.entity(it).set<ItemAffixMods5>({});
-                iter.entity(it).set<ItemAffixMods6>({});
-                iter.entity(it).set<ItemAffixMods7>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods7>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 7 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 8)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
-                iter.entity(it).set<ItemAffixMods2>({});
-                iter.entity(it).set<ItemAffixMods3>({});
-                iter.entity(it).set<ItemAffixMods4>({});
-                iter.entity(it).set<ItemAffixMods5>({});
-                iter.entity(it).set<ItemAffixMods6>({});
-                iter.entity(it).set<ItemAffixMods7>({});
-                iter.entity(it).set<ItemAffixMods8>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods7>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods8>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 8 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 9)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
-                iter.entity(it).set<ItemAffixMods2>({});
-                iter.entity(it).set<ItemAffixMods3>({});
-                iter.entity(it).set<ItemAffixMods4>({});
-                iter.entity(it).set<ItemAffixMods5>({});
-                iter.entity(it).set<ItemAffixMods6>({});
-                iter.entity(it).set<ItemAffixMods7>({});
-                iter.entity(it).set<ItemAffixMods8>({});
-                iter.entity(it).set<ItemAffixMods9>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods7>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods8>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods9>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 9 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 10)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
-                iter.entity(it).set<ItemAffixMods2>({});
-                iter.entity(it).set<ItemAffixMods3>({});
-                iter.entity(it).set<ItemAffixMods4>({});
-                iter.entity(it).set<ItemAffixMods5>({});
-                iter.entity(it).set<ItemAffixMods6>({});
-                iter.entity(it).set<ItemAffixMods7>({});
-                iter.entity(it).set<ItemAffixMods8>({});
-                iter.entity(it).set<ItemAffixMods9>({});
-                iter.entity(it).set<ItemAffixMods10>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods7>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods8>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods9>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods10>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 10 ItemAffixMod component " << it << " " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 11)
             {
-                iter.entity(it).set<ItemAffixMods1>({});
-                iter.entity(it).set<ItemAffixMods2>({});
-                iter.entity(it).set<ItemAffixMods3>({});
-                iter.entity(it).set<ItemAffixMods4>({});
-                iter.entity(it).set<ItemAffixMods5>({});
-                iter.entity(it).set<ItemAffixMods6>({});
-                iter.entity(it).set<ItemAffixMods7>({});
-                iter.entity(it).set<ItemAffixMods8>({});
-                iter.entity(it).set<ItemAffixMods9>({});
-                iter.entity(it).set<ItemAffixMods10>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods7>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods8>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods9>({});
+                iter.entity(it).set<ItemComponents::ItemAffixMods10>({});
                 std::cout << "System CreatingRarityModComponentsToEntity has add 10 ItemAffixMod component " << it << " " << std::endl;
             }
             else 
@@ -282,14 +366,26 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemStag
     }
 }
 
-void Item::RemovingItemStagingComponentsFromEntity(const flecs::iter& iter, ItemStaging* iss)
+void Item::CreatingQualityComponentToEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemQuality* iq)
+{
+    for (auto it : iter) 
+    {
+        if (iss->ItemStage = 6) 
+        {
+
+            iss->ItemStage = 7;
+        }
+    }
+}
+
+void Item::RemovingItemStagingComponentsFromEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss)
 {
     for (auto it : iter)
     {
-        if (iss->ItemStage == 5)
+        if (iss->ItemStage == 7)
         {
-            iss->ItemStage = 6;
-            iter.entity(it).remove<ItemStaging>();
+            iss->ItemStage = 8;
+            iter.entity(it).remove<ItemComponents::ItemStaging>();
             //std::cout << "System RemovingItemStagingComponentsFromEntity is removeing ItemStaging from Items " << it << " " << std::endl;
         }
     }
@@ -593,63 +689,6 @@ ItemQualityConfig  Item::GetConfigItemQualityData(float ItemQuality)
         ItemQualityConfig errorItemQuality{ 0,0,0,0 };
         return errorItemQuality;
     }
-}
-
-inline void Item::CreatingBaseItemEquipableStats(const flecs::iter& iter, size_t i, int seed)
-{
-    iter.entity(i).set<ItemCharacterLevelRequirements>({});
-    ItemRarityConfig itemRarityConfig = GetConfigItemRarityData(CreatingRandom32BitFloatNumbers(seed, 0.0f, 100.0f));
-    iter.entity(i).set<ItemRarity>({itemRarityConfig.RarityLevel, CreatingRandom32BitIntNumbers(seed, itemRarityConfig.RarityIntRollMin, itemRarityConfig.RarityIntRollMax), CreatingRandom32BitFloatNumbers(seed, itemRarityConfig.RarityFloatRollMin, itemRarityConfig.RarityFloatRollMax), itemRarityConfig.RarityAffixAllowance });
-    //ItemQualityConfig itemQualityConfig =  GetConfigItemQualityData()
-    iter.entity(i).set<ItemQuality>({});
-    iter.entity(i).set<ItemMaterial>({});
-    iter.entity(i).set<ItemManufacturer>({});
-    iter.entity(i).set<ItemName>({});
-}
-
-inline void Item::CreatingMeleeWeaponComponentsToEntity(const flecs::iter& iter, size_t i, int seed)
-{
-    CreatingBaseItemEquipableStats(iter, i, seed);
-    iter.entity(i).set<CriticalChanceItemStat>({});
-    iter.entity(i).set<MagicalDamageItemStat>({});
-    iter.entity(i).set<PhysicalDamageItemStat>({});
-    iter.entity(i).set<HandlingItemStat>({});
-    iter.entity(i).set<AccuracyItemStat>({});
-    iter.entity(i).set<RangeItemStat>({});
-    iter.entity(i).set<GuardItemStat>({});
-    iter.entity(i).set<BlockChanceItemStat>({});
-    iter.entity(i).set<AttackRateItemStat>({});
-    iter.entity(i).set<WeightItemStat>({});
-}
-
-inline void Item::CreatingRangeWeaponComponentstoEntity(const flecs::iter& iter, size_t i, int seed)
-{
-    CreatingBaseItemEquipableStats(iter, i, seed);
-    iter.entity(i).set<CriticalChanceItemStat>({});
-    iter.entity(i).set<MagicalDamageItemStat>({});
-    iter.entity(i).set<PhysicalDamageItemStat>({});
-    iter.entity(i).set<HandlingItemStat>({});
-    iter.entity(i).set<AccuracyItemStat>({});
-    iter.entity(i).set<RangeItemStat>({});
-    iter.entity(i).set<MagazineSizeItemStat>({});
-    iter.entity(i).set<ReloadTimeItemStat>({});
-    iter.entity(i).set<FireRateItemStat>({});
-    iter.entity(i).set<WeightItemStat>({});
-}
-
-inline void Item::CreatingPowerArmourComponentsToEntity(const flecs::iter& iter, size_t i, int seed)
-{
-    CreatingBaseItemEquipableStats(iter, i, seed);
-    iter.entity(i).set<ArmourItemStat>({});
-    iter.entity(i).set<ArmourRechargeRateItemStat>({});
-    iter.entity(i).set<ArmourRechargeDelayItemStat>({});
-    iter.entity(i).set<ShieldItemStat>({});
-    iter.entity(i).set<ShieldRechargeRateItemStat>({});
-    iter.entity(i).set<ShieldRechargeDelayItemStat>({});
-    iter.entity(i).set<EnergyItemStat>({});
-    iter.entity(i).set<EnergyRechargeRateItemStat>({});
-    iter.entity(i).set<EnergyRechargeDelayItemStat>({});
-    iter.entity(i).set<WeightItemStat>({});
 }
 
 #pragma region Creating OneHanded Melee Weapons
