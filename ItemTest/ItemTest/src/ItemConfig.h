@@ -24,18 +24,16 @@ struct ItemBaseTypeConfig
 
 struct ItemRarityConfig
 {
-    float RaritySpawnChanceMin;
-    float RaritySpawnChanceMax;
+    float RaritySpawnChance;
     float RarityFloatRollMin;
     float RarityFloatRollMax;
     int RarityLevel;
     int RarityAffixAllowance;
     int RarityIntRollMin;
     int RarityIntRollMax;
-    ItemRarityConfig(float raritySpawnChanceMin, float raritySpawnChanceMax, float rarityFloatRollMin, float rarityFloatRollMax, int rarityLevel, int rarityAffixAllowance, int rarityIntRollMin, int rarityIntRollMax)
+    ItemRarityConfig(float raritySpawnChance, float rarityFloatRollMin, float rarityFloatRollMax, int rarityLevel, int rarityAffixAllowance, int rarityIntRollMin, int rarityIntRollMax)
     {
-        RaritySpawnChanceMin = raritySpawnChanceMin;
-        RaritySpawnChanceMax = raritySpawnChanceMax;
+        RaritySpawnChance = raritySpawnChance;
         RarityFloatRollMin = rarityFloatRollMin;
         RarityFloatRollMax = rarityFloatRollMax;
         RarityLevel = rarityLevel;
@@ -133,18 +131,18 @@ const ItemBaseTypeConfig ItemBaseType2{ 8, 24, 3.2f, 4.0f }; //"One Handed Short
 
 // static const ItemPartsConfig ItemParts1;
 
-const ItemRarityConfig ItemRarity1{0, 50, 0, 0, 1, 0, 1, 4 }; //"Common"
-const ItemRarityConfig ItemRarity2{50, 70, 0, 0, 2, 1, 4, 10 }; //"Uncommon"
-const ItemRarityConfig ItemRarity3{70, 80, 0, 0, 3, 2, 10, 18 }; //"Rare"
-const ItemRarityConfig ItemRarity4{80, 85, 0, 0, 4, 3, 19, 28 }; //"Masterwork"
-const ItemRarityConfig ItemRarity5{85, 87, 0, 0, 5, 4, 28, 40 }; //"Epic"
-const ItemRarityConfig ItemRarity6{87, 88, 0, 0, 6, 5, 40, 54 }; //"Mythic"
-const ItemRarityConfig ItemRarity7{88, 88.5f, 0, 0, 7, 6, 54, 70 }; //"Exotic"
-const ItemRarityConfig ItemRarity8{88.5f, 88.6f, 0, 0, 8, 7, 70, 86 }; //"Ancient"
-const ItemRarityConfig ItemRarity9{88.65f, 88.066f, 0, 0, 9, 8, 86, 104 }; //"Legendary"
-const ItemRarityConfig ItemRarity10{88.0665f, 88.0666f, 0, 0, 10, 9, 104, 124 }; //"Heirloom"
-const ItemRarityConfig ItemRarity11{88.06665f, 88.06666f, 0, 0, 11, 10, 124, 146 }; //"Transcendent"
-const ItemRarityConfig ItemRarity12{88.06666f, 100, 10, 0, 2, 10, 0, 0 }; //"Unique"
+const ItemRarityConfig ItemRarity1{50, 0, 0, 1, 0, 1, 4 }; //"Common"
+const ItemRarityConfig ItemRarity2{70, 0, 0, 2, 1, 4, 10 }; //"Uncommon"
+const ItemRarityConfig ItemRarity3{80, 0, 0, 3, 2, 10, 18 }; //"Rare"
+const ItemRarityConfig ItemRarity4{84, 0, 0, 4, 3, 19, 28 }; //"Masterwork"
+const ItemRarityConfig ItemRarity5{86, 0, 0, 5, 4, 28, 40 }; //"Epic"
+const ItemRarityConfig ItemRarity6{87, 0, 0, 6, 5, 40, 54 }; //"Mythic"
+const ItemRarityConfig ItemRarity7{88, 0, 0, 7, 6, 54, 70 }; //"Exotic"
+const ItemRarityConfig ItemRarity8{89, 0, 0, 8, 7, 70, 86 }; //"Ancient"
+const ItemRarityConfig ItemRarity9{90, 0, 0, 9, 8, 86, 104 }; //"Legendary"
+const ItemRarityConfig ItemRarity10{95, 0, 0, 10, 9, 104, 124 }; //"Heirloom"
+const ItemRarityConfig ItemRarity11{95.5, 0, 0, 11, 10, 124, 146 }; //"Transcendent"
+const ItemRarityConfig ItemRarity12{95.5, 10, 0, 2, 10, 0, 0 }; //"Unique"
 
 const ItemMaterialConfig ItemMaterial1{ 10, 1, 3 }; // Wood
 const ItemMaterialConfig ItemMaterial2{ 20, 2, 5 }; // Stone

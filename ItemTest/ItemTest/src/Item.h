@@ -66,46 +66,6 @@ private:
     static inline ItemMaterialConfig GetConfigItemMaterialData(float ItemMaterialSpawnChance);
     static inline ItemManufacturerConfig GentConfigItemManufacturerData(int ItemManufacturerSpawnChance);
     //static inline ItemBaseTypeConfig GetConfigItemTypeData(float ItemBaseSpawnChance);
-    
-    static inline void CreatingOneHandedMeleeWeaponItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponShortSwordItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponMaceItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponKnifeItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponWarhammerItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponAxeItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponShieldItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponRapierItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedMeleeWeaponClubItems(const flecs::iter& iter, size_t i, int randomRarity);
-    
-    static inline void CreatingTwoHandedMeleeWeaponItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponLongSwordItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponMaceItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponWarhammerItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponHalberdItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponAxeItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponClubItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponStaffItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponSpearItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedMeleeWeaponClawsItems(const flecs::iter& iter, size_t i, int randomRarity);
-
-    static inline void CreatingOneHandedRangedWeaponItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedRangedWeaponWandItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedRangedWeaponThrownItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedRangedWeaponPistolItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedRangedWeaponRevolverItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingOneHandedRangedWeaponHandCrossbowItems(const flecs::iter& iter, size_t i, int randomRarity);
-
-    static inline void CreatingTwoHandedRangedWeaponItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponBowItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponCrossbowItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponCarbineItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponAssaultRifleItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponSniperRifleItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponLightMachineGunItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponSubMachineGunItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponShotgunItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponGrenadeLauncherItems(const flecs::iter& iter, size_t i, int randomRarity);
-    static inline void CreatingTwoHandedRangedWeaponRocketLauncherItems(const flecs::iter& iter, size_t i, int randomRarity);
 
     static inline void CreatingArmourPowerArmourLightItems(const flecs::iter& iter, size_t i, int randomRarity);
     static inline void CreatingArmourPowerArmourLightHeadItems(const flecs::iter& iter, size_t i, int randomRarity);

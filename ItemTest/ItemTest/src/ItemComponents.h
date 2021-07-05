@@ -1,5 +1,6 @@
 #pragma once
 #include "flecs.h"
+#include <cstdlib>
 #include <string>
 
 struct ItemComponents
@@ -26,8 +27,8 @@ struct ItemComponents
     {
         //int LevelRequirement;
         int RarityLevel;
-        int RarityFloatRoll;
-        float RarityIntRoll;
+        float RarityFloatRoll;
+        int RarityIntRoll;
         int RarityAffixAllowance;
     };
 
@@ -424,7 +425,7 @@ struct ItemComponents
         float EnergyRechargeDelayRoll;
     };
 
-    struct ItemName
+    /*struct ItemName
     {
         string BaseName;
         string CombinedName;
@@ -479,8 +480,9 @@ struct ItemComponents
         string Mod8;
         string Mod9;
         string Mod10;
-    };
+    };*/
 
+    struct Equipable {};
     struct Weapons {};
     struct Melee {};
     struct Ranged {};
@@ -636,7 +638,7 @@ struct ItemComponents
         world.component<EnergyItemStat>();
         world.component<EnergyRechargeRateItemStat>();
         world.component<EnergyRechargeDelayItemStat>();
-        world.component<ItemName>();
+        //world.component<ItemName>();
         world.component<Weapons>();
         world.component<Melee>();
         world.component<Ranged>();
