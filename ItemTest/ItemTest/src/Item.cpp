@@ -36,33 +36,32 @@ void Item::AddItemTypeComponentstoEntity(const flecs::iter& iter, ItemComponents
     {
         if (iss->ItemStage == 2) 
         {
-            iter.entity(it).set<ItemComponents::ItemTypeCreation>({0,0,0});
+            float RandomItemGenerationNumber1 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            float RandomItemGenerationNumber2 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            float RandomItemGenerationNumber3 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            float RandomItemGenerationNumber4 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            float RandomItemGenerationNumber5 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            iter.entity(it).set<ItemComponents::ItemTypeCreation>({ RandomItemGenerationNumber1,RandomItemGenerationNumber2,RandomItemGenerationNumber3,RandomItemGenerationNumber4,RandomItemGenerationNumber5 });
             iss->ItemStage = 3;
             //std::cout << "System AddItemTypeComponentstoEntity has add ItemTypeCreation component " << it << " " << std::endl;
         }
     }
 }
 
-void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss)
+void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::ItemTypeCreation* itc, ItemComponents::ItemStaging* iss)
 {
-    for (auto it : iter) 
+    for (auto it : iter)
     {
         if (iss->ItemStage == 3)
         {
-            float RandomItemGenerationNumber1 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
-            float RandomItemGenerationNumber2 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
-            float RandomItemGenerationNumber3 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
-            float RandomItemGenerationNumber4 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
-            float RandomItemGenerationNumber5 = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
-
             float RandomItemGeneratrionNumberDivided1 = 100.0f / 2;
-            if (RandomItemGenerationNumber1 > RandomItemGeneratrionNumberDivided1)
+            if (itc->RandomItemGenerationNumber1 > RandomItemGeneratrionNumberDivided1)
             {
                 float RandomItemGeneratrionNumberDivided2 = 100.0f / 4;
                 //iter.entity(it).set<ItemComponents::ItemName>({});
                 iter.entity(it).set<ItemComponents::ItemQuality>({});
             }
-            else if (RandomItemGenerationNumber1 <= RandomItemGeneratrionNumberDivided1)
+            else if (itc->RandomItemGenerationNumber1 <= RandomItemGeneratrionNumberDivided1)
             {
                 std::cout << "System AddItemComponentstoEntity is creating Item Equipable " << it << " " << std::endl;
                 float RandomItemGeneratrionNumberDivided2 = 100.0f / 2;
@@ -72,381 +71,438 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
                 iter.entity(it).set<ItemComponents::ItemMaterial>({});
                 iter.entity(it).set<ItemComponents::ItemManufacturer>({});
                 //iter.entity(it).set<ItemComponents::ItemName>({});
-                if (RandomItemGenerationNumber2 < RandomItemGeneratrionNumberDivided2 )
-                {
-                    float RandomItemGenerationNumberDivided3 = 100.0f / 2;
-                    std::cout << "System AddItemComponentstoEntity is creating Item  Melee " << it << " " << std::endl;
-                    iter.entity(it).set<ItemComponents::CriticalChanceItemStat>({});
-                    iter.entity(it).set<ItemComponents::MagicalDamageItemStat>({});
-                    iter.entity(it).set<ItemComponents::PhysicalDamageItemStat>({});
-                    iter.entity(it).set<ItemComponents::HandlingItemStat>({});
-                    iter.entity(it).set<ItemComponents::AccuracyItemStat>({});
-                    iter.entity(it).set<ItemComponents::RangeItemStat>({});
-                    iter.entity(it).set<ItemComponents::GuardItemStat>({});
-                    iter.entity(it).set<ItemComponents::BlockChanceItemStat>({});
-                    iter.entity(it).set<ItemComponents::AttackRateItemStat>({});
-                    iter.entity(it).set<ItemComponents::WeightItemStat>({});
-                    iter.entity(it).add_trait<ItemComponents::Equipable, ItemComponents::Weapons>();
-                    iter.entity(it).add_trait<ItemComponents::Weapons, ItemComponents::Melee>();
-                    if (RandomItemGenerationNumber3 > RandomItemGenerationNumberDivided3)
-                    {
-                        float RandomItemGeneratrionNumberDivided4 = 100.0f / 8;
-                        iter.entity(it).add_trait<ItemComponents::Melee, ItemComponents::OneHanded>();
-                        if (RandomItemGeneratrionNumberDivided4 > RandomItemGeneratrionNumberDivided4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::ShortSword>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponShortSword " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Mace>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponMace " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 2)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Knife>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponKnife " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 3)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Warhammer>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponWarhammer " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Axe>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponAxe " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 5)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Shield>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponShield " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 6)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Rapier>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponRapier " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 7)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Club>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponClub " << it << " " << std::endl;
-                        }
-                    }
-                    else if (RandomItemGenerationNumber3 <= RandomItemGenerationNumberDivided3)
-                    {
-                        float RandomItemGenerationNumberDivided4 = 100.0f / 9;
-                        iter.entity(it).add_trait<ItemComponents::Melee, ItemComponents::TwoHanded>();
-                        if (RandomItemGenerationNumberDivided4 > RandomItemGenerationNumberDivided4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::LongSword>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponLongSword " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Mace>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponMace " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 2)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Warhammer>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponWarhammer " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 3)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Halberd>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponHalberd " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Axe>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponAxe " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 5)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Club>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponClub " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 6)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Staff>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponStaff " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 7)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Spear>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponSpeard " << it << " " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 8)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Claws>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponClaws " << it << " " << std::endl;
-                        }
-                    }
-                }
-                else if (RandomItemGenerationNumber2 >= RandomItemGeneratrionNumberDivided2)
-                {
-                    float RandomItemGeneratrionNumberDivided3 = 100.0f / 4;
-                    iter.entity(it).set<ItemComponents::CriticalChanceItemStat>({});
-                    iter.entity(it).set<ItemComponents::MagicalDamageItemStat>({});
-                    iter.entity(it).set<ItemComponents::PhysicalDamageItemStat>({});
-                    iter.entity(it).set<ItemComponents::HandlingItemStat>({});
-                    iter.entity(it).set<ItemComponents::AccuracyItemStat>({});
-                    iter.entity(it).set<ItemComponents::RangeItemStat>({});
-                    iter.entity(it).set<ItemComponents::MagazineSizeItemStat>({});
-                    iter.entity(it).set<ItemComponents::ReloadTimeItemStat>({});
-                    iter.entity(it).set<ItemComponents::FireRateItemStat>({});
-                    iter.entity(it).set<ItemComponents::WeightItemStat>({});
-                    iter.entity(it).add_trait<ItemComponents::Equipable, ItemComponents::Weapons>();
-                    iter.entity(it).add_trait<ItemComponents::Weapons, ItemComponents::Ranged>();
-                    if (RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3 + RandomItemGeneratrionNumberDivided3 * 3)
-                    {
-                        float RandomItemGenerationNumberDivided4 = 100.0f / 5;
-                        
-                        iter.entity(it).add_trait<ItemComponents::Ranged, ItemComponents::OneHanded>();
-                        if (RandomItemGenerationNumberDivided4 > RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Wand>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponWand " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Thrown>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponThrown " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 2)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Pistol>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponPistol " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 3)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Revolver>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponRevolver " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::HandCrossbow>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponHandCrossbow " << std::endl;
-                        }
-                    }
-                    else if (RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3 + RandomItemGeneratrionNumberDivided3 * 3)
-                    {
-                        float RandomItemGenerationNumberDivided4 = 100.0f / 10;
-                        iter.entity(it).add_trait<ItemComponents::Ranged, ItemComponents::TwoHanded>();
-                        if (RandomItemGenerationNumberDivided4 > RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Bow>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponBow " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Crossbow>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponCrossbow " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 1)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Carbine>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponCarbine " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 2)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::AssaultRifle>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponAssaultRifle " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 3)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::SniperRifle>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponSniperRifle " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::LightMachineGun>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponLightMachineGun " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 5)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::SubMachineGun>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponSubMachineGun " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 6)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Shotgun>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponShotgun " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 7)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::GrenadeLauncher>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponGrenadeLauncher " << std::endl;
-                        }
-                        else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 8)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::RocketLauncher>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponRocketLauncher " << std::endl;
-                        }
-                    }
-                }
-                /*else if (RandomItemGenerationNumber2 <= RandomItemGeneratrionNumberDivided2 * 3)
-                {
-                    float RandomItemGeneratrionNumberDivided3 = RandomItemGenerationNumber3 / 4;
-                    iter.entity(it).set<ItemComponents::ArmourItemStat>({});
-                    iter.entity(it).set<ItemComponents::ArmourRechargeRateItemStat>({});
-                    iter.entity(it).set<ItemComponents::ArmourRechargeDelayItemStat>({});
-                    iter.entity(it).set<ItemComponents::ShieldItemStat>({});
-                    iter.entity(it).set<ItemComponents::ShieldRechargeRateItemStat>({});
-                    iter.entity(it).set<ItemComponents::ShieldRechargeDelayItemStat>({});
-                    iter.entity(it).set<ItemComponents::EnergyItemStat>({});
-                    iter.entity(it).set<ItemComponents::EnergyRechargeRateItemStat>({});
-                    iter.entity(it).set<ItemComponents::EnergyRechargeDelayItemStat>({});
-                    iter.entity(it).set<ItemComponents::WeightItemStat>({});
-                    iter.entity(it).add_trait<ItemComponents::Equipable, ItemComponents::Armour>();
-                    iter.entity(it).add_trait<ItemComponents::Armour, ItemComponents::PowerArmour>();
-                    if (RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3)
-                    {
-                        float RandomItemGeneratrionNumberDivided4 = RandomItemGenerationNumber4 / 4;
-                        iter.entity(it).add_trait<ItemComponents::PowerArmour, ItemComponents::LightPowerArmour>();
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Head>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourHead " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Belt>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourBelt " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Chests>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourChests " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Legs>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourLegs " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Arms>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourArms " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Hands>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourHands " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Shoulders>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourShoulders " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Backpack>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourBackpack " << it << " " << std::endl;
-                        }
-                    }
-                    else if (RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3)
-                    {
-                        float RandomItemGeneratrionNumberDivided4 = RandomItemGenerationNumber4 / 4;
-                        iter.entity(it).add_trait<ItemComponents::PowerArmour, ItemComponents::MediumPowerArmour>();
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Head>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourHead " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Belt>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourBelt " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Chests>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourChests " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Legs>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourLegs " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Arms>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourArms " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Hands>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourHands " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Shoulders>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourShoulders " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Backpack>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourBackpack " << it << " " << std::endl;
-                        }
-                    }
-                    else if (RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3)
-                    {
-                        float RandomItemGeneratrionNumberDivided4 = RandomItemGenerationNumber4 / 4;
-                        iter.entity(it).add_trait<ItemComponents::PowerArmour, ItemComponents::HeavyPowerArmour>();
-                        if (RandomItemGeneratrionNumberDivided4 > RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Head>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourHead " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Belt>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourBelt " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Chests>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourChests " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Legs>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourLegs " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Arms>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourArms " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Hands>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourHands " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Shoulders>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourShoulders " << it << " " << std::endl;
-                        }
-                        if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
-                        {
-                            iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Backpack>();
-                            std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourBackpack " << it << " " << std::endl;
-                        }
-                    }
-                    else if (RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3)
-                    {
-                        
-                    }
-                }*/
+
             }
             iss->ItemStage = 4;
             std::cout << "System AddItemComponentstoEntity is creating Items " << it << " " << std::endl;
         }
     }
 }
+
+void Item::AddItemStatComponentsToEntity(const flecs::iter& iter, ItemComponents::ItemTypeCreation* itc, ItemComponents::ItemStaging* iss, ItemComponents::ItemCharacterLevelRequirements* iclr, ItemComponents::ItemRarity* ir, ItemComponents::ItemQuality* iq, ItemComponents::ItemMaterial* im, ItemComponents::ItemManufacturer* imu)
+{
+    for (auto it : iter)
+    {
+        if (iss->ItemStage == 4)
+        {
+
+            float RandomItemGeneratrionNumberDivided2 = 100.0f / 4;
+            if (itc->RandomItemGenerationNumber2 < RandomItemGeneratrionNumberDivided2)
+            {
+                float RandomItemGenerationNumberDivided3 = 100.0f / 2;
+                std::cout << "System AddItemComponentstoEntity is creating Item  Melee " << it << " " << std::endl;
+                iter.entity(it).set<ItemComponents::CriticalChanceItemStat>({});
+                iter.entity(it).set<ItemComponents::MagicalDamageItemStat>({});
+                iter.entity(it).set<ItemComponents::PhysicalDamageItemStat>({});
+                iter.entity(it).set<ItemComponents::HandlingItemStat>({});
+                iter.entity(it).set<ItemComponents::AccuracyItemStat>({});
+                iter.entity(it).set<ItemComponents::RangeItemStat>({});
+                iter.entity(it).set<ItemComponents::GuardItemStat>({});
+                iter.entity(it).set<ItemComponents::BlockChanceItemStat>({});
+                iter.entity(it).set<ItemComponents::AttackRateItemStat>({});
+                iter.entity(it).set<ItemComponents::WeightItemStat>({});
+                iter.entity(it).add_trait<ItemComponents::Equipable, ItemComponents::Weapons>();
+                iter.entity(it).add_trait<ItemComponents::Weapons, ItemComponents::Melee>();
+            }
+            else if (itc->RandomItemGenerationNumber2 >= RandomItemGeneratrionNumberDivided2)
+            {
+                float RandomItemGeneratrionNumberDivided3 = 100.0f / 4;
+                iter.entity(it).set<ItemComponents::CriticalChanceItemStat>({});
+                iter.entity(it).set<ItemComponents::MagicalDamageItemStat>({});
+                iter.entity(it).set<ItemComponents::PhysicalDamageItemStat>({});
+                iter.entity(it).set<ItemComponents::HandlingItemStat>({});
+                iter.entity(it).set<ItemComponents::AccuracyItemStat>({});
+                iter.entity(it).set<ItemComponents::RangeItemStat>({});
+                iter.entity(it).set<ItemComponents::MagazineSizeItemStat>({});
+                iter.entity(it).set<ItemComponents::ReloadTimeItemStat>({});
+                iter.entity(it).set<ItemComponents::FireRateItemStat>({});
+                iter.entity(it).set<ItemComponents::WeightItemStat>({});
+                iter.entity(it).add_trait<ItemComponents::Equipable, ItemComponents::Weapons>();
+                iter.entity(it).add_trait<ItemComponents::Weapons, ItemComponents::Ranged>();
+                if (RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3 + RandomItemGeneratrionNumberDivided3 * 3)
+                {
+                    float RandomItemGenerationNumberDivided4 = 100.0f / 5;
+
+                    iter.entity(it).add_trait<ItemComponents::Ranged, ItemComponents::OneHanded>();
+                    if (RandomItemGenerationNumberDivided4 > RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Wand>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponWand " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Thrown>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponThrown " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 2)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Pistol>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponPistol " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 3)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Revolver>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponRevolver " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::HandCrossbow>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item OneHandedRangedWeaponHandCrossbow " << std::endl;
+                    }
+                }
+                else if (RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3 + RandomItemGeneratrionNumberDivided3 * 3)
+                {
+                    float RandomItemGenerationNumberDivided4 = 100.0f / 10;
+                    iter.entity(it).add_trait<ItemComponents::Ranged, ItemComponents::TwoHanded>();
+                    if (RandomItemGenerationNumberDivided4 > RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Bow>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponBow " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Crossbow>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponCrossbow " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 1)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Carbine>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponCarbine " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 2)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::AssaultRifle>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponAssaultRifle " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 3)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::SniperRifle>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponSniperRifle " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::LightMachineGun>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponLightMachineGun " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 5)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::SubMachineGun>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponSubMachineGun " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 6)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Shotgun>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponShotgun " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 7)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::GrenadeLauncher>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponGrenadeLauncher " << std::endl;
+                    }
+                    else if (RandomItemGenerationNumberDivided4 <= RandomItemGenerationNumber4 * 8)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::RocketLauncher>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedRangedWeaponRocketLauncher " << std::endl;
+                    }
+                }
+            }
+            else if (itc->RandomItemGenerationNumber2 <= RandomItemGeneratrionNumberDivided2 * 3)
+            {
+                float RandomItemGeneratrionNumberDivided3 = 100.0f / 4;
+                iter.entity(it).set<ItemComponents::ArmourItemStat>({});
+                iter.entity(it).set<ItemComponents::ArmourRechargeRateItemStat>({});
+                iter.entity(it).set<ItemComponents::ArmourRechargeDelayItemStat>({});
+                iter.entity(it).set<ItemComponents::ShieldItemStat>({});
+                iter.entity(it).set<ItemComponents::ShieldRechargeRateItemStat>({});
+                iter.entity(it).set<ItemComponents::ShieldRechargeDelayItemStat>({});
+                iter.entity(it).set<ItemComponents::EnergyItemStat>({});
+                iter.entity(it).set<ItemComponents::EnergyRechargeRateItemStat>({});
+                iter.entity(it).set<ItemComponents::EnergyRechargeDelayItemStat>({});
+                iter.entity(it).set<ItemComponents::WeightItemStat>({});
+                iter.entity(it).add_trait<ItemComponents::Equipable, ItemComponents::Armour>();
+                iter.entity(it).add_trait<ItemComponents::Armour, ItemComponents::PowerArmour>();
+                if (itc->RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3)
+                {
+                    float RandomItemGeneratrionNumberDivided4 = RandomItemGenerationNumber4 / 4;
+                    iter.entity(it).add_trait<ItemComponents::PowerArmour, ItemComponents::LightPowerArmour>();
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Head>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourHead " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Belt>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourBelt " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Chests>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourChests " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Legs>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourLegs " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Arms>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourArms " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Hands>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourHands " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Shoulders>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourShoulders " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::LightPowerArmour, ItemComponents::Backpack>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item LightPowerArmourBackpack " << it << " " << std::endl;
+                    }
+                }
+                else if (itc->RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3)
+                {
+                    float RandomItemGeneratrionNumberDivided4 = 100.0f / 4;
+                    iter.entity(it).add_trait<ItemComponents::PowerArmour, ItemComponents::MediumPowerArmour>();
+                    if (itc->RandomItemGenerationNumber4 <= RandomItemGeneratrionNumberDivided4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Head>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourHead " << it << " " << std::endl;
+                    }
+                    if (itc->RandomItemGenerationNumber4 <= RandomItemGeneratrionNumberDivided4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Belt>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourBelt " << it << " " << std::endl;
+                    }
+                    if (itc->RandomItemGenerationNumber4 <= RandomItemGeneratrionNumberDivided4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Chests>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourChests " << it << " " << std::endl;
+                    }
+                    if (itc->RandomItemGenerationNumber4 <= RandomItemGeneratrionNumberDivided4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Legs>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourLegs " << it << " " << std::endl;
+                    }
+                    if (itc->RandomItemGenerationNumber4 <= RandomItemGeneratrionNumberDivided4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Arms>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourArms " << it << " " << std::endl;
+                    }
+                    if (itc->RandomItemGenerationNumber4 <= RandomItemGeneratrionNumberDivided4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Hands>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourHands " << it << " " << std::endl;
+                    }
+                    if (itc->RandomItemGenerationNumber4 <= RandomItemGeneratrionNumberDivided4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Shoulders>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourShoulders " << it << " " << std::endl;
+                    }
+                    if (itc->RandomItemGenerationNumber4 <= RandomItemGeneratrionNumberDivided4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::MediumPowerArmour, ItemComponents::Backpack>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item MediumPowerArmourBackpack " << it << " " << std::endl;
+                    }
+                }
+                else if (itc->RandomItemGenerationNumber3 <= RandomItemGeneratrionNumberDivided3)
+                {
+                    float RandomItemGeneratrionNumberDivided4 = 100.0f / 4;
+                    iter.entity(it).add_trait<ItemComponents::PowerArmour, ItemComponents::HeavyPowerArmour>();
+                    if (itc->RandomItemGenerationNumber4 <= RandomItemGeneratrionNumberDivided4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Head>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourHead " << it << " " << std::endl;
+                    }
+                    if (itc->RandomItemGenerationNumber4 <= RandomItemGeneratrionNumberDivided4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Belt>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourBelt " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Chests>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourChests " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Legs>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourLegs " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Arms>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourArms " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Hands>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourHands " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Shoulders>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourShoulders " << it << " " << std::endl;
+                    }
+                    if (RandomItemGeneratrionNumberDivided4 <= RandomItemGenerationNumber4)
+                    {
+                        iter.entity(it).add_trait<ItemComponents::HeavyPowerArmour, ItemComponents::Backpack>();
+                        std::cout << "System AddItemComponentstoEntity is creating Item HeavyPowerArmourBackpack " << it << " " << std::endl;
+                    }
+                }
+            }
+        }
+    }
+}
+
+void  Item::AllItemMeleeTagComponentsToEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::CriticalChanceItemStat* ccis, ItemComponents::MagicalDamageItemStat* msis, ItemComponents::PhysicalDamageItemStat* pdis, ItemComponents::HandlingItemStat* his, ItemComponents::AccuracyItemStat* ais, ItemComponents::RangeItemStat* ris, ItemComponents::GuardItemStat* gis, ItemComponents::BlockChanceItemStat* dcis, ItemComponents::AttackRateItemStat, ItemComponents::WeightItemStat* wis)
+{
+    for(auto it : iter)
+    {
+
+        if (RandomItemGenerationNumber3 > RandomItemGenerationNumberDivided3)
+        {
+            bool RandomGenerationSuccess = false;
+            iter.entity(it).add_trait<ItemComponents::Melee, ItemComponents::OneHanded>();
+            if (RandomGenerationSuccess == false)
+            {
+                float RandomItemGeneratrionNumberDivided4 = 100.0f / 2;
+                if (RandomItemGeneratrionNumberDivided4 > RandomItemGeneratrionNumberDivided4)
+                {
+                    iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::ShortSword>();
+                    std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponShortSword " << it << " " << std::endl;
+                }
+            }
+            else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4)
+            {
+                float RandomItemGeneratrionNumberDivided4 = 100.0f / 2;
+                if (RandomItemGeneratrionNumberDivided4 > RandomItemGeneratrionNumberDivided4)
+                {
+                    iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Mace>();
+                    std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponMace " << it << " " << std::endl;
+                }
+
+            }
+            else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 2)
+            {
+                float RandomItemGeneratrionNumberDivided4 = 100.0f / 2;
+                if (RandomItemGeneratrionNumberDivided4 > RandomItemGeneratrionNumberDivided4)
+                {
+
+                }
+                iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Knife>();
+                std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponKnife " << it << " " << std::endl;
+            }
+            else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 3)
+            {
+                float RandomItemGeneratrionNumberDivided4 = 100.0f / 2;
+                if (RandomItemGeneratrionNumberDivided4 > RandomItemGeneratrionNumberDivided4)
+                {
+
+                }
+                iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Warhammer>();
+                std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponWarhammer " << it << " " << std::endl;
+            }
+            else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 4)
+            {
+                float RandomItemGeneratrionNumberDivided4 = 100.0f / 2;
+                if (RandomItemGeneratrionNumberDivided4 > RandomItemGeneratrionNumberDivided4)
+                {
+
+                }
+                iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Axe>();
+                std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponAxe " << it << " " << std::endl;
+            }
+            else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 5)
+            {
+                float RandomItemGeneratrionNumberDivided4 = 100.0f / 2;
+                if (RandomItemGeneratrionNumberDivided4 > RandomItemGeneratrionNumberDivided4)
+                {
+
+                }
+                iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Shield>();
+                std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponShield " << it << " " << std::endl;
+            }
+            else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 6)
+            {
+                float RandomItemGeneratrionNumberDivided4 = 100.0f / 2;
+                if (RandomItemGeneratrionNumberDivided4 > RandomItemGeneratrionNumberDivided4)
+                {
+
+                }
+                iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Rapier>();
+                std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponRapier " << it << " " << std::endl;
+            }
+            else if (RandomItemGeneratrionNumberDivided4 <= RandomItemGeneratrionNumberDivided4 * 7)
+            {
+                float RandomItemGeneratrionNumberDivided4 = 100.0f / 2;
+                if (RandomItemGeneratrionNumberDivided4 > RandomItemGeneratrionNumberDivided4)
+                {
+
+                }
+                iter.entity(it).add_trait<ItemComponents::OneHanded, ItemComponents::Club>();
+                std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponClub " << it << " " << std::endl;
+            }
+        }
+        else if (RandomItemGenerationNumber3 <= RandomItemGenerationNumberDivided3)
+        {
+            float RandomItemGenerationNumberDivided4 = 100.0f / 9;
+            iter.entity(it).add_trait<ItemComponents::Melee, ItemComponents::TwoHanded>();
+            if (RandomItemGenerationNumberDivided4 > RandomItemGenerationNumberDivided4)
+            {
+                iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::LongSword>();
+                std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponLongSword " << it << " " << std::endl;
+            }
+            else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4)
+            {
+                iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Mace>();
+                std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponMace " << it << " " << std::endl;
+            }
+            else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 2)
+            {
+                iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Warhammer>();
+                std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponWarhammer " << it << " " << std::endl;
+            }
+            else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 3)
+            {
+                iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Halberd>();
+                std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponHalberd " << it << " " << std::endl;
+            }
+            else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 4)
+            {
+                iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Axe>();
+                std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponAxe " << it << " " << std::endl;
+            }
+            else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 5)
+            {
+                iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Club>();
+                std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponClub " << it << " " << std::endl;
+            }
+            else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 6)
+            {
+                iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Staff>();
+                std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponStaff " << it << " " << std::endl;
+            }
+            else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 7)
+            {
+                iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Spear>();
+                std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponSpeard " << it << " " << std::endl;
+            }
+            else if (RandomItemGenerationNumber4 <= RandomItemGenerationNumberDivided4 * 8)
+            {
+                iter.entity(it).add_trait<ItemComponents::TwoHanded, ItemComponents::Claws>();
+                std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponClaws " << it << " " << std::endl;
+            }
+        }
+    }
+}
+
 //#pragma endregion
 //
 //#pragma region Creating NonPowerArmour

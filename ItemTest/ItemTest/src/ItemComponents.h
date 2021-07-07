@@ -18,9 +18,11 @@ struct ItemComponents
 
     struct ItemTypeCreation
     {
-        int ItemTypeInt;
-        int BaseIntStatRoll;
-        float BaseFloatStatRoll;
+        float RandomItemGenerationNumber1;
+        float RandomItemGenerationNumber2;
+        float RandomItemGenerationNumber3;
+        float RandomItemGenerationNumber4;
+        float RandomItemGenerationNumber5;
     };
 
     struct ItemRarity
