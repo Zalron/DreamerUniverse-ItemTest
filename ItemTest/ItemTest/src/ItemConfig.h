@@ -142,7 +142,7 @@ const ItemRarityConfig ItemRarity8{89, 0, 0, 8, 7, 70, 86 }; //"Ancient"
 const ItemRarityConfig ItemRarity9{90, 0, 0, 9, 8, 86, 104 }; //"Legendary"
 const ItemRarityConfig ItemRarity10{95, 0, 0, 10, 9, 104, 124 }; //"Heirloom"
 const ItemRarityConfig ItemRarity11{95.5, 0, 0, 11, 10, 124, 146 }; //"Transcendent"
-const ItemRarityConfig ItemRarity12{95.5, 10, 0, 2, 10, 0, 0 }; //"Unique"
+const ItemRarityConfig ItemRarity12{95.6, 10, 0, 2, 10, 0, 0 }; //"Unique"
 
 const ItemMaterialConfig ItemMaterial1{ 10, 1, 3 }; // Wood
 const ItemMaterialConfig ItemMaterial2{ 20, 2, 5 }; // Stone
