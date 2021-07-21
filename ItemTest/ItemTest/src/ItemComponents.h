@@ -28,7 +28,8 @@ struct ItemComponents
     struct ItemQuality
     {
         int QualityNum;
-        int QualityStatIncrease;
+        int QualityIntStatIncrease;
+        float QualityFloatStatIncrease;
     };
 
     struct ItemMaterial
@@ -481,7 +482,7 @@ struct ItemComponents
     struct RangedItemTag {};
     struct OneHandedItemTag {};
     struct TwoHandedItemTag {};
-    struct ShortSwordItemTag {};
+    struct SwordItemTag {};
     struct MaceItemTag {};
     struct KnifeItemTag {};
     struct WarhammerItemTag {};
@@ -489,7 +490,6 @@ struct ItemComponents
     struct ShieldItemTag {};
     struct RapierItemTag {};
     struct ClubItemTag {};
-    struct LongSwordItemTag {};
     struct HalberdItemTag {};
     struct StaffItemTag {};
     struct SpearItemTag {};
@@ -637,7 +637,7 @@ struct ItemComponents
         world.component<RangedItemTag>();
         world.component<OneHandedItemTag>();
         world.component<TwoHandedItemTag>();
-        world.component<ShortSwordItemTag>();
+        world.component<SwordItemTag>();
         world.component<MaceItemTag>();
         world.component<KnifeItemTag>();
         world.component<WarhammerItemTag>();
@@ -645,7 +645,6 @@ struct ItemComponents
         world.component<ShieldItemTag>();
         world.component<RapierItemTag>();
         world.component<ClubItemTag>();
-        world.component<LongSwordItemTag>();
         world.component<HalberdItemTag>();
         world.component<StaffItemTag>();
         world.component<SpearItemTag>();

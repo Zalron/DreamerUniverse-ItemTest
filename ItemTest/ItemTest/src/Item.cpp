@@ -132,8 +132,8 @@ void  Item::AllItemMeleeTagComponentsToEntity(const flecs::iter& iter, ItemCompo
                 iter.entity(it).add_trait<ItemComponents::MeleeItemTag, ItemComponents::OneHandedItemTag>();
                 if (RandomItemGeneratrionNumber1 == 0)
                 {
-                    iter.entity(it).add_trait<ItemComponents::OneHandedItemTag, ItemComponents::ShortSwordItemTag>();
-                    std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponShortSword " << std::endl;
+                    iter.entity(it).add_trait<ItemComponents::OneHandedItemTag, ItemComponents::SwordItemTag>();
+                    std::cout << "System AddItemComponentstoEntity is creating Item OneHandedMeleeWeaponSword " << std::endl;
                 }
                 else if (RandomItemGeneratrionNumber1 == 1)
                 {
@@ -177,8 +177,8 @@ void  Item::AllItemMeleeTagComponentsToEntity(const flecs::iter& iter, ItemCompo
                 iter.entity(it).add_trait<ItemComponents::MeleeItemTag, ItemComponents::TwoHandedItemTag>();
                 if (RandomItemGeneratrionNumber1 == 0)
                 {
-                    iter.entity(it).add_trait<ItemComponents::TwoHandedItemTag, ItemComponents::LongSwordItemTag>();
-                    std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponLongSword " << std::endl;
+                    iter.entity(it).add_trait<ItemComponents::TwoHandedItemTag, ItemComponents::SwordItemTag>();
+                    std::cout << "System AddItemComponentstoEntity is creating Item TwoHandedMeleeWeaponSword " << std::endl;
                 }
                 else if (RandomItemGeneratrionNumber1 == 1)
                 {
@@ -592,86 +592,86 @@ void Item::CreatingRarityComponentsToEntity(const flecs::iter& iter, ItemCompone
     {
         if(iss->ItemStage == 5)
         {
-            float RarityRoll = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, 100.0f);
+            float RarityRoll = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, ItemRarity12.RaritySpawnChanceMax);
             //std::cout << "Random Rarity number generated " << RarityRoll << std::endl;
-            if (RarityRoll >= ItemRarity1.RaritySpawnChance && RarityRoll < ItemRarity2.RaritySpawnChance)
+            if (RarityRoll >= ItemRarity1.RaritySpawnChanceMin && RarityRoll < ItemRarity1.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity1.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity1.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity1.RarityIntRollMin, ItemRarity1.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity1.RarityFloatRollMin, ItemRarity1.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity2.RaritySpawnChance && RarityRoll < ItemRarity3.RaritySpawnChance)
+            else if (RarityRoll >= ItemRarity2.RaritySpawnChanceMin && RarityRoll < ItemRarity2.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity2.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity2.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity2.RarityIntRollMin, ItemRarity2.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity2.RarityFloatRollMin, ItemRarity2.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity3.RaritySpawnChance && RarityRoll < ItemRarity4.RaritySpawnChance)
+            else if (RarityRoll >= ItemRarity3.RaritySpawnChanceMin && RarityRoll < ItemRarity3.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity3.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity3.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity3.RarityIntRollMin, ItemRarity3.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity3.RarityFloatRollMin, ItemRarity3.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity4.RaritySpawnChance && RarityRoll < ItemRarity5.RaritySpawnChance)
+            else if (RarityRoll >= ItemRarity4.RaritySpawnChanceMin && RarityRoll < ItemRarity4.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity4.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity4.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity4.RarityIntRollMin, ItemRarity4.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity6.RarityFloatRollMin, ItemRarity4.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity5.RaritySpawnChance && RarityRoll < ItemRarity5.RaritySpawnChance)
+            else if (RarityRoll >= ItemRarity5.RaritySpawnChanceMin && RarityRoll < ItemRarity5.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity5.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity5.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity5.RarityIntRollMin, ItemRarity5.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity5.RarityFloatRollMin, ItemRarity5.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity6.RaritySpawnChance && RarityRoll < ItemRarity7.RaritySpawnChance)
+            else if (RarityRoll >= ItemRarity6.RaritySpawnChanceMin && RarityRoll < ItemRarity6.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity6.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity6.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity6.RarityIntRollMin, ItemRarity6.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity6.RarityFloatRollMin, ItemRarity6.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity7.RaritySpawnChance && RarityRoll < ItemRarity8.RaritySpawnChance)
+            else if (RarityRoll >= ItemRarity7.RaritySpawnChanceMin && RarityRoll < ItemRarity7.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity7.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity7.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity7.RarityIntRollMin, ItemRarity7.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity7.RarityFloatRollMin, ItemRarity7.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity8.RaritySpawnChance && RarityRoll < ItemRarity9.RaritySpawnChance)
+            else if (RarityRoll >= ItemRarity8.RaritySpawnChanceMin && RarityRoll < ItemRarity8.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity8.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity8.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity8.RarityIntRollMin, ItemRarity8.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity8.RarityFloatRollMin, ItemRarity8.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity9.RaritySpawnChance && RarityRoll < ItemRarity10.RaritySpawnChance)
+            else if (RarityRoll >= ItemRarity9.RaritySpawnChanceMin && RarityRoll < ItemRarity9.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity9.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity9.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity9.RarityIntRollMin, ItemRarity9.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity9.RarityFloatRollMin, ItemRarity9.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity10.RaritySpawnChance && RarityRoll < ItemRarity11.RaritySpawnChance)
+            else if (RarityRoll >= ItemRarity10.RaritySpawnChanceMin && RarityRoll < ItemRarity10.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity10.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity10.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity10.RarityIntRollMin, ItemRarity10.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity10.RarityFloatRollMin, ItemRarity10.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity11.RaritySpawnChance && RarityRoll < ItemRarity12.RaritySpawnChance)
+            else if (RarityRoll >= ItemRarity11.RaritySpawnChanceMin && RarityRoll < ItemRarity11.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity11.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity11.RarityLevel;
                 ir->RarityIntRoll = CreatingRandom32BitIntNumbers(iss->Seed, ItemRarity11.RarityIntRollMin, ItemRarity11.RarityIntRollMax);
                 ir->RarityFloatRoll = CreatingRandom32BitFloatNumbers(iss->Seed, ItemRarity11.RarityFloatRollMin, ItemRarity11.RarityFloatRollMax);
             }
-            else if (RarityRoll >= ItemRarity12.RaritySpawnChance && RarityRoll <= 100.0f)
+            else if (RarityRoll >= ItemRarity12.RaritySpawnChanceMin && RarityRoll <= ItemRarity12.RaritySpawnChanceMax)
             {
                 ir->RarityAffixAllowance = ItemRarity12.RarityAffixAllowance;
                 ir->RarityLevel = ItemRarity12.RarityLevel;
@@ -698,20 +698,20 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
             if (ir->RarityAffixAllowance == 1)
             {
                 iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 1 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 1 ItemAffixMod component " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 2)
             {
                 iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 2 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 2 ItemAffixMod component " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 3)
             {
                 iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 3 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 3 ItemAffixMod component " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 4)
             {
@@ -719,7 +719,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
                 iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 4 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 4 ItemAffixMod component " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 5)
             {
@@ -728,7 +728,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
                 iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 5 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 5 ItemAffixMod component " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 6)
             {
@@ -738,7 +738,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
                 iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 6 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 6 ItemAffixMod component " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 7)
             {
@@ -749,7 +749,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
                 iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods7>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 7 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 7 ItemAffixMod component " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 8)
             {
@@ -761,7 +761,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
                 iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods7>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods8>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 8 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 8 ItemAffixMod component " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 9)
             {
@@ -774,7 +774,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
                 iter.entity(it).set<ItemComponents::ItemAffixMods7>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods8>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods9>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 9 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 9 ItemAffixMod component " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 10)
             {
@@ -788,7 +788,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
                 iter.entity(it).set<ItemComponents::ItemAffixMods8>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods9>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods10>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 10 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 10 ItemAffixMod component " << std::endl;
             }
             else if (ir->RarityAffixAllowance == 11)
             {
@@ -802,14 +802,14 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
                 iter.entity(it).set<ItemComponents::ItemAffixMods8>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods9>({});
                 iter.entity(it).set<ItemComponents::ItemAffixMods10>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 10 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 10 ItemAffixMod component " << std::endl;
             }
             else 
             {
-                std::cout << "System CreatingRarityModComponentsToEntity has add 0 ItemAffixMod component " << it << " " << std::endl;
+                std::cout << "System CreatingRarityModComponentsToEntity has add 0 ItemAffixMod component " << std::endl;
             }
             iss->ItemStage = 7;
-            std::cout << "System CreatingRarityModComponentsToEntity has add ItemAffixMod component " << it << " " << std::endl;
+            std::cout << "System CreatingRarityModComponentsToEntity has add ItemAffixMod component " << std::endl;
         }
     }
 }
@@ -820,7 +820,154 @@ void Item::CreatingQualityComponentToEntity(const flecs::iter& iter, ItemCompone
     {
         if (iss->ItemStage == 7) 
         {
-            iter.entity(it).remove<ItemComponents::ItemStaging>();
+            float ItemQuality = CreatingRandom32BitFloatNumbers(iss->Seed, 0.0f, ItemQualityConfig20.QualitySpawnChanceMax);
+            if (ItemQuality >= ItemQualityConfig0.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig0.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig0.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig0.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig0.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 0 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig1.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig1.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig1.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig1.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig1.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 1 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig2.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig2.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig2.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig2.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig2.QualityFloatStatIncrease;;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 2 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig3.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig3.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig3.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig3.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig3.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 3 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig4.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig4.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig4.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig4.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig4.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 4 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig5.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig5.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig5.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig5.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig5.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 5 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig6.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig6.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig6.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig6.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig6.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 6 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig7.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig7.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig7.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig7.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig7.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 7 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig8.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig8.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig8.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig8.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig8.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 8 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig9.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig9.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig9.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig9.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig9.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 9 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig10.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig10.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig10.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig10.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig10.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 10 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig11.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig11.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig11.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig11.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig11.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 11 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig12.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig12.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig12.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig12.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig12.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 12 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig13.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig13.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig13.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig13.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig13.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 13 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig14.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig14.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig14.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig14.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig14.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 14 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig15.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig15.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig15.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig15.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig15.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 15 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig16.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig16.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig16.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig16.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig16.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 16 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig17.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig17.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig17.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig17.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig17.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 17 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig18.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig18.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig18.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig18.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig18.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 18 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig19.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig19.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig19.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig19.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig19.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 19 to items " << std::endl;
+            }
+            else if (ItemQuality >= ItemQualityConfig20.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig20.QualitySpawnChanceMax)
+            {
+                iq->QualityNum = ItemQualityConfig20.QualityNum;
+                iq->QualityIntStatIncrease = ItemQualityConfig20.QualityIntStatIncrease;
+                iq->QualityFloatStatIncrease = ItemQualityConfig20.QualityFloatStatIncrease;
+                std::cout << "System CreatingQualityComponentToEntityy has added Quality 20 to items " << std::endl;
+            }
             iss->ItemStage = 8;
         }
     }
@@ -833,16 +980,10 @@ void Item::RemovingItemStagingComponentsFromEntity(const flecs::iter& iter, Item
         if (iss->ItemStage == 8)
         {
             iss->ItemStage = 9;
-            
+            iter.entity(it).remove<ItemComponents::ItemStaging>();
             //std::cout << "System RemovingItemStagingComponentsFromEntity is removeing ItemStaging from Items " << it << " " << std::endl;
         }
     }
-}
-
-inline std::mt19937 Item::CreatingSeedForRandom32BitNumber() 
-{
-    
-    //return gen;
 }
 
 inline int Item::CreatingSeed()
@@ -869,104 +1010,6 @@ inline float Item::CreatingRandom32BitFloatNumbers(int seed, float min, float ma
     float randomNumber = randomNumber32(gen);
     return randomNumber;
 }
-
-ItemQualityConfig  Item::GetConfigItemQualityData(float ItemQuality)
-{
-    if (ItemQuality >= ItemQualityConfig0.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig0.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig0;
-    }
-    else if (ItemQuality >= ItemQualityConfig1.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig1.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig1;
-    }
-    else if (ItemQuality >= ItemQualityConfig2.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig2.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig2;
-    }
-    else if (ItemQuality >= ItemQualityConfig3.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig3.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig3;
-    }
-    else if (ItemQuality >= ItemQualityConfig4.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig4.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig4;
-    }
-    else if (ItemQuality >= ItemQualityConfig5.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig5.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig5;
-    }
-    else if (ItemQuality >= ItemQualityConfig6.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig6.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig6;
-    }
-    else if (ItemQuality >= ItemQualityConfig7.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig7.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig7;
-    }
-    else if (ItemQuality >= ItemQualityConfig8.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig8.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig8;
-    }
-    else if (ItemQuality >= ItemQualityConfig9.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig9.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig9;
-    }
-    else if (ItemQuality >= ItemQualityConfig10.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig10.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig10;
-    }
-    else if (ItemQuality >= ItemQualityConfig11.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig11.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig11;
-    }
-    else if (ItemQuality >= ItemQualityConfig12.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig12.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig12;
-    }
-    else if (ItemQuality >= ItemQualityConfig13.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig13.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig13;
-    }
-    else if (ItemQuality >= ItemQualityConfig14.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig14.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig14;
-    }
-    else if (ItemQuality >= ItemQualityConfig15.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig15.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig15;
-    }
-    else if (ItemQuality >= ItemQualityConfig16.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig16.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig16;
-    }
-    else if (ItemQuality >= ItemQualityConfig17.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig17.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig17;
-    }
-    else if (ItemQuality >= ItemQualityConfig18.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig18.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig18;
-    }
-    else if (ItemQuality >= ItemQualityConfig18.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig18.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig18;
-    }
-    else if (ItemQuality >= ItemQualityConfig19.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig19.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig19;
-    }
-    else if (ItemQuality >= ItemQualityConfig20.QualitySpawnChanceMin && ItemQuality < ItemQualityConfig20.QualitySpawnChanceMax)
-    {
-        return ItemQualityConfig20;
-    }
-    else 
-    {
-        ItemQualityConfig errorItemQuality{ 0,0,0,0 };
-        return errorItemQuality;
-    }
-}
-
 
 //
 //inline void Item::CreatingEquipmentFlasks(const flecs::iter& iter, size_t i)

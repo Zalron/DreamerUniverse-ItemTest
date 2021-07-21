@@ -54,18 +54,17 @@ public:
     static void CreatingRarityComponentsToEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemRarity* ir);
     static void CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemRarity* ir);
     static void CreatingQualityComponentToEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemQuality* iq);
-    
+    static void CreatingMaterialComponentToEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemMaterial* iq);
+    static void CreatingManufacturerComponentToEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemManufacturer* iq);
     
     static void RemovingItemStagingComponentsFromEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss);
-
-   
 
 private:
     static inline std::mt19937 CreatingSeedForRandom32BitNumber();
     static inline int CreatingSeed();
     static inline int CreatingRandom32BitIntNumbers(int seed, int min, int max);
     static inline float CreatingRandom32BitFloatNumbers(int seed, float min, float max);
-    static inline ItemQualityConfig GetConfigItemQualityData(float ItemQualitySpawnChance);
+
     static inline ItemRarityConfig GetConfigItemRarityData(float ItemRaritySpawnChance);
     static inline ItemMaterialConfig GetConfigItemMaterialData(float ItemMaterialSpawnChance);
     static inline ItemManufacturerConfig GentConfigItemManufacturerData(int ItemManufacturerSpawnChance);
