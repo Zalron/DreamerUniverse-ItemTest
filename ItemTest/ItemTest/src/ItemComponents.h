@@ -16,6 +16,13 @@ struct ItemComponents
         int NumberOfItems;
     };
 
+    struct ItemBase 
+    {
+        //string ItemName
+        int BaseIntRoll;
+        float BaseFloatRoll;
+    };
+
     struct ItemRarity
     {
         //int LevelRequirement;
@@ -34,20 +41,23 @@ struct ItemComponents
 
     struct ItemMaterial
     {
+        //string MaterialName
         int MaterialType;
-        int MaterialStatRoll;
+        int MaterialStatIntRoll;
+        float MaterialStatFloatRoll;
     };
 
     struct ItemManufacturer
     {
         int ManufacturerType;
-        int ManufacturerStatRoll;
+        int ManufacturerStatIntRoll;
+        float ManufacturerStatFloatRoll;
     };
 
-    struct ItemLevel
-    {
-        int ItemLevel;
-    };
+    //struct ItemLevel
+    //{
+    //    int ItemLevel;
+    //};
 
     struct ItemCharacterLevelRequirements
     {
@@ -565,11 +575,12 @@ struct ItemComponents
 
         world.component<ItemStaging>();
         world.component<ItemSpawning>();
+        world.component<ItemBase>();
         world.component<ItemRarity>();
         world.component<ItemQuality>();
         world.component<ItemMaterial>();
         world.component<ItemManufacturer>();
-        world.component<ItemLevel>();
+        //world.component<ItemLevel>();
         world.component<ItemCharacterLevelRequirements>();
         world.component<ItemCharacterStrengthRequirements>();
         world.component<ItemCharacterDexterityRequirements>();
