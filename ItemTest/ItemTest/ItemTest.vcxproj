@@ -148,7 +148,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Include\flecs.c" />
+    <ClCompile Include="Include\flecs_components_http.c" />
+    <ClCompile Include="Include\flecs_dash.c" />
+    <ClCompile Include="Include\flecs_json.c" />
+    <ClCompile Include="Include\flecs_meta.c" />
+    <ClCompile Include="Include\flecs_monitor.c" />
     <ClCompile Include="Include\flecs_os_api_stdcpp.cpp" />
+    <ClCompile Include="Include\flecs_player.c" />
+    <ClCompile Include="Include\flecs_rest.c" />
+    <ClCompile Include="Include\flecs_systems_civetweb.c" />
     <ClCompile Include="src\ItemComponents.cpp" />
     <ClCompile Include="src\Item.cpp" />
     <ClCompile Include="src\ItemConfig.cpp" />
@@ -156,7 +164,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\flecs.h" />
+    <ClInclude Include="Include\flecs_components_http.h" />
+    <ClInclude Include="Include\flecs_dash.h" />
+    <ClInclude Include="Include\flecs_json.h" />
+    <ClInclude Include="Include\flecs_meta.h" />
+    <ClInclude Include="Include\flecs_monitor.h" />
     <ClInclude Include="Include\flecs_os_api_stdcpp.h" />
+    <ClInclude Include="Include\flecs_player.h" />
+    <ClInclude Include="Include\flecs_rest.h" />
+    <ClInclude Include="Include\flecs_systems_civetweb.h" />
     <ClInclude Include="src\ItemComponents.h" />
     <ClInclude Include="src\Item.h" />
     <ClInclude Include="src\ItemConfig.h" />

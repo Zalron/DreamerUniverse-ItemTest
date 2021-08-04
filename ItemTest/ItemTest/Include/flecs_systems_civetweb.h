@@ -21,6 +21,8 @@
 #ifndef FLECS_SYSTEMS_CIVETWEB_BAKE_CONFIG_H
 #define FLECS_SYSTEMS_CIVETWEB_BAKE_CONFIG_H
 
+#define _CRT_SECURE_NO_WARNINGS
+
 /* Headers of public dependencies */
 #include <flecs.h>
 #include <flecs_components_http.h>
