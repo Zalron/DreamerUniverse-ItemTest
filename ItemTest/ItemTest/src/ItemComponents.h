@@ -19,6 +19,7 @@ struct ItemComponents
     struct ItemBase 
     {
         //string ItemName
+        int BaseItemType;
         int BaseIntRoll;
         float BaseFloatRoll;
     };
