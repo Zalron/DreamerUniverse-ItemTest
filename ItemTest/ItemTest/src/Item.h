@@ -30,6 +30,7 @@ public:
         world.system<ItemComponents::ItemBase, ItemComponents::ItemStaging, ItemComponents::ItemRarity>("CreatingRarityModComponentsToEntity").iter(CreatingRarityModComponentsToEntity);
 
     }
+
     static void CreateItemEntity(const flecs::iter& iter, ItemComponents::ItemSpawning* is );
     static void AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss);
     

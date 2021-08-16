@@ -3,179 +3,26 @@
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_components_http.c(87,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_components_http.c(94,1): warning C4244: 'initializing': conversion from '__int64' to 'int32_t', possible loss of data
   flecs_dash.c
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(194,68): error C2065: 'ECS_CHILDOF': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(201,67): error C2065: 'ECS_CHILDOF': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(208,69): error C2065: 'ECS_CHILDOF': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(216,74): error C2065: 'ECS_CHILDOF': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(223,73): error C2065: 'ECS_CHILDOF': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(230,73): error C2065: 'ECS_CHILDOF': undeclared identifier
   flecs_json.c
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_json.c(213,63): warning C4267: 'function': conversion from 'size_t' to 'int32_t', possible loss of data
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_json.c(392,13): error C2065: 'ECS_TRAIT': undeclared identifier
   flecs_meta.c
   flecs_monitor.c
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(401,70): error C2065: 'ECS_CHILDOF': undeclared identifier
   flecs_player.c
   flecs_rest.c
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(345,71): error C2065: 'ECS_CHILDOF': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(355,70): error C2065: 'ECS_CHILDOF': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(365,71): error C2065: 'ECS_CHILDOF': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(375,71): error C2065: 'ECS_CHILDOF': undeclared identifier
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(385,69): error C2065: 'ECS_CHILDOF': undeclared identifier
   flecs_systems_civetweb.c
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_systems_civetweb.c(1670,1): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
-  Generating Code...
-  flecs_os_api_stdcpp.cpp
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.cpp(111,30): warning C4273: 'stdcpp_set_os_api': inconsistent dll linkage
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.h(39,15): message : see previous definition of 'stdcpp_set_os_api'
-  ItemComponents.cpp
-  Item.cpp
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(19): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemBaseConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(31): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemRarityConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(42): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemAffixModsConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(52): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemManufacturerConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(65): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemMaterialConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(75): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemQualityConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(87): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemPartsConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(39,110): error C2039: 'RolltableArrayLength': is not a member of 'ItemConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(8): message : see declaration of 'ItemConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(39,130): error C2065: 'RolltableArrayLength': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(40,50): error C2039: 'RolltableArray': is not a member of 'ItemConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(8): message : see declaration of 'ItemConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(40,64): error C2065: 'RolltableArray': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(42,52): error C3536: 'RolledItem': cannot be used before it is initialized
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(43,143): error C3536: 'RolledItemBase': cannot be used before it is initialized
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(43,196): error C2660: 'Item::CreatingRandom32BitIntNumbers': function does not take 1 arguments
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.h(42,23): message : see declaration of 'Item::CreatingRandom32BitIntNumbers'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(44,130): error C2660: 'Item::CreatingRandom32BitFloatNumbers': function does not take 1 arguments
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.h(43,25): message : see declaration of 'Item::CreatingRandom32BitFloatNumbers'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(56,38): error C3536: 'RolledItemRarity': cannot be used before it is initialized
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(57,73): error C2664: 'void ItemConfig::CheckRarityConfigValues(ItemConfig::ItemRarityConfig)': cannot convert argument 1 from 'int' to 'ItemConfig::ItemRarityConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(57,73): message : No constructor could take the source type, or constructor overload resolution was ambiguous
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(386,17): message : see declaration of 'ItemConfig::CheckRarityConfigValues'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(59,138): error C2660: 'Item::CreatingRandom32BitFloatNumbers': function does not take 1 arguments
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.h(43,25): message : see declaration of 'Item::CreatingRandom32BitFloatNumbers'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(60,132): error C2660: 'Item::CreatingRandom32BitIntNumbers': function does not take 1 arguments
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.h(42,23): message : see declaration of 'Item::CreatingRandom32BitIntNumbers'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(77,89): error C3536: 'RolledItemQuality': cannot be used before it is initialized
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(88,90): error C3536: 'RolledItemMaterial': cannot be used before it is initialized
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(89,148): error C2660: 'Item::CreatingRandom32BitIntNumbers': function does not take 1 arguments
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.h(42,23): message : see declaration of 'Item::CreatingRandom32BitIntNumbers'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(90,154): error C2660: 'Item::CreatingRandom32BitFloatNumbers': function does not take 1 arguments
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.h(43,25): message : see declaration of 'Item::CreatingRandom32BitFloatNumbers'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(100,98): error C3536: 'RolledItemManufacturer': cannot be used before it is initialized
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(101,164): error C2660: 'Item::CreatingRandom32BitIntNumbers': function does not take 1 arguments
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.h(42,23): message : see declaration of 'Item::CreatingRandom32BitIntNumbers'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(102,170): error C2660: 'Item::CreatingRandom32BitFloatNumbers': function does not take 1 arguments
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.h(43,25): message : see declaration of 'Item::CreatingRandom32BitFloatNumbers'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(107,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(107,112): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(108,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(108,112): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(109,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(109,112): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(110,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(110,112): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(111,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(111,112): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(113,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(113,113): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(114,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(114,113): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(115,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(115,113): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(116,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(116,113): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(117,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(117,113): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(118,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(118,113): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(119,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(119,113): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(120,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(120,113): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(121,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(121,113): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(122,28): error C2672: 'flecs::entity_builder<flecs::entity>::set': no matching overloaded function found
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(122,114): error C2780: 'const Base &flecs::entity_builder<Base>::set(flecs::entity_t,const R &) const': expects 2 arguments - 1 provided
-          with
-          [
-              Base=flecs::entity
-          ]
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(13385): message : see declaration of 'flecs::entity_builder<flecs::entity>::set'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(135,56): error C2039: 'RolltableArray': is not a member of 'ItemConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(8): message : see declaration of 'ItemConfig'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(135,70): error C2065: 'RolltableArray': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(135,31): error C2737: 'RolledItem': const object must be initialized
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(136,60): error C3536: 'RolledItem': cannot be used before it is initialized
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(136,31): error C2737: 'RolledItemRarity': const object must be initialized
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\Item.cpp(137,16): error C3536: 'RolledItemRarity': cannot be used before it is initialized
-  ItemConfig.cpp
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(19): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemBaseConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(31): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemRarityConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(42): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemAffixModsConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(52): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemManufacturerConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(65): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemMaterialConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(75): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemQualityConfig' when no variable is declared
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(87): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemPartsConfig' when no variable is declared
-  main.cpp
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_json.h(100,24): error C2039: 'component_info': is not a member of 'flecs::_'
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs.h(17309): message : see declaration of 'flecs::_'
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_systems_civetweb.c(1869,28): error C2065: 'ECS_CHILDOF': undeclared identifier
   Generating Code...
