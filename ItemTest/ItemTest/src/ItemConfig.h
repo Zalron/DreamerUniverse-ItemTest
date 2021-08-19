@@ -98,118 +98,118 @@ struct ItemConfig
         world.component<ItemQualityConfig>();
     }
 
-    //static const struct MeleeItemComponentsConfig
-    //{
-    //    ItemComponents::CriticalChanceItemStat ItemStat1;
-    //    ItemComponents::MagicalDamageItemStat ItemStat2;
-    //    ItemComponents::PhysicalDamageItemStat ItemStat3;
-    //    ItemComponents::HandlingItemStat ItemStat4;
-    //    ItemComponents::AccuracyItemStat ItemStat5;
-    //    ItemComponents::RangeItemStat ItemStat6;
-    //    ItemComponents::GuardItemStat ItemStat7;
-    //    ItemComponents::BlockChanceItemStat ItemStat8;
-    //    ItemComponents::AttackRateItemStat ItemStat9;
-    //    ItemComponents::WeightItemStat ItemStat10;
-    //};
+    static const struct MeleeItemComponentsConfig
+    {
+        ItemComponents::CriticalChanceItemStat ItemStat1;
+        ItemComponents::MagicalDamageItemStat ItemStat2;
+        ItemComponents::PhysicalDamageItemStat ItemStat3;
+        ItemComponents::HandlingItemStat ItemStat4;
+        ItemComponents::AccuracyItemStat ItemStat5;
+        ItemComponents::RangeItemStat ItemStat6;
+        ItemComponents::GuardItemStat ItemStat7;
+        ItemComponents::BlockChanceItemStat ItemStat8;
+        ItemComponents::AttackRateItemStat ItemStat9;
+        ItemComponents::WeightItemStat ItemStat10;
+    };
 
-    //static const struct RangeItemComponentsConfig
-    //{
-    //    ItemComponents::CriticalChanceItemStat ItemStat1;
-    //    ItemComponents::MagicalDamageItemStat ItemStat2;
-    //    ItemComponents::PhysicalDamageItemStat ItemStat3;
-    //    ItemComponents::HandlingItemStat ItemStat4;
-    //    ItemComponents::AccuracyItemStat ItemStat5;
-    //    ItemComponents::RangeItemStat ItemStat6;
-    //    ItemComponents::MagazineSizeItemStat ItemStat7;
-    //    ItemComponents::ReloadTimeItemStat ItemStat8;
-    //    ItemComponents::FireRateItemStat ItemStat9;
-    //    ItemComponents::WeightItemStat ItemStat10;
-    //};
+    static const struct RangeItemComponentsConfig
+    {
+        ItemComponents::CriticalChanceItemStat ItemStat1;
+        ItemComponents::MagicalDamageItemStat ItemStat2;
+        ItemComponents::PhysicalDamageItemStat ItemStat3;
+        ItemComponents::HandlingItemStat ItemStat4;
+        ItemComponents::AccuracyItemStat ItemStat5;
+        ItemComponents::RangeItemStat ItemStat6;
+        ItemComponents::MagazineSizeItemStat ItemStat7;
+        ItemComponents::ReloadTimeItemStat ItemStat8;
+        ItemComponents::FireRateItemStat ItemStat9;
+        ItemComponents::WeightItemStat ItemStat10;
+    };
 
-    //static const struct ArmourItemComponentsConfig
-    //{
-    //    ItemComponents::CriticalChanceItemStat ItemStat1;
-    //    ItemComponents::MagicalDamageItemStat ItemStat2;
-    //    ItemComponents::PhysicalDamageItemStat ItemStat3;
-    //    ItemComponents::HandlingItemStat ItemStat4;
-    //    ItemComponents::AccuracyItemStat ItemStat5;
-    //    ItemComponents::RangeItemStat ItemStat6;
-    //    ItemComponents::GuardItemStat ItemStat7;
-    //    ItemComponents::BlockChanceItemStat ItemStat8;
-    //    ItemComponents::AttackRateItemStat ItemStat9;
-    //    ItemComponents::WeightItemStat ItemStat10;
-    //};
+    static const struct ArmourItemComponentsConfig
+    {
+        ItemComponents::CriticalChanceItemStat ItemStat1;
+        ItemComponents::MagicalDamageItemStat ItemStat2;
+        ItemComponents::PhysicalDamageItemStat ItemStat3;
+        ItemComponents::HandlingItemStat ItemStat4;
+        ItemComponents::AccuracyItemStat ItemStat5;
+        ItemComponents::RangeItemStat ItemStat6;
+        ItemComponents::GuardItemStat ItemStat7;
+        ItemComponents::BlockChanceItemStat ItemStat8;
+        ItemComponents::AttackRateItemStat ItemStat9;
+        ItemComponents::WeightItemStat ItemStat10;
+    };
 
-    //static const struct ItemComponentsConfig
-    //{
-    //    MeleeItemComponentsConfig MeleeItemComponentsConfigStruct;
-    //};
+    static const struct ItemComponentsConfig
+    {
+        MeleeItemComponentsConfig MeleeItemComponentsConfigStruct;
+    };
 
-    //static const struct OneHandedSwordItemTagComponents
-    //{
-    //    ItemComponents::EquipableItemTag RelationLayer1;
-    //    ItemComponents::WeaponsItemTag RelationLayer2;
-    //    ItemComponents::MeleeItemTag RelationLayer3;
-    //    ItemComponents::OneHandedItemTag RelationLayer4;
-    //    ItemComponents::SwordItemTag RelationLayer5;
-    //};
+    static const struct OneHandedSwordItemTagComponents
+    {
+        ItemComponents::EquipableItemTag RelationLayer1;
+        ItemComponents::WeaponsItemTag RelationLayer2;
+        ItemComponents::MeleeItemTag RelationLayer3;
+        ItemComponents::OneHandedItemTag RelationLayer4;
+        ItemComponents::SwordItemTag RelationLayer5;
+    };
 
-    //static const struct ItemTagComponentsConfig
-    //{
-    //    OneHandedSwordItemTagComponents OneHandedSwordItemTagComponentsStuctConfig;
-    //};
+    static const struct ItemTagComponentsConfig
+    {
+        OneHandedSwordItemTagComponents OneHandedSwordItemTagComponentsStuctConfig;
+    };
 
-    //static const struct StandardItemBaseRollTable
-    //{
-    //    ItemRarityConfig rarityRollTable[11];
+    static const struct StandardItemBaseRollTable
+    {
+        ItemRarityConfig rarityRollTable[11];
 
-    //    ItemQualityConfig qualityRollTable[21];
+        ItemQualityConfig qualityRollTable[21];
 
-    //    ItemMaterialConfig materialRollTable[10];
+        ItemMaterialConfig materialRollTable[10];
 
-    //    ItemManufacturerConfig manufacturerRollTable[6];
-    //};
+        ItemManufacturerConfig manufacturerRollTable[6];
+    };
 
-    //static const struct NormalItemBaseRolltable
-    //{
-    //    ItemTagComponentsConfig ItemTags;
+    static const struct NormalItemBaseRolltable
+    {
+        ItemTagComponentsConfig ItemTags;
 
-    //    ItemComponentsConfig ItemComponentConfigStruct;
+        ItemComponentsConfig ItemComponentConfigStruct;
 
-    //    ItemBaseTypeConfig ItemBase;
+        ItemBaseConfig ItemBase;
 
-    //    StandardItemBaseRollTable ItemBaseRollTable;
+        StandardItemBaseRollTable ItemBaseRollTable;
 
-    //    /*ItemPartsConfig partRollTable1[];
-    //    ItemPartsConfig partRollTable2[];
-    //    ItemPartsConfig partRollTable3[];
-    //    ItemPartsConfig partRollTable4[];
-    //    ItemPartsConfig partRollTable5[];
-    //    ItemPartsConfig partRollTable6[];
-    //    ItemPartsConfig partRollTable7[];
-    //    ItemPartsConfig partRollTable8[];
-    //    ItemPartsConfig partRollTable9[];
-    //    ItemPartsConfig partRollTable10[];*/
+        /*ItemPartsConfig partRollTable1[];
+        ItemPartsConfig partRollTable2[];
+        ItemPartsConfig partRollTable3[];
+        ItemPartsConfig partRollTable4[];
+        ItemPartsConfig partRollTable5[];
+        ItemPartsConfig partRollTable6[];
+        ItemPartsConfig partRollTable7[];
+        ItemPartsConfig partRollTable8[];
+        ItemPartsConfig partRollTable9[];
+        ItemPartsConfig partRollTable10[];*/
 
-    //    /*ItemAffixModsConfig modsRollTable1[];
-    //    ItemAffixModsConfig modsRollTable2[];
-    //    ItemAffixModsConfig modsRollTable3[];
-    //    ItemAffixModsConfig modsRollTable4[];
-    //    ItemAffixModsConfig modsRollTable5[];
-    //    ItemAffixModsConfig modsRollTable6[];
-    //    ItemAffixModsConfig modsRollTable7[];
-    //    ItemAffixModsConfig modsRollTable8[];
-    //    ItemAffixModsConfig modsRollTable9[];
-    //    ItemAffixModsConfig modsRollTable10[];*/
-    //};
+        /*ItemAffixModsConfig modsRollTable1[];
+        ItemAffixModsConfig modsRollTable2[];
+        ItemAffixModsConfig modsRollTable3[];
+        ItemAffixModsConfig modsRollTable4[];
+        ItemAffixModsConfig modsRollTable5[];
+        ItemAffixModsConfig modsRollTable6[];
+        ItemAffixModsConfig modsRollTable7[];
+        ItemAffixModsConfig modsRollTable8[];
+        ItemAffixModsConfig modsRollTable9[];
+        ItemAffixModsConfig modsRollTable10[];*/
+    };
 
-    //static constexpr MeleeItemComponentsConfig MeleeItemComponentsConfigStruct{};
+    static constexpr MeleeItemComponentsConfig MeleeItemComponentsConfigStruct{};
 
-    //static constexpr ItemComponentsConfig ItemComponentConfigStruct{ MeleeItemComponentsConfigStruct };
+    static constexpr ItemComponentsConfig ItemComponentConfigStruct{ MeleeItemComponentsConfigStruct };
 
-    //static constexpr OneHandedSwordItemTagComponents OneHandedSwordItemTagComponentsStruct{};
+    static constexpr OneHandedSwordItemTagComponents OneHandedSwordItemTagComponentsStruct{};
 
-    //static constexpr ItemTagComponentsConfig OneHandedSwordItemTagComponentsConfig{ OneHandedSwordItemTagComponentsStruct };
+    static constexpr ItemTagComponentsConfig OneHandedSwordItemTagComponentsConfig{ OneHandedSwordItemTagComponentsStruct };
 
 
     static constexpr ItemBaseConfig OneHandedSwordBronzeFalx{ 14, 17, 2.5f, 2.9f }; //"One Handed Short Sword Bronze Falx"
@@ -279,7 +279,7 @@ struct ItemConfig
     static constexpr ItemQualityConfig ItemQualityConfig19{9950, 9955, 19, 28, 28.5f };
     static constexpr ItemQualityConfig ItemQualityConfig20{9955, 10000, 20, 30, 30 };
 
-    /*static constexpr StandardItemBaseRollTable standardItemBaseRollTable
+    static constexpr StandardItemBaseRollTable standardItemBaseRollTable
     {
         {{ItemRarity1},{ItemRarity2},{ItemRarity3},{ItemRarity4},{ItemRarity5},{ItemRarity6},{ItemRarity7},{ItemRarity8},{ItemRarity9},{ItemRarity10},{ItemRarity11}},
         {{ItemQualityConfig0},{ItemQualityConfig1},{ItemQualityConfig2},{ItemQualityConfig3},{ItemQualityConfig4},{ItemQualityConfig5},{ItemQualityConfig6},{ItemQualityConfig7},{ItemQualityConfig8},{ItemQualityConfig9},{ItemQualityConfig10},{ItemQualityConfig11},{ItemQualityConfig12},{ItemQualityConfig13},{ItemQualityConfig14},{ItemQualityConfig15},{ItemQualityConfig16},{ItemQualityConfig17},{ItemQualityConfig18},{ItemQualityConfig19},{ItemQualityConfig20}},
@@ -381,7 +381,5 @@ struct ItemConfig
         {OneHandedSwordShiningCrusaderRollTable},
         {OneHandedSwordSerratedKhandaRollTable},
         {OneHandedSwordHoledAkrafenaRollTable},
-    };*/
-
-    static void CheckRarityConfigValues(ItemRarityConfig itemRarityConfig);
+    };
 };

@@ -4,7 +4,7 @@ void Item::CreateItemEntity(const flecs::iter& iter, ItemComponents::ItemSpawnin
 {
     for (auto it : iter)
     {
-        for (auto i  = 0; i < is->NumberOfItems; i++) 
+        for (auto i = 0; i < is->NumberOfItems; i++) 
         {
             auto e = iter.world().entity();
             e.set<ItemComponents::ItemStaging>({ 1 });
@@ -19,11 +19,10 @@ void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, I
 {
     for (auto it : iter)
     {
-       
         if (iss->ItemStage == 1)
         {
             int randomNumber = CreatingSeed();
-            //std::cout << "System SettingSeedForRandomItemEntitiesGeneration has generated this number " << randomNumber << " for " << it << std::endl;
+            std::cout << "System SettingSeedForRandomItemEntitiesGeneration has generated this number " << randomNumber << " for " << it << std::endl;
             iss->Seed = randomNumber;
             iss->ItemStage = 2;
         }
@@ -54,7 +53,6 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
                 if (RolledItem.ItemBaseRollTable.rarityRollTable[i].RaritySpawnChanceMin >= RandomItemGeneratrionRarityNumber && RolledItem.ItemBaseRollTable.rarityRollTable[i].RaritySpawnChanceMax < RandomItemGeneratrionRarityNumber)
                 {
                     RolledItemRarity = RolledItem.ItemBaseRollTable.rarityRollTable[i];
-                    ItemConfig::CheckRarityConfigValues(RolledItemRarity);
                     iter.entity(it).set<ItemComponents::ItemRarity>({ RolledItemRarity.RarityLevel,
                         CreatingRandom32BitFloatNumbers(iss->Seed,RolledItemRarity.RarityFloatRollMin,RolledItemRarity.RarityFloatRollMax),
                         CreatingRandom32BitIntNumbers(iss->Seed,RolledItemRarity.RarityIntRollMin,RolledItemRarity.RarityIntRollMax),
@@ -104,7 +102,7 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
                 }
             }
 
-            iter.entity(it).set<>(RolledItem.ItemTags.OneHandedSwordItemTagComponentsStuctConfig.RelationLayer1);
+            /*iter.entity(it).set<>(RolledItem.ItemTags.OneHandedSwordItemTagComponentsStuctConfig.RelationLayer1);
             iter.entity(it).set<>(RolledItem.ItemTags.OneHandedSwordItemTagComponentsStuctConfig.RelationLayer2);
             iter.entity(it).set<>(RolledItem.ItemTags.OneHandedSwordItemTagComponentsStuctConfig.RelationLayer3);
             iter.entity(it).set<>(RolledItem.ItemTags.OneHandedSwordItemTagComponentsStuctConfig.RelationLayer4);
@@ -119,7 +117,7 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
             iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat7);
             iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat8);
             iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat9);
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat10);
+            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat10);*/
             iss->ItemStage = 3;
             std::cout << "System AddItemComponentstoEntity is creating Items " << std::endl;
         }
