@@ -1,28 +1,57 @@
 ﻿  flecs.c
-  flecs_components_http.c
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_components_http.c(87,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_components_http.c(94,1): warning C4244: 'initializing': conversion from '__int64' to 'int32_t', possible loss of data
-  flecs_dash.c
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(194,68): error C2065: 'ECS_CHILDOF': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(201,67): error C2065: 'ECS_CHILDOF': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(208,69): error C2065: 'ECS_CHILDOF': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(216,74): error C2065: 'ECS_CHILDOF': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(223,73): error C2065: 'ECS_CHILDOF': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_dash.c(230,73): error C2065: 'ECS_CHILDOF': undeclared identifier
-  flecs_json.c
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_json.c(213,63): warning C4267: 'function': conversion from 'size_t' to 'int32_t', possible loss of data
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_json.c(392,13): error C2065: 'ECS_TRAIT': undeclared identifier
-  flecs_meta.c
-  flecs_monitor.c
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_monitor.c(401,70): error C2065: 'ECS_CHILDOF': undeclared identifier
-  flecs_player.c
-  flecs_rest.c
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(345,71): error C2065: 'ECS_CHILDOF': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(355,70): error C2065: 'ECS_CHILDOF': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(365,71): error C2065: 'ECS_CHILDOF': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(375,71): error C2065: 'ECS_CHILDOF': undeclared identifier
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_rest.c(385,69): error C2065: 'ECS_CHILDOF': undeclared identifier
-  flecs_systems_civetweb.c
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_systems_civetweb.c(1670,1): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
-C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_systems_civetweb.c(1869,28): error C2065: 'ECS_CHILDOF': undeclared identifier
+  flecs_os_api_stdcpp.cpp
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.cpp(111,30): warning C4273: 'stdcpp_set_os_api': inconsistent dll linkage
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.h(39,15): message : see previous definition of 'stdcpp_set_os_api'
+  ItemComponents.cpp
+  Item.cpp
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(19): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemBaseConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(31): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemRarityConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(42): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemAffixModsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(52): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemManufacturerConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(65): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemMaterialConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(75): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemQualityConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(87): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemPartsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(113): warning C4091: 'static ': ignored on left of 'const ItemConfig::MeleeItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(127): warning C4091: 'static ': ignored on left of 'const ItemConfig::RangeItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(141): warning C4091: 'static ': ignored on left of 'const ItemConfig::ArmourItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(146): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(155): warning C4091: 'static ': ignored on left of 'const ItemConfig::OneHandedSwordItemTagComponents' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(160): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemTagComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(171): warning C4091: 'static ': ignored on left of 'const ItemConfig::StandardItemBaseRollTable' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(204): warning C4091: 'static ': ignored on left of 'const ItemConfig::NormalItemBaseRolltable' when no variable is declared
+  ItemConfig.cpp
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(19): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemBaseConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(31): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemRarityConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(42): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemAffixModsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(52): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemManufacturerConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(65): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemMaterialConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(75): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemQualityConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(87): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemPartsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(113): warning C4091: 'static ': ignored on left of 'const ItemConfig::MeleeItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(127): warning C4091: 'static ': ignored on left of 'const ItemConfig::RangeItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(141): warning C4091: 'static ': ignored on left of 'const ItemConfig::ArmourItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(146): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(155): warning C4091: 'static ': ignored on left of 'const ItemConfig::OneHandedSwordItemTagComponents' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(160): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemTagComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(171): warning C4091: 'static ': ignored on left of 'const ItemConfig::StandardItemBaseRollTable' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(204): warning C4091: 'static ': ignored on left of 'const ItemConfig::NormalItemBaseRolltable' when no variable is declared
+  main.cpp
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(19): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemBaseConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(31): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemRarityConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(42): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemAffixModsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(52): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemManufacturerConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(65): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemMaterialConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(75): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemQualityConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(87): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemPartsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(113): warning C4091: 'static ': ignored on left of 'const ItemConfig::MeleeItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(127): warning C4091: 'static ': ignored on left of 'const ItemConfig::RangeItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(141): warning C4091: 'static ': ignored on left of 'const ItemConfig::ArmourItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(146): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(155): warning C4091: 'static ': ignored on left of 'const ItemConfig::OneHandedSwordItemTagComponents' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(160): warning C4091: 'static ': ignored on left of 'const ItemConfig::ItemTagComponentsConfig' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(171): warning C4091: 'static ': ignored on left of 'const ItemConfig::StandardItemBaseRollTable' when no variable is declared
+C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\src\ItemConfig.h(204): warning C4091: 'static ': ignored on left of 'const ItemConfig::NormalItemBaseRolltable' when no variable is declared
   Generating Code...
+     Creating library C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\x64\Debug\ItemTest.lib and object C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\x64\Debug\ItemTest.exp
+LINK : warning LNK4217: symbol 'stdcpp_set_os_api' defined in 'flecs_os_api_stdcpp.obj' is imported by 'main.obj' in function 'main'
+  ItemTest.vcxproj -> C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\x64\Debug\ItemTest.exe
