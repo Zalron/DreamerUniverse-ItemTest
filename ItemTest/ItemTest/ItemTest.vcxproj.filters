@@ -50,5 +50,8 @@
     <ClInclude Include="src\ItemComponents.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\ItemConfigComponents.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

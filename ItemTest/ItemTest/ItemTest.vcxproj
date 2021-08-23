@@ -160,6 +160,7 @@
     <ClInclude Include="src\ItemComponents.h" />
     <ClInclude Include="src\Item.h" />
     <ClInclude Include="src\ItemConfig.h" />
+    <ClInclude Include="src\ItemConfigComponents.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
