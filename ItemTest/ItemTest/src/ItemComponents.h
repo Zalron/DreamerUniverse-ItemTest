@@ -14,6 +14,7 @@ struct ItemComponents
     struct ItemSpawning
     {
         int NumberOfItems;
+        int ItemLevel;
     };
 
     struct ItemBase 

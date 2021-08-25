@@ -31,7 +31,7 @@ public:
 
     }
 
-    static void CreateItemEntity(const flecs::iter& iter, ItemComponents::ItemSpawning* is );
+    static void CreateItemEntity(const flecs::iter& iter, ItemComponents::ItemSpawning* is);
     static void AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss);
     
     static void SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, ItemComponents::ItemStaging* iss);

@@ -10,7 +10,10 @@ void Item::CreateItemEntity(const flecs::iter& iter, ItemComponents::ItemSpawnin
             e.set<ItemComponents::ItemStaging>({ 1 });
             std::cout << "System CreateItemEntity has created item " << i << " " << std::endl;
         }
+        //e.destruct();
         iter.entity(it).remove<ItemComponents::ItemSpawning>();
+        //iter.entity(it).destruct();
+        
         std::cout << "System CreateItemEntity is creating items" << std::endl;
     }
 }
@@ -31,93 +34,97 @@ void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, I
 
 void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss)
 {
+    auto ItemConfigQuery = iter.world().filter<ItemConfigComponents::ItemBaseConfig, ItemConfigComponents::OneHandedSwordItemTagConfig, ItemConfigComponents::MeleeItemComponentsConfig, ItemConfigComponents::StandardItemBaseRollTable>();
+
     for (auto it : iter)
     {
         if (iss->ItemStage == 2)
         {
-            static int RandomItemGeneratrionNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, ItemConfig::RolltableArrayLength);
-            static auto RolledItem = ItemConfig::RolltableArray[RandomItemGeneratrionNumber];
-
-            static auto RolledItemBase = RolledItem.ItemBase;
-            iter.entity(it).set<ItemComponents::ItemBase>({RandomItemGeneratrionNumber ,CreatingRandom32BitIntNumbers(iss->Seed,RolledItemBase.BaseTypeIntRollMin,RolledItemBase.BaseTypeIntRollMax),
-                CreatingRandom32BitFloatNumbers(iss->Seed,RolledItemBase.BaseTypeFloatRollMin,RolledItemBase.BaseTypeFloatRollMax)});
-
-            //static const auto RolledItemRarity = RolledItem.ItemBaseRollTable.rarityRollTable[1];
-            //std::cout << "System AddItemComponentstoEntity is adding " << RolledItemRarity.RaritySpawnChanceMin << " " << RolledItemRarity.RaritySpawnChanceMax << " To Rolled Items " << std::endl;
-
-            int RandomItemGeneratrionRarityNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, 10000 + 1);
-            std::cout << "System AddItemComponentstoEntity has rolled rarity " << RandomItemGeneratrionRarityNumber << " " << std::endl;
-            static auto RolledItemRarity = RolledItem.ItemBaseRollTable.rarityRollTable[0];
-            for (size_t i = 0; i < 11; i++)
+            ItemConfigQuery.each([&](ItemConfigComponents::ItemBaseConfig& ibc, ItemConfigComponents::OneHandedSwordItemTagConfig& itc, ItemConfigComponents::MeleeItemComponentsConfig& icc, ItemConfigComponents::StandardItemBaseRollTable& brt)
             {
-                if (RolledItem.ItemBaseRollTable.rarityRollTable[i].RaritySpawnChanceMin >= RandomItemGeneratrionRarityNumber && RolledItem.ItemBaseRollTable.rarityRollTable[i].RaritySpawnChanceMax < RandomItemGeneratrionRarityNumber)
+                int GeneratingRandomBaseItemID = CreatingRandom32BitIntNumbers(iss->Seed, 1, 10);
+                if (ibc.BaseTypeID == GeneratingRandomBaseItemID)
                 {
-                    RolledItemRarity = RolledItem.ItemBaseRollTable.rarityRollTable[i];
-                    iter.entity(it).set<ItemComponents::ItemRarity>({ RolledItemRarity.RarityLevel,
-                        CreatingRandom32BitFloatNumbers(iss->Seed,RolledItemRarity.RarityFloatRollMin,RolledItemRarity.RarityFloatRollMax),
-                        CreatingRandom32BitIntNumbers(iss->Seed,RolledItemRarity.RarityIntRollMin,RolledItemRarity.RarityIntRollMax),
-                        RolledItemRarity.RarityAffixAllowance });
-                    std::cout << "System AddItemComponentstoEntity is adding " << RolledItemRarity.RarityLevel << " To Rolled Items " << std::endl;
-                }
-                else 
-                {
-                    std::cout << "System AddItemComponentstoEntity is adding " << RolledItemRarity.RarityLevel << " To Rolled Items " << std::endl;
-                }
-            }
-            
-            
-            int RandomItemGeneratrionQualityNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, 10000 + 1);
-            for (size_t i = 0; i < 21; i++)
-            {
-                if (RolledItem.ItemBaseRollTable.qualityRollTable[i].QualitySpawnChanceMin >= RandomItemGeneratrionQualityNumber && RolledItem.ItemBaseRollTable.qualityRollTable[i].QualitySpawnChanceMax < RandomItemGeneratrionQualityNumber)
-                {
-                    static auto RolledItemQuality = RolledItem.ItemBaseRollTable.qualityRollTable[i];
-                    iter.entity(it).set<ItemComponents::ItemQuality>({ RolledItemQuality.QualityNum, 
-                        RolledItemQuality.QualityIntStatIncrease, 
-                        RolledItemQuality.QualityFloatStatIncrease});
-                }
-            }
-            int RandomItemGeneratrionMaterialNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, 10000 + 1);
-            for (size_t i = 0; i < 10; i++)
-            {
-                if (RolledItem.ItemBaseRollTable.materialRollTable[i].MaterialChanceMin >= RandomItemGeneratrionMaterialNumber && RolledItem.ItemBaseRollTable.materialRollTable[i].MaterialChanceMin < RandomItemGeneratrionMaterialNumber)
-                {
-                    static auto RolledItemMaterial = RolledItem.ItemBaseRollTable.materialRollTable[i];
-                    iter.entity(it).set<ItemComponents::ItemMaterial>({RolledItemMaterial.MaterialType,
-                        CreatingRandom32BitIntNumbers(iss->Seed,RolledItemMaterial.MaterialStatIntRollMin,RolledItemMaterial.MaterialStatIntRollMax),
-                        CreatingRandom32BitFloatNumbers(iss->Seed,RolledItemMaterial.MaterialStatFloatRollMin,RolledItemMaterial.MaterialStatFloatRollMax)
-                        });
-                }
-            }
-            int RandomItemGeneratrionManufacturerNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, 11 + 1);
-            for (size_t i = 0; i < 11; i++)
-            {
-                if (RolledItem.ItemBaseRollTable.manufacturerRollTable[i].ManufacturerType == RandomItemGeneratrionManufacturerNumber)
-                {
-                    static auto RolledItemManufacturer = RolledItem.ItemBaseRollTable.manufacturerRollTable[i];
-                    iter.entity(it).set<ItemComponents::ItemManufacturer>({RolledItemManufacturer.ManufacturerType,
-                        CreatingRandom32BitIntNumbers(iss->Seed,RolledItemManufacturer.ManufacturerStatIntRollMin,RolledItemManufacturer.ManufacturerStatIntRollMax),
-                        CreatingRandom32BitFloatNumbers(iss->Seed,RolledItemManufacturer.ManufacturerStatFloatRollMin,RolledItemManufacturer.ManufacturerStatFloatRollMax)
-                        });
-                }
-            }
+                    iter.entity(it).set<ItemComponents::ItemBase>({ GeneratingRandomBaseItemID, CreatingRandom32BitIntNumbers(iss->Seed, ibc.BaseTypeIntRollMin, ibc.BaseTypeIntRollMax),
+                    CreatingRandom32BitFloatNumbers(iss->Seed, ibc.BaseTypeFloatRollMin, ibc.BaseTypeFloatRollMax) });
 
-            /*iter.entity(it).set<>(RolledItem.ItemTags.OneHandedSwordItemTagComponentsStuctConfig.RelationLayer1);
-            iter.entity(it).set<>(RolledItem.ItemTags.OneHandedSwordItemTagComponentsStuctConfig.RelationLayer2);
-            iter.entity(it).set<>(RolledItem.ItemTags.OneHandedSwordItemTagComponentsStuctConfig.RelationLayer3);
-            iter.entity(it).set<>(RolledItem.ItemTags.OneHandedSwordItemTagComponentsStuctConfig.RelationLayer4);
-            iter.entity(it).set<>(RolledItem.ItemTags.OneHandedSwordItemTagComponentsStuctConfig.RelationLayer5);
+                    //std::cout << "System AddItemComponentstoEntity is adding " << RolledItemRarity.RaritySpawnChanceMin << " " << RolledItemRarity.RaritySpawnChanceMax << " To Rolled Items " << std::endl;
 
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat1);
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat2);
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat3);
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat4);
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat5);
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat6);
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat7);
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat8);
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat9);
-            iter.entity(it).set<>(RolledItem.ItemComponentConfigStruct.MeleeItemComponentsConfigStruct.ItemStat10);*/
+                    int RandomItemGeneratrionRarityNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, 10000 + 1);
+                    std::cout << "System AddItemComponentstoEntity has rolled rarity " << RandomItemGeneratrionRarityNumber << " " << std::endl;
+
+                    for (size_t i = 0; i < 11; i++)
+                    {
+                        if (brt.rarityRollTable[i].RaritySpawnChanceMin >= RandomItemGeneratrionRarityNumber && brt.rarityRollTable[i].RaritySpawnChanceMax < RandomItemGeneratrionRarityNumber)
+                        {
+                            static auto RolledItemRarity = brt.rarityRollTable[i];
+                            iter.entity(it).set<ItemComponents::ItemRarity>({ RolledItemRarity.RarityLevel,
+                                CreatingRandom32BitFloatNumbers(iss->Seed,RolledItemRarity.RarityFloatRollMin,RolledItemRarity.RarityFloatRollMax),
+                                CreatingRandom32BitIntNumbers(iss->Seed,RolledItemRarity.RarityIntRollMin,RolledItemRarity.RarityIntRollMax),
+                                RolledItemRarity.RarityAffixAllowance });
+                            std::cout << "System AddItemComponentstoEntity is adding " << RolledItemRarity.RarityLevel << " To Rolled Items " << std::endl;
+                        }
+                        else
+                        {
+                            std::cout << "System AddItemComponentstoEntity is adding " << 12345678910 << " To Rolled Items " << std::endl;
+                        }
+                    }
+
+
+                    int RandomItemGeneratrionQualityNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, 10000 + 1);
+                    for (size_t i = 0; i < 21; i++)
+                    {
+                        if (brt.qualityRollTable[i].QualitySpawnChanceMin >= RandomItemGeneratrionQualityNumber && brt.qualityRollTable[i].QualitySpawnChanceMax < RandomItemGeneratrionQualityNumber)
+                        {
+                            static auto RolledItemQuality = brt.qualityRollTable[i];
+                            iter.entity(it).set<ItemComponents::ItemQuality>({ RolledItemQuality.QualityNum,
+                                RolledItemQuality.QualityIntStatIncrease,
+                                RolledItemQuality.QualityFloatStatIncrease });
+                        }
+                    }
+                    int RandomItemGeneratrionMaterialNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, 10000 + 1);
+                    for (size_t i = 0; i < 10; i++)
+                    {
+                        if (brt.materialRollTable[i].MaterialChanceMin >= RandomItemGeneratrionMaterialNumber && brt.materialRollTable[i].MaterialChanceMin < RandomItemGeneratrionMaterialNumber)
+                        {
+                            static auto RolledItemMaterial = brt.materialRollTable[i];
+                            iter.entity(it).set<ItemComponents::ItemMaterial>({ RolledItemMaterial.MaterialType,
+                                CreatingRandom32BitIntNumbers(iss->Seed,RolledItemMaterial.MaterialStatIntRollMin,RolledItemMaterial.MaterialStatIntRollMax),
+                                CreatingRandom32BitFloatNumbers(iss->Seed,RolledItemMaterial.MaterialStatFloatRollMin,RolledItemMaterial.MaterialStatFloatRollMax)
+                                });
+                        }
+                    }
+                    int RandomItemGeneratrionManufacturerNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, 11 + 1);
+                    for (size_t i = 0; i < 11; i++)
+                    {
+                        if (brt.manufacturerRollTable[i].ManufacturerType == RandomItemGeneratrionManufacturerNumber)
+                        {
+                            static auto RolledItemManufacturer = brt.manufacturerRollTable[i];
+                            iter.entity(it).set<ItemComponents::ItemManufacturer>({ RolledItemManufacturer.ManufacturerType,
+                                CreatingRandom32BitIntNumbers(iss->Seed,RolledItemManufacturer.ManufacturerStatIntRollMin,RolledItemManufacturer.ManufacturerStatIntRollMax),
+                                CreatingRandom32BitFloatNumbers(iss->Seed,RolledItemManufacturer.ManufacturerStatFloatRollMin,RolledItemManufacturer.ManufacturerStatFloatRollMax)
+                                });
+                        }
+                    }
+
+                   /* iter.entity(it).set<>(itc.RelationLayer1);
+                    iter.entity(it).set<>(itc.RelationLayer2);
+                    iter.entity(it).set<>(itc.RelationLayer3);
+                    iter.entity(it).set<>(itc.RelationLayer4);
+                    iter.entity(it).set<>(itc.RelationLayer5);
+
+                    iter.entity(it).set<>(icc.ItemStat1);
+                    iter.entity(it).set<>(icc.ItemStat2);
+                    iter.entity(it).set<>(icc.ItemStat3);
+                    iter.entity(it).set<>(icc.ItemStat4);
+                    iter.entity(it).set<>(icc.ItemStat5);
+                    iter.entity(it).set<>(icc.ItemStat6);
+                    iter.entity(it).set<>(icc.ItemStat7);
+                    iter.entity(it).set<>(icc.ItemStat8);
+                    iter.entity(it).set<>(icc.ItemStat9);
+                    iter.entity(it).set<>(icc.ItemStat10);*/
+                }
+            });
             iss->ItemStage = 3;
             std::cout << "System AddItemComponentstoEntity is creating Items " << std::endl;
         }
@@ -130,7 +137,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
     {
         if (iss->ItemStage == 3)
         {
-            static const auto RolledItem = ItemConfig::RolltableArray[ib->BaseItemType];
+            /*static const auto RolledItem = ItemConfig::RolltableArray[ib->BaseItemType];
             static const auto RolledItemRarity = RolledItem.ItemBaseRollTable.rarityRollTable[ir->RarityAffixAllowance];
             if (RolledItemRarity.RarityAffixAllowance == 1 || RolledItemRarity.RarityAffixAllowance > 1)
             {
@@ -185,7 +192,7 @@ void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComp
             if (RolledItemRarity.RarityAffixAllowance == 0)
             {
                 std::cout << "System CreatingRarityModComponentsToEntity has add 0 ItemAffixMod component " << std::endl;
-            }
+            }*/
             iss->ItemStage = 4;
         }
     }

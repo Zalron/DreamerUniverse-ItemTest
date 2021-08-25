@@ -5,7 +5,6 @@
 //#include <flecs_systems_civetweb.h>
 #include <flecs_os_api_stdcpp.h>
 #include <iostream>
-#include <cstdint>
 
 using namespace std;
 
@@ -43,7 +42,7 @@ int main()
         AmountofItemstoSpawn = 1000;
     }
 
-    world.entity("Item").set<ItemComponents::ItemSpawning>({ AmountofItemstoSpawn });
+    world.entity("Item").set<ItemConfigComponents::ConfigStage>({ 1 });
 
     world.set_target_fps(60);
 
