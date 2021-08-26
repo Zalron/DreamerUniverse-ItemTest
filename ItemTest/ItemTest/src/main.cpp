@@ -16,8 +16,6 @@ int main()
 
     flecs::world world;
 
-    world.import<Item>();
-
     int32_t threadcount;
 
     cout << "Type the amount of threads you want" << std::endl;
@@ -41,6 +39,10 @@ int main()
     {
         AmountofItemstoSpawn = 1000;
     }
+
+    world.import<ItemConfig>();
+
+    world.import<Item>();
 
     world.entity("Item").set<ItemConfigComponents::ConfigStage>({ 1 });
 

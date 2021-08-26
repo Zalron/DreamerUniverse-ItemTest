@@ -40,9 +40,9 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
     {
         if (iss->ItemStage == 2)
         {
+            int GeneratingRandomBaseItemID = CreatingRandom32BitIntNumbers(iss->Seed, 1, 10);
             ItemConfigQuery.each([&](ItemConfigComponents::ItemBaseConfig& ibc, ItemConfigComponents::OneHandedSwordItemTagConfig& itc, ItemConfigComponents::MeleeItemComponentsConfig& icc, ItemConfigComponents::StandardItemBaseRollTable& brt)
             {
-                int GeneratingRandomBaseItemID = CreatingRandom32BitIntNumbers(iss->Seed, 1, 10);
                 if (ibc.BaseTypeID == GeneratingRandomBaseItemID)
                 {
                     iter.entity(it).set<ItemComponents::ItemBase>({ GeneratingRandomBaseItemID, CreatingRandom32BitIntNumbers(iss->Seed, ibc.BaseTypeIntRollMin, ibc.BaseTypeIntRollMax),
@@ -107,7 +107,7 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
                         }
                     }
 
-                   /* iter.entity(it).set<>(itc.RelationLayer1);
+                    /*iter.entity(it).set<>(itc.RelationLayer1);
                     iter.entity(it).set<>(itc.RelationLayer2);
                     iter.entity(it).set<>(itc.RelationLayer3);
                     iter.entity(it).set<>(itc.RelationLayer4);
@@ -125,8 +125,8 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
                     iter.entity(it).set<>(icc.ItemStat10);*/
                 }
             });
-            iss->ItemStage = 3;
             std::cout << "System AddItemComponentstoEntity is creating Items " << std::endl;
+            iss->ItemStage = 3;
         }
     }
 }

@@ -84,16 +84,16 @@ struct ItemConfigComponents
 
     struct MeleeItemComponentsConfig
     {
-        ItemComponents::CriticalChanceItemStat ItemStat1;
-        ItemComponents::MagicalDamageItemStat ItemStat2;
-        ItemComponents::PhysicalDamageItemStat ItemStat3;
-        ItemComponents::HandlingItemStat ItemStat4;
-        ItemComponents::AccuracyItemStat ItemStat5;
-        ItemComponents::RangeItemStat ItemStat6;
-        ItemComponents::GuardItemStat ItemStat7;
-        ItemComponents::BlockChanceItemStat ItemStat8;
-        ItemComponents::AttackRateItemStat ItemStat9;
-        ItemComponents::WeightItemStat ItemStat10;
+        ItemComponents::CriticalChanceItemStat ItemStat1{ 0 };
+        ItemComponents::MagicalDamageItemStat ItemStat2{ 0 };
+        ItemComponents::PhysicalDamageItemStat ItemStat3{ 0 };
+        ItemComponents::HandlingItemStat ItemStat4{ 0 };
+        ItemComponents::AccuracyItemStat ItemStat5{ 0 };
+        ItemComponents::RangeItemStat ItemStat6{ 0 };
+        ItemComponents::GuardItemStat ItemStat7{ 0 };
+        ItemComponents::BlockChanceItemStat ItemStat8{ 0 };
+        ItemComponents::AttackRateItemStat ItemStat9{ 0 };
+        ItemComponents::WeightItemStat ItemStat10{ 0 };
     };
 
     struct RangeItemComponentsConfig
@@ -246,5 +246,11 @@ struct ItemConfigComponents
         world.component<ItemManufacturerConfig>();
         world.component<ItemMaterialConfig>();
         world.component<ItemQualityConfig>();
+        world.component<MeleeItemComponentsConfig>();
+        world.component<RangeItemComponentsConfig>();
+        world.component<ArmourItemComponentsConfig>();
+        world.component<OneHandedSwordItemTagConfig>();
+        world.component<StandardItemBaseRollTable>();
+        world.component<ConfigStage>();
     }
 };
