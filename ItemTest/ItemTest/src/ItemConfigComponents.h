@@ -194,10 +194,10 @@ struct ItemConfigComponents
     static constexpr ItemMaterialConfig ItemMaterial9{ 8000, 9000, 9, 90, 120 }; // Tetradurmus
     static constexpr ItemMaterialConfig ItemMaterial10{ 9000, 10000, 10, 200, 300 }; // Hexaferi
 
-    static constexpr ItemManufacturerConfig ItemManufacturerConfig1{ 1, 250, 300, 20, 30 }; //Triumvirate 
-    static constexpr ItemManufacturerConfig ItemManufacturerConfig2{ 2, 100, 180, 15, 16 }; //Kybi-Ran
+    static constexpr ItemManufacturerConfig ItemManufacturerConfig1{ 1, 250, 300, 20.0f, 30.0f }; //Triumvirate 
+    static constexpr ItemManufacturerConfig ItemManufacturerConfig2{ 2, 100, 180, 15.0f, 16.0f }; //Kybi-Ran
     static constexpr ItemManufacturerConfig ItemManufacturerConfig3{ 3, 70, 130, 10.0f, 10.5f }; //Yib-Hud
-    static constexpr ItemManufacturerConfig ItemManufacturerConfig4{ 4, 60, 85, 8, 10 }; //Ignition
+    static constexpr ItemManufacturerConfig ItemManufacturerConfig4{ 4, 60, 85, 8.0f, 10.0f }; //Ignition
     static constexpr ItemManufacturerConfig ItemManufacturerConfig5{ 5, 90, 180, 4.5f, 4.9f }; //Techcore
     static constexpr ItemManufacturerConfig ItemManufacturerConfig6{ 6, 40, 76, 1.2f, 3.4f }; //O-mal
 

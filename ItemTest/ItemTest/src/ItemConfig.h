@@ -20,4 +20,6 @@ struct ItemConfig
 	}
 
 	static void StartConfig(const flecs::iter& iter, ItemConfigComponents::ConfigStage* cs);
+
+	//static void Add
 };
