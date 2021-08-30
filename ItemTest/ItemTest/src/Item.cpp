@@ -34,14 +34,14 @@ void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, I
 
 void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss)
 {
-    auto ItemConfigQuery = iter.world().filter<ItemConfigComponents::ItemBaseConfig, ItemConfigComponents::OneHandedSwordItemTagConfig, ItemConfigComponents::MeleeItemComponentsConfig, ItemConfigComponents::StandardItemBaseRollTable>();
+    auto ItemConfigQuery = iter.world().filter<ItemConfigComponents::ItemBaseConfig, ItemConfigComponents::ItemTagConfig, ItemConfigComponents::ItemComponentsConfig, ItemConfigComponents::StandardItemBaseRollTable>();
 
     for (auto it : iter)
     {
         if (iss->ItemStage == 2)
         {
             int GeneratingRandomBaseItemID = CreatingRandom32BitIntNumbers(iss->Seed, 1, 10);
-            ItemConfigQuery.each([&](ItemConfigComponents::ItemBaseConfig& ibc, ItemConfigComponents::OneHandedSwordItemTagConfig& itc, ItemConfigComponents::MeleeItemComponentsConfig& icc, ItemConfigComponents::StandardItemBaseRollTable& brt)
+            ItemConfigQuery.each([&](ItemConfigComponents::ItemBaseConfig& ibc, ItemConfigComponents::ItemTagConfig& itc, ItemConfigComponents::ItemComponentsConfig& icc, ItemConfigComponents::StandardItemBaseRollTable& brt)
             {
                 if (ibc.BaseTypeID == GeneratingRandomBaseItemID)
                 {
@@ -63,6 +63,60 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
                                 CreatingRandom32BitIntNumbers(iss->Seed,RolledItemRarity.RarityIntRollMin,RolledItemRarity.RarityIntRollMax),
                                 RolledItemRarity.RarityAffixAllowance });
                             std::cout << "System AddItemComponentstoEntity is adding " << RolledItemRarity.RarityLevel << " To Rolled Items " << std::endl;
+                            if (RolledItemRarity.RarityAffixAllowance == 1 || RolledItemRarity.RarityAffixAllowance > 1)
+                            {
+                                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 1 ItemAffixMod component " << std::endl;
+                            }
+                            if (RolledItemRarity.RarityAffixAllowance == 2 || RolledItemRarity.RarityAffixAllowance > 2)
+                            {
+                                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 2 ItemAffixMod component " << std::endl;
+                            }
+                            if (RolledItemRarity.RarityAffixAllowance == 3 || RolledItemRarity.RarityAffixAllowance > 3)
+                            {
+                                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 3 ItemAffixMod component " << std::endl;
+                            }
+                            if (RolledItemRarity.RarityAffixAllowance == 4 || RolledItemRarity.RarityAffixAllowance > 4)
+                            {
+                                iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 4 ItemAffixMod component " << std::endl;
+                            }
+                            if (RolledItemRarity.RarityAffixAllowance == 5 || RolledItemRarity.RarityAffixAllowance > 5)
+                            {
+                                iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 5 ItemAffixMod component " << std::endl;
+                            }
+                            if (RolledItemRarity.RarityAffixAllowance == 6 || RolledItemRarity.RarityAffixAllowance > 6)
+                            {
+                                iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 6 ItemAffixMod component " << std::endl;
+                            }
+                            if (RolledItemRarity.RarityAffixAllowance == 7 || RolledItemRarity.RarityAffixAllowance > 7)
+                            {
+                                iter.entity(it).set<ItemComponents::ItemAffixMods7>({});
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 7 ItemAffixMod component " << std::endl;
+                            }
+                            if (RolledItemRarity.RarityAffixAllowance == 8 || RolledItemRarity.RarityAffixAllowance > 8)
+                            {
+                                iter.entity(it).set<ItemComponents::ItemAffixMods8>({});
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 8 ItemAffixMod component " << std::endl;
+                            }
+                            if (RolledItemRarity.RarityAffixAllowance == 9 || RolledItemRarity.RarityAffixAllowance > 9)
+                            {
+                                iter.entity(it).set<ItemComponents::ItemAffixMods9>({});
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 9 ItemAffixMod component " << std::endl;
+                            }
+                            if (RolledItemRarity.RarityAffixAllowance == 10)
+                            {
+                                iter.entity(it).set<ItemComponents::ItemAffixMods10>({});
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 10 ItemAffixMod component " << std::endl;
+                            }
+                            if (RolledItemRarity.RarityAffixAllowance == 0)
+                            {
+                                std::cout << "System CreatingRarityModComponentsToEntity has add 0 ItemAffixMod component " << std::endl;
+                            }
                         }
                         else
                         {
@@ -107,7 +161,7 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
                         }
                     }
                     
-                   /* iter.entity(it).add(itc.RelationLayer1);
+                    /*iter.entity(it).add(itc.RelationLayer1);
                     iter.entity(it).set<>(itc.RelationLayer2);
                     iter.entity(it).set<>(itc.RelationLayer3);
                     iter.entity(it).set<>(itc.RelationLayer4);
@@ -123,77 +177,49 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
                     iter.entity(it).set<>(icc.ItemStat8);
                     iter.entity(it).set<>(icc.ItemStat9);
                     iter.entity(it).set<>(icc.ItemStat10);*/
+                    if (icc.ItemComponentType == 1)
+                    {
+                        iter.entity(it).set<ItemComponents::CriticalChanceItemStat>({});
+                        iter.entity(it).set<ItemComponents::MagicalDamageItemStat>({});
+                        iter.entity(it).set<ItemComponents::PhysicalDamageItemStat>({});
+                        iter.entity(it).set<ItemComponents::HandlingItemStat>({});
+                        iter.entity(it).set<ItemComponents::AccuracyItemStat>({});
+                        iter.entity(it).set<ItemComponents::RangedItemTag>({});
+                        iter.entity(it).set<ItemComponents::GuardItemStat>({});
+                        iter.entity(it).set<ItemComponents::BlockChanceItemStat>({});
+                        iter.entity(it).set<ItemComponents::AttackRateItemStat>({});
+                        iter.entity(it).set<ItemComponents::WeightItemStat>({});
+                    }
+                    else if (icc.ItemComponentType == 2)
+                    {
+                        iter.entity(it).set<ItemComponents::CriticalChanceItemStat>({});
+                        iter.entity(it).set<ItemComponents::MagicalDamageItemStat>({});
+                        iter.entity(it).set<ItemComponents::PhysicalDamageItemStat>({});
+                        iter.entity(it).set<ItemComponents::HandlingItemStat>({});
+                        iter.entity(it).set<ItemComponents::AccuracyItemStat>({});
+                        iter.entity(it).set<ItemComponents::RangeItemStat>({});
+                        iter.entity(it).set<ItemComponents::MagazineSizeItemStat>({});
+                        iter.entity(it).set<ItemComponents::ReloadTimeItemStat>({});
+                        iter.entity(it).set<ItemComponents::FireRateItemStat>({});
+                        iter.entity(it).set<ItemComponents::WeightItemStat>({});
+                    }
+                    else if (icc.ItemComponentType == 3) 
+                    {
+                        iter.entity(it).set<ItemComponents::ArmourItemStat>({});
+                        iter.entity(it).set<ItemComponents::ArmourRechargeRateItemStat>({});
+                        iter.entity(it).set<ItemComponents::ArmourRechargeDelayItemStat>({});
+                        iter.entity(it).set<ItemComponents::ShieldItemStat>({});
+                        iter.entity(it).set<ItemComponents::ShieldRechargeRateItemStat>({});
+                        iter.entity(it).set<ItemComponents::ShieldRechargeDelayItemStat>({});
+                        iter.entity(it).set<ItemComponents::EnergyItemStat>({});
+                        iter.entity(it).set<ItemComponents::EnergyRechargeRateItemStat>({});
+                        iter.entity(it).set<ItemComponents::EnergyRechargeDelayItemStat>({});
+                        iter.entity(it).set<ItemComponents::WeightItemStat>({});
+                    }
                 }
             });
             std::cout << "System AddItemComponentstoEntity is creating Items " << std::endl;
             iss->ItemStage = 3;
-        }
-    }
-}
-
-void Item::CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComponents::ItemBase* ib, ItemComponents::ItemStaging* iss, ItemComponents::ItemRarity* ir)
-{
-    for (auto it : iter)
-    {
-        if (iss->ItemStage == 3)
-        {
-            
-            
-            if (ir->RarityAffixAllowance == 1 || ir->RarityAffixAllowance > 1)
-            {
-                iter.entity(it).set<ItemComponents::ItemAffixMods1>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 1 ItemAffixMod component " << std::endl;
-            }
-            if (ir->RarityAffixAllowance == 2 || ir->RarityAffixAllowance > 2)
-            {
-                iter.entity(it).set<ItemComponents::ItemAffixMods2>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 2 ItemAffixMod component " << std::endl;
-            }
-            if (ir->RarityAffixAllowance == 3 || ir->RarityAffixAllowance > 3)
-            {
-                iter.entity(it).set<ItemComponents::ItemAffixMods3>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 3 ItemAffixMod component " << std::endl;
-            }
-            if (ir->RarityAffixAllowance == 4 || ir->RarityAffixAllowance > 4)
-            {
-                iter.entity(it).set<ItemComponents::ItemAffixMods4>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 4 ItemAffixMod component " << std::endl;
-            }
-            if (ir->RarityAffixAllowance == 5 || ir->RarityAffixAllowance > 5)
-            {
-                iter.entity(it).set<ItemComponents::ItemAffixMods5>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 5 ItemAffixMod component " << std::endl;
-            }
-            if (ir->RarityAffixAllowance == 6 || ir->RarityAffixAllowance > 6)
-            {
-                iter.entity(it).set<ItemComponents::ItemAffixMods6>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 6 ItemAffixMod component " << std::endl;
-            }
-            if (ir->RarityAffixAllowance == 7 || ir->RarityAffixAllowance > 7)
-            {
-                iter.entity(it).set<ItemComponents::ItemAffixMods7>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 7 ItemAffixMod component " << std::endl;
-            }
-            if (ir->RarityAffixAllowance == 8 || ir->RarityAffixAllowance > 8)
-            {
-                iter.entity(it).set<ItemComponents::ItemAffixMods8>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 8 ItemAffixMod component " << std::endl;
-            }
-            if (ir->RarityAffixAllowance == 9 || ir->RarityAffixAllowance > 9)
-            {
-                iter.entity(it).set<ItemComponents::ItemAffixMods9>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 9 ItemAffixMod component " << std::endl;
-            }
-            if (ir->RarityAffixAllowance == 10)
-            {
-                iter.entity(it).set<ItemComponents::ItemAffixMods10>({});
-                std::cout << "System CreatingRarityModComponentsToEntity has add 10 ItemAffixMod component " << std::endl;
-            }
-            if (ir->RarityAffixAllowance == 0)
-            {
-                std::cout << "System CreatingRarityModComponentsToEntity has add 0 ItemAffixMod component " << std::endl;
-            }
-            iss->ItemStage = 4;
         }
     }
 }
