@@ -10,13 +10,11 @@ using namespace std;
 
 int main() 
 {
-    cout << "RAND_MAX value is " << RAND_MAX << endl;
-
-    stdcpp_set_os_api();
+    //stdcpp_set_os_api();
 
     flecs::world world;
 
-    int32_t threadcount;
+    /*int32_t threadcount;
 
     cout << "Type the amount of threads you want" << std::endl;
 
@@ -27,7 +25,7 @@ int main()
         threadcount = 12;
     }
 
-    world.set_threads(threadcount);
+    world.set_threads(threadcount);*/
 
     int AmountofItemstoSpawn;
 
@@ -37,7 +35,7 @@ int main()
 
     if (AmountofItemstoSpawn == 0)
     {
-        AmountofItemstoSpawn = 1000;
+        AmountofItemstoSpawn = 100;
     }
 
     world.import<ItemConfig>();
