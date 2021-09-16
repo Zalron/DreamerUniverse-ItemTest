@@ -8,13 +8,13 @@ void Item::CreateItemEntity(const flecs::iter& iter, ItemComponents::ItemSpawnin
         {
             auto e = iter.world().entity();
             e.set<ItemComponents::ItemStaging>({ 1 });
-            std::cout << "System CreateItemEntity has created item " << i << " " << std::endl;
+            //std::cout << "System CreateItemEntity has created item " << i << " " << std::endl;
         }
         //e.destruct();
         iter.entity(it).remove<ItemComponents::ItemSpawning>();
         //iter.entity(it).destruct();
         
-        std::cout << "System CreateItemEntity is creating items" << std::endl;
+        //std::cout << "System CreateItemEntity is creating items" << std::endl;
     }
 }
 
@@ -25,7 +25,7 @@ void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, I
         if (iss->ItemStage == 1)
         {
             int randomNumber = CreatingSeed();
-            std::cout << "System SettingSeedForRandomItemEntitiesGeneration has generated this number " << randomNumber << " for " << it << std::endl;
+            //std::cout << "System SettingSeedForRandomItemEntitiesGeneration has generated this number " << randomNumber << " for " << it << std::endl;
             iss->Seed = randomNumber;
             iss->ItemStage = 2;
         }
@@ -54,7 +54,6 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
                     {
                         if (brt.rarityRollTable[i].RaritySpawnChanceMin <= RandomItemGeneratrionRarityNumber && brt.rarityRollTable[i].RaritySpawnChanceMax >= RandomItemGeneratrionRarityNumber)
                         {
-                            brt.rarityRollTable[i];
                             iter.entity(it).set<ItemComponents::ItemRarity>({ brt.rarityRollTable[i].RarityLevel,
                                 CreatingRandom32BitFloatNumbers(iss->Seed, brt.rarityRollTable[i].RarityFloatRollMin, brt.rarityRollTable[i].RarityFloatRollMax),
                                 CreatingRandom32BitIntNumbers(iss->Seed, brt.rarityRollTable[i].RarityIntRollMin, brt.rarityRollTable[i].RarityIntRollMax),
@@ -143,11 +142,11 @@ void Item::AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::It
                     
                     if (itc.ItemTagType == 1)
                     {
-                        iter.entity(it).add<ItemComponents::EquipableItemTag, ItemComponents::WeaponsItemTag>();
-                        iter.entity(it).add<ItemComponents::WeaponsItemTag, ItemComponents::MeleeItemTag>();
-                        iter.entity(it).add<ItemComponents::MeleeItemTag, ItemComponents::OneHandedItemTag>();
-                        iter.entity(it).add<ItemComponents::OneHandedItemTag, ItemComponents::SwordItemTag>();
-                        //iter.entity(it).add<ItemComponents::SwordItemTag>();
+                        iter.entity(it).add<ItemComponents::EquipableItemTag>();
+                        iter.entity(it).add<ItemComponents::WeaponsItemTag>();
+                        iter.entity(it).add<ItemComponents::MeleeItemTag>();
+                        iter.entity(it).add<ItemComponents::OneHandedItemTag>();
+                        iter.entity(it).add<ItemComponents::SwordItemTag>();
                     }
 
                     if (icc.ItemComponentType == 1)

@@ -8,6 +8,16 @@ struct ItemComponents
     struct ItemStaging
     {
         int ItemStage;
+        bool ItemBaseComponentCreated;
+        bool ItemRarityComponentCreated;
+        bool ItemQualityComponentCreated;
+        bool ItemMaterialComponentCreated;
+        bool ItemManufacturerComponentCreated;
+        bool ItemAffixComponentsCreated;
+        bool ItemPartsComponentsCreated;
+        bool ItemTagsCreated;
+        bool ItemStatComponentsCreated;
+        bool ItemStatCompiled;
         int Seed;
     };
 
