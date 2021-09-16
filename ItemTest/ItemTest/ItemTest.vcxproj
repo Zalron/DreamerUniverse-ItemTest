@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Include\flecs.c" />
+    <ClCompile Include="Include\flecs_meta.c" />
     <ClCompile Include="Include\flecs_os_api_stdcpp.cpp" />
     <ClCompile Include="src\ItemComponents.cpp" />
     <ClCompile Include="src\Item.cpp" />
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\flecs.h" />
+    <ClInclude Include="Include\flecs_meta.h" />
     <ClInclude Include="Include\flecs_os_api_stdcpp.h" />
     <ClInclude Include="src\ItemComponents.h" />
     <ClInclude Include="src\Item.h" />

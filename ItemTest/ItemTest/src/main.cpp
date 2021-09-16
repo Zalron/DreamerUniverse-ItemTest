@@ -1,6 +1,5 @@
 #include "flecs.h"
 #include "Item.h"
-#include "ItemComponents.h"
 //#include <flecs_dash.h>
 //#include <flecs_systems_civetweb.h>
 #include <flecs_os_api_stdcpp.h>
@@ -10,11 +9,11 @@ using namespace std;
 
 int main() 
 {
-    //stdcpp_set_os_api();
+    stdcpp_set_os_api();
 
     flecs::world world;
 
-    /*int32_t threadcount;
+    int32_t threadcount;
 
     cout << "Type the amount of threads you want" << std::endl;
 
@@ -25,7 +24,7 @@ int main()
         threadcount = 12;
     }
 
-    world.set_threads(threadcount);*/
+    world.set_threads(threadcount);
 
     int AmountofItemstoSpawn;
 
@@ -38,12 +37,6 @@ int main()
         AmountofItemstoSpawn = 100;
     }
 
-    world.import<ItemConfig>();
-
-    world.import<Item>();
-
-    world.entity("Item").set<ItemConfigComponents::ConfigStage>({ 1 });
-
     world.set_target_fps(60);
 
     //world.import<flecs::dash>();
@@ -52,5 +45,11 @@ int main()
 
     //world.entity().set<flecs::dash::Server>({ 9090 });
 
-    while (world.progress()) {}
+    world.import<ItemConfig>();
+
+    world.import<Item>();
+
+    world.entity("Item").set<ItemConfigComponents::ConfigStage>({ 1 });
+
+    while(world.progress());
 }

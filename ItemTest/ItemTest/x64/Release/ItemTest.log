@@ -1,4 +1,5 @@
 ﻿  flecs.c
+  flecs_meta.c
   flecs_os_api_stdcpp.cpp
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.cpp(111,30): warning C4273: 'stdcpp_set_os_api': inconsistent dll linkage
 C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\ItemTest\Include\flecs_os_api_stdcpp.h(39,15): message : see previous definition of 'stdcpp_set_os_api'
@@ -9,6 +10,6 @@ C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\I
      Creating library C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\x64\Release\ItemTest.lib and object C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\x64\Release\ItemTest.exp
   Generating code
   Previous IPDB not found, fall back to full compilation.
-  All 4567 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 4650 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   ItemTest.vcxproj -> C:\Users\David Work\Desktop\Dreamer Universe projects\DreamerUniverse-ItemTest\ItemTest\x64\Release\ItemTest.exe

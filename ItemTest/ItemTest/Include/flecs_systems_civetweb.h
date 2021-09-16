@@ -1,3 +1,4 @@
+// Comment out this line when using as DLL
 #define flecs_systems_civetweb_STATIC
 #ifndef FLECS_SYSTEMS_CIVETWEB_H
 #define FLECS_SYSTEMS_CIVETWEB_H
@@ -20,8 +21,6 @@
 
 #ifndef FLECS_SYSTEMS_CIVETWEB_BAKE_CONFIG_H
 #define FLECS_SYSTEMS_CIVETWEB_BAKE_CONFIG_H
-
-#define _CRT_SECURE_NO_WARNINGS
 
 /* Headers of public dependencies */
 #include <flecs.h>
