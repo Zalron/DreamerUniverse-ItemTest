@@ -25,18 +25,53 @@ public:
 
         world.system<ItemComponents::ItemStaging>("SettingSeedForRandomItemEntitiesGeneration").iter(SettingSeedForRandomItemEntitiesGeneration);
 
-        world.system<ItemComponents::ItemStaging>("AddItemComponentstoEntity").iter(AddItemComponentstoEntity);
+        world.system<ItemComponents::ItemStaging>("AddItemBaseComponenttoEntity").iter(AddItemBaseComponenttoEntity);
+
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity, ItemComponents::ItemBase>("AddItemRarityComponenttoEntity").iter(AddItemRarityComponenttoEntity);
+
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemQualityComponenttoEntity").iter(AddItemQualityComponenttoEntity);
+
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemMaterialComponenttoEntity").iter(AddItemMaterialComponenttoEntity);
+
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemManufacturerComponenttoEntity").iter(AddItemManufacturerComponenttoEntity);
+
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemAffixComponenttoEntity").iter(AddItemAffixComponenttoEntity);
+
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemPartsComponenttoEntity").iter(AddItemPartsComponenttoEntity);
+
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemTagsComponenttoEntity").iter(AddItemTagsComponenttoEntity);
+
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemStatsComponenttoEntity").iter(AddItemStatsComponenttoEntity);
+
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("CompliedItemStatsOnEntity").iter(CompliedItemStatsOnEntity);
 
         //world.system<ItemComponents::ItemBase, ItemComponents::ItemStaging, ItemComponents::ItemRarity>("CreatingRarityModComponentsToEntity").iter(CreatingRarityModComponentsToEntity);
 
     }
 
     static void CreateItemEntity(const flecs::iter& iter, ItemComponents::ItemSpawning* is);
-    static void AddItemComponentstoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss);
+
+    static void AddItemBaseComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss);
+
+    static void AddItemRarityComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib);
+
+    static void AddItemQualityComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib);
+
+    static void AddItemMaterialComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib);
+
+    static void AddItemManufacturerComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib);
+
+    static void AddItemAffixComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib, ItemComponents::ItemRarity* ir);
+
+    static void AddItemPartsComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib);
+
+    static void AddItemTagsComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib);
+
+    static void AddItemStatsComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib;
+
+    static void CompliedItemStatsOnEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib);
     
     static void SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, ItemComponents::ItemStaging* iss);
-    
-    //static void CreatingRarityModComponentsToEntity(const flecs::iter& iter, ItemComponents::ItemBase* ib, ItemComponents::ItemStaging* iss, ItemComponents::ItemRarity* ir);
 
 private:
     static inline int CreatingSeed();

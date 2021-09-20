@@ -7,7 +7,7 @@ struct ItemComponents
 {
     struct ItemStaging
     {
-        int ItemStage;
+        bool ItemSeedStage;
         bool ItemBaseComponentCreated;
         bool ItemRarityComponentCreated;
         bool ItemQualityComponentCreated;
