@@ -1,17 +1,12 @@
 #pragma once
 #include "flecs.h"
+#include <cstring>
 
 struct ItemConfigComponents
 {
     struct ItemBaseConfig
     {
-        //string BaseName;
-        //int BaseTypeChance;
         int BaseTypeID;
-        int BaseTypeIntRollMin;
-        int BaseTypeIntRollMax;
-        float BaseTypeFloatRollMin;
-        float BaseTypeFloatRollMax;
     };
 
     struct ItemRarityConfig
@@ -20,66 +15,39 @@ struct ItemConfigComponents
         int RarityAffixAllowance;
         int RaritySpawnChanceMin;
         int RaritySpawnChanceMax;
-        float RarityFloatRollMin;
-        float RarityFloatRollMax;
-        int RarityIntRollMin;
-        int RarityIntRollMax;
     };
 
     struct ItemAffixModsConfig
     {
-        //string ModsString;
         int ModId;
-        int ModChanceMin;
-        int ModChanceMax;
-        int OrPreffixSuffix; // 0 = Preffix 1 = Suffix
-        int ModStatRollMin;
-        int ModStatRollMax;
+        bool OrPrefixSuffix; // 0 = Prefix 1 = Suffix
     };
 
     struct ItemManufacturerConfig
     {
-        //string ManufacturerString;
         int ManufacturerType;
-        int ManufacturerStatIntRollMin;
-        int ManufacturerStatIntRollMax;
-        float ManufacturerStatFloatRollMin;
-        float ManufacturerStatFloatRollMax;
     };
 
     struct ItemMaterialConfig
     {
-        //string MaterialString;
-
+        int MaterialType;
         int MaterialChanceMin;
         int MaterialChanceMax;
-        int MaterialType;
-        int MaterialStatIntRollMin;
-        int MaterialStatIntRollMax;
-        float MaterialStatFloatRollMin;
-        float MaterialStatFloatRollMax;
+
     };
 
     struct ItemQualityConfig
     {
-        //string QualityString;
         int QualitySpawnChanceMin;
         int QualitySpawnChanceMax;
         int QualityNum;
-        int QualityIntStatIncrease;
-        float QualityFloatStatIncrease;
     };
 
     struct ItemPartsConfig
     {
-        //string PartsString;
         int PartsType;
         int PartsChanceMin;
         int PartsChanceMax;
-        int PartsStatIntRollMin;
-        int PartsStatIntRollMax;
-        float PartsStatFloatRollMin;
-        float PartsStatFloatRollMax;
     };
 
     struct ItemStatConfig 
@@ -87,18 +55,86 @@ struct ItemConfigComponents
         int StatType;
         int StatIntRollMin;
         int StatIntRollMax;
-        int StatFloatRollMin;
-        int StatFloatRollMax;
     };
 
     struct ItemComponentsConfig
     {
-        int ItemComponentType;
+        int ItemComponentType{};
+    };
+
+    struct ItemWeaponMeleeOneHandedSwordTags
+    {
+        flecs::entity EquipableItemTag;
+        flecs::entity WeaponsItemTag;
+        flecs::entity MeleeItemTag;
+        flecs::entity OneHandedItemTag;
+        flecs::entity SwordItemTag;
+    };
+
+    struct ItemWeaponMeleeOneHandedMaceTags
+    {
+        flecs::entity EquipableItemTag;
+        flecs::entity WeaponsItemTag;
+        flecs::entity MeleeItemTag;
+        flecs::entity OneHandedItemTag;
+        flecs::entity SwordItemTag;
+    };
+
+    struct ItemWeaponMeleeOneHandedKnifeTags
+    {
+        flecs::entity EquipableItemTag;
+        flecs::entity WeaponsItemTag;
+        flecs::entity MeleeItemTag;
+        flecs::entity OneHandedItemTag;
+        flecs::entity KnifeItemTag;
+    };
+
+    struct ItemWeaponMeleeOneHandedWarhammerTags
+    {
+        flecs::entity EquipableItemTag;
+        flecs::entity WeaponsItemTag;
+        flecs::entity MeleeItemTag;
+        flecs::entity OneHandedItemTag;
+        flecs::entity WarhammerItemTag;
+    };
+
+    struct ItemWeaponMeleeOneHandedAxeTags
+    {
+        flecs::entity EquipableItemTag;
+        flecs::entity WeaponsItemTag;
+        flecs::entity MeleeItemTag;
+        flecs::entity OneHandedItemTag;
+        flecs::entity AxeItemTag;
+    };
+
+    struct ItemWeaponMeleeOneHandedShieldTags
+    {
+        flecs::entity EquipableItemTag;
+        flecs::entity WeaponsItemTag;
+        flecs::entity MeleeItemTag;
+        flecs::entity OneHandedItemTag;
+        flecs::entity ShieldItemTag;
+    };
+
+    struct ItemWeaponMeleeOneHandedRapierTags
+    {
+        flecs::entity EquipableItemTag;
+        flecs::entity WeaponsItemTag;
+        flecs::entity MeleeItemTag;
+        flecs::entity OneHandedItemTag;
+        flecs::entity RapierItemTag;
     };
 
     struct ItemTagConfig
     {
-        int ItemTagType;
+        int8_t ItemTagId;
+        ItemWeaponMeleeOneHandedSwordTags ItemWeaponMeleeOneHandedSwordTagsConfig;
+        ItemWeaponMeleeOneHandedMaceTags ItemWeaponMeleeOneHandedMaceTagsConfig;
+        ItemWeaponMeleeOneHandedKnifeTags ItemWeaponMeleeOneHandedKnifeTagsConfig;
+        ItemWeaponMeleeOneHandedWarhammerTags ItemWeaponMeleeOneHandedWarhammerTagsConfig;
+        ItemWeaponMeleeOneHandedAxeTags ItemWeaponMeleeOneHandedAxeTagsConfig;
+        ItemWeaponMeleeOneHandedShieldTags ItemWeaponMeleeOneHandedShieldTagsConfig;
+        ItemWeaponMeleeOneHandedRapierTags ItemWeaponMeleeOneHandedRapierTagsConfig;
     };
 
     struct StandardItemBaseRollTable
@@ -145,7 +181,7 @@ struct ItemConfigComponents
         uint8_t stage;
     };
 
-    ItemConfigComponents(flecs::world& world)
+    explicit ItemConfigComponents(flecs::world& world)
     {
         world.module<ItemConfigComponents>();
 
@@ -164,3 +200,86 @@ struct ItemConfigComponents
         world.component<ConfigStage>();
     }
 };
+
+struct EquipableItemTag {};
+struct WeaponsItemTag {};
+struct MeleeItemTag {};
+struct RangedItemTag {};
+struct OneHandedItemTag {};
+struct TwoHandedItemTag {};
+struct SwordItemTag {};
+struct MaceItemTag {};
+struct KnifeItemTag {};
+struct WarhammerItemTag {};
+struct AxeItemTag {};
+struct ShieldItemTag {};
+struct RapierItemTag {};
+struct ClubItemTag {};
+struct HalberdItemTag {};
+struct StaffItemTag {};
+struct SpearItemTag {};
+struct ClawsItemTag {};
+struct WandItemTag {};
+struct ThrownItemTag {};
+struct PistolItemTag {};
+struct HandCannonItemTag {};
+struct RevolverItemTag {};
+struct HandCrossbowItemTag {};
+struct BowItemTag {};
+struct CrossbowItemTag {};
+struct CarbineItemTag {};
+struct AssaultRifleItemTag {};
+struct SniperRifleItemTag {};
+struct LightMachineGunItemTag {};
+struct SubMachineGunItemTag {};
+struct ShotgunItemTag {};
+struct GrenadeLauncherItemTag {};
+struct RocketLauncherItemTag {};
+struct ArmourItemTag {};
+struct PowerArmourItemTag {};
+struct LightPowerArmourItemTag {};
+struct MediumPowerArmourItemTag {};
+struct HeavyPowerArmourItemTag {};
+struct NonPowerArmourItemTag {};
+struct ClothsItemTag {};
+struct HeadItemTag {};
+struct BeltItemTag {};
+struct ChestsItemTag {};
+struct LegsItemTag {};
+struct ArmsItemTag {};
+struct HandsItemTag {};
+struct ShouldersItemTag {};
+struct BackpackItemTag {};
+struct RingsItemTag {};
+struct NecklaceItemTag {};
+struct EquipmentItemTag {};
+struct FlasksItemTag {};
+struct HealthItemTag {};
+struct MagicItemTag {};
+struct MovementItemTag {};
+struct ResistanceItemTag {};
+struct AmmoItemTag {};
+struct QuiversItemTag {};
+struct MagazinesItemTag {};
+struct GrenadesItemTag {};
+struct RocketsItemTag {};
+struct MinesItemTag {};
+struct ScrollsItemTag {};
+struct BuildingsItemTag {};
+struct CraftingItemTag {};
+struct MapsItemTag {};
+struct MapChiselItemTag {};
+struct CrystalsItemTag {};
+struct CardsItemTag {};
+struct OrbsItemTag {};
+struct OrbOfIdentifyingItemTag {};
+struct OrbOfErasingItemTag {};
+struct OrbOfForgingItemTag {};
+struct OrbOfChaosItemTag {};
+struct OrbOfDivinityItemTag {};
+struct OrbOfInvigoratingItemTag {};
+struct OrbOfEnforingItemTag {};
+struct OrbOfModifyingItemTag {};
+struct OrbOfEnhancingItemTag {};
+struct OrbOfChangeItemTag {};
+struct OrbOfMirroringItemTag {};

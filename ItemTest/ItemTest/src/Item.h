@@ -27,23 +27,23 @@ public:
 
         world.system<ItemComponents::ItemStaging>("AddItemBaseComponenttoEntity").iter(AddItemBaseComponenttoEntity);
 
-        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity, ItemComponents::ItemBase>("AddItemRarityComponenttoEntity").iter(AddItemRarityComponenttoEntity);
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemBase>("AddItemRarityComponenttoEntity").iter(AddItemRarityComponenttoEntity);
 
-        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemQualityComponenttoEntity").iter(AddItemQualityComponenttoEntity);
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemBase>("AddItemQualityComponenttoEntity").iter(AddItemQualityComponenttoEntity);
 
-        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemMaterialComponenttoEntity").iter(AddItemMaterialComponenttoEntity);
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemBase>("AddItemMaterialComponenttoEntity").iter(AddItemMaterialComponenttoEntity);
 
-        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemManufacturerComponenttoEntity").iter(AddItemManufacturerComponenttoEntity);
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemBase>("AddItemManufacturerComponenttoEntity").iter(AddItemManufacturerComponenttoEntity);
 
-        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemAffixComponenttoEntity").iter(AddItemAffixComponenttoEntity);
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemBase, ItemComponents::ItemRarity>("AddItemAffixComponenttoEntity").iter(AddItemAffixComponenttoEntity);
 
-        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemPartsComponenttoEntity").iter(AddItemPartsComponenttoEntity);
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemBase>("AddItemPartsComponenttoEntity").iter(AddItemPartsComponenttoEntity);
 
-        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemTagsComponenttoEntity").iter(AddItemTagsComponenttoEntity);
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemBase>("AddItemTagsComponenttoEntity").iter(AddItemTagsComponenttoEntity);
 
-        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("AddItemStatsComponenttoEntity").iter(AddItemStatsComponenttoEntity);
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemBase>("AddItemStatsComponenttoEntity").iter(AddItemStatsComponenttoEntity);
 
-        world.system<ItemComponents::ItemStaging, ItemComponents::ItemRarity>("CompliedItemStatsOnEntity").iter(CompliedItemStatsOnEntity);
+        world.system<ItemComponents::ItemStaging, ItemComponents::ItemBase>("CompliedItemStatsOnEntity").iter(CompliedItemStatsOnEntity);
 
         //world.system<ItemComponents::ItemBase, ItemComponents::ItemStaging, ItemComponents::ItemRarity>("CreatingRarityModComponentsToEntity").iter(CreatingRarityModComponentsToEntity);
 
@@ -67,7 +67,7 @@ public:
 
     static void AddItemTagsComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib);
 
-    static void AddItemStatsComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib;
+    static void AddItemStatsComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib);
 
     static void CompliedItemStatsOnEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss, ItemComponents::ItemBase* ib);
     

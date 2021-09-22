@@ -1,30 +1,30 @@
 #include "ItemConfig.h"
 #include <iostream> 
 
-static constexpr ItemConfigComponents::ItemBaseConfig ItemBase1{ 1, 18, 20, 3.5f, 8.7f }; //"One Handed Short Sword Bronze Falx"
+static ItemConfigComponents::ItemBaseConfig ItemBase1{ 1}; //"One Handed Short Sword Bronze Falx"
 
-static constexpr ItemConfigComponents::ItemBaseConfig ItemBase2{ 2, 14, 17, 2.5f, 2.9f }; //"One Handed Short Sword Illyr Sica"
+static constexpr ItemConfigComponents::ItemBaseConfig ItemBase2{ 2 }; //"One Handed Short Sword Illyr Sica"
 
-static constexpr ItemConfigComponents::ItemBaseConfig ItemBase3{ 3, 14, 17, 2.5f, 2.9f }; //"One Handed Short Sword Grand Dao"
+static constexpr ItemConfigComponents::ItemBaseConfig ItemBase3{ 3 }; //"One Handed Short Sword Grand Dao"
 
-static constexpr ItemConfigComponents::ItemBaseConfig ItemBase4{ 4, 14, 17, 2.5f, 2.9f }; //"One Handed Short Sword Watered Xiphos"
+static constexpr ItemConfigComponents::ItemBaseConfig ItemBase4{ 4 }; //"One Handed Short Sword Watered Xiphos"
 
-static constexpr ItemConfigComponents::ItemBaseConfig ItemBase5{ 5, 14, 17, 2.5f, 2.9f }; //"One Handed Short Sword Dry Khopesh"
+static constexpr ItemConfigComponents::ItemBaseConfig ItemBase5{ 5 }; //"One Handed Short Sword Dry Khopesh"
 
-static constexpr ItemConfigComponents::ItemBaseConfig ItemBase6{ 6, 14, 17, 2.5f, 2.9f }; //"One Handed Short Sword Cutting Sabre"
+static constexpr ItemConfigComponents::ItemBaseConfig ItemBase6{ 6 }; //"One Handed Short Sword Cutting Sabre"
 
-static constexpr ItemConfigComponents::ItemBaseConfig ItemBase7{ 7, 14, 17, 2.5f, 2.9f }; //"One Handed Short Sword Bloody Macuahuit"
+static constexpr ItemConfigComponents::ItemBaseConfig ItemBase7{ 7}; //"One Handed Short Sword Bloody Macuahuit"
 
-static constexpr ItemConfigComponents::ItemBaseConfig ItemBase8{ 8, 14, 17, 2.5f, 2.9f }; //"One Handed Short Sword Shining Crusader"
+static constexpr ItemConfigComponents::ItemBaseConfig ItemBase8{ 8}; //"One Handed Short Sword Shining Crusader"
 
-static constexpr ItemConfigComponents::ItemBaseConfig ItemBase9{ 9, 14, 17, 2.5f, 2.9f }; //"One Handed Short Sword Serrated Khanda"
+static constexpr ItemConfigComponents::ItemBaseConfig ItemBase9{ 9, }; //"One Handed Short Sword Serrated Khanda"
 
-static constexpr ItemConfigComponents::ItemBaseConfig ItemBase10{ 10, 14, 17, 2.5f, 2.9f }; //"One Handed Short Sword Holed Akrafena"
+static constexpr ItemConfigComponents::ItemBaseConfig ItemBase10{ 10,}; //"One Handed Short Sword Holed Akrafena"
 
 
 //One Handed Short Sword Bronze Falx Parts 
 
-// ItemSlot1 Sword Blade
+// ItemSlot1 Sword Core
 static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot1Part1{ 1 };
 static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot1Part2{ 2 };
 static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot1Part3{ 3 };
@@ -36,7 +36,7 @@ static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot1Part8{ 
 static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot1Part9{ 9 };
 static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot1Part10{ 10 };
 
-// ItemSlot2 Sword Core
+// ItemSlot2 Sword Blade
 static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot2Part1{ 11 };
 static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot2Part2{ 12 };
 static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot2Part3{ 13 };
@@ -93,40 +93,40 @@ static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot65Part9{
 static constexpr ItemConfigComponents::ItemPartsConfig ItemPartItem1Slot6Part10{ 60 };
 
 
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity1{ 1, 0, 0, 5000, 0, 0, 0, 4 }; //"Common"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity2{ 2, 1, 5000, 7000, 0, 0, 4, 10 }; //"Uncommon"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity3{ 3, 2, 7000, 7500, 0, 0, 10, 18 }; //"Rare"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity4{ 4, 3, 7500, 8900, 0, 0, 19, 28 }; //"Masterwork"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity5{ 5, 4, 8900, 9200, 0, 0, 28, 40 }; //"Epic"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity6{ 6, 5, 9200, 9300, 0, 0, 40, 54 }; //"Mythic"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity7{ 7, 6, 9300, 9350, 0, 0, 54, 70 }; //"Exotic"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity8{ 8, 7, 9350, 9390, 0, 0, 70, 86 }; //"Ancient"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity9{ 9, 8, 9390, 9430, 0, 0, 86, 104 }; //"Legendary"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity10{ 10, 9, 9430, 9450, 0, 0, 104, 124 }; //"Heirloom"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity11{ 11, 10, 9450, 10000, 0, 0, 124, 146 }; //"Transcendent"
-static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity12{ 0, 0, 0, 0, 0, 0, 0 }; //"Unique"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity1{ 1, 0, 0, 5000}; //"Common"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity2{ 2, 1, 5000, 7000,}; //"Uncommon"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity3{ 3, 2, 7000, 7500,}; //"Rare"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity4{ 4, 3, 7500, 8900,}; //"Masterwork"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity5{ 5, 4, 8900, 9200}; //"Epic"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity6{ 6, 5, 9200, 9300}; //"Mythic"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity7{ 7, 6, 9300, 9350}; //"Exotic"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity8{ 8, 7, 9350, 9390}; //"Ancient"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity9{ 9, 8, 9390, 9430}; //"Legendary"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity10{ 10, 9, 9430, 9450}; //"Heirloom"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity11{ 11, 10, 9450, 9460}; //"Transcendent"
+static constexpr ItemConfigComponents::ItemRarityConfig ItemRarity12{ 12, 10, 9460, 10000 }; //"Unique"
 
-static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial1{ 0, 1000, 1, 1, 3 }; // Wood
-static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial2{ 1000, 2000, 2, 2, 5 }; // Stone
-static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial3{ 2000, 3000, 3, 4, 7 }; // Copper
-static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial4{ 3000, 4000, 4, 6, 10 }; // Iron
-static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial5{ 4000, 5000, 5, 9, 20 }; // Steel
-static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial6{ 5000, 6000, 6, 5, 30 }; // Obsidian
-static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial7{ 6000, 7000, 7, 30, 50 }; // Diamond
-static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial8{ 7000, 8000, 8, 90, 120 }; // Unimon 
-static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial9{ 8000, 9000, 9, 90, 120 }; // Tetradurmus
-static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial10{ 9000, 10000, 10, 200, 300 }; // Hexaferi
+static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial1{ 1,0, 1000,  }; // Wood
+static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial2{2, 1000, 2000, }; // Stone
+static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial3{ 2000, 3000, 3, }; // Copper
+static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial4{ 3000, 4000, 4, }; // Iron
+static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial5{ 4000, 5000, 5, }; // Steel
+static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial6{ 5000, 6000, 6, }; // Obsidian
+static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial7{ 6000, 7000, 7, }; // Diamond
+static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial8{ 7000, 8000, 8, }; // Unimon
+static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial9{ 8000, 9000, 9, }; // Tetradurmus
+static constexpr ItemConfigComponents::ItemMaterialConfig ItemMaterial10{ 9000, 10000, 10, }; // Hexaferi
 
-static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig1{ 1, 250, 300, 20.0f, 30.0f }; //Triumvirate
-static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig2{ 2, 100, 180, 15.0f, 16.0f }; //Kybi-Ran
-static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig3{ 3, 70, 130, 10.0f, 10.5f }; //Yib-Hud
-static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig4{ 4, 60, 85, 8.0f, 10.0f }; //Ignition
-static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig5{ 5, 90, 180, 4.5f, 4.9f }; //Techcore
-static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig6{ 6, 40, 76, 1.2f, 3.4f }; //O-mal
-static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig7{ 7, 50, 200, 0.6f, 3.5f }; //Sithia
-static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig8{ 8, 50, 200, 0.6f, 3.5f }; //Kerdaborn
-static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig9{ 9, 50, 200, 0.6f, 3.5f }; //Vedia
-static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig10{ 10, 50, 200, 0.6f, 3.5f }; //
+static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig1{ 1, }; //Triumvirate
+static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig2{ 2, }; //Kybi-i
+static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig3{ 3, }; //Yib-Hud
+static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig4{ 4, }; //Ignition
+static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig5{ 5, }; //Technicore
+static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig6{ 6, }; //O-mal
+static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig7{ 7, }; //Sithia
+static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig8{ 8, }; //Kerdaborn
+static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig9{ 9, }; //Vedia
+static constexpr ItemConfigComponents::ItemManufacturerConfig ItemManufacturerConfig10{ 10, }; //
 
 
 static constexpr ItemConfigComponents::ItemQualityConfig ItemQualityConfig0{ 0, 5000, 0, 0, 0 };
@@ -168,61 +168,67 @@ void ItemConfig::StartConfig(const flecs::iter& iter, ItemConfigComponents::Conf
             auto ConfigItemBronzeFalx = iter.world().entity();
             ConfigItemBronzeFalx.set<ItemConfigComponents::ItemBaseConfig>({ItemBase1}); //"One Handed Short Sword Bronze Falx"
             ConfigItemBronzeFalx.set<ItemConfigComponents::ItemTagConfig>({1});
-            ConfigItemBronzeFalx.set<ItemConfigComponents::ItemComponentsConfig>({1});
+            ConfigItemBronzeFalx.set<ItemConfigComponents::ItemComponentsConfig>({1, {iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it)},
+                                                                                  {iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it)},
+                                                                                  {iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it)},
+                                                                                  {iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it)},
+                                                                                  {iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it)},
+                                                                                  {iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it)},
+                                                                                  {iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it), iter.world().entity(it)}});
             ConfigItemBronzeFalx.set<ItemConfigComponents::StandardItemBaseRollTable>({standardItemBaseRollTable });
 
             auto ConfigItemIllyrSica = iter.world().entity();
             ConfigItemIllyrSica.set<ItemConfigComponents::ItemBaseConfig>({ ItemBase2 }); //"One Handed Short Sword Illyr Sica"
             ConfigItemIllyrSica.set<ItemConfigComponents::ItemTagConfig>({1});
-            ConfigItemIllyrSica.set<ItemConfigComponents::ItemComponentsConfig>({1});
+            ConfigItemIllyrSica.set<ItemConfigComponents::ItemComponentsConfig>({iter.world().entity(it), 1});
             ConfigItemIllyrSica.set<ItemConfigComponents::StandardItemBaseRollTable>({ standardItemBaseRollTable });
 
             auto ConfigItemGrandDao = iter.world().entity();
             ConfigItemGrandDao.set<ItemConfigComponents::ItemBaseConfig>({ ItemBase3 }); //"One Handed Short Sword Grand Dao"
             ConfigItemGrandDao.set<ItemConfigComponents::ItemTagConfig>({1});
-            ConfigItemGrandDao.set<ItemConfigComponents::ItemComponentsConfig>({1});
+            ConfigItemGrandDao.set<ItemConfigComponents::ItemComponentsConfig>({iter.world().entity(it),1});
             ConfigItemGrandDao.set<ItemConfigComponents::StandardItemBaseRollTable>({ standardItemBaseRollTable });
 
             auto ConfigItemWateredXiphos = iter.world().entity();
             ConfigItemWateredXiphos.set<ItemConfigComponents::ItemBaseConfig>({ ItemBase4 }); //"One Handed Short Sword Watered Xiphos"
             ConfigItemWateredXiphos.set<ItemConfigComponents::ItemTagConfig>({1});
-            ConfigItemWateredXiphos.set<ItemConfigComponents::ItemComponentsConfig>({1});
+            ConfigItemWateredXiphos.set<ItemConfigComponents::ItemComponentsConfig>({iter.world().entity(it),1});
             ConfigItemWateredXiphos.set<ItemConfigComponents::StandardItemBaseRollTable>({ standardItemBaseRollTable });
 
             auto ConfigItemDryKhopesh = iter.world().entity();
             ConfigItemDryKhopesh.set<ItemConfigComponents::ItemBaseConfig>({ ItemBase5 }); //"One Handed Short Sword Dry Khopesh"
             ConfigItemDryKhopesh.set<ItemConfigComponents::ItemTagConfig>({1});
-            ConfigItemDryKhopesh.set<ItemConfigComponents::ItemComponentsConfig>({1});
+            ConfigItemDryKhopesh.set<ItemConfigComponents::ItemComponentsConfig>({iter.world().entity(it),1});
             ConfigItemDryKhopesh.set<ItemConfigComponents::StandardItemBaseRollTable>({ standardItemBaseRollTable });
 
             auto ConfigItemCuttingSabre = iter.world().entity();
             ConfigItemCuttingSabre.set<ItemConfigComponents::ItemBaseConfig>({ ItemBase6 }); //"One Handed Short Sword Cutting Sabre"
             ConfigItemCuttingSabre.set<ItemConfigComponents::ItemTagConfig>({1});
-            ConfigItemCuttingSabre.set<ItemConfigComponents::ItemComponentsConfig>({1});
+            ConfigItemCuttingSabre.set<ItemConfigComponents::ItemComponentsConfig>({iter.world().entity(it),1});
             ConfigItemCuttingSabre.set<ItemConfigComponents::StandardItemBaseRollTable>({ standardItemBaseRollTable });
 
             auto ConfigItemBloodyMacuahui = iter.world().entity();
             ConfigItemBloodyMacuahui.set<ItemConfigComponents::ItemBaseConfig>({ ItemBase7 }); //"One Handed Short Sword Bloody Macuahuit"
             ConfigItemBloodyMacuahui.set<ItemConfigComponents::ItemTagConfig>({1});
-            ConfigItemBloodyMacuahui.set<ItemConfigComponents::ItemComponentsConfig>({1});
+            ConfigItemBloodyMacuahui.set<ItemConfigComponents::ItemComponentsConfig>({iter.world().entity(it),1});
             ConfigItemBloodyMacuahui.set<ItemConfigComponents::StandardItemBaseRollTable>({ standardItemBaseRollTable });
 
             auto ConfigItemShiningCrusader = iter.world().entity();
             ConfigItemShiningCrusader.set<ItemConfigComponents::ItemBaseConfig>({ ItemBase8 }); //"One Handed Short Sword Shining Crusader"
             ConfigItemShiningCrusader.set<ItemConfigComponents::ItemTagConfig>({1});
-            ConfigItemShiningCrusader.set<ItemConfigComponents::ItemComponentsConfig>({1});
+            ConfigItemShiningCrusader.set<ItemConfigComponents::ItemComponentsConfig>({iter.world().entity(it),1});
             ConfigItemShiningCrusader.set<ItemConfigComponents::StandardItemBaseRollTable>({ standardItemBaseRollTable });
 
             auto ConfigItemSerratedKhanda = iter.world().entity();
             ConfigItemSerratedKhanda.set<ItemConfigComponents::ItemBaseConfig>({ ItemBase9 }); //"One Handed Short Sword Serrated Khanda"
             ConfigItemSerratedKhanda.set<ItemConfigComponents::ItemTagConfig>({1});
-            ConfigItemSerratedKhanda.set<ItemConfigComponents::ItemComponentsConfig>({1});
+            ConfigItemSerratedKhanda.set<ItemConfigComponents::ItemComponentsConfig>({iter.world().entity(it),1});
             ConfigItemSerratedKhanda.set<ItemConfigComponents::StandardItemBaseRollTable>({ standardItemBaseRollTable });
 
             auto ConfigItemHoledAkrafena = iter.world().entity();
             ConfigItemHoledAkrafena.set<ItemConfigComponents::ItemBaseConfig>({ ItemBase10 }); //"One Handed Short Sword Holed Akrafena"
             ConfigItemHoledAkrafena.set<ItemConfigComponents::ItemTagConfig>({1});
-            ConfigItemHoledAkrafena.set<ItemConfigComponents::ItemComponentsConfig>({1});
+            ConfigItemHoledAkrafena.set<ItemConfigComponents::ItemComponentsConfig>({iter.world().entity(it),1});
             ConfigItemHoledAkrafena.set<ItemConfigComponents::StandardItemBaseRollTable>({ standardItemBaseRollTable });
 
             iter.world().entity("Item").set<ItemComponents::ItemSpawning>({ 1000 });
