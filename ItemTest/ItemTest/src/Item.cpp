@@ -45,9 +45,7 @@ void Item::AddItemBaseComponenttoEntity(const flecs::iter& iter, ItemComponents:
             {
                 if (ibc.BaseTypeID == GeneratingRandomBaseItemID)
                 {
-                    iter.entity(it).set<ItemComponents::ItemBase>({ GeneratingRandomBaseItemID,
-                    CreatingRandom32BitIntNumbers(iss->Seed, ibc.BaseTypeIntRollMin, ibc.BaseTypeIntRollMax),
-                    CreatingRandom32BitFloatNumbers(iss->Seed, ibc.BaseTypeFloatRollMin, ibc.BaseTypeFloatRollMax) });
+                    iter.entity(it).set<ItemComponents::ItemBase>({ GeneratingRandomBaseItemID});
                 }
             });
             std::cout << "System AddItemBaseComponenttoEntity is creating Items " << std::endl;
@@ -76,12 +74,7 @@ void Item::AddItemRarityComponenttoEntity(const flecs::iter &iter, ItemComponent
                             brt.rarityRollTable[i].RaritySpawnChanceMax >= RandomItemGeneratrionRarityNumber) {
                             iter.entity(it).set<ItemComponents::ItemRarity>(
                                     {brt.rarityRollTable[i].RarityLevel,
-                                     CreatingRandom32BitFloatNumbers(iss->Seed,
-                                                                     brt.rarityRollTable[i].RarityFloatRollMin,
-                                                                     brt.rarityRollTable[i].RarityFloatRollMax),
-                                     CreatingRandom32BitIntNumbers(iss->Seed, brt.rarityRollTable[i].RarityIntRollMin,
-                                                                   brt.rarityRollTable[i].RarityIntRollMax),
-                                     brt.rarityRollTable[i].RarityAffixAllowance});
+                                     CreatingRandom32BitFloatNumbers(iss->Seed,brt.rarityRollTable[i].RarityAffixAllowance)});
                         }
                     }
                 }

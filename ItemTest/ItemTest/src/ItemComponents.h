@@ -29,47 +29,35 @@ struct ItemComponents
 
     struct ItemBase 
     {
-        //string ItemName
         int BaseItemType;
-        int BaseIntRoll;
-        float BaseFloatRoll;
     };
 
     struct ItemRarity
     {
-        //int LevelRequirement;
+        int LevelRequirement;
         int RarityLevel;
-        float RarityFloatRoll;
-        int RarityIntRoll;
         int RarityAffixAllowance;
     };
 
     struct ItemQuality
     {
         int QualityNum;
-        int QualityIntStatIncrease;
-        float QualityFloatStatIncrease;
     };
 
     struct ItemMaterial
     {
-        //string MaterialName
         int MaterialType;
-        int MaterialStatIntRoll;
-        float MaterialStatFloatRoll;
     };
 
     struct ItemManufacturer
     {
         int ManufacturerType;
-        int ManufacturerStatIntRoll;
-        float ManufacturerStatFloatRoll;
     };
 
-    //struct ItemLevel
-    //{
-    //    int ItemLevel;
-    //};
+    struct ItemLevel
+    {
+        int ItemLevel;
+    };
 
     struct ItemCharacterLevelRequirements
     {
@@ -109,221 +97,161 @@ struct ItemComponents
     struct ItemSkillSlot1
     {
         int SkillSlotId;
-        int SkillSlotType;
     };
 
     struct ItemSkillSlot2
     {
         int SkillSlotId;
-        int SkillSlotType;
     };
 
     struct ItemSkillSlot3
     {
         int SkillSlotId;
-        int SkillSlotType;
     };
 
     struct ItemSkillSlot4
     {
         int SkillSlotId;
-        int SkillSlotType;
     };
 
     struct ItemSkillSlot5
     {
         int SkillSlotId;
-        int SkillSlotType;
     };
 
     struct ItemSkillSlot6
     {
         int SkillSlotId;
-        int SkillSlotType;
     };
 
     struct ItemSkillSlot7
     {
         int SkillSlotId;
-        int SkillSlotType;
     };
 
     struct ItemSkillSlot8
     {
         int SkillSlotId;
-        int SkillSlotType;
     };
 
     struct ItemSkillSlot9
     {
         int SkillSlotId;
-        int SkillSlotType;
     };
 
     struct ItemSkillSlot10
     {
         int SkillSlotId;
-        int SkillSlotType;
     };
 
     struct ItemParts1
     {
         int PartsType;
-        int PartsStatIntRoll;
-        float PartsStatFloatRoll;
-        float PartPercentRoll;
     };
 
     struct ItemParts2
     {
         int PartsType;
-        int PartsStatIntRoll;
-        float PartsStatFloatRoll;
-        float PartPercentRoll;
     };
 
     struct ItemParts3
     {
         int PartsType;
-        int PartsStatIntRoll;
-        float PartsStatFloatRoll;
-        float PartPercentRoll;
     };
 
     struct ItemParts4
     {
         int PartsType;
-        int PartsStatIntRoll;
-        float PartsStatFloatRoll;
-        float PartPercentRoll;
     };
 
     struct ItemParts5
     {
         int PartsType;
-        int PartsStatIntRoll;
-        float PartsStatFloatRoll;
-        float PartPercentRoll;
     };
 
     struct ItemParts6
     {
         int PartsType;
-        int PartsStatIntRoll;
-        float PartsStatFloatRoll;
-        float PartPercentRoll;
     };
 
     struct ItemParts7
     {
         int PartsType;
-        int PartsStatIntRoll;
-        float PartsStatFloatRoll;
-        float PartPercentRoll;
     };
 
     struct ItemParts8
     {
         int PartsType;
-        int PartsStatIntRoll;
-        float PartsStatFloatRoll;
-        float PartPercentRoll;
     };
 
     struct ItemParts9
     {
         int PartsType;
-        int PartsStatIntRoll;
-        float PartsStatFloatRoll;
-        float PartPercentRoll;
     };
 
     struct ItemParts10
     {
         int PartsType;
-        int PartsStatIntRoll;
-        float PartsStatFloatRoll;
-        float PartPercentRoll;
     };
 
     struct ItemAffixMods1
     {
         int AffixPlace;
         int ModType;
-        int ModStatRoll;
-        float ModStatFloatRoll;
     };
 
     struct ItemAffixMods2
     {
         int AffixPlace;
         int ModType;
-        int ModStatRoll;
-        float ModStatFloatRoll;
     };
 
     struct ItemAffixMods3
     {
         int AffixPlace;
         int ModType;
-        int ModStatRoll;
-        float ModStatFloatRoll;
     };
 
     struct ItemAffixMods4
     {
         int AffixPlace;
         int ModType;
-        int ModStatRoll;
-        float ModStatFloatRoll;
     };
 
     struct ItemAffixMods5
     {
         int AffixPlace;
         int ModType;
-        int ModStatRoll;
-        float ModStatFloatRoll;
     };
 
     struct ItemAffixMods6
     {
         int AffixPlace;
         int ModType;
-        int ModStatRoll;
-        float ModStatFloatRoll;
     };
 
     struct ItemAffixMods7
     {
         int AffixPlace;
         int ModType;
-        int ModStatRoll;
-        float ModStatFloatRoll;
     };
 
     struct ItemAffixMods8
     {
         int AffixPlace;
         int ModType;
-        int ModStatRoll;
-        float ModStatFloatRoll;
     };
 
     struct ItemAffixMods9
     {
         int AffixPlace;
         int ModType;
-        int ModStatRoll;
-        float ModStatFloatRoll;
     };
 
     struct ItemAffixMods10
     {
         int AffixPlace;
         int ModType;
-        int ModStatRoll;
-        float ModStatFloatRoll;
     };
 
     struct CriticalChanceItemStat
@@ -498,7 +426,7 @@ struct ItemComponents
         flecs::string Mod10;
     };
 
-    ItemComponents(flecs::world& world)
+    explicit ItemComponents(flecs::world& world)
     {
         world.module<ItemComponents>();
 
@@ -509,7 +437,7 @@ struct ItemComponents
         world.component<ItemQuality>();
         world.component<ItemMaterial>();
         world.component<ItemManufacturer>();
-        //world.component<ItemLevel>();
+        world.component<ItemLevel>();
         world.component<ItemCharacterLevelRequirements>();
         world.component<ItemCharacterStrengthRequirements>();
         world.component<ItemCharacterDexterityRequirements>();

@@ -31,35 +31,144 @@ struct ItemConfigComponents
     struct ItemMaterialConfig
     {
         int MaterialType;
-        int MaterialChanceMin;
-        int MaterialChanceMax;
-
+        int MaterialSpawnChanceMin;
+        int MaterialSpawnChanceMax;
     };
 
     struct ItemQualityConfig
     {
+        int QualityNum;
         int QualitySpawnChanceMin;
         int QualitySpawnChanceMax;
-        int QualityNum;
     };
 
     struct ItemPartsConfig
     {
         int PartsType;
-        int PartsChanceMin;
-        int PartsChanceMax;
     };
 
-    struct ItemStatConfig 
+    struct ItemStatConfigCriticalDamage
     {
-        int StatType;
         int StatIntRollMin;
         int StatIntRollMax;
     };
 
+    struct ItemStatConfigPhysicalDamage
+    {
+        int StatIntRollMin;
+        int StatIntRollMax;
+    };
+
+    struct ItemStatConfigMagicalDamage
+    {
+        int StatIntRollMin;
+        int StatIntRollMax;
+    };
+
+    struct ItemStatConfigHandling
+    {
+        float StatFloatRollMin;
+        float StatFloatRollMax;
+    };
+
+    struct ItemStatConfigAccuracy
+    {
+        float StatFloatRollMin;
+        float StatFloatRollMax;
+    };
+
+    struct ItemStatConfigRange
+    {
+        int StatIntRollMin;
+        int StatIntRollMax;
+    };
+
+    struct ItemStatConfigGuard
+    {
+        float StatFloatRollMin;
+        float StatFloatRollMax;
+    };
+
+    struct ItemStatConfigBlockChance
+    {
+        float StatFloatRollMin;
+        float StatFloatRollMax;
+    };
+
+    struct ItemStatConfigAttackRate
+    {
+        int StatIntRollMin;
+        int StatIntRollMax;
+    };
+
+    struct ItemStatConfigWeight
+    {
+        int StatInt;
+    };
+
+    struct ItemStatConfigMagazineSize
+    {
+        int StatIntRollMin;
+        int StatIntRollMax;
+    };
+
+    struct ItemStatConfigFireRate
+    {
+        int StatIntRollMin;
+        int StatIntRollMax;
+    };
+
+    struct ItemStatConfigReloadTime
+    {
+        int StatIntRollMin;
+        int StatIntRollMax;
+    };
+
+    struct ItemStatConfigMovement
+    {
+        int StatIntRollMin;
+        int StatIntRollMax;
+    };
+
+    struct ItemStatConfigArmour
+    {
+        int StatIntRollMin;
+        int StatIntRollMax;
+    };
+
+    struct ItemStatConfigArmourRechargeRate
+    {
+        float StatFloatRollMin;
+        float StatFloatRollMax;
+    };
+
+    struct ItemStatConfigArmourRechargeDelay
+    {
+        float StatFloatRollMin;
+        float StatFloatRollMax;
+    };
+
+    struct ItemStatConfigShield
+    {
+        int StatIntRollMin;
+        int StatIntRollMax;
+    };
+
+    struct ItemStatConfigShieldRechargeRate
+    {
+        float StatFloatRollMin;
+        float StatFloatRollMax;
+    };
+
+    struct ItemStatConfigShieldRechargeDelay
+    {
+        float StatFloatRollMin;
+        float StatFloatRollMax;
+    };
+
     struct ItemComponentsConfig
     {
-        int ItemComponentType{};
+        int ItemComponentType;
     };
 
     struct ItemWeaponMeleeOneHandedSwordTags
@@ -125,57 +234,6 @@ struct ItemConfigComponents
         flecs::entity RapierItemTag;
     };
 
-    struct ItemTagConfig
-    {
-        int8_t ItemTagId;
-        ItemWeaponMeleeOneHandedSwordTags ItemWeaponMeleeOneHandedSwordTagsConfig;
-        ItemWeaponMeleeOneHandedMaceTags ItemWeaponMeleeOneHandedMaceTagsConfig;
-        ItemWeaponMeleeOneHandedKnifeTags ItemWeaponMeleeOneHandedKnifeTagsConfig;
-        ItemWeaponMeleeOneHandedWarhammerTags ItemWeaponMeleeOneHandedWarhammerTagsConfig;
-        ItemWeaponMeleeOneHandedAxeTags ItemWeaponMeleeOneHandedAxeTagsConfig;
-        ItemWeaponMeleeOneHandedShieldTags ItemWeaponMeleeOneHandedShieldTagsConfig;
-        ItemWeaponMeleeOneHandedRapierTags ItemWeaponMeleeOneHandedRapierTagsConfig;
-    };
-
-    struct StandardItemBaseRollTable
-    {
-        ItemRarityConfig rarityRollTable[11];
-
-        ItemQualityConfig qualityRollTable[21];
-
-        ItemMaterialConfig materialRollTable[10];
-
-        ItemManufacturerConfig manufacturerRollTable[6];
-    };
-
-    struct ItemPartRollTable 
-    {
-        ItemPartsConfig partRollTable1[10];
-        ItemPartsConfig partRollTable2[10];
-        ItemPartsConfig partRollTable3[10];
-        ItemPartsConfig partRollTable4[10];
-        ItemPartsConfig partRollTable5[10];
-        ItemPartsConfig partRollTable6[10];
-        ItemPartsConfig partRollTable7[10];
-        ItemPartsConfig partRollTable8[10];
-        ItemPartsConfig partRollTable9[10];
-        ItemPartsConfig partRollTable10[10];
-    };
-
-    struct ItemModRolltable
-    {
-        ItemAffixModsConfig modsRollTable1[10];
-        ItemAffixModsConfig modsRollTable2[10];
-        ItemAffixModsConfig modsRollTable3[10];
-        ItemAffixModsConfig modsRollTable4[10];
-        ItemAffixModsConfig modsRollTable5[10];
-        ItemAffixModsConfig modsRollTable6[10];
-        ItemAffixModsConfig modsRollTable7[10];
-        ItemAffixModsConfig modsRollTable8[10];
-        ItemAffixModsConfig modsRollTable9[10];
-        ItemAffixModsConfig modsRollTable10[10];
-    };
-
     struct ConfigStage 
     {
         uint8_t stage;
@@ -192,11 +250,27 @@ struct ItemConfigComponents
         world.component<ItemMaterialConfig>();
         world.component<ItemQualityConfig>();
         world.component<ItemPartsConfig>();
-        world.component<ItemStatConfig>();
+        world.component<ItemStatConfigCriticalDamage>();
+        world.component<ItemStatConfigMagicalDamage>();
+        world.component<ItemStatConfigPhysicalDamage>();
+        world.component<ItemStatConfigHandling>();
+        world.component<ItemStatConfigAccuracy>();
+        world.component<ItemStatConfigRange>();
+        world.component<ItemStatConfigGuard>();
+        world.component<ItemStatConfigBlockChance>();
+        world.component<ItemStatConfigAttackRate>();
+        world.component<ItemStatConfigWeight>();
+        world.component<ItemStatConfigMagazineSize>();
+        world.component<ItemStatConfigFireRate>();
+        world.component<ItemStatConfigReloadTime>();
+        world.component<ItemStatConfigArmour>();
+        world.component<ItemStatConfigArmourRechargeDelay>();
+        world.component<ItemStatConfigArmourRechargeRate>();
+        world.component<ItemStatConfigShield>();
+        world.component<ItemStatConfigShieldRechargeDelay>();
+        world.component<ItemStatConfigShieldRechargeRate>();
+        world.component<ItemStatConfigMovement>();
         world.component<ItemComponentsConfig>();
-        world.component<ItemTagConfig>();
-        world.component<ItemModRolltable>();
-        world.component<StandardItemBaseRollTable>();
         world.component<ConfigStage>();
     }
 };
