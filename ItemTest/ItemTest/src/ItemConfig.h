@@ -20,4 +20,11 @@ struct ItemConfig
 	}
 
 	static void StartConfig(const flecs::iter& iter, ItemConfigComponents::ConfigStage* cs);
+
+    static void CreateNormalItemComponentsConfigMelee(const flecs::iter& iter, flecs::entity entity);
+
+    static void CreateNormalItemComponentsConfigRange(const flecs::iter& iter, flecs::entity entity);
+
+    static void CreateNormalItemComponentsConfigArmour(const flecs::iter& iter, flecs::entity entity);
+
 };

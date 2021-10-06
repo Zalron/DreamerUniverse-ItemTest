@@ -34,14 +34,14 @@ void Item::SettingSeedForRandomItemEntitiesGeneration(const flecs::iter& iter, I
 
 void Item::AddItemBaseComponenttoEntity(const flecs::iter& iter, ItemComponents::ItemStaging* iss)
 {
-    auto ItemConfigQuery = iter.world().filter<ItemConfigComponents::ItemBaseConfig, ItemConfigComponents::ItemTagConfig, ItemConfigComponents::ItemComponentsConfig, ItemConfigComponents::StandardItemBaseRollTable>();
+    auto ItemConfigQuery = iter.world().filter<ItemConfigComponents::ItemBaseConfig>();
 
     for (auto it : iter)
     {
         if (!iss->ItemBaseComponentCreated)
         {
             int GeneratingRandomBaseItemID = CreatingRandom32BitIntNumbers(iss->Seed, 1, 10);
-            ItemConfigQuery.each([&](ItemConfigComponents::ItemBaseConfig& ibc, ItemConfigComponents::ItemTagConfig& itc, ItemConfigComponents::ItemComponentsConfig& icc, ItemConfigComponents::StandardItemBaseRollTable& brt)
+            ItemConfigQuery.each([&](ItemConfigComponents::ItemBaseConfig& ibc)
             {
                 if (ibc.BaseTypeID == GeneratingRandomBaseItemID)
                 {
@@ -56,14 +56,15 @@ void Item::AddItemBaseComponenttoEntity(const flecs::iter& iter, ItemComponents:
 
 void Item::AddItemRarityComponenttoEntity(const flecs::iter &iter, ItemComponents::ItemStaging *iss, ItemComponents::ItemBase *ib)
 {
-    auto ItemConfigQuery = iter.world().filter<ItemConfigComponents::ItemBaseConfig, ItemConfigComponents::ItemTagConfig, ItemConfigComponents::ItemComponentsConfig, ItemConfigComponents::StandardItemBaseRollTable>();
+    auto ItemConfigQuery = iter.world().filter<ItemConfigComponents::ItemBaseConfig>();
 
     for (auto it : iter)
     {
         if (!iss->ItemRarityComponentCreated && iss->ItemBaseComponentCreated)
         {
-            ItemConfigQuery.each([&](ItemConfigComponents::ItemBaseConfig& ibc, ItemConfigComponents::ItemTagConfig& itc, ItemConfigComponents::ItemComponentsConfig& icc, ItemConfigComponents::StandardItemBaseRollTable& brt)
+            ItemConfigQuery.each([&](ItemConfigComponents::ItemBaseConfig& ibc )
             {
+
                 if(ibc.BaseTypeID == ib->BaseItemType)
                 {
                     int RandomItemGeneratrionRarityNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, 10000 + 1);
