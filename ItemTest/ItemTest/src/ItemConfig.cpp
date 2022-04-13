@@ -324,6 +324,8 @@ void ItemConfig::StartConfig(const flecs::iter& iter, ItemConfigComponents::Conf
 
             iter.world().entity("Item").set<ItemComponents::ItemSpawning>({ 1000 });
 
+            char *stringJSON = ecs_entity_to_json(iter.world(), ConfigItemHoledAkrafena);
+
             cs->stage++;
         }
     }

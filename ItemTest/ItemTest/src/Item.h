@@ -1,6 +1,4 @@
 #pragma once
-#ifndef ITEM_H
-#define ITEM_H
 
 #include <cstdint>
 #include <cstdlib>
@@ -9,6 +7,7 @@
 #include "ItemComponents.h"
 #include <random>
 #include <iostream>
+
 using namespace std;
 
 

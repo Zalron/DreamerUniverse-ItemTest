@@ -39,12 +39,6 @@ int main()
 
     world.set_target_fps(60);
 
-    //world.import<flecs::dash>();
-
-    //world.import<flecs::systems::civetweb>();
-
-    //world.entity().set<flecs::dash::Server>({ 9090 });
-
     world.import<ItemConfig>();
 
     world.import<Item>();

@@ -56,7 +56,7 @@ void Item::AddItemBaseComponenttoEntity(const flecs::iter& iter, ItemComponents:
 
 void Item::AddItemRarityComponenttoEntity(const flecs::iter &iter, ItemComponents::ItemStaging *iss, ItemComponents::ItemBase *ib)
 {
-    auto ItemConfigQuery = iter.world().filter<ItemConfigComponents::ItemBaseConfig>();
+    auto ItemConfigQuery = iter.world().filter_builder<ItemConfigComponents::ItemBaseConfig>().term(flecs::ChildOf).build();
 
     for (auto it : iter)
     {
@@ -69,15 +69,14 @@ void Item::AddItemRarityComponenttoEntity(const flecs::iter &iter, ItemComponent
                 {
                     int RandomItemGeneratrionRarityNumber = CreatingRandom32BitIntNumbers(iss->Seed, 0, 10000 + 1);
 
-                    for (int i = 0; i < 11; i++) {
                         if (ibc.BaseTypeID == ib->BaseItemType &&
                             brt.rarityRollTable[i].RaritySpawnChanceMin <= RandomItemGeneratrionRarityNumber &&
-                            brt.rarityRollTable[i].RaritySpawnChanceMax >= RandomItemGeneratrionRarityNumber) {
+                            brt.rarityRollTable[i].RaritySpawnChanceMax >= RandomItemGeneratrionRarityNumber)
+                        {
                             iter.entity(it).set<ItemComponents::ItemRarity>(
                                     {brt.rarityRollTable[i].RarityLevel,
                                      CreatingRandom32BitFloatNumbers(iss->Seed,brt.rarityRollTable[i].RarityAffixAllowance)});
                         }
-                    }
                 }
             });
             iss->ItemRarityComponentCreated = true;
@@ -272,11 +271,13 @@ void Item::AddItemTagsComponenttoEntity(const flecs::iter &iter, ItemComponents:
             {
                 if (itc.ItemTagType == 1)
                 {
-                    iter.entity(it).add<ItemComponents::EquipableItemTag>();
-                    iter.entity(it).add<ItemComponents::WeaponsItemTag>();
-                    iter.entity(it).add<ItemComponents::MeleeItemTag>();
-                    iter.entity(it).add<ItemComponents::OneHandedItemTag>();
-                    iter.entity(it).add<ItemComponents::SwordItemTag>();
+//                    iter.entity(it).add<ItemComponents::EquipableItemTag>();
+//                    iter.entity(it).add<ItemComponents::WeaponsItemTag>();
+//                    iter.entity(it).add<ItemComponents::MeleeItemTag>();
+//                    iter.entity(it).add<ItemComponents::OneHandedItemTag>();
+//                    iter.entity(it).add<ItemComponents::SwordItemTag>();
+
+                    //iter.entity(it).add<ItemConfigComponents::>();
                 }
             });
             iss->ItemTagsCreated = true;
